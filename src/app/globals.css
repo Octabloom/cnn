@@ -129,6 +129,47 @@
   animation: beamTravel 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
+/* Toronto Skyline Landmark Animations */
+@keyframes beaconPulse {
+  0% { transform: scale(1); opacity: 0.95; }
+  50% { transform: scale(2.6); opacity: 0; }
+  100% { transform: scale(1); opacity: 0.95; }
+}
+.animate-beacon-pulse {
+  animation: beaconPulse 2s cubic-bezier(0.1, 0.8, 0.2, 1) infinite;
+  transform-origin: center;
+}
+
+@keyframes windowTwinkle {
+  0%, 100% { opacity: 0.25; }
+  50% { opacity: 1; filter: drop-shadow(0 0 2.5px #FFE676); }
+}
+.animate-window-1 { animation: windowTwinkle 2.4s ease-in-out infinite; }
+.animate-window-2 { animation: windowTwinkle 3.2s ease-in-out infinite 0.7s; }
+.animate-window-3 { animation: windowTwinkle 2.8s ease-in-out infinite 1.4s; }
+
+@keyframes waveRipple {
+  0% { stroke-dashoffset: 0; }
+  100% { stroke-dashoffset: 80; }
+}
+.animate-wave-ripple {
+  stroke-dasharray: 12 8;
+  animation: waveRipple 4.5s linear infinite;
+}
+.animate-wave-ripple-reverse {
+  stroke-dasharray: 10 10;
+  animation: waveRipple 6s linear infinite reverse;
+}
+
+@keyframes sunAuraGlow {
+  0%, 100% { transform: scale(1); opacity: 0.88; }
+  50% { transform: scale(1.05); opacity: 1; }
+}
+.animate-sun-aura {
+  animation: sunAuraGlow 4.5s ease-in-out infinite;
+  transform-origin: center;
+}
+
 /* Metallic Gold Foil Text */
 .gold-foil-text {
   background: linear-gradient(135deg, #A8780F 0%, #D4A017 25%, #F6C915 50%, #C69214 75%, #8B6508 100%);
