@@ -17,12 +17,12 @@ export function HeroSection() {
           Mobile: Positioned right behind the hero title in the top-right (increased size)
           Desktop: Grand proportions resting directly on top of the road
           ============================================================== */}
-      <div className="absolute right-[-20px] sm:right-[-10px] lg:right-auto left-auto lg:left-0 xl:left-[2%] top-0 sm:top-4 lg:top-auto lg:bottom-[84px] sm:lg:bottom-[88px] w-[400px] sm:w-[520px] md:w-[680px] lg:w-[860px] xl:w-[960px] h-[330px] sm:h-[400px] md:h-[480px] lg:h-[520px] xl:h-[560px] pointer-events-none select-none z-0 flex items-end justify-start opacity-100 transition-all">
+      <div className="absolute right-[-25px] sm:right-[-10px] lg:right-auto left-auto lg:left-0 xl:left-[2%] top-[-15px] sm:top-0 lg:top-auto lg:bottom-[84px] sm:lg:bottom-[88px] w-[460px] sm:w-[580px] md:w-[720px] lg:w-[900px] xl:w-[1020px] h-[380px] sm:h-[450px] md:h-[520px] lg:h-[550px] xl:h-[600px] pointer-events-none select-none z-0 flex items-end justify-start opacity-100 transition-all">
         <TorontoSkylineGraphic showBadges={false} className="w-full h-full" />
       </div>
 
       {/* Atmospheric Soft Radiant Sun Auroras */}
-      <div className="absolute top-2 right-0 w-[360px] h-[360px] rounded-full bg-[#F6C915]/25 blur-3xl pointer-events-none z-0 lg:hidden" />
+      <div className="absolute top-0 right-0 w-[400px] h-[400px] rounded-full bg-[#F6C915]/25 blur-3xl pointer-events-none z-0 lg:hidden" />
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-[#F6C915]/15 blur-3xl pointer-events-none z-0" />
       <div className="absolute bottom-20 left-0 w-[450px] h-[450px] rounded-full bg-[#13277A]/8 blur-3xl pointer-events-none z-0" />
 
@@ -64,21 +64,21 @@ export function HeroSection() {
                 Healthy Starts Here.
               </h1>
 
-              {/* Lead Paragraph with Transparent Glassmorphic Backing */}
-              <div className="relative rounded-2xl bg-white/25 sm:bg-white/30 backdrop-blur-md border border-white/60 p-3 sm:p-3.5 shadow-sm max-w-xl z-20">
-                <div className="absolute left-0 top-2.5 bottom-2.5 w-1.5 bg-gradient-to-b from-[#F6C915] to-[#DEAB07] rounded-r-full shadow-[0_0_8px_rgba(246,201,21,0.6)]" />
-                <p className="pl-2 text-xs sm:text-sm lg:text-[15px] text-[#071245] font-black leading-relaxed drop-shadow-xs">
+              {/* Lead Paragraph: Ultra-Transparent so artwork is completely visible */}
+              <div className="relative rounded-2xl bg-white/5 sm:bg-white/10 backdrop-blur-[1px] border border-white/30 p-2.5 sm:p-3.5 max-w-xl z-20">
+                <div className="absolute left-0 top-2 bottom-2 w-1.5 bg-gradient-to-b from-[#F6C915] to-[#DEAB07] rounded-r-full shadow-[0_0_8px_rgba(246,201,21,0.6)]" />
+                <p className="pl-2.5 text-xs sm:text-sm lg:text-[15px] text-[#071245] font-black leading-relaxed drop-shadow-xs">
                   Every meal is a choice that energizes and transforms your vitality. Learn practical whole-food science live online with licensed CSNN faculty.
                 </p>
               </div>
 
-              {/* Benefit Chips */}
+              {/* Benefit Chips: Semi-Transparent Glass */}
               <div className="flex flex-wrap gap-2.5 sm:gap-3 pt-0.5">
-                <span className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-white/50 sm:bg-white/60 backdrop-blur-md border border-white/70 text-xs sm:text-sm font-black text-[#13277A] shadow-xs hover:shadow-md transition-shadow">
+                <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2.5 rounded-xl bg-white/15 sm:bg-white/25 backdrop-blur-[1px] border border-white/40 text-xs sm:text-sm font-black text-[#071245] shadow-2xs hover:bg-white/30 transition-colors">
                   <CheckCircle2 className="w-4 h-4 text-[#1B7A42] shrink-0" />
                   <span>21 Live Online Hours</span>
                 </span>
-                <span className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-white/50 sm:bg-white/60 backdrop-blur-md border border-white/70 text-xs sm:text-sm font-black text-[#13277A] shadow-xs hover:shadow-md transition-shadow">
+                <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2.5 rounded-xl bg-white/15 sm:bg-white/25 backdrop-blur-[1px] border border-white/40 text-xs sm:text-sm font-black text-[#071245] shadow-2xs hover:bg-white/30 transition-colors">
                   <CheckCircle2 className="w-4 h-4 text-[#1B7A42] shrink-0" />
                   <span>Practical Kitchen Habits</span>
                 </span>
@@ -87,15 +87,15 @@ export function HeroSection() {
             </div>
 
             {/* Quick Micro-Highlight Strip */}
-            <div className="flex items-center gap-2 sm:gap-2.5 flex-wrap text-xs sm:text-[12px] font-bold text-[#13277A] pt-0.5">
-              <span className="inline-flex items-center gap-1.5 bg-white/50 sm:bg-white/60 backdrop-blur-md px-3 py-1 rounded-lg border border-white/70 shadow-xs font-black">
+            <div className="flex items-center gap-2 sm:gap-2.5 flex-wrap text-xs sm:text-[12px] font-bold text-[#071245] pt-0.5">
+              <span className="inline-flex items-center gap-1.5 bg-white/15 sm:bg-white/25 backdrop-blur-[1px] px-2.5 py-1 rounded-lg border border-white/40 shadow-2xs font-black">
                 <Sparkles className="w-3.5 h-3.5 text-[#F6C915]" />
                 <span>Evenings 6:00–8:00 pm EST</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 bg-white/50 sm:bg-white/60 backdrop-blur-md px-3 py-1 rounded-lg border border-white/70 shadow-xs font-black">
+              <span className="inline-flex items-center gap-1.5 bg-white/15 sm:bg-white/25 backdrop-blur-[1px] px-2.5 py-1 rounded-lg border border-white/40 shadow-2xs font-black">
                 <span>100% Live Interactive Dialogue</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 bg-white/50 sm:bg-white/60 backdrop-blur-md px-3 py-1 rounded-lg border border-white/70 shadow-xs font-black">
+              <span className="inline-flex items-center gap-1.5 bg-white/15 sm:bg-white/25 backdrop-blur-[1px] px-2.5 py-1 rounded-lg border border-white/40 shadow-2xs font-black">
                 <span>Zero Prerequisites Required</span>
               </span>
             </div>
