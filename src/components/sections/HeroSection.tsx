@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import Image from "next/image";
 import { HeroRegistrationForm } from "@/components/forms/HeroRegistrationForm";
 import { TorontoSkylineGraphic } from "@/components/ui/TorontoSkylineGraphic";
 import { TrustMarquee } from "@/components/ui/TrustMarquee";
@@ -14,14 +13,16 @@ export function HeroSection() {
       className="w-full flex-1 relative bg-gradient-to-b from-[#FDF8E8] via-[#FAF2D4] to-[#FDF6DC] overflow-x-clip flex flex-col justify-between min-h-[calc(100vh-84px)] min-h-[calc(100dvh-84px)]"
     >
       {/* ==============================================================
-          TORONTO LANDMARK SKYLINE & GOLDEN SUN: Original Position
-          Grand, impressive proportions resting directly on top of single road
+          TORONTO LANDMARK SKYLINE & GOLDEN SUN:
+          Mobile: Positioned right behind the hero title in the top-right
+          Desktop: Grand proportions resting directly on top of the road
           ============================================================== */}
-      <div className="absolute left-0 lg:left-0 xl:left-[2%] bottom-[84px] sm:bottom-[88px] w-full sm:w-[620px] md:w-[720px] lg:w-[820px] xl:w-[920px] h-[340px] sm:h-[400px] md:h-[460px] lg:h-[500px] xl:h-[540px] pointer-events-none select-none z-0 flex items-end justify-start opacity-100 transition-opacity">
+      <div className="absolute right-[-10px] sm:right-0 lg:right-auto left-auto lg:left-0 xl:left-[2%] top-2 sm:top-6 lg:top-auto lg:bottom-[84px] sm:lg:bottom-[88px] w-[340px] sm:w-[480px] md:w-[620px] lg:w-[820px] xl:w-[920px] h-[280px] sm:h-[350px] md:h-[440px] lg:h-[500px] xl:h-[540px] pointer-events-none select-none z-0 flex items-end justify-start opacity-100 transition-all">
         <TorontoSkylineGraphic showBadges={false} className="w-full h-full" />
       </div>
 
       {/* Atmospheric Soft Radiant Sun Auroras */}
+      <div className="absolute top-4 right-0 w-[320px] h-[320px] rounded-full bg-[#F6C915]/20 blur-3xl pointer-events-none z-0 lg:hidden" />
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] rounded-full bg-[#F6C915]/15 blur-3xl pointer-events-none z-0" />
       <div className="absolute bottom-20 left-0 w-[450px] h-[450px] rounded-full bg-[#13277A]/8 blur-3xl pointer-events-none z-0" />
 
