@@ -74,7 +74,7 @@ export function AcademicBlueprint() {
     <section
       id="blueprint"
       data-screen-label="09 Academic Blueprint"
-      className="py-18 sm:py-24 bg-gradient-to-b from-[#FDF8E8] via-[#FAF2D4] to-[#FDF8E8] border-b border-[#EFE1AD] relative overflow-hidden"
+      className="py-12 sm:py-20 lg:py-24 bg-gradient-to-b from-[#FDF8E8] via-[#FAF2D4] to-[#FDF8E8] border-b border-[#EFE1AD] relative overflow-hidden"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#F6C915]/15 rounded-full blur-3xl pointer-events-none" />
@@ -99,8 +99,8 @@ export function AcademicBlueprint() {
             </p>
           </div>
 
-          {/* Timeline Wrapper (No scrollbars, 100% responsive width) */}
-          <div className="w-full relative px-1 sm:px-3">
+          {/* Desktop Undulating Snake Timeline (hidden on mobile) */}
+          <div className="hidden md:block w-full relative px-1 sm:px-3">
             {/* Underlying Mathematical Sine Wave SVG */}
             <div className="absolute inset-0 pointer-events-none z-0">
               <svg
@@ -221,6 +221,48 @@ export function AcademicBlueprint() {
                 );
               })}
             </div>
+          </div>
+
+          {/* Mobile Vertical Pathway Stepper (Clean, Legible & Compact on Mobile) */}
+          <div className="block md:hidden space-y-4 relative px-1 sm:px-2">
+            {/* Vertical Spine Line */}
+            <div className="absolute left-[25px] top-5 bottom-5 w-[2px] bg-gradient-to-b from-[#13277A] via-[#F6C915] to-[#1B7A42] z-0" />
+
+            {milestones.map((m) => (
+              <div key={m.phase} className="flex items-start gap-3 relative z-10">
+                {/* Node */}
+                <div
+                  className={`w-9 h-9 rounded-full bg-gradient-to-b ${m.circleBg} text-white font-black text-xs flex items-center justify-center shadow-md border-2 ${m.circleRing} shrink-0 mt-0.5`}
+                >
+                  {m.colIndex + 1 < 10 ? `0${m.colIndex + 1}` : m.colIndex + 1}
+                </div>
+
+                {/* Card */}
+                <div className="flex-1 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 border border-[#E8DFC2] shadow-[0_4px_16px_rgba(19,39,122,0.06)]">
+                  <div className="flex items-center justify-between gap-1 mb-1.5">
+                    <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full border ${m.badgeColor}`}>
+                      {m.phase}
+                    </span>
+                    <span className="text-[10px] text-[#5B5440] font-bold">
+                      {m.timeline}
+                    </span>
+                  </div>
+
+                  <h4 className="text-xs sm:text-sm font-black text-[#13277A] leading-snug mb-1">
+                    {m.title}
+                  </h4>
+
+                  <p className="text-[11px] text-[#5B5440] font-medium leading-relaxed mb-2">
+                    {m.desc}
+                  </p>
+
+                  <div className="pt-2 border-t border-[#F0E6CC] flex items-center gap-1.5 text-[9px] font-black text-[#13277A]">
+                    <span className={`w-1.5 h-1.5 rounded-full ${m.bulletColor}`} />
+                    <span className="tracking-wider">{m.tag}</span>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
 

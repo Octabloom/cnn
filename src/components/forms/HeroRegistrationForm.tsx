@@ -36,29 +36,29 @@ export function HeroRegistrationForm() {
   };
 
   return (
-    <div className="bg-white/95 backdrop-blur-2xl rounded-[28px] sm:rounded-[32px] p-5 sm:p-6 lg:p-7 shadow-[0_20px_50px_-10px_rgba(19,39,122,0.18),0_1px_0_rgba(255,255,255,1)] border-2 border-[#E2D8B3] relative transition-all">
+    <div className="bg-white/95 backdrop-blur-2xl rounded-[22px] sm:rounded-[32px] p-4 sm:p-6 lg:p-7 shadow-[0_20px_50px_-10px_rgba(19,39,122,0.18),0_1px_0_rgba(255,255,255,1)] border-2 border-[#E2D8B3] relative transition-all">
       {/* Sleek, Modern Form Header */}
-      <div className="flex items-center justify-between gap-2 mb-2">
+      <div className="flex items-center justify-between gap-2 mb-1.5 sm:mb-2">
         <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-[#13277A]">
           <ShieldCheck className="w-4 h-4 text-[#1B7A42]" />
           <span>Free Seat Hold</span>
         </span>
-        <span className="badge-skeuo-gold text-[10px] sm:text-xs font-black px-3 py-0.5 rounded-full text-[#8A6208]">
+        <span className="badge-skeuo-gold text-[10px] sm:text-xs font-black px-2.5 sm:px-3 py-0.5 rounded-full text-[#8A6208]">
           Limited Seats · Oct 14
         </span>
       </div>
 
-      <h3 className="text-xl sm:text-2xl font-black text-[#13277A] leading-tight mb-1">
+      <h3 className="text-lg sm:text-2xl font-black text-[#13277A] leading-tight mb-0.5 sm:mb-1">
         Reserve your seat for October 14
       </h3>
-      <p className="text-xs sm:text-[13px] text-[#5B5440] font-semibold mb-3.5">
+      <p className="text-[11px] sm:text-[13px] text-[#5B5440] font-semibold mb-2.5 sm:mb-3.5">
         No payment required today. An advisor will discuss your goals.
       </p>
 
-      <form onSubmit={handleSubmit} className="space-y-3">
+      <form onSubmit={handleSubmit} className="space-y-2.5 sm:space-y-3">
         {/* Motivation Dropdown */}
         <div>
-          <label htmlFor="hero-motivation" className="block text-[11px] font-black uppercase tracking-wider text-[#0F1F5C] mb-1.5">
+          <label htmlFor="hero-motivation" className="block text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-[#0F1F5C] mb-1">
             What brings you to this program?
           </label>
           <div className="relative">
@@ -66,7 +66,7 @@ export function HeroRegistrationForm() {
               id="hero-motivation"
               value={selectedMotivation}
               onChange={(e) => setSelectedMotivation(e.target.value)}
-              className="w-full h-11 pl-4 pr-10 rounded-xl bg-[#FAFAFA] hover:bg-white border border-[#E6D9A8] text-xs sm:text-sm font-bold text-[#13277A] focus:outline-none focus:border-[#13277A] focus:ring-1 focus:ring-[#F6C915] appearance-none cursor-pointer transition-all shadow-2xs"
+              className="w-full h-10 sm:h-11 pl-3.5 pr-9 sm:pl-4 sm:pr-10 rounded-xl bg-[#FAFAFA] hover:bg-white border border-[#E6D9A8] text-xs sm:text-sm font-bold text-[#13277A] focus:outline-none focus:border-[#13277A] focus:ring-1 focus:ring-[#F6C915] appearance-none cursor-pointer transition-all shadow-2xs"
             >
               {MOTIVATION_OPTIONS.map((opt) => (
                 <option key={opt.id} value={opt.id} className="py-1 text-xs font-bold text-[#0F1F5C]">
@@ -79,7 +79,7 @@ export function HeroRegistrationForm() {
         </div>
 
         {/* Tactile Form Inputs */}
-        <div className="space-y-2.5">
+        <div className="space-y-2 sm:space-y-2.5">
           <div>
             <label htmlFor="hero-name" className="sr-only">Full Name</label>
             <input
@@ -91,7 +91,7 @@ export function HeroRegistrationForm() {
                 if (attemptedSubmit) validate();
               }}
               placeholder="Your Full Name"
-              className={`w-full h-11 px-4 rounded-xl input-skeuo text-sm font-bold text-[#0F1F5C] placeholder:text-[#9A9172] ${
+              className={`w-full h-10 sm:h-11 px-3.5 sm:px-4 rounded-xl input-skeuo text-xs sm:text-sm font-bold text-[#0F1F5C] placeholder:text-[#9A9172] ${
                 errors.fullName ? "border-[#D62B2B] bg-red-50/50" : ""
               }`}
             />
@@ -103,7 +103,7 @@ export function HeroRegistrationForm() {
             )}
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
             <div>
               <label htmlFor="hero-email" className="sr-only">Email Address</label>
               <input
@@ -115,7 +115,7 @@ export function HeroRegistrationForm() {
                   if (attemptedSubmit) validate();
                 }}
                 placeholder="Email Address"
-                className={`w-full h-11 px-3.5 rounded-xl input-skeuo text-sm font-bold text-[#0F1F5C] placeholder:text-[#9A9172] ${
+                className={`w-full h-10 sm:h-11 px-3 sm:px-3.5 rounded-xl input-skeuo text-xs sm:text-sm font-bold text-[#0F1F5C] placeholder:text-[#9A9172] ${
                   errors.email ? "border-[#D62B2B] bg-red-50/50" : ""
                 }`}
               />
@@ -138,7 +138,7 @@ export function HeroRegistrationForm() {
                   if (attemptedSubmit) validate();
                 }}
                 placeholder="Phone Number"
-                className={`w-full h-11 px-3.5 rounded-xl input-skeuo text-sm font-bold text-[#0F1F5C] placeholder:text-[#9A9172] ${
+                className={`w-full h-10 sm:h-11 px-3 sm:px-3.5 rounded-xl input-skeuo text-xs sm:text-sm font-bold text-[#0F1F5C] placeholder:text-[#9A9172] ${
                   errors.phone ? "border-[#D62B2B] bg-red-50/50" : ""
                 }`}
               />
@@ -156,11 +156,11 @@ export function HeroRegistrationForm() {
         <StagingNotice compact />
 
         {/* Action Button */}
-        <div className="pt-1">
+        <div className="pt-0.5">
           <button
             type="submit"
             disabled
-            className="w-full h-12 rounded-xl bg-gradient-to-b from-[#1E389B] to-[#0A1856] text-white/95 font-black text-sm cursor-not-allowed opacity-90 shadow-md flex items-center justify-center gap-2 border border-[#2E4DBF]/50"
+            className="w-full h-10 sm:h-12 rounded-xl bg-gradient-to-b from-[#1E389B] to-[#0A1856] text-white/95 font-black text-xs sm:text-sm cursor-not-allowed opacity-90 shadow-md flex items-center justify-center gap-2 border border-[#2E4DBF]/50"
           >
             <ShieldCheck className="w-4 h-4 text-[#F6C915]" />
             <span>Submission Paused (Staging Mode)</span>

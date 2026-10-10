@@ -32,10 +32,10 @@ export function HeroSection() {
 
       {/* Main Hero Grid: Bold, Grand & Generously Sized */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto py-2 sm:py-3 lg:py-4">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 lg:gap-8 items-center">
           
           {/* Column 1: Narrative & Program Credibility (5 cols) */}
-          <div className="lg:col-span-5 xl:col-span-5 flex flex-col gap-3.5 text-left">
+          <div className="lg:col-span-5 xl:col-span-5 flex flex-col gap-3 sm:gap-3.5 text-left">
             {/* Live Online Badge + Toronto Landmark Tag */}
             <div className="flex flex-wrap items-center gap-2">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/95 border border-[#E8DEC0] shadow-xs w-fit backdrop-blur-md">
@@ -55,7 +55,7 @@ export function HeroSection() {
             </div>
 
             {/* Main Headline (Bold, Commanding & Large) */}
-            <h1 className="text-3xl sm:text-4xl lg:text-[44px] xl:text-[50px] 2xl:text-[54px] font-black text-[#13277A] tracking-[-0.035em] leading-[1.07]">
+            <h1 className="text-2xl sm:text-3xl lg:text-[44px] xl:text-[50px] 2xl:text-[54px] font-black text-[#13277A] tracking-[-0.035em] leading-[1.09] sm:leading-[1.07]">
               What if your wellness started in your kitchen?
             </h1>
 
@@ -67,26 +67,26 @@ export function HeroSection() {
             </div>
 
             {/* Supporting Copy */}
-            <p className="text-sm sm:text-base lg:text-[16.5px] text-[#0F1F5C] leading-relaxed font-medium max-w-xl">
+            <p className="text-xs sm:text-base lg:text-[16.5px] text-[#0F1F5C] leading-relaxed font-medium max-w-xl">
               Every meal is a choice that energises and transforms your life. Learn practical nutrition live online with Rasha Abu Rabi, BSc., MSc., R.H.N. No prior experience needed.
             </p>
 
             {/* 3 Tactile Benefit Pills */}
-            <div className="flex flex-wrap gap-2 pt-1">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2 pt-0.5">
               {["Practical Nutrition", "Healthy Habits", "Wellness Strategies"].map((benefit) => (
                 <div
                   key={benefit}
-                  className="flex items-center gap-1.5 px-3.5 py-1 rounded-xl bg-white/95 border border-[#E8DEC0] shadow-xs text-xs sm:text-[13px] font-black text-[#0F1F5C] cursor-default"
+                  className="flex items-center gap-1.5 px-3 sm:px-3.5 py-1 rounded-xl bg-white/95 border border-[#E8DEC0] shadow-xs text-xs sm:text-[13px] font-black text-[#0F1F5C] cursor-default"
                 >
-                  <span className="w-2 h-2 rounded-full bg-gradient-to-b from-[#FFE052] to-[#D4A017] shrink-0" />
+                  <span className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-gradient-to-b from-[#FFE052] to-[#D4A017] shrink-0" />
                   <span>{benefit}</span>
                 </div>
               ))}
             </div>
 
             {/* Institutional Certification Medallion */}
-            <div className="flex items-center gap-3 p-3 rounded-2xl bg-gradient-to-r from-[#13277A] via-[#0E2068] to-[#0B1A5A] text-white shadow-md border border-[#F6C915]/30 w-fit">
-              <div className="relative w-10 h-10 rounded-full bg-white p-0.5 overflow-hidden shrink-0 border border-[#F6C915]">
+            <div className="flex items-center gap-2.5 sm:gap-3 p-2.5 sm:p-3 rounded-2xl bg-gradient-to-r from-[#13277A] via-[#0E2068] to-[#0B1A5A] text-white shadow-md border border-[#F6C915]/30 w-fit">
+              <div className="relative w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-white p-0.5 overflow-hidden shrink-0 border border-[#F6C915]">
                 <Image
                   src="/assets/logo.jpg"
                   alt="CSNN Toronto"
@@ -109,7 +109,7 @@ export function HeroSection() {
 
           {/* Column 2: Video Presentation (3 cols - Cinema Phone Showcase) */}
           <div className="lg:col-span-3 xl:col-span-3 flex flex-col items-center justify-center relative py-1 lg:py-0">
-            <div className="w-full max-w-[235px] sm:max-w-[250px] lg:max-w-[260px] xl:max-w-[275px]">
+            <div className="w-full max-w-[210px] sm:max-w-[240px] lg:max-w-[260px] xl:max-w-[275px]">
               <VideoPlayer
                 src="/assets/videos/video-636.mp4"
                 poster="/assets/frames/v636-0.4.jpg"

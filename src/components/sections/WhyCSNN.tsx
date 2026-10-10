@@ -56,7 +56,7 @@ export function WhyCSNN() {
     <section
       id="why-csnn"
       data-screen-label="09 Why CSNN"
-      className="py-10 sm:py-14 bg-gradient-to-b from-[#071245] via-[#0B1A5A] to-[#050D32] text-white relative overflow-hidden border-y-2 border-[#F6C915]/60 shadow-2xl"
+      className="py-8 sm:py-14 bg-gradient-to-b from-[#071245] via-[#0B1A5A] to-[#050D32] text-white relative overflow-hidden border-y-2 border-[#F6C915]/60 shadow-2xl"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#1E389B]/25 rounded-full blur-3xl pointer-events-none" />
@@ -65,46 +65,46 @@ export function WhyCSNN() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Compact Header & Trust Strip */}
-        <div className="text-center max-w-3xl mx-auto mb-6 pb-5 border-b border-white/10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#F6C915] text-[11px] font-black tracking-widest uppercase mb-2 border border-[#F6C915]/40 shadow-xs backdrop-blur-md">
+        <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-6 pb-4 sm:pb-5 border-b border-white/10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#F6C915] text-[10px] sm:text-[11px] font-black tracking-widest uppercase mb-2 border border-[#F6C915]/40 shadow-xs backdrop-blur-md">
             <div className="relative w-3.5 h-3.5 rounded-full overflow-hidden bg-white p-0.5 shrink-0 border border-[#F6C915]">
               <Image src="/assets/logo.jpg" alt="CSNN" fill sizes="14px" className="object-contain" />
             </div>
             <span>WHY CSNN TORONTO</span>
           </div>
 
-          <h2 className="text-2xl sm:text-3xl font-black text-white tracking-[-0.03em] leading-tight">
+          <h2 className="text-xl sm:text-3xl font-black text-white tracking-[-0.03em] leading-tight">
             Canada’s pioneer in holistic nutrition education since 1994
           </h2>
 
-          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-4 mt-2 text-xs text-white/80">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mt-2 text-[11px] sm:text-xs text-white/80">
             <span>Teaching the Medicine of the Future™ · Live online with licensed faculty</span>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/15 text-[11px] font-bold text-white/90">
-              <ShieldCheck className="w-3.5 h-3.5 text-[#F6C915]" />
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/15 text-[10px] sm:text-[11px] font-bold text-white/90">
+              <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#F6C915]" />
               <span>30+ Years Heritage</span>
             </div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/15 text-[11px] font-bold text-white/90">
-              <GraduationCap className="w-3.5 h-3.5 text-[#F6C915]" />
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/15 text-[10px] sm:text-[11px] font-bold text-white/90">
+              <GraduationCap className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#F6C915]" />
               <span>Accredited Faculty</span>
             </div>
           </div>
         </div>
 
         {/* 4 Proof Metric Strip - Refined High-End Bar */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 mb-6 sm:mb-8">
           {proofPoints.map((item) => (
             <div
               key={item.label}
-              className="glass-card-dark py-3 px-3.5 rounded-2xl flex flex-col items-center text-center border border-white/10 hover:border-[#F6C915]/60 hover:shadow-[0_8px_25px_rgba(246,201,21,0.12)] transition-all duration-300 relative overflow-hidden group"
+              className="glass-card-dark py-2.5 px-3 sm:py-3 sm:px-3.5 rounded-xl sm:rounded-2xl flex flex-col items-center text-center border border-white/10 hover:border-[#F6C915]/60 hover:shadow-[0_8px_25px_rgba(246,201,21,0.12)] transition-all duration-300 relative overflow-hidden group"
             >
               <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#F6C915]/30 to-transparent group-hover:via-[#F6C915] transition-all" />
-              <span className="text-xl sm:text-2xl lg:text-3xl font-black text-[#F6C915] leading-none mb-1 group-hover:scale-105 transition-transform">
+              <span className="text-lg sm:text-2xl lg:text-3xl font-black text-[#F6C915] leading-none mb-1 group-hover:scale-105 transition-transform">
                 {item.value}
               </span>
-              <span className="text-xs sm:text-[13px] font-black text-white leading-tight">
+              <span className="text-[11px] sm:text-[13px] font-black text-white leading-tight">
                 {item.label}
               </span>
-              <span className="text-[10px] sm:text-[11px] text-white/60 mt-0.5 font-medium leading-tight">
+              <span className="text-[9px] sm:text-[11px] text-white/60 mt-0.5 font-medium leading-tight">
                 {item.desc}
               </span>
             </div>
@@ -112,26 +112,26 @@ export function WhyCSNN() {
         </div>
 
         {/* Structured Educational Pathway: Non-Overlapping Interconnected Stepper Rail */}
-        <div className="pt-6 border-t border-white/10 relative">
+        <div className="pt-5 sm:pt-6 border-t border-white/10 relative">
           
           {/* Header Row */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-3 mb-6">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2.5 sm:gap-3 mb-5 sm:mb-6">
             <div>
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#F6C915]/15 text-[#F6C915] text-[10px] font-black tracking-widest uppercase mb-1.5 border border-[#F6C915]/30 shadow-xs">
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-[#F6C915]/15 text-[#F6C915] text-[9px] sm:text-[10px] font-black tracking-widest uppercase mb-1 border border-[#F6C915]/30 shadow-xs">
                 <Sparkles className="w-3 h-3 text-[#F6C915]" />
                 <span>STRUCTURED EDUCATIONAL PATHWAY</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+              <h3 className="text-lg sm:text-2xl font-black text-white tracking-tight">
                 From Kitchen Foundation to Licensed Excellence
               </h3>
-              <p className="text-xs text-white/70 mt-0.5 max-w-xl">
+              <p className="text-[11px] sm:text-xs text-white/70 mt-0.5 max-w-xl">
                 A sequential educational journey from home cooking clarity to accredited clinical nutrition leadership.
               </p>
             </div>
 
             <a
               href="#register"
-              className="inline-flex items-center gap-2 text-xs font-black text-[#F6C915] hover:text-white transition-colors pb-1 shrink-0 group"
+              className="inline-flex items-center gap-1.5 text-xs font-black text-[#F6C915] hover:text-white transition-colors pb-1 shrink-0 group"
             >
               <span>Begin with Step 01 today</span>
               <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
@@ -139,11 +139,11 @@ export function WhyCSNN() {
           </div>
 
           {/* 3 Interconnected Milestone Columns (Zero Text Overlap Guaranteed) */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-6 relative">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 relative">
             {pathwaySteps.map((s, idx) => (
               <div
                 key={s.step}
-                className={`flex flex-col rounded-2xl p-4 sm:p-5 transition-all duration-300 relative group ${
+                className={`flex flex-col rounded-xl sm:rounded-2xl p-3.5 sm:p-5 transition-all duration-300 relative group ${
                   s.current
                     ? "bg-gradient-to-b from-[#F6C915]/[0.08] via-white/[0.04] to-transparent border-2 border-[#F6C915]/50 shadow-[0_8px_30px_rgba(246,201,21,0.1)]"
                     : "bg-white/[0.02] border border-white/10 hover:border-white/20 hover:bg-white/[0.04]"

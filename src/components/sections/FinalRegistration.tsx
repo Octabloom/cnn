@@ -8,7 +8,7 @@ export function FinalRegistration() {
     <section
       id="register"
       data-screen-label="10 Form 3 Intake"
-      className="py-20 sm:py-28 bg-gradient-to-b from-[#FDF8E8] via-[#FAF3D8] to-[#F7EBB8] border-b border-[#EFE1AD] relative overflow-hidden"
+      className="py-12 sm:py-20 lg:py-28 bg-gradient-to-b from-[#FDF8E8] via-[#FAF3D8] to-[#F7EBB8] border-b border-[#EFE1AD] relative overflow-hidden"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-[#F6C915]/15 rounded-full blur-3xl pointer-events-none" />
@@ -16,17 +16,17 @@ export function FinalRegistration() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-b from-[#1C389E] to-[#0A1856] text-[#F6C915] text-xs font-black tracking-widest uppercase mb-4 shadow-[0_4px_16px_rgba(19,39,122,0.3)] border border-[#F6C915]/40 backdrop-blur-md">
+        <div className="text-center mb-8 sm:mb-12">
+          <div className="inline-flex items-center gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full bg-gradient-to-b from-[#1C389E] to-[#0A1856] text-[#F6C915] text-[11px] sm:text-xs font-black tracking-widest uppercase mb-3 sm:mb-4 shadow-[0_4px_16px_rgba(19,39,122,0.3)] border border-[#F6C915]/40 backdrop-blur-md">
             <Sparkles className="w-3.5 h-3.5" />
             <span>REGISTER IN 30 SECONDS</span>
           </div>
 
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-[#13277A] tracking-[-0.03em] leading-[1.05]">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#13277A] tracking-[-0.03em] leading-[1.05]">
             Join us today at CSNN Toronto
           </h2>
 
-          <p className="mt-3 text-base sm:text-lg text-[#0F1F5C] font-black">
+          <p className="mt-2 text-xs sm:text-base text-[#0F1F5C] font-black">
             4 quick steps. An admissions advisor confirms your seat and next steps.
           </p>
 
