@@ -15,24 +15,42 @@ export function HeroSection() {
     >
       {/* ==============================================================
           ONLY ONE CONTINUOUS ROAD BED: Spans 100% width directly above marquee
-          Clean, unified single highway with flowing golden light beam
-          (Zero red or white colored strokes)
+          With full-width radiant golden shining waves covering the whole road
+          (100% road coverage from edge to edge)
           ============================================================== */}
       <div className="absolute inset-x-0 bottom-[38px] h-[56px] pointer-events-none select-none z-10 overflow-hidden">
         {/* Deep Lake Water / Highway Road Bed */}
         <div className="w-full h-full bg-gradient-to-b from-[#0A1856] via-[#071245] to-[#040924]" />
         
-        {/* Top Road Curb / Yellow Line */}
-        <div className="absolute top-0 inset-x-0 h-[2.5px] bg-[#F6C915]" />
+        {/* Top Road Curb / Yellow Line with Radiant Golden Edge Glow */}
+        <div className="absolute top-0 inset-x-0 h-[2.5px] bg-[#F6C915] shadow-[0_0_8px_rgba(246,201,21,0.6)]" />
 
-        {/* Highway Lane Divider: Golden Dashes */}
-        <div className="absolute top-[26px] inset-x-0 h-[2px] border-t-2 border-dashed border-[#F6C915]/80" />
+        {/* Highway Center Lane: Animated Continuous Flowing Golden Dashes Across Entire Road */}
+        <div className="absolute top-[26px] inset-x-0 h-[3px]">
+          <svg className="w-full h-full" preserveAspectRatio="none">
+            <line
+              x1="0"
+              y1="1.5"
+              x2="100%"
+              y2="1.5"
+              stroke="#F6C915"
+              strokeWidth="2.5"
+              strokeDasharray="18 14"
+              strokeOpacity="0.85"
+              className="animate-road-dash-flow"
+            />
+          </svg>
+        </div>
 
-        {/* Road Bottom Yellow Line (Directly above the moving strip) */}
-        <div className="absolute bottom-0 inset-x-0 h-[2.5px] bg-[#F6C915]" />
+        {/* Road Bottom Yellow Line with Radiant Golden Glow */}
+        <div className="absolute bottom-0 inset-x-0 h-[2.5px] bg-[#F6C915] shadow-[0_0_8px_rgba(246,201,21,0.6)]" />
 
-        {/* Smooth Flowing Golden Laser Energy Beam across the entire road (No static colored strokes) */}
-        <div className="absolute inset-y-0 w-72 bg-gradient-to-r from-transparent via-[#F6C915]/50 to-transparent blur-[1px] animate-smooth-beam pointer-events-none" />
+        {/* Full-Road Luminous Shining Waves Covering 100% of the Entire Road */}
+        {/* Wave 1: Warm Golden Sunlight Aura Sweeping Across Entire Road Width */}
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-[#FFF9D2]/30 via-[#F6C915]/40 to-transparent animate-road-sweep-1" />
+
+        {/* Wave 2: Diamond Crystal Shimmer Sweeping Across with Continuous 2.1s Phase Offset */}
+        <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-transparent via-[#FFFFFF]/25 via-[#FFE875]/35 to-transparent animate-road-sweep-2" />
       </div>
 
       {/* ==============================================================

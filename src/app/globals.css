@@ -129,6 +129,43 @@
   animation: beamTravel 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
 
+/* Highway Road Full-Width Radiant Shining Waves (100% Road Coverage) */
+@keyframes roadSweep {
+  0% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.95;
+  }
+  85% {
+    opacity: 0.95;
+  }
+  100% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+}
+
+.animate-road-sweep-1 {
+  animation: roadSweep 4.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.animate-road-sweep-2 {
+  animation: roadSweep 4.2s cubic-bezier(0.4, 0, 0.2, 1) infinite 2.1s;
+}
+
+/* Highway Center Lane Dash Flow across entire road */
+@keyframes roadDashFlow {
+  to {
+    stroke-dashoffset: -60;
+  }
+}
+
+.animate-road-dash-flow {
+  animation: roadDashFlow 1.8s linear infinite;
+}
+
 @keyframes smoothBeam {
   0% { transform: translateX(-150px); }
   100% { transform: translateX(calc(100vw + 150px)); }
