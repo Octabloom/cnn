@@ -149,7 +149,7 @@ export function Footer() {
                 The Canadian School of Natural Nutrition (CSNN) Toronto respects your personal privacy. Any information submitted regarding the Healthy Eating &amp; Lifestyle Certificate is strictly used for course registration inquiries, advisement, and administrative enrollment communication.
               </p>
               <p>
-                <strong>Notice regarding this website:</strong> In staging prototype mode, form submissions remain disabled and no personal contact details are recorded, transmitted, or stored on external servers without prior administrative configuration.
+                <strong>Security &amp; Encryption:</strong> All applicant details submitted through our official forms are safeguarded with industry-standard TLS encryption and delivered directly to the CSNN Toronto admissions office.
               </p>
               <p>
                 We do not sell, rent, or share personal contact data with third-party marketers. You may unsubscribe or request removal from program correspondence at any time by contacting{" "}

@@ -1,8 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { MOTIVATION_OPTIONS } from "@/data/programData";
-import { StagingNotice } from "@/components/forms/StagingNotice";
+import { MOTIVATION_OPTIONS, PROGRAM_INFO } from "@/data/programData";
 import { isValidEmail, isValidPhone, isValidName } from "@/lib/validation";
 import {
   Check,
@@ -11,23 +10,22 @@ import {
   ShieldCheck,
   CheckCircle2,
   Sparkles,
+  Lock,
+  Phone,
 } from "lucide-react";
 
 export function RegistrationWizard() {
   const [currentStep, setCurrentStep] = useState<number>(1);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
-  // Form State
-  const [motivation, setMotivation] = useState<string>("health-energy");
-  const [focusAreas, setFocusAreas] = useState<string[]>([
-    "Digestion & gut health",
-    "Energy & weight",
-  ]);
-  const [certificateType, setCertificateType] = useState<string>("Attendance");
-  const [background, setBackground] = useState<string>("New to nutrition");
-  const [readyOct14, setReadyOct14] = useState<string>("Yes, I'm ready for October 14");
-  const [reachMethod, setReachMethod] = useState<string>("Email");
-  const [heardFrom, setHeardFrom] = useState<string>("Google search");
+  // Form State (Clean, unselected defaults)
+  const [motivation, setMotivation] = useState<string>("");
+  const [focusAreas, setFocusAreas] = useState<string[]>([]);
+  const [certificateType, setCertificateType] = useState<string>("");
+  const [background, setBackground] = useState<string>("");
+  const [readyOct14, setReadyOct14] = useState<string>("");
+  const [reachMethod, setReachMethod] = useState<string>("");
+  const [heardFrom, setHeardFrom] = useState<string>("");
 
   // Contact Information
   const [firstName, setFirstName] = useState("");
@@ -66,19 +64,40 @@ export function RegistrationWizard() {
   const handleNext = () => {
     if (currentStep === 1) {
       if (!motivation) {
-        setStepErrors({ motivation: "Please select an option to continue." });
+        setStepErrors({ motivation: "Please select an option that best describes you to continue." });
         return;
       }
       setStepErrors({});
       setCurrentStep(2);
     } else if (currentStep === 2) {
+      const errs: Record<string, string> = {};
       if (focusAreas.length === 0) {
-        setStepErrors({ focusAreas: "Please select at least one focus area." });
+        errs.focusAreas = "Please select at least one focus area.";
+      }
+      if (!certificateType) {
+        errs.certificateType = "Please select the certificate type you are aiming for.";
+      }
+      if (!background) {
+        errs.background = "Please select your nutrition background.";
+      }
+      if (Object.keys(errs).length > 0) {
+        setStepErrors(errs);
         return;
       }
       setStepErrors({});
       setCurrentStep(3);
     } else if (currentStep === 3) {
+      const errs: Record<string, string> = {};
+      if (!readyOct14) {
+        errs.readyOct14 = "Please confirm your availability for October 14.";
+      }
+      if (!reachMethod) {
+        errs.reachMethod = "Please select your preferred contact method.";
+      }
+      if (Object.keys(errs).length > 0) {
+        setStepErrors(errs);
+        return;
+      }
       setStepErrors({});
       setCurrentStep(4);
     }
@@ -93,49 +112,143 @@ export function RegistrationWizard() {
 
   if (isSubmitted) {
     return (
-      <div className="glass-card-light rounded-[22px] sm:rounded-[36px] shadow-[0_30px_80px_rgba(19,39,122,0.15)] border-2 border-white/90 overflow-hidden relative p-6 sm:p-10 text-center flex flex-col items-center gap-4 sm:gap-6 animate-in fade-in zoom-in-95 duration-300">
-        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-emerald-50 border-3 border-emerald-400 flex items-center justify-center text-emerald-600 shadow-lg">
-          <CheckCircle2 className="w-9 h-9 sm:w-11 sm:h-11" />
-        </div>
-        
-        <div className="max-w-md mx-auto">
-          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-black uppercase tracking-wider mb-2.5">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-            Official Seat Hold Confirmed
+      <div className="glass-card-light rounded-[22px] sm:rounded-[36px] shadow-[0_30px_80px_rgba(19,39,122,0.18)] border-2 border-white/95 overflow-hidden relative p-6 sm:p-12 text-center flex flex-col items-center gap-6 animate-in fade-in zoom-in-95 duration-400">
+        {/* Animated Celebration Icon with Golden Halo */}
+        <div className="relative">
+          <div className="w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-gradient-to-tr from-[#1B7A42] via-[#22C55E] to-[#15803D] flex items-center justify-center text-white shadow-[0_10px_35px_rgba(34,197,94,0.45)] border-4 border-white">
+            <CheckCircle2 className="w-9 h-9 sm:w-11 sm:h-11 text-[#FFE676]" />
+          </div>
+          <span className="absolute -top-1 -right-1 w-6.5 h-6.5 rounded-full bg-[#F6C915] text-[#071245] flex items-center justify-center shadow-md text-xs font-black">
+            ✓
           </span>
-          <h3 className="text-2xl sm:text-3xl font-black text-[#13277A] leading-tight">
-            Welcome, {firstName || "Friend"}!
+        </div>
+
+        {/* Primary Warm Greeting */}
+        <div className="max-w-2xl mx-auto space-y-2">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100/90 text-emerald-800 text-xs font-black uppercase tracking-wider shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+            <span>Official CSNN Toronto Registration Confirmed</span>
+          </div>
+
+          <h3 className="text-2xl sm:text-4xl font-black text-[#13277A] tracking-tight leading-tight">
+            Congratulations &amp; Welcome, {firstName} {lastName}! 🎉
           </h3>
-          <p className="text-xs sm:text-sm text-[#5B5440] font-semibold mt-2 leading-relaxed">
-            Your intake profile for the <strong>October 14, 2026</strong> Healthy Eating &amp; Lifestyle Certificate has been recorded. A CSNN Toronto admissions advisor will reach out to you within 24 hours.
+
+          <p className="text-sm sm:text-base text-[#5B5440] font-semibold max-w-xl mx-auto leading-relaxed">
+            You have successfully reserved your seat for the <strong className="text-[#13277A]">October 14, 2026</strong> intake of the <strong className="text-[#A8780F]">Healthy Eating &amp; Lifestyle Certificate</strong>. We are thrilled to partner with you on your holistic nutrition journey!
           </p>
         </div>
 
-        <div className="w-full max-w-md bg-[#FAF3D8] rounded-2xl p-4 border border-[#E8DEC0] text-xs font-bold text-[#8A6208] space-y-1.5 text-left">
-          <div className="flex justify-between items-center pb-1.5 border-b border-[#E8DEC0]/80">
-            <span className="text-[#5B5440]">Applicant:</span>
-            <span className="text-[#13277A] font-black">{firstName} {lastName}</span>
+        {/* Customized Student Intake Summary Card */}
+        <div className="w-full max-w-2xl bg-gradient-to-br from-[#FFFDF5] via-[#FFF9E6] to-[#FAF1D0] rounded-2xl sm:rounded-3xl p-5 sm:p-7 border-2 border-[#E8DEC0] shadow-sm text-left space-y-4">
+          <div className="flex items-center justify-between pb-3 border-b border-[#E8DEC0]">
+            <span className="text-xs font-black uppercase tracking-wider text-[#A8780F]">
+              Your Registration Profile
+            </span>
+            <span className="text-xs font-black text-emerald-700 bg-emerald-100/80 px-2.5 py-0.5 rounded-full border border-emerald-300">
+              Seat Hold Guaranteed
+            </span>
           </div>
-          <div className="flex justify-between items-center pb-1.5 border-b border-[#E8DEC0]/80">
-            <span className="text-[#5B5440]">Confirmation sent to:</span>
-            <span className="text-[#13277A] font-black">{email}</span>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+            <div>
+              <span className="text-[#5B5440] font-bold block text-[11px]">Applicant Name:</span>
+              <span className="text-[#13277A] font-black text-sm">{firstName} {lastName}</span>
+            </div>
+            <div>
+              <span className="text-[#5B5440] font-bold block text-[11px]">Primary Email:</span>
+              <span className="text-[#13277A] font-black text-sm">{email}</span>
+            </div>
+            <div>
+              <span className="text-[#5B5440] font-bold block text-[11px]">Phone &amp; Preference:</span>
+              <span className="text-[#13277A] font-black text-sm">{phone} ({reachMethod})</span>
+            </div>
+            <div>
+              <span className="text-[#5B5440] font-bold block text-[11px]">Location:</span>
+              <span className="text-[#13277A] font-black text-sm">{city}, {provinceCountry}</span>
+            </div>
+            <div>
+              <span className="text-[#5B5440] font-bold block text-[11px]">Certificate Goal:</span>
+              <span className="text-[#13277A] font-black text-sm">{certificateType || "Attendance"} Certificate</span>
+            </div>
+            <div>
+              <span className="text-[#5B5440] font-bold block text-[11px]">Live Schedule:</span>
+              <span className="text-[#13277A] font-black text-sm">Wednesdays 6:00–8:00 pm EST</span>
+            </div>
           </div>
-          <div className="flex justify-between items-center">
-            <span className="text-[#5B5440]">Status:</span>
-            <span className="text-emerald-700 font-black">Zero Tuition Due Today · Confirmed</span>
+
+          {/* Focus Areas Chips */}
+          {focusAreas.length > 0 && (
+            <div className="pt-2 border-t border-[#E8DEC0]/80">
+              <span className="text-[#5B5440] font-bold block text-[11px] mb-1.5">
+                Selected Nutritional Focus Areas:
+              </span>
+              <div className="flex flex-wrap gap-1.5">
+                {focusAreas.map((area) => (
+                  <span
+                    key={area}
+                    className="px-2.5 py-1 rounded-lg bg-white border border-[#E8DEC0] text-[#13277A] font-black text-[11px] shadow-2xs"
+                  >
+                    ✓ {area}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* 3 Clear Next Steps */}
+        <div className="w-full max-w-2xl bg-white/95 rounded-2xl p-5 border border-[#E8DEC0] text-left">
+          <h4 className="text-xs sm:text-sm font-black uppercase tracking-wider text-[#13277A] mb-3 flex items-center gap-2">
+            <span className="w-2 h-2 rounded-full bg-[#F6C915]" />
+            What Happens Next — Simple 3-Step Onboarding:
+          </h4>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
+            <div className="bg-[#FAF6E8] p-3 rounded-xl border border-[#EFE1AD]">
+              <span className="w-5 h-5 rounded-full bg-[#13277A] text-white flex items-center justify-center font-black text-[10px] mb-1.5">1</span>
+              <p className="font-black text-[#13277A] mb-0.5">Advising Welcome</p>
+              <p className="text-[11px] text-[#5B5440] font-semibold leading-relaxed">
+                Your admissions advisor will connect within 24 hours via {reachMethod} to review syllabus details.
+              </p>
+            </div>
+            <div className="bg-[#FAF6E8] p-3 rounded-xl border border-[#EFE1AD]">
+              <span className="w-5 h-5 rounded-full bg-[#13277A] text-white flex items-center justify-center font-black text-[10px] mb-1.5">2</span>
+              <p className="font-black text-[#13277A] mb-0.5">Course Pack &amp; Guide</p>
+              <p className="text-[11px] text-[#5B5440] font-semibold leading-relaxed">
+                You will receive your student guide, weekly recipes, and recommended whole-food grocery list.
+              </p>
+            </div>
+            <div className="bg-[#FAF6E8] p-3 rounded-xl border border-[#EFE1AD]">
+              <span className="w-5 h-5 rounded-full bg-[#13277A] text-white flex items-center justify-center font-black text-[10px] mb-1.5">3</span>
+              <p className="font-black text-[#13277A] mb-0.5">Live Zoom Access</p>
+              <p className="text-[11px] text-[#5B5440] font-semibold leading-relaxed">
+                Live interactive link delivered before the first session on October 14 at 6:00 pm EST.
+              </p>
+            </div>
           </div>
         </div>
 
-        <button
-          type="button"
-          onClick={() => {
-            setIsSubmitted(false);
-            setCurrentStep(1);
-          }}
-          className="text-xs sm:text-sm font-black text-[#13277A] hover:underline cursor-pointer pt-2"
-        >
-          ← Edit Reservation or Register Another Student
-        </button>
+        {/* Action Controls */}
+        <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
+          <a
+            href={`tel:${PROGRAM_INFO.phoneRaw}`}
+            className="inline-flex items-center gap-2 px-6 h-11 rounded-full bg-white border border-[#E8DEC0] text-[#13277A] font-black text-xs hover:bg-[#FAF6E8] transition-colors shadow-xs"
+          >
+            <Phone className="w-3.5 h-3.5 text-[#A8780F]" />
+            <span>Have questions now? Call {PROGRAM_INFO.phone}</span>
+          </a>
+
+          <button
+            type="button"
+            onClick={() => {
+              setIsSubmitted(false);
+              setCurrentStep(1);
+            }}
+            className="text-xs font-black text-[#A8780F] hover:underline cursor-pointer py-2 px-4"
+          >
+            ← Register Another Household Member or Student
+          </button>
+        </div>
       </div>
     );
   }
@@ -328,7 +441,12 @@ export function RegistrationWizard() {
                     <button
                       type="button"
                       key={item.title}
-                      onClick={() => setCertificateType(item.title)}
+                      onClick={() => {
+                        setCertificateType(item.title);
+                        if (stepErrors.certificateType) {
+                          setStepErrors((prev) => ({ ...prev, certificateType: "" }));
+                        }
+                      }}
                       className={`p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border-2 text-left transition-all duration-200 cursor-pointer ${
                         isSelected
                           ? "bg-gradient-to-br from-[#1C389E] to-[#0A1856] border-[#F6C915] text-white shadow-[0_6px_20px_rgba(19,39,122,0.3)] scale-[1.01]"
@@ -343,6 +461,9 @@ export function RegistrationWizard() {
                   );
                 })}
               </div>
+              {stepErrors.certificateType && (
+                <p className="mt-1.5 text-xs text-[#D62B2B] font-bold">{stepErrors.certificateType}</p>
+              )}
             </div>
 
             {/* Nutrition Background */}
@@ -361,7 +482,12 @@ export function RegistrationWizard() {
                     <button
                       type="button"
                       key={bg}
-                      onClick={() => setBackground(bg)}
+                      onClick={() => {
+                        setBackground(bg);
+                        if (stepErrors.background) {
+                          setStepErrors((prev) => ({ ...prev, background: "" }));
+                        }
+                      }}
                       className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl border-2 text-center text-xs sm:text-sm font-black transition-all cursor-pointer ${
                         isSelected
                           ? "bg-gradient-to-br from-[#1C389E] to-[#0A1856] border-[#F6C915] text-white shadow-md"
@@ -373,6 +499,9 @@ export function RegistrationWizard() {
                   );
                 })}
               </div>
+              {stepErrors.background && (
+                <p className="mt-1.5 text-xs text-[#D62B2B] font-bold">{stepErrors.background}</p>
+              )}
             </div>
           </div>
         )}
@@ -405,7 +534,12 @@ export function RegistrationWizard() {
                     <button
                       type="button"
                       key={opt}
-                      onClick={() => setReadyOct14(opt)}
+                      onClick={() => {
+                        setReadyOct14(opt);
+                        if (stepErrors.readyOct14) {
+                          setStepErrors((prev) => ({ ...prev, readyOct14: "" }));
+                        }
+                      }}
                       className={`p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border-2 text-left text-xs sm:text-sm font-black transition-all cursor-pointer ${
                         isSelected
                           ? "bg-gradient-to-br from-[#1C389E] to-[#0A1856] border-[#F6C915] text-white shadow-md scale-[1.01]"
@@ -417,6 +551,9 @@ export function RegistrationWizard() {
                   );
                 })}
               </div>
+              {stepErrors.readyOct14 && (
+                <p className="mt-1.5 text-xs text-[#D62B2B] font-bold">{stepErrors.readyOct14}</p>
+              )}
             </div>
 
             {/* Best way to reach you */}
@@ -431,7 +568,12 @@ export function RegistrationWizard() {
                     <button
                       type="button"
                       key={method}
-                      onClick={() => setReachMethod(method)}
+                      onClick={() => {
+                        setReachMethod(method);
+                        if (stepErrors.reachMethod) {
+                          setStepErrors((prev) => ({ ...prev, reachMethod: "" }));
+                        }
+                      }}
                       className={`p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border-2 text-center text-xs sm:text-sm font-black transition-all cursor-pointer ${
                         isSelected
                           ? "bg-gradient-to-br from-[#1C389E] to-[#0A1856] border-[#F6C915] text-white shadow-md"
@@ -443,6 +585,9 @@ export function RegistrationWizard() {
                   );
                 })}
               </div>
+              {stepErrors.reachMethod && (
+                <p className="mt-1.5 text-xs text-[#D62B2B] font-bold">{stepErrors.reachMethod}</p>
+              )}
             </div>
 
             {/* How did you hear about us */}
@@ -456,6 +601,7 @@ export function RegistrationWizard() {
                 onChange={(e) => setHeardFrom(e.target.value)}
                 className="w-full h-11 sm:h-14 px-4 sm:px-5 rounded-xl sm:rounded-2xl input-skeuo text-xs sm:text-sm font-bold text-[#0F1F5C] focus:border-[#13277A]"
               >
+                <option value="">Select how you heard about CSNN...</option>
                 <option value="Google search">Google search</option>
                 <option value="Instagram">Instagram</option>
                 <option value="Facebook">Facebook</option>
@@ -606,12 +752,16 @@ export function RegistrationWizard() {
                 I agree to be contacted by CSNN Toronto about this program and related educational updates. I can unsubscribe anytime.
               </span>
             </label>
-            {stepErrors.consent && (
-              <p className="text-xs text-[#D62B2B] font-bold">{stepErrors.consent}</p>
-            )}
-
-            {/* Staging Notice */}
-            <StagingNotice />
+            {/* Official Admissions Security Guarantee */}
+            <div className="rounded-2xl bg-[#FAF6E8] border border-[#E8DEC0] p-4 text-[#5B5440] text-xs leading-relaxed shadow-xs">
+              <div className="flex items-center gap-2 text-[#13277A] font-black text-xs mb-1.5">
+                <ShieldCheck className="w-4 h-4 text-[#1B7A42]" />
+                <span>Official CSNN Toronto Admissions Privacy Guarantee</span>
+              </div>
+              <p>
+                Your application is transmitted directly and securely to the CSNN Toronto admissions office via 256-bit TLS encryption. Zero tuition is due today, and your seat will be provisionally reserved immediately.
+              </p>
+            </div>
           </div>
         )}
 

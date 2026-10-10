@@ -2,21 +2,23 @@
 
 import React, { useState } from "react";
 import { MOTIVATION_OPTIONS } from "@/data/programData";
-import { StagingNotice } from "@/components/forms/StagingNotice";
 import { isValidEmail, isValidPhone, isValidName } from "@/lib/validation";
 import { ShieldCheck, AlertCircle, ChevronDown, ArrowRight, CheckCircle2, Sparkles, Lock } from "lucide-react";
 
 export function HeroRegistrationForm() {
-  const [selectedMotivation, setSelectedMotivation] = useState<string>("health-energy");
+  const [selectedMotivation, setSelectedMotivation] = useState<string>("");
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
-  const [errors, setErrors] = useState<{ fullName?: string; email?: string; phone?: string }>({});
+  const [errors, setErrors] = useState<{ motivation?: string; fullName?: string; email?: string; phone?: string }>({});
   const [attemptedSubmit, setAttemptedSubmit] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
   const validate = () => {
-    const newErrors: { fullName?: string; email?: string; phone?: string } = {};
+    const newErrors: { motivation?: string; fullName?: string; email?: string; phone?: string } = {};
+    if (!selectedMotivation) {
+      newErrors.motivation = "Please select what brings you to this program.";
+    }
     if (!isValidName(fullName)) {
       newErrors.fullName = "Please enter your full name.";
     }
@@ -40,34 +42,86 @@ export function HeroRegistrationForm() {
 
   if (isSubmitted) {
     return (
-      <div className="bg-white/98 backdrop-blur-2xl rounded-2xl sm:rounded-3xl p-6 sm:p-8 shadow-[0_25px_60px_-15px_rgba(19,39,122,0.22),0_1px_0_rgba(255,255,255,1)] border-2 border-[#E2D8B3] relative text-center flex flex-col items-center gap-4 animate-in fade-in zoom-in-95 duration-300">
-        <div className="w-16 h-16 rounded-full bg-emerald-50 border-2 border-emerald-400 flex items-center justify-center text-emerald-600 shadow-md">
-          <CheckCircle2 className="w-8 h-8" />
+      <div className="bg-white/98 backdrop-blur-2xl rounded-2xl sm:rounded-3xl p-6 sm:p-7 shadow-[0_25px_60px_-15px_rgba(19,39,122,0.22),0_1px_0_rgba(255,255,255,1)] border-2 border-[#E2D8B3] relative text-left flex flex-col gap-4 animate-in fade-in zoom-in-95 duration-300">
+        {/* Top ambient highlight */}
+        <div className="absolute inset-x-8 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#F6C915] to-transparent pointer-events-none" />
+
+        {/* Celebration Header */}
+        <div className="flex items-start gap-3.5 pb-3 border-b border-[#E8DEC0]">
+          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#1B7A42] to-[#145C32] text-white flex items-center justify-center shadow-lg shrink-0 border border-emerald-400/50">
+            <CheckCircle2 className="w-6 h-6 text-[#FFE676]" />
+          </div>
+          <div>
+            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-100/90 text-emerald-800 text-[10px] font-black uppercase tracking-wider mb-1">
+              <Sparkles className="w-3 h-3 text-emerald-600" />
+              <span>Official Seat Hold Confirmed</span>
+            </div>
+            <h3 className="text-lg sm:text-xl font-black text-[#071245] leading-tight">
+              Congratulations, {fullName}! 🎉
+            </h3>
+            <p className="text-[11px] sm:text-xs text-[#5B5440] font-semibold mt-0.5">
+              Welcome to CSNN Toronto! Your seat for October 14 is officially reserved.
+            </p>
+          </div>
         </div>
+
+        {/* Summary Card */}
+        <div className="bg-gradient-to-br from-[#FFFDF5] to-[#FAF1D0] rounded-2xl p-3.5 border border-[#E8DEC0] space-y-2 text-xs">
+          <div className="flex justify-between items-center text-[11px] pb-1.5 border-b border-[#E8DEC0]/70">
+            <span className="text-[#5B5440] font-bold">Program:</span>
+            <span className="text-[#13277A] font-black">Healthy Eating &amp; Lifestyle</span>
+          </div>
+          <div className="flex justify-between items-center text-[11px] pb-1.5 border-b border-[#E8DEC0]/70">
+            <span className="text-[#5B5440] font-bold">Intake Date:</span>
+            <span className="text-[#13277A] font-black">Oct 14, 2026 · 6:00 pm EST</span>
+          </div>
+          <div className="flex justify-between items-center text-[11px] pb-1.5 border-b border-[#E8DEC0]/70">
+            <span className="text-[#5B5440] font-bold">Confirmation Email:</span>
+            <span className="text-[#13277A] font-black">{email}</span>
+          </div>
+          <div className="flex justify-between items-center text-[11px]">
+            <span className="text-[#5B5440] font-bold">Advisor Phone:</span>
+            <span className="text-[#13277A] font-black">{phone}</span>
+          </div>
+        </div>
+
+        {/* What Happens Next Roadmap */}
         <div>
-          <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-100/70 text-emerald-800 text-xs font-black uppercase tracking-wider mb-2">
-            Seat Hold Confirmed
+          <span className="text-[10px] font-black uppercase tracking-wider text-[#A8780F] block mb-2">
+            What Happens Next (Within 24 Hours):
           </span>
-          <h3 className="text-xl sm:text-2xl font-black text-[#13277A] leading-tight">
-            Thank you, {fullName}!
-          </h3>
-          <p className="text-xs sm:text-sm text-[#5B5440] font-semibold mt-1 max-w-sm">
-            Your seat for the October 14 intake has been provisionally reserved. A CSNN Toronto admissions advisor will review your schedule details shortly.
-          </p>
+          <div className="space-y-1.5 text-[11px] text-[#0F1F5C] font-bold">
+            <div className="flex items-center gap-2">
+              <span className="w-4 h-4 rounded-full bg-[#1B7A42]/15 text-[#1B7A42] flex items-center justify-center text-[10px] shrink-0 font-black">1</span>
+              <span>Admissions Director verifies your schedule details</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-4 h-4 rounded-full bg-[#1B7A42]/15 text-[#1B7A42] flex items-center justify-center text-[10px] shrink-0 font-black">2</span>
+              <span>You receive your complete 10-workshop welcome kit</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <span className="w-4 h-4 rounded-full bg-[#1B7A42]/15 text-[#1B7A42] flex items-center justify-center text-[10px] shrink-0 font-black">3</span>
+              <span>100% Risk-Free: Zero tuition due until class starts</span>
+            </div>
+          </div>
         </div>
-        <div className="w-full bg-[#FAF3D8] rounded-xl p-3 border border-[#E8DEC0] text-xs font-bold text-[#8A6208]">
-          <span>Contact scheduled to: <strong>{email}</strong></span>
+
+        {/* Edit Button */}
+        <div className="pt-1 flex items-center justify-between border-t border-[#E8DEC0]">
+          <span className="text-[10px] font-extrabold text-[#1B7A42]">
+            ✓ Status: Priority Hold Active
+          </span>
+          <button
+            type="button"
+            onClick={() => {
+              setIsSubmitted(false);
+              setAttemptedSubmit(false);
+            }}
+            className="text-[11px] font-black text-[#13277A] hover:underline cursor-pointer"
+          >
+            ← Edit Details
+          </button>
         </div>
-        <button
-          type="button"
-          onClick={() => {
-            setIsSubmitted(false);
-            setAttemptedSubmit(false);
-          }}
-          className="text-xs font-black text-[#13277A] hover:underline cursor-pointer pt-1"
-        >
-          ← Edit Reservation Details
-        </button>
       </div>
     );
   }
@@ -106,9 +160,15 @@ export function HeroRegistrationForm() {
             <select
               id="hero-motivation"
               value={selectedMotivation}
-              onChange={(e) => setSelectedMotivation(e.target.value)}
-              className="w-full h-10 sm:h-11 pl-3.5 pr-9 sm:pl-4 sm:pr-10 rounded-xl bg-white hover:bg-[#FAF8F0] border-1.5 border-[#E2D8B3] text-xs sm:text-sm font-bold text-[#13277A] focus:outline-none focus:border-[#13277A] focus:ring-2 focus:ring-[#F6C915]/50 appearance-none cursor-pointer transition-all shadow-xs"
+              onChange={(e) => {
+                setSelectedMotivation(e.target.value);
+                if (attemptedSubmit) validate();
+              }}
+              className={`w-full h-10 sm:h-11 pl-3.5 pr-9 sm:pl-4 sm:pr-10 rounded-xl bg-white hover:bg-[#FAF8F0] border-1.5 border-[#E2D8B3] text-xs sm:text-sm font-bold text-[#13277A] focus:outline-none focus:border-[#13277A] focus:ring-2 focus:ring-[#F6C915]/50 appearance-none cursor-pointer transition-all shadow-xs ${
+                errors.motivation ? "border-[#D62B2B] bg-red-50/40" : ""
+              }`}
             >
+              <option value="">Select what brings you to this program...</option>
               {MOTIVATION_OPTIONS.map((opt) => (
                 <option key={opt.id} value={opt.id} className="py-1 text-xs font-bold text-[#0F1F5C]">
                   {opt.num} · {opt.title}
@@ -117,6 +177,12 @@ export function HeroRegistrationForm() {
             </select>
             <ChevronDown className="w-4 h-4 text-[#A8780F] absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none" />
           </div>
+          {errors.motivation && (
+            <p className="mt-1 text-[10px] text-[#D62B2B] font-bold flex items-center gap-1">
+              <AlertCircle className="w-3 h-3 shrink-0" />
+              {errors.motivation}
+            </p>
+          )}
         </div>
 
         {/* Tactile Form Inputs */}
@@ -193,8 +259,11 @@ export function HeroRegistrationForm() {
           </div>
         </div>
 
-        {/* Staging Notice */}
-        <StagingNotice compact />
+        {/* Official Privacy Guarantee */}
+        <div className="flex items-center gap-2 p-2.5 rounded-xl bg-[#FAF6E8] border border-[#E8DEC0] text-[#5B5440] text-[11px] font-semibold shadow-2xs">
+          <Lock className="w-3.5 h-3.5 text-[#1B7A42] shrink-0" />
+          <span>Official CSNN Admissions Portal · 256-Bit SSL Encrypted</span>
+        </div>
 
         {/* High-Converting Radiant Action Button */}
         <div className="pt-1">

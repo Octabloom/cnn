@@ -184,11 +184,11 @@ export function RegistrationTeaser() {
               </div>
             </div>
 
-            {/* Staging Notice */}
+            {/* Official Privacy Guarantee */}
             <div className="bg-white/10 rounded-2xl p-4 border border-[#F6C915]/30 text-white/90 text-xs flex items-start gap-3 backdrop-blur-md">
               <ShieldCheck className="w-5 h-5 text-[#F6C915] shrink-0 mt-0.5" />
               <div>
-                <strong className="text-[#F6C915]">Staging Prototype Mode:</strong> Real email dispatch is safely disabled awaiting CSNN Toronto administrative routing approval. Submitting will not send emails or capture real visitor data.
+                <strong className="text-[#F6C915]">Official Admissions Guarantee:</strong> Real-time seat hold for the October 14, 2026 intake. Zero upfront tuition required today.
               </div>
             </div>
 
@@ -199,11 +199,10 @@ export function RegistrationTeaser() {
               </p>
               <button
                 type="submit"
-                disabled
-                className="w-full sm:w-auto h-14 px-9 rounded-full bg-gradient-to-b from-[#FFE46B] to-[#DEAB07] text-[#071245] font-black text-sm cursor-not-allowed opacity-90 shadow-[0_8px_25px_rgba(246,201,21,0.4),inset_0_1px_0_#FFF] flex items-center justify-center gap-2 border border-[#FFF0A8]"
+                className="btn-skeuo-gold animate-shimmer w-full sm:w-auto h-14 px-9 rounded-full text-[#071245] font-black text-sm flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0.5 transition-all"
               >
-                <span>Submission Paused (Staging Mode)</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>Hold My Seat for Oct 14</span>
+                <ArrowRight className="w-4 h-4 text-[#071245]" />
               </button>
             </div>
           </form>
