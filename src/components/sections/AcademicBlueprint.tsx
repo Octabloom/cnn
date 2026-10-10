@@ -99,8 +99,8 @@ export function AcademicBlueprint() {
             </p>
           </div>
 
-          {/* Desktop Undulating Snake Timeline (hidden on mobile) */}
-          <div className="hidden md:block w-full relative px-1 sm:px-3">
+          {/* Desktop Undulating Snake Timeline (hidden on mobile, zero overflow) */}
+          <div className="hidden md:block w-full relative px-1 sm:px-3 overflow-hidden">
             {/* Underlying Mathematical Sine Wave SVG */}
             <div className="absolute inset-0 pointer-events-none z-0">
               <svg
@@ -223,46 +223,80 @@ export function AcademicBlueprint() {
             </div>
           </div>
 
-          {/* Mobile Vertical Pathway Stepper (Clean, Legible & Compact on Mobile) */}
-          <div className="block md:hidden space-y-4 relative px-1 sm:px-2">
-            {/* Vertical Spine Line */}
-            <div className="absolute left-[25px] top-5 bottom-5 w-[2px] bg-gradient-to-b from-[#13277A] via-[#F6C915] to-[#1B7A42] z-0" />
+          {/* Mobile Undulating Snake Timeline (Same Wave & Nodes, Fits 100% on Mobile with Zero Horizontal Scroll) */}
+          <div className="block md:hidden w-full relative px-2 sm:px-4 py-2">
+            
+            {/* Undulating Snake Wave SVG Spine */}
+            <div className="absolute left-[26px] top-4 bottom-4 w-10 pointer-events-none z-0">
+              <svg
+                className="w-full h-full"
+                viewBox="0 0 40 700"
+                preserveAspectRatio="none"
+                fill="none"
+              >
+                <defs>
+                  <linearGradient id="mobileSnakeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stopColor="#13277A" />
+                    <stop offset="25%" stopColor="#1C389E" />
+                    <stop offset="50%" stopColor="#D4A017" />
+                    <stop offset="75%" stopColor="#DEAB07" />
+                    <stop offset="100%" stopColor="#1B7A42" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M 20,10 C 38,75 2,140 20,210 C 38,280 2,350 20,420 C 38,490 2,560 20,630 L 20,690"
+                  stroke="url(#mobileSnakeGrad)"
+                  strokeWidth="3.5"
+                  strokeDasharray="6 6"
+                  strokeLinecap="round"
+                  className="animate-snake-flow"
+                />
+              </svg>
+            </div>
 
-            {milestones.map((m) => (
-              <div key={m.phase} className="flex items-start gap-3 relative z-10">
-                {/* Node */}
-                <div
-                  className={`w-9 h-9 rounded-full bg-gradient-to-b ${m.circleBg} text-white font-black text-xs flex items-center justify-center shadow-md border-2 ${m.circleRing} shrink-0 mt-0.5`}
-                >
-                  {m.colIndex + 1 < 10 ? `0${m.colIndex + 1}` : m.colIndex + 1}
-                </div>
-
-                {/* Card */}
-                <div className="flex-1 bg-white/95 backdrop-blur-md rounded-2xl p-3.5 border border-[#E8DFC2] shadow-[0_4px_16px_rgba(19,39,122,0.06)]">
-                  <div className="flex items-center justify-between gap-1 mb-1.5">
-                    <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full border ${m.badgeColor}`}>
-                      {m.phase}
-                    </span>
-                    <span className="text-[10px] text-[#5B5440] font-bold">
-                      {m.timeline}
-                    </span>
+            {/* 5 Milestone Cards along the Undulating Snake Wave */}
+            <div className="space-y-5 relative z-10">
+              {milestones.map((m) => (
+                <div key={m.phase} className="flex items-start gap-3 relative">
+                  
+                  {/* Glowing Undulating Circle Node */}
+                  <div className="flex flex-col items-center shrink-0">
+                    <div
+                      className={`w-10 h-10 rounded-full bg-gradient-to-b ${m.circleBg} text-white font-black text-xs flex items-center justify-center shadow-lg border-2 ${m.circleRing} transition-transform active:scale-95 mt-0.5`}
+                    >
+                      {m.colIndex + 1 < 10 ? `0${m.colIndex + 1}` : m.colIndex + 1}
+                    </div>
                   </div>
 
-                  <h4 className="text-xs sm:text-sm font-black text-[#13277A] leading-snug mb-1">
-                    {m.title}
-                  </h4>
+                  {/* Milestone Card (Same design & tokens as desktop) */}
+                  <div className="flex-1 bg-white/95 backdrop-blur-md rounded-2xl p-4 border border-[#E8DFC2] shadow-[0_4px_16px_rgba(19,39,122,0.06)] hover:shadow-md transition-shadow">
+                    <div className="flex items-center justify-between gap-1 mb-2">
+                      <span className={`text-[9.5px] font-black uppercase px-2.5 py-0.5 rounded-full border ${m.badgeColor}`}>
+                        {m.phase}
+                      </span>
+                      <span className="text-[11px] text-[#5B5440] font-bold">
+                        {m.timeline}
+                      </span>
+                    </div>
 
-                  <p className="text-[11px] text-[#5B5440] font-medium leading-relaxed mb-2">
-                    {m.desc}
-                  </p>
+                    <h4 className="text-sm font-black text-[#13277A] leading-snug mb-1">
+                      {m.title}
+                    </h4>
 
-                  <div className="pt-2 border-t border-[#F0E6CC] flex items-center gap-1.5 text-[9px] font-black text-[#13277A]">
-                    <span className={`w-1.5 h-1.5 rounded-full ${m.bulletColor}`} />
-                    <span className="tracking-wider">{m.tag}</span>
+                    <p className="text-xs text-[#5B5440] font-medium leading-relaxed mb-2.5">
+                      {m.desc}
+                    </p>
+
+                    <div className="pt-2 border-t border-[#F0E6CC] flex items-center gap-1.5 text-[9.5px] font-black text-[#13277A]">
+                      <span className={`w-1.5 h-1.5 rounded-full ${m.bulletColor}`} />
+                      <span className="tracking-wider">{m.tag}</span>
+                    </div>
                   </div>
+
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+
           </div>
         </div>
 

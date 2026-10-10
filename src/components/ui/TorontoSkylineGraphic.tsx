@@ -101,6 +101,11 @@ export function TorontoSkylineGraphic({
             <stop offset="60%" stopColor="#F6C915" stopOpacity="0.8" />
             <stop offset="100%" stopColor="#F6C915" stopOpacity="0" />
           </radialGradient>
+
+          {/* Road Clip Path strictly preventing overflow */}
+          <clipPath id="roadClip">
+            <rect x="0" y="400" width="560" height="80" rx="0" />
+          </clipPath>
         </defs>
 
         {/* -------------------------------------------------------------
@@ -144,16 +149,12 @@ export function TorontoSkylineGraphic({
         />
 
         {/* -------------------------------------------------------------
-            2. BACKGROUND SKYSCRAPERS (Layer 1 - Distant Downtown)
+            2. BACKGROUND SKYSCRAPERS (Layer 1 - Centered Skyline)
+            Starting at x=260 to keep x=0-255 open for hero text
             ------------------------------------------------------------- */}
-        {/* Far West Tower */}
-        <rect x="180" y="270" width="36" height="130" rx="3" fill="url(#skyScraper1)" />
-        {/* West High-rise */}
-        <rect x="220" y="235" width="44" height="165" rx="3" fill="url(#skyScraper2)" />
-        <polygon points="220,235 242,215 264,235" fill="url(#skyScraper1)" />
         {/* Mid-West Tower with Spire */}
-        <rect x="270" y="210" width="48" height="190" rx="3" fill="url(#skyScraper1)" />
-        <rect x="292" y="175" width="4" height="35" fill="#FFE875" />
+        <rect x="265" y="215" width="48" height="185" rx="3" fill="url(#skyScraper1)" />
+        <rect x="287" y="178" width="4" height="37" fill="#FFE875" />
 
         {/* East Distant Cluster */}
         <rect x="420" y="220" width="42" height="180" rx="3" fill="url(#skyScraper2)" />
@@ -226,18 +227,10 @@ export function TorontoSkylineGraphic({
         {/* -------------------------------------------------------------
             5. FOREGROUND SKYSCRAPER TOWERS (Layer 2 - Prominent Skyline)
             ------------------------------------------------------------- */}
-        {/* First Canadian Place Style (Left Tall White/Navy Highrise) */}
+        {/* West Modern Glass Tower */}
         <g>
-          <rect x="195" y="250" width="52" height="150" rx="3" fill="url(#skyScraper3)" stroke="#FFE875" strokeWidth="0.8" strokeOpacity="0.4" />
-          <polygon points="208,250 221,232 234,250" fill="url(#skyScraper1)" />
-          {/* Spire */}
-          <line x1="221" y1="232" x2="221" y2="215" stroke="#FFE875" strokeWidth="1.5" />
-        </g>
-
-        {/* Center-Left Modern Glass Tower */}
-        <g>
-          <rect x="252" y="230" width="44" height="170" rx="3" fill="url(#skyScraper2)" stroke="#FFE875" strokeWidth="0.8" strokeOpacity="0.4" />
-          <polygon points="252,230 274,218 296,230" fill="#FFE875" fillOpacity="0.2" />
+          <rect x="254" y="238" width="42" height="162" rx="3" fill="url(#skyScraper2)" stroke="#FFE875" strokeWidth="0.8" strokeOpacity="0.4" />
+          <polygon points="254,238 275,225 296,238" fill="#FFE875" fillOpacity="0.25" />
         </g>
 
         {/* Waterfront Tower (Base of CN Tower Left) */}
@@ -256,42 +249,20 @@ export function TorontoSkylineGraphic({
         {/* -------------------------------------------------------------
             6. TWINKLING GOLDEN SKYSCRAPER WINDOWS
             ------------------------------------------------------------- */}
-        {/* Cluster 1: West Towers */}
-        <g className="animate-window-1" fill="#FFE676">
-          <rect x="204" y="265" width="5" height="7" rx="1" />
-          <rect x="215" y="265" width="5" height="7" rx="1" />
-          <rect x="226" y="265" width="5" height="7" rx="1" />
-          <rect x="237" y="265" width="5" height="7" rx="1" />
-
-          <rect x="204" y="285" width="5" height="7" rx="1" />
-          <rect x="226" y="285" width="5" height="7" rx="1" />
-          <rect x="237" y="285" width="5" height="7" rx="1" />
-
-          <rect x="215" y="305" width="5" height="7" rx="1" />
-          <rect x="226" y="305" width="5" height="7" rx="1" />
-
-          <rect x="204" y="325" width="5" height="7" rx="1" />
-          <rect x="215" y="325" width="5" height="7" rx="1" />
-          <rect x="237" y="325" width="5" height="7" rx="1" />
-
-          <rect x="226" y="345" width="5" height="7" rx="1" />
-          <rect x="237" y="345" width="5" height="7" rx="1" />
-        </g>
-
-        {/* Cluster 2: Center Towers */}
+        {/* Cluster 1: Center Towers */}
         <g className="animate-window-2" fill="#FFE676">
-          <rect x="260" y="245" width="6" height="7" rx="1" />
-          <rect x="272" y="245" width="6" height="7" rx="1" />
-          <rect x="284" y="245" width="6" height="7" rx="1" />
+          <rect x="260" y="250" width="6" height="7" rx="1" />
+          <rect x="272" y="250" width="6" height="7" rx="1" />
+          <rect x="284" y="250" width="6" height="7" rx="1" />
 
-          <rect x="260" y="265" width="6" height="7" rx="1" />
-          <rect x="284" y="265" width="6" height="7" rx="1" />
+          <rect x="260" y="270" width="6" height="7" rx="1" />
+          <rect x="284" y="270" width="6" height="7" rx="1" />
 
-          <rect x="272" y="285" width="6" height="7" rx="1" />
-          <rect x="284" y="285" width="6" height="7" rx="1" />
+          <rect x="272" y="290" width="6" height="7" rx="1" />
+          <rect x="284" y="290" width="6" height="7" rx="1" />
 
-          <rect x="260" y="315" width="6" height="7" rx="1" />
-          <rect x="272" y="315" width="6" height="7" rx="1" />
+          <rect x="260" y="320" width="6" height="7" rx="1" />
+          <rect x="272" y="320" width="6" height="7" rx="1" />
 
           <rect x="308" y="305" width="5" height="6" rx="1" />
           <rect x="320" y="305" width="5" height="6" rx="1" />
@@ -303,7 +274,7 @@ export function TorontoSkylineGraphic({
           <rect x="344" y="325" width="5" height="6" rx="1" />
         </g>
 
-        {/* Cluster 3: East Towers */}
+        {/* Cluster 2: East Towers */}
         <g className="animate-window-3" fill="#FFE676">
           <rect x="404" y="255" width="6" height="7" rx="1" />
           <rect x="416" y="255" width="6" height="7" rx="1" />
@@ -326,50 +297,51 @@ export function TorontoSkylineGraphic({
         </g>
 
         {/* -------------------------------------------------------------
-            7. LAKE ONTARIO WATER BASE & ANIMATED FLOWING RIPPLES
+            7. WATERFRONT ROAD BASE & CRISP ROAD LANES
+            Strictly clipped with roadClip so no lines overflow outside
             ------------------------------------------------------------- */}
-        {/* Solid Deep Blue Lake Base */}
-        <rect x="0" y="400" width="560" height="80" fill="url(#lakeWater)" />
-        <line x1="0" y1="400" x2="560" y2="400" stroke="#F6C915" strokeWidth="1.5" />
+        <g clipPath="url(#roadClip)">
+          {/* Solid Deep Blue Road Bed */}
+          <rect x="0" y="400" width="560" height="80" fill="url(#lakeWater)" />
+          
+          {/* Top Road Curb / Yellow Line */}
+          <line x1="0" y1="400" x2="560" y2="400" stroke="#F6C915" strokeWidth="2.5" />
 
-        {/* Layer 1: Flowing Gold Ripple Wave */}
-        <path
-          d="M -40 415 C 20 408, 60 422, 120 415 C 180 408, 220 422, 280 415 C 340 408, 380 422, 440 415 C 500 408, 540 422, 600 415"
-          stroke="#F6C915"
-          strokeWidth="1.8"
-          strokeOpacity="0.8"
-          fill="none"
-          className="animate-wave-ripple"
-        />
+          {/* Upper Highway Lane: Golden Dashes */}
+          <line
+            x1="0"
+            y1="424"
+            x2="560"
+            y2="424"
+            stroke="#F6C915"
+            strokeWidth="2.5"
+            strokeDasharray="22 16"
+            strokeOpacity="0.95"
+          />
 
-        {/* Layer 2: Reverse Cyan/White Wave Highlights */}
-        <path
-          d="M -20 432 C 40 426, 80 438, 140 432 C 200 426, 240 438, 300 432 C 360 426, 400 438, 460 432 C 520 426, 560 438, 620 432"
-          stroke="#93C5FD"
-          strokeWidth="1.5"
-          strokeOpacity="0.7"
-          fill="none"
-          className="animate-wave-ripple-reverse"
-        />
+          {/* Lower Road Lane: Dashed Light Gold */}
+          <line
+            x1="0"
+            y1="448"
+            x2="560"
+            y2="448"
+            stroke="#FFE676"
+            strokeWidth="2"
+            strokeDasharray="18 14"
+            strokeOpacity="0.8"
+          />
 
-        {/* Layer 3: Lower Deep Water Wave */}
-        <path
-          d="M -40 450 C 20 444, 60 456, 120 450 C 180 444, 220 456, 280 450 C 340 444, 380 456, 440 450 C 500 444, 540 456, 600 450"
-          stroke="#F6C915"
-          strokeWidth="1.2"
-          strokeOpacity="0.5"
-          fill="none"
-          className="animate-wave-ripple"
-        />
-
-        {/* Layer 4: Ambient Shimmer Accents */}
-        <path
-          d="M 50 465 C 100 462, 140 468, 190 465 M 270 465 C 320 462, 360 468, 410 465 M 480 465 C 510 463, 530 467, 560 465"
-          stroke="#FFFFFF"
-          strokeWidth="1"
-          strokeOpacity="0.4"
-          fill="none"
-        />
+          {/* Road Last Yellow Line in the Bottom */}
+          <line
+            x1="0"
+            y1="475"
+            x2="560"
+            y2="475"
+            stroke="#F6C915"
+            strokeWidth="3.5"
+            strokeOpacity="1"
+          />
+        </g>
       </svg>
 
       {/* Floating Badges for Enhanced Modern Aesthetic */}
