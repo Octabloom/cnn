@@ -71,7 +71,7 @@ export function RegistrationTeaser() {
                 onClick={() => setSelectedOpt(opt.id)}
                 className={`p-6 sm:p-7 rounded-[28px] text-left transition-all duration-300 cursor-pointer flex flex-col justify-between border-2 relative overflow-hidden group ${
                   isSelected
-                    ? "bg-gradient-to-br from-[#1C389E] to-[#0A1856] border-[#F6C915] shadow-[0_0_35px_rgba(246,201,21,0.35),inset_0_1px_0_rgba(255,255,255,0.3)] scale-[1.02]"
+                    ? "bg-gradient-to-br from-[#1C389E] to-[#0A1856] border-[#3861FB] shadow-[0_0_35px_rgba(56,97,251,0.45),inset_0_1px_0_rgba(255,255,255,0.3)] scale-[1.02]"
                     : "glass-card-dark border-white/15 hover:border-white/40 hover:scale-[1.01]"
                 }`}
               >
@@ -79,8 +79,8 @@ export function RegistrationTeaser() {
                   <span
                     className={`text-xs font-black tracking-widest px-3 py-1 rounded-xl shadow-sm ${
                       isSelected
-                        ? "bg-gradient-to-b from-[#FFE052] to-[#D4A017] text-[#071245] shadow-[0_2px_8px_rgba(246,201,21,0.5)]"
-                        : "bg-white/10 text-[#F6C915] border border-white/15"
+                        ? "bg-white text-[#0A1856] shadow-[0_2px_8px_rgba(56,97,251,0.5)]"
+                        : "bg-white/10 text-white/80 border border-white/15"
                     }`}
                   >
                     {opt.num}
@@ -89,7 +89,7 @@ export function RegistrationTeaser() {
                   <span
                     className={`w-5 h-5 rounded-full border-2 flex items-center justify-center transition-all ${
                       isSelected
-                        ? "border-[#F6C915] bg-[#F6C915] text-[#071245] shadow-[0_0_10px_rgba(246,201,21,0.8)]"
+                        ? "border-[#3861FB] bg-[#3861FB] text-white shadow-[0_0_10px_rgba(56,97,251,0.8)]"
                         : "border-white/30 bg-transparent"
                     }`}
                   >
@@ -98,7 +98,7 @@ export function RegistrationTeaser() {
                 </div>
 
                 <div>
-                  <h3 className="text-lg sm:text-xl font-black text-white mb-2 leading-snug group-hover:text-[#F6C915] transition-colors">
+                  <h3 className="text-lg sm:text-xl font-black text-white mb-2 leading-snug group-hover:text-blue-200 transition-colors">
                     {opt.title}
                   </h3>
                   <p className="text-xs sm:text-sm text-white/70 leading-relaxed font-normal">

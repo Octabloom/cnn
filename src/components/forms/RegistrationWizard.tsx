@@ -113,32 +113,18 @@ export function RegistrationWizard() {
   if (isSubmitted) {
     return (
       <div className="glass-card-light rounded-[22px] sm:rounded-[36px] shadow-[0_30px_80px_rgba(19,39,122,0.18)] border-2 border-white/95 overflow-hidden relative p-6 sm:p-10 text-center flex flex-col items-center gap-4 sm:gap-5 animate-in fade-in zoom-in-95 duration-400">
-        {/* 3D Skeuomorphic Animated Bouncing Correct Checkmark Icon */}
-        <div className="relative pt-2 pb-1">
-          <div className="animate-bounce-skeuo relative flex items-center justify-center select-none">
-            {/* Ambient Pulsing Glow Aura */}
-            <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-emerald-400/40 via-[#F6C915]/35 to-emerald-500/40 blur-xl animate-pulse pointer-events-none" />
+        {/* Simple & Clean Smooth Bouncing Checkmark Icon (No Golden Surround) */}
+        <div className="relative pt-1 pb-1">
+          <div className="animate-smooth-bounce relative flex items-center justify-center select-none">
+            {/* Soft Ambient Emerald Glow */}
+            <div className="absolute -inset-2 rounded-full bg-emerald-400/25 blur-lg pointer-events-none" />
 
-            {/* 3D Beveled Golden Rim / Coin Bezel */}
-            <div className="relative p-2 sm:p-2.5 rounded-full bg-gradient-to-b from-[#FFF6CC] via-[#F6C915] via-[#DF9F0E] to-[#8C6005] shadow-[0_16px_36px_rgba(7,18,69,0.28),0_6px_12px_rgba(0,0,0,0.18),inset_0_2px_2px_rgba(255,255,255,0.9),inset_0_-3px_5px_rgba(0,0,0,0.45)]">
-              {/* Inner Metallic Groove Ring */}
-              <div className="p-1 rounded-full bg-gradient-to-b from-[#7A5303] via-[#B8860B] to-[#FFE685] shadow-inner">
-                {/* 3D Emerald Gem Sphere with Specular Highlighting */}
-                <div className="w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-gradient-to-b from-[#34D399] via-[#059669] to-[#044E36] flex items-center justify-center relative overflow-hidden shadow-[inset_0_4px_8px_rgba(255,255,255,0.65),inset_0_-5px_10px_rgba(0,0,0,0.55),0_8px_20px_rgba(5,150,105,0.45)]">
-                  {/* Top 3D Curved Glass Specular Sheen */}
-                  <div className="absolute top-1 left-2.5 right-2.5 h-7 sm:h-9 rounded-t-full bg-gradient-to-b from-white/75 via-white/25 to-transparent pointer-events-none" />
-                  {/* Bottom Ambient Reflection Highlight */}
-                  <div className="absolute bottom-1.5 inset-x-4 h-3 rounded-b-full bg-gradient-to-t from-white/30 to-transparent pointer-events-none" />
-
-                  {/* 3D Embossed Heavyweight Checkmark Icon */}
-                  <Check className="w-9 h-9 sm:w-11 sm:h-11 text-white stroke-[3.8] drop-shadow-[0_3px_5px_rgba(0,0,0,0.4)] relative z-10" />
-                </div>
-              </div>
-
-              {/* Top-Right 3D Mini Golden Badge with Sparkle */}
-              <div className="absolute -top-1 -right-1 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-b from-[#FFF9D2] via-[#F6C915] to-[#B37A08] border-2 border-white shadow-[0_4px_10px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.9)] flex items-center justify-center">
-                <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#071245] fill-[#071245]" />
-              </div>
+            {/* Clean, Simple Emerald Circle */}
+            <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-b from-[#22C55E] to-[#15803D] flex items-center justify-center relative shadow-[0_10px_25px_-5px_rgba(21,128,61,0.45),0_4px_10px_rgba(0,0,0,0.1)] border-4 border-white">
+              {/* Subtle gentle curved glass highlight at top */}
+              <div className="absolute top-0.5 inset-x-2 h-5 sm:h-6 rounded-t-full bg-gradient-to-b from-white/40 to-transparent pointer-events-none" />
+              {/* Clean White Checkmark */}
+              <Check className="w-8 h-8 sm:w-10 sm:h-10 text-white stroke-[3.5] drop-shadow-sm relative z-10" />
             </div>
           </div>
         </div>
@@ -201,7 +187,7 @@ export function RegistrationWizard() {
                 {focusAreas.map((area) => (
                   <span
                     key={area}
-                    className="px-2.5 py-1 rounded-lg bg-white border border-[#E8DEC0] text-[#13277A] font-black text-[11px] shadow-2xs"
+                    className="px-2.5 py-1 rounded-lg bg-[#13277A] text-white font-black text-[11px] shadow-2xs border border-[#13277A]"
                   >
                     ✓ {area}
                   </span>
@@ -330,27 +316,27 @@ export function RegistrationWizard() {
                     type="button"
                     key={opt.id}
                     onClick={() => setMotivation(opt.id)}
-                    className={`p-3 sm:p-5 rounded-xl sm:rounded-2xl border transition-all duration-200 text-left cursor-pointer flex items-center justify-between ${
+                    className={`p-3 sm:p-5 rounded-xl sm:rounded-2xl border-2 transition-all duration-200 text-left cursor-pointer flex items-center justify-between ${
                       isSelected
-                        ? "bg-gradient-to-r from-[#FFFBEA] to-[#FFF4C7] border-[#F6C915] shadow-[0_4px_16px_rgba(246,201,21,0.25),inset_0_1px_0_rgba(255,255,255,0.9)] scale-[1.01]"
-                        : "bg-white/80 hover:bg-white border-[#EAE0B7] hover:border-[#D8C78B] shadow-sm text-[#5B5440]"
+                        ? "bg-gradient-to-r from-[#0F2472] to-[#16329C] border-[#3861FB] text-white shadow-[0_6px_20px_rgba(19,39,122,0.35)] scale-[1.01]"
+                        : "bg-white/80 hover:bg-white border-[#EAE0B7] hover:border-[#CBD5E1] shadow-sm text-[#5B5440]"
                     }`}
                   >
                     <div className="flex items-center gap-3 sm:gap-4">
                       <span
                         className={`w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center font-black text-xs shrink-0 shadow-sm ${
                           isSelected
-                            ? "bg-gradient-to-b from-[#1C389E] to-[#0A1856] text-[#F6C915] border border-[#F6C915]/50 shadow-[0_2px_8px_rgba(19,39,122,0.3)]"
-                            : "bg-gradient-to-b from-white to-[#F0E6BD] text-[#8A6208] border border-[#E5D79E]"
+                            ? "bg-white text-[#13277A] border border-white"
+                            : "bg-gradient-to-b from-white to-[#EAE0B7] text-[#13277A] border border-[#CBD5E1]"
                         }`}
                       >
                         {opt.num}
                       </span>
                       <div>
-                        <h4 className="text-xs sm:text-base font-black text-[#0F1F5C] leading-snug">
+                        <h4 className={`text-xs sm:text-base font-black leading-snug ${isSelected ? "text-white" : "text-[#0F1F5C]"}`}>
                           {opt.title}
                         </h4>
-                        <p className="text-[11px] sm:text-xs text-[#5B5440] mt-0.5 font-medium">
+                        <p className={`text-[11px] sm:text-xs mt-0.5 font-medium ${isSelected ? "text-blue-100" : "text-[#5B5440]"}`}>
                           {opt.subtitle}
                         </p>
                       </div>
@@ -359,7 +345,7 @@ export function RegistrationWizard() {
                     <span
                       className={`w-4.5 h-4.5 sm:w-5 sm:h-5 rounded-full border flex items-center justify-center shrink-0 ${
                         isSelected
-                          ? "border-[#13277A] bg-[#13277A] text-[#F6C915] shadow-sm"
+                          ? "border-white bg-white text-[#13277A] shadow-sm"
                           : "border-[#D8C78B] bg-white/60"
                       }`}
                     >
@@ -407,16 +393,16 @@ export function RegistrationWizard() {
                       type="button"
                       key={area}
                       onClick={() => toggleFocusArea(area)}
-                      className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl border font-extrabold text-xs sm:text-sm flex items-center justify-between transition-all duration-200 cursor-pointer ${
+                      className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl border-2 font-extrabold text-xs sm:text-sm flex items-center justify-between transition-all duration-200 cursor-pointer ${
                         isChecked
-                          ? "bg-gradient-to-r from-[#FFFBEA] to-[#FFF4C7] border-[#F6C915] text-[#13277A] shadow-[0_2px_10px_rgba(246,201,21,0.2)]"
-                          : "bg-white/80 border-[#EFE1AD] text-[#5B5440] hover:border-[#D8C78B]"
+                          ? "bg-gradient-to-r from-[#0F2472] to-[#16329C] border-[#3861FB] text-white shadow-[0_4px_14px_rgba(19,39,122,0.3)] scale-[1.01]"
+                          : "bg-white/80 border-[#EFE1AD] text-[#5B5440] hover:border-[#CBD5E1]"
                       }`}
                     >
                       <span>{area}</span>
                       <span
                         className={`w-4.5 h-4.5 sm:w-5 sm:h-5 rounded-lg border flex items-center justify-center shrink-0 ${
-                          isChecked ? "border-[#13277A] bg-[#13277A] text-[#F6C915]" : "border-[#EFE1AD] bg-white"
+                          isChecked ? "border-white bg-white text-[#13277A]" : "border-[#EFE1AD] bg-white"
                         }`}
                       >
                         {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
@@ -463,12 +449,12 @@ export function RegistrationWizard() {
                       }}
                       className={`p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border-2 text-left transition-all duration-200 cursor-pointer ${
                         isSelected
-                          ? "bg-gradient-to-br from-[#1C389E] to-[#0A1856] border-[#F6C915] text-white shadow-[0_6px_20px_rgba(19,39,122,0.3)] scale-[1.01]"
-                          : "bg-white/80 border-[#EFE1AD] text-[#5B5440] hover:border-[#D8C78B]"
+                          ? "bg-gradient-to-br from-[#0F2472] to-[#16329C] border-[#3861FB] text-white shadow-[0_6px_20px_rgba(19,39,122,0.35)] scale-[1.01]"
+                          : "bg-white/80 border-[#EFE1AD] text-[#5B5440] hover:border-[#CBD5E1]"
                       }`}
                     >
                       <div className="font-black text-xs sm:text-sm mb-0.5 sm:mb-1">{item.title}</div>
-                      <div className={`text-[11px] sm:text-xs ${isSelected ? "text-[#FBECB0]" : "text-[#5B5440]"}`}>
+                      <div className={`text-[11px] sm:text-xs ${isSelected ? "text-blue-100" : "text-[#5B5440]"}`}>
                         {item.desc}
                       </div>
                     </button>
@@ -504,8 +490,8 @@ export function RegistrationWizard() {
                       }}
                       className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl border-2 text-center text-xs sm:text-sm font-black transition-all cursor-pointer ${
                         isSelected
-                          ? "bg-gradient-to-br from-[#1C389E] to-[#0A1856] border-[#F6C915] text-white shadow-md"
-                          : "bg-white/80 border-[#EFE1AD] text-[#5B5440] hover:border-[#D8C78B]"
+                          ? "bg-gradient-to-br from-[#0F2472] to-[#16329C] border-[#3861FB] text-white shadow-md scale-[1.01]"
+                          : "bg-white/80 border-[#EFE1AD] text-[#5B5440] hover:border-[#CBD5E1]"
                       }`}
                     >
                       {bg}
@@ -556,8 +542,8 @@ export function RegistrationWizard() {
                       }}
                       className={`p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border-2 text-left text-xs sm:text-sm font-black transition-all cursor-pointer ${
                         isSelected
-                          ? "bg-gradient-to-br from-[#1C389E] to-[#0A1856] border-[#F6C915] text-white shadow-md scale-[1.01]"
-                          : "bg-white/80 border-[#EFE1AD] text-[#5B5440] hover:border-[#D8C78B]"
+                          ? "bg-gradient-to-br from-[#0F2472] to-[#16329C] border-[#3861FB] text-white shadow-md scale-[1.01]"
+                          : "bg-white/80 border-[#EFE1AD] text-[#5B5440] hover:border-[#CBD5E1]"
                       }`}
                     >
                       {opt}
@@ -590,8 +576,8 @@ export function RegistrationWizard() {
                       }}
                       className={`p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border-2 text-center text-xs sm:text-sm font-black transition-all cursor-pointer ${
                         isSelected
-                          ? "bg-gradient-to-br from-[#1C389E] to-[#0A1856] border-[#F6C915] text-white shadow-md"
-                          : "bg-white/80 border-[#EFE1AD] text-[#5B5440] hover:border-[#D8C78B]"
+                          ? "bg-gradient-to-br from-[#0F2472] to-[#16329C] border-[#3861FB] text-white shadow-md scale-[1.01]"
+                          : "bg-white/80 border-[#EFE1AD] text-[#5B5440] hover:border-[#CBD5E1]"
                       }`}
                     >
                       {method}

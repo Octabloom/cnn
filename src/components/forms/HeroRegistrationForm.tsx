@@ -46,21 +46,16 @@ export function HeroRegistrationForm() {
         {/* Top ambient highlight */}
         <div className="absolute inset-x-8 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#F6C915] to-transparent pointer-events-none" />
 
-        {/* Clean & Clear Celebration Header with 3D Skeuomorphic Bouncing Checkmark Icon */}
+        {/* Simple & Clean Smooth Bouncing Checkmark Icon (No Golden Surround) */}
         <div className="flex items-center gap-3.5 pb-2.5 border-b border-[#E8DEC0]">
           <div className="relative shrink-0">
-            <div className="animate-bounce-skeuo relative flex items-center justify-center select-none">
-              <div className="absolute -inset-2 rounded-full bg-emerald-400/35 blur-md animate-pulse pointer-events-none" />
-              <div className="relative p-1.5 rounded-full bg-gradient-to-b from-[#FFF6CC] via-[#F6C915] via-[#DF9F0E] to-[#8C6005] shadow-[0_10px_22px_rgba(7,18,69,0.22),inset_0_1.5px_2px_rgba(255,255,255,0.9),inset_0_-2px_4px_rgba(0,0,0,0.4)]">
-                <div className="p-0.5 rounded-full bg-gradient-to-b from-[#7A5303] via-[#B8860B] to-[#FFE685] shadow-inner">
-                  <div className="w-11 h-11 rounded-full bg-gradient-to-b from-[#34D399] via-[#059669] to-[#044E36] flex items-center justify-center relative overflow-hidden shadow-[inset_0_3px_6px_rgba(255,255,255,0.65),inset_0_-3px_6px_rgba(0,0,0,0.5),0_6px_14px_rgba(5,150,105,0.4)]">
-                    <div className="absolute top-0.5 left-1.5 right-1.5 h-4.5 rounded-t-full bg-gradient-to-b from-white/75 via-white/25 to-transparent pointer-events-none" />
-                    <Check className="w-6 h-6 text-white stroke-[3.8] drop-shadow-[0_2px_3px_rgba(0,0,0,0.4)] relative z-10" />
-                  </div>
-                </div>
-                <div className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-gradient-to-b from-[#FFF9D2] via-[#F6C915] to-[#B37A08] border border-white shadow-xs flex items-center justify-center">
-                  <Sparkles className="w-2.5 h-2.5 text-[#071245] fill-[#071245]" />
-                </div>
+            <div className="animate-smooth-bounce relative flex items-center justify-center select-none">
+              {/* Soft Ambient Emerald Glow */}
+              <div className="absolute -inset-1.5 rounded-full bg-emerald-400/25 blur-md pointer-events-none" />
+              {/* Clean, Simple Emerald Circle */}
+              <div className="w-12 h-12 rounded-full bg-gradient-to-b from-[#22C55E] to-[#15803D] flex items-center justify-center relative shadow-[0_8px_20px_-4px_rgba(21,128,61,0.45)] border-3 border-white">
+                <div className="absolute top-0.5 inset-x-1.5 h-4 rounded-t-full bg-gradient-to-b from-white/40 to-transparent pointer-events-none" />
+                <Check className="w-6 h-6 text-white stroke-[3.5] drop-shadow-sm relative z-10" />
               </div>
             </div>
           </div>

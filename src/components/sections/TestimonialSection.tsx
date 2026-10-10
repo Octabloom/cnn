@@ -92,13 +92,13 @@ export function TestimonialSection() {
               onClick={() => handleCategoryChange("helc")}
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-black transition-all shadow-xs border ${
                 activeCategory === "helc"
-                  ? "bg-[#13277A] text-[#F6C915] border-[#13277A] shadow-md scale-[1.02]"
+                  ? "bg-[#13277A] text-white border-[#3861FB] shadow-md scale-[1.02]"
                   : "bg-white/90 text-[#13277A] border-[#E8DEC0] hover:bg-white"
               }`}
             >
-              <BookOpen className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F6C915]" />
+              <BookOpen className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${activeCategory === "helc" ? "text-blue-200" : "text-[#13277A]"}`} />
               <span>Healthy Eating &amp; Lifestyle (HELC)</span>
-              <span className="px-1.5 py-0.2 rounded-md bg-[#F6C915] text-[#071245] text-[10px] font-black">
+              <span className={`px-1.5 py-0.2 rounded-md text-[10px] font-black ${activeCategory === "helc" ? "bg-white text-[#13277A]" : "bg-[#13277A]/10 text-[#13277A]"}`}>
                 {HELC_TESTIMONIALS.length}
               </span>
             </button>
@@ -108,13 +108,13 @@ export function TestimonialSection() {
               onClick={() => handleCategoryChange("graduate")}
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-black transition-all shadow-xs border ${
                 activeCategory === "graduate"
-                  ? "bg-[#13277A] text-[#F6C915] border-[#13277A] shadow-md scale-[1.02]"
+                  ? "bg-[#13277A] text-white border-[#3861FB] shadow-md scale-[1.02]"
                   : "bg-white/90 text-[#13277A] border-[#E8DEC0] hover:bg-white"
               }`}
             >
-              <GraduationCap className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F6C915]" />
+              <GraduationCap className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${activeCategory === "graduate" ? "text-blue-200" : "text-[#13277A]"}`} />
               <span>Graduate Alumni Journeys</span>
-              <span className="px-1.5 py-0.2 rounded-md bg-[#F6C915] text-[#071245] text-[10px] font-black">
+              <span className={`px-1.5 py-0.2 rounded-md text-[10px] font-black ${activeCategory === "graduate" ? "bg-white text-[#13277A]" : "bg-[#13277A]/10 text-[#13277A]"}`}>
                 {GRADUATE_TESTIMONIALS.length}
               </span>
             </button>
@@ -124,13 +124,13 @@ export function TestimonialSection() {
               onClick={() => handleCategoryChange("quick")}
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-black transition-all shadow-xs border ${
                 activeCategory === "quick"
-                  ? "bg-[#13277A] text-[#F6C915] border-[#13277A] shadow-md scale-[1.02]"
+                  ? "bg-[#13277A] text-white border-[#3861FB] shadow-md scale-[1.02]"
                   : "bg-white/90 text-[#13277A] border-[#E8DEC0] hover:bg-white"
               }`}
             >
-              <MessageSquare className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F6C915]" />
+              <MessageSquare className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${activeCategory === "quick" ? "text-blue-200" : "text-[#13277A]"}`} />
               <span>Student Reflections</span>
-              <span className="px-1.5 py-0.2 rounded-md bg-[#F6C915] text-[#071245] text-[10px] font-black">
+              <span className={`px-1.5 py-0.2 rounded-md text-[10px] font-black ${activeCategory === "quick" ? "bg-white text-[#13277A]" : "bg-[#13277A]/10 text-[#13277A]"}`}>
                 {QUICK_STUDENT_REVIEWS.length}
               </span>
             </button>
@@ -268,7 +268,7 @@ export function TestimonialSection() {
                   onClick={() => setSelectedId(item.id)}
                   className={`px-3 py-1 rounded-xl text-xs font-bold transition-all border ${
                     selectedId === item.id
-                      ? "bg-[#13277A] text-[#F6C915] border-[#13277A] font-black shadow-xs scale-105"
+                      ? "bg-[#13277A] text-white border-[#3861FB] font-black shadow-xs scale-105"
                       : "bg-white/80 text-[#13277A] border-[#E8DEC0] hover:bg-white"
                   }`}
                 >
