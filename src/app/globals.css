@@ -130,11 +130,11 @@
 }
 
 @keyframes smoothBeam {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(250%); }
+  0% { transform: translateX(-150px); }
+  100% { transform: translateX(calc(100vw + 150px)); }
 }
 .animate-smooth-beam {
-  animation: smoothBeam 2.2s linear infinite;
+  animation: smoothBeam 4.5s linear infinite;
 }
 
 
