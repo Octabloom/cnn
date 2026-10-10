@@ -1,0 +1,310 @@
+export interface TestimonialItem {
+  id: string;
+  category: "helc" | "graduate" | "quick";
+  name: string;
+  role: string;
+  program: string;
+  avatarText: string;
+  avatarBg: string;
+  rating: number;
+  badge: string;
+  timeAgo: string;
+  headline?: string;
+  quote: string;
+  highlightChip?: string;
+  likes: number;
+}
+
+export const HELC_TESTIMONIALS: TestimonialItem[] = [
+  {
+    id: "helc-1",
+    category: "helc",
+    name: "HELC Student",
+    role: "Healthy Eating & Lifestyle Certificate Student",
+    program: "10 Live Online Workshops",
+    avatarText: "HS",
+    avatarBg: "bg-emerald-600",
+    rating: 5,
+    badge: "Verified Workshop Student",
+    timeAgo: "2 hours ago",
+    headline: "Completely satisfied with theoretical & practical knowledge",
+    quote:
+      "Thank you for the comprehensive workshop you have presented and which I am completely satisfied with all the theoretical and practical knowledge I have acquired and revisited. We are very lucky to have a teacher providing us with so much excellent information from her own client-based practice and educational background. We appreciate our highly qualified instructor and all the time and patience they have provided.",
+    highlightChip: "Real Client-Based Practice Insights",
+    likes: 38,
+  },
+  {
+    id: "helc-2",
+    category: "helc",
+    name: "HELC Student",
+    role: "Live Online Workshop Participant",
+    program: "Healthy Eating & Lifestyle Certificate",
+    avatarText: "HL",
+    avatarBg: "bg-amber-600",
+    rating: 5,
+    badge: "Interactive Evening Session",
+    timeAgo: "Yesterday",
+    headline: "Passionate, engaging instructor & detailed slides",
+    quote:
+      "I enjoyed the class. The instructor was so passionate and engaging. The content and slides were detailed and informative.",
+    highlightChip: "Engaging & Detailed Curriculum",
+    likes: 24,
+  },
+  {
+    id: "helc-3",
+    category: "helc",
+    name: "HELC Student",
+    role: "Healthy Eating & Lifestyle Certificate Student",
+    program: "10 Workshops · Practical Kitchen Habits",
+    avatarText: "HM",
+    avatarBg: "bg-blue-600",
+    rating: 5,
+    badge: "Hands-on Meal Planning",
+    timeAgo: "3 days ago",
+    headline: "Practical recipes we can easily implement in our health journey",
+    quote:
+      "The instructor is very knowledgeable as a facilitator, positive and upbeat. The content itself is excellent as I have learned so much. Group work has been positive to allow for getting to know other participants and sharing ideas. Practical exercises of developing meal ideas incorporating the week's learnings has been very helpful as we can easily implement these recipes to help our health journey.",
+    highlightChip: "Practical Kitchen Recipes",
+    likes: 42,
+  },
+  {
+    id: "helc-4",
+    category: "helc",
+    name: "HELC Student",
+    role: "Healthy Eating & Lifestyle Certificate Student",
+    program: "Certificate Completion",
+    avatarText: "HA",
+    avatarBg: "bg-purple-600",
+    rating: 5,
+    badge: "100% Positive Learning Environment",
+    timeAgo: "5 days ago",
+    headline: "Strengthened my understanding & opened new windows for study",
+    quote:
+      "I wanted to express my sincere appreciation for the wonderful Healthy Eating & Lifestyle course we shared. I am truly grateful for the opportunity to participate and learn from CSNN Toronto. This course not only strengthened my understanding of nutrition but also opened new windows for deeper study and exploration. Each session inspired me to continue learning and improving my lifestyle. Thank you again for your guidance, support, and the positive learning environment you created.",
+    highlightChip: "Inspiring Lifestyle Transformation",
+    likes: 51,
+  },
+];
+
+export const GRADUATE_TESTIMONIALS: TestimonialItem[] = [
+  {
+    id: "ciara-m",
+    category: "graduate",
+    name: "Ciara M.",
+    role: "R.H.N. · Live Online Graduate",
+    program: "Live Online Experience",
+    avatarText: "CM",
+    avatarBg: "bg-[#13277A]",
+    rating: 5,
+    badge: "Toddler Parent & Live Online",
+    timeAgo: "Verified Review",
+    headline: "Truly blown away by how nicely it all came together",
+    quote:
+      "My experience was fantastic…I wasn’t sure what to expect from a virtual experience, but I was truly blown away by how nicely it all came together. Even with young toddlers at home, I was able to balance my schedule. The instructors were so incredibly understanding and accommodating and worked hard to help me thrive…I always felt really well supported on this adventure. I had the most amazing classmates. I never felt so closely connected to people online. We just had so much in common and had a general sense of excitement to learn.",
+    highlightChip: "Flexible Schedule for Busy Parents",
+    likes: 67,
+  },
+  {
+    id: "alexandria-m",
+    category: "graduate",
+    name: "Alexandria M.",
+    role: "CSNN Toronto Graduate",
+    program: "Holistic Practice Practitioner",
+    avatarText: "AM",
+    avatarBg: "bg-[#B8860B]",
+    rating: 5,
+    badge: "Why CSNN Toronto?",
+    timeAgo: "Verified Review",
+    headline: "Empowering knowledge, not just information thrown at you",
+    quote:
+      "I chose CSNN Toronto because I wanted more than just information — I sought an education that would empower me to honor the body’s innate wisdom and nurture the mind and body through food. CSNN’s comprehensive and compassionate program gave me the tools and confidence to guide others in rebuilding their relationship with food and themselves. It opened a meaningful pathway to blend nutrition and wellbeing into a holistic practice that truly resonates with who I am and the impact I want to make.",
+    highlightChip: "Empowering Whole-Body Science",
+    likes: 83,
+  },
+  {
+    id: "clare-h",
+    category: "graduate",
+    name: "Clare H.",
+    role: "CSNN Toronto Graduate · Founder, Clarity Wellness",
+    program: "Nutrition Practice Founder",
+    avatarText: "CH",
+    avatarBg: "bg-teal-700",
+    rating: 5,
+    badge: "Business Founder",
+    timeAgo: "Verified Review",
+    headline: "Transformative — Founded my nutrition business Clarity Wellness",
+    quote:
+      "My experience at CSNN Toronto was nothing short of transformative! I felt like a sponge while I was in class – soaking up all the information I could. I loved the perspectives of all my teachers who had unique backgrounds and interests in various fields of nutrition. While I enrolled mainly for the nutrition and food component of the program, I found myself absolutely loving the lifestyle component and the emphasis on mind-body-spirit connection. I truly feel that I gained so much during my time at CSNN Toronto. I graduated with the confidence to start my own nutritional consulting business, Clarity Wellness, and have regularly implemented my learnings from class to consultations with my clients. I recommend CSNN Toronto to anyone who is looking to deepen their connection to themselves and to their health and wellness through holistic living and nutrition!",
+    highlightChip: "Founded Clarity Wellness Consulting",
+    likes: 92,
+  },
+  {
+    id: "vida-n",
+    category: "graduate",
+    name: "Vida N.",
+    role: "CSNN Toronto Graduate",
+    program: "Evidence-Based Nutrition",
+    avatarText: "VN",
+    avatarBg: "bg-indigo-700",
+    rating: 5,
+    badge: "Root-Cause Discovery",
+    timeAgo: "Verified Review",
+    headline: "Evidence-based lifestyle changes to discover root causes",
+    quote:
+      "I was drawn to CSNN Toronto because I was seeking evidence-based dietary and lifestyle changes that would help me understand the root of my symptoms and discover natural ways to support my body. My journey with CSNN Toronto was truly transformative, equipping me with the expertise, clarity, and confidence to make a meaningful impact for my health and now the health of others. The consistent and genuine support from the faculty, Alumni Association, and entire CSNN Toronto team empowered me to grow both personally and professionally. I am incredibly grateful for this education and community.",
+    highlightChip: "Evidence-Based Symptom Support",
+    likes: 54,
+  },
+  {
+    id: "caroline-c",
+    category: "graduate",
+    name: "Caroline C.",
+    role: "CSNN Toronto Graduate · Nutrition Practice Owner",
+    program: "Finance to Nutrition Transition",
+    avatarText: "CC",
+    avatarBg: "bg-rose-700",
+    rating: 5,
+    badge: "Career Pivot Success",
+    timeAgo: "Verified Review",
+    headline: "Balanced full-time career with flexible online study",
+    quote:
+      "I’m so glad that I chose CSNN Toronto. I did a lot of research and I liked how well-established the school was as well as the flexibility that it offered especially while balancing a full-time job during my studies. I also loved that the CSNN Toronto curriculum included courses like anatomy, symptomatology, biochemistry, pathology and understanding nutrition research as these were areas that I wanted to learn more about given that my background was in economics and finance. CSNN Toronto gave me all of the tools that I needed to now run my own nutrition practice and I couldn’t be happier with my choice!",
+    highlightChip: "From Economics & Finance to Nutrition Practice",
+    likes: 76,
+  },
+  {
+    id: "melissa-m",
+    category: "graduate",
+    name: "Melissa M.",
+    role: "CSNN Toronto Graduate · Certified Mindfulness Practitioner",
+    program: "Mind-Body-Spirit Focus",
+    avatarText: "MM",
+    avatarBg: "bg-emerald-700",
+    rating: 5,
+    badge: "Mindfulness Specialist",
+    timeAgo: "Verified Review",
+    headline: "Well-rounded holistic approach & practical peer learning",
+    quote:
+      "I chose CSNN Toronto because of its well-rounded approach to holistic nutrition, taking into consideration the mind and body as factors that affect our everyday wellbeing along with our nutrition. As a certified mindfulness practitioner, the holistic approach was extremely important to me. CSNN Toronto content was extremely insightful, alongside the practical learning I drew from my peers and instructors. The ability to do the course online was also incredible, as it enabled me to keep up with my work and family, while completing the course and I could do it from almost anywhere.",
+    highlightChip: "Study Online From Anywhere",
+    likes: 61,
+  },
+  {
+    id: "paige-p",
+    category: "graduate",
+    name: "Paige P.",
+    role: "CSNN Toronto Graduate · B.A.Sc. Applied Human Nutrition",
+    program: "Applied Nutrition Degree Holder",
+    avatarText: "PP",
+    avatarBg: "bg-cyan-700",
+    rating: 5,
+    badge: "Degree Holder Graduate",
+    timeAgo: "Verified Review",
+    headline: "Built on university degree with non-clinical holistic wisdom",
+    quote:
+      "After I completed a B.A.Sc. in Applied Human Nutrition, I wondered if there was still more to learn about nutrition from a non-clinical perspective. I then found CSNN Toronto and discovered that my academic journey was only beginning. CSNN Toronto built onto the knowledge that I had gained during my undergraduate program and incorporated different ways of thinking and approaching the needs of clients. One of the greatest experiences I had during the natural nutrition program was the connections you create with the instructors. As professionals, they truly want to see their students succeed and apply what we learn to real life experiences that they have had. I now feel that I have a full scope of what the power of nutrition can offer to clients and to my own health.",
+    highlightChip: "Connections with Expert Faculty",
+    likes: 58,
+  },
+  {
+    id: "grad-curriculum",
+    category: "graduate",
+    name: "CSNN Toronto Graduate",
+    role: "Certified Holistic Nutritionist",
+    program: "Comprehensive Modules",
+    avatarText: "CG",
+    avatarBg: "bg-slate-700",
+    rating: 5,
+    badge: "Curriculum Excellence",
+    timeAgo: "Verified Review",
+    headline: "In-depth modules that challenge how you think about the body",
+    quote:
+      "After reviewing the curriculum for CSNN, I knew this was the program for me. They include such an in-depth and diverse range of modules that will challenge how you think and give appreciation on how the body functions. The education and support I received has been the best I have seen with very knowledgeable instructors. They are with you every step of the way. And now I am equipped with the expertise to give back and help others in their journey.",
+    highlightChip: "Knowledgeable Instructors Every Step",
+    likes: 49,
+  },
+];
+
+export const QUICK_STUDENT_REVIEWS: TestimonialItem[] = [
+  {
+    id: "student-1",
+    category: "quick",
+    name: "Student 1",
+    role: "Graduating Student",
+    program: "CSNN Toronto Cohort",
+    avatarText: "S1",
+    avatarBg: "bg-amber-500",
+    rating: 5,
+    badge: "Graduation Reflection",
+    timeAgo: "1 day ago",
+    quote:
+      "What a journey I went through. It felt more like a roller coaster ride. Thank you so much for all your support throughout the journey. Can't believe I am about to graduate! I have learned so much from CSNN Toronto.",
+    likes: 31,
+  },
+  {
+    id: "student-2",
+    category: "quick",
+    name: "Student 2",
+    role: "Interactive Class Student",
+    program: "Live Online Classes",
+    avatarText: "S2",
+    avatarBg: "bg-emerald-500",
+    rating: 5,
+    badge: "Classroom Quality",
+    timeAgo: "2 days ago",
+    quote:
+      "I like the efforts and preparations some instructors have put for the classes. You can see that they are not just giving a lecture but they are taking you to real-life experience.",
+    likes: 27,
+  },
+  {
+    id: "student-3",
+    category: "quick",
+    name: "Student 3",
+    role: "Practicum Student",
+    program: "Mind & Body Component",
+    avatarText: "S3",
+    avatarBg: "bg-blue-500",
+    rating: 5,
+    badge: "Mind-Body Practicums",
+    timeAgo: "4 days ago",
+    quote:
+      "I really liked the body and mind component which I feel makes it truly holistic. I also learned a lot through the practicums.",
+    likes: 35,
+  },
+  {
+    id: "student-4",
+    category: "quick",
+    name: "Student 4",
+    role: "Current Student",
+    program: "Coordinator & Faculty Support",
+    avatarText: "S4",
+    avatarBg: "bg-purple-500",
+    rating: 5,
+    badge: "Staff & Textbooks",
+    timeAgo: "6 days ago",
+    quote:
+      "The easy communication with the program coordinator, the teachers are awesome, and readable textbooks/readings are well written.",
+    likes: 29,
+  },
+  {
+    id: "student-5",
+    category: "quick",
+    name: "Student 5",
+    role: "Comprehensive Health Student",
+    program: "Broad Curriculum Coverage",
+    avatarText: "S5",
+    avatarBg: "bg-pink-500",
+    rating: 5,
+    badge: "Broad Curriculum",
+    timeAgo: "1 week ago",
+    quote:
+      "Enjoyed all course content that was taught and how it covered many different areas of health and wellness.",
+    likes: 33,
+  },
+];
+
+export const ALL_TESTIMONIALS: TestimonialItem[] = [
+  ...HELC_TESTIMONIALS,
+  ...GRADUATE_TESTIMONIALS,
+  ...QUICK_STUDENT_REVIEWS,
+];
