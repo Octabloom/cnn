@@ -74,7 +74,7 @@ export function AcademicBlueprint() {
     <section
       id="blueprint"
       data-screen-label="09 Academic Blueprint"
-      className="py-12 sm:py-20 lg:py-24 bg-gradient-to-b from-[#FDF8E8] via-[#FAF2D4] to-[#FDF8E8] border-b border-[#EFE1AD] relative overflow-hidden"
+      className="py-8 sm:py-12 lg:py-14 bg-gradient-to-b from-[#FDF8E8] via-[#FAF2D4] to-[#FDF8E8] border-b border-[#EFE1AD] relative overflow-hidden"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#F6C915]/15 rounded-full blur-3xl pointer-events-none" />
@@ -86,7 +86,7 @@ export function AcademicBlueprint() {
             ========================================================================= */}
         <div>
           {/* Centered Timeline Header */}
-          <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-12">
+          <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
             <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 text-[#8A6208] text-xs font-black tracking-widest uppercase mb-4 border border-[#EFE1AD] shadow-sm backdrop-blur-sm">
               <Sparkles className="w-3.5 h-3.5 text-[#F6C915]" />
               <span>ACADEMIC &amp; CLINICAL BLUEPRINT</span>

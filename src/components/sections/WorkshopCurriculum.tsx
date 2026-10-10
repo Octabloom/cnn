@@ -13,7 +13,7 @@ export function WorkshopCurriculum() {
     <section
       id="curriculum"
       data-screen-label="06 Workshops"
-      className="py-12 sm:py-20 lg:py-28 bg-[#FBF4D8] border-b border-[#EFE1AD] relative overflow-hidden"
+      className="py-8 sm:py-12 lg:py-14 bg-[#FBF4D8] border-b border-[#EFE1AD] relative overflow-hidden"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-1/3 -left-32 w-96 h-96 bg-[#F6C915]/10 rounded-full blur-3xl pointer-events-none" />
@@ -22,7 +22,7 @@ export function WorkshopCurriculum() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Centered Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-14">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/90 text-[#8A6208] text-[11px] sm:text-xs font-black tracking-widest uppercase mb-3 border border-[#EFE1AD] shadow-sm backdrop-blur-sm">
             <BookOpen className="w-3.5 h-3.5 text-[#F6C915]" />
             <span>10 HOLISTIC NUTRITION WORKSHOPS</span>

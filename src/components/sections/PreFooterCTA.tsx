@@ -4,7 +4,7 @@ import { PROGRAM_INFO } from "@/data/programData";
 
 export function PreFooterCTA() {
   return (
-    <section className="py-12 sm:py-20 bg-gradient-to-b from-[#FBF4D8] via-[#FDF8E8] to-[#FAF2D4] relative overflow-hidden border-t border-[#EFE1AD]">
+    <section className="py-8 sm:py-12 lg:py-14 bg-gradient-to-b from-[#FBF4D8] via-[#FDF8E8] to-[#FAF2D4] relative overflow-hidden border-t border-[#EFE1AD]">
       {/* Background Ambient Warm Glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-[#F6C915]/15 rounded-full blur-3xl pointer-events-none" />
 

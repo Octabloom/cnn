@@ -42,7 +42,7 @@ export function LearningExperience() {
     <section
       id="how-it-works"
       data-screen-label="05 How you'll learn"
-      className="py-12 sm:py-20 lg:py-22 bg-[#FDF6DC] border-b border-[#EFE1AD] relative overflow-hidden"
+      className="py-8 sm:py-12 lg:py-14 bg-[#FDF6DC] border-b border-[#EFE1AD] relative overflow-hidden"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-1/4 left-0 w-80 h-80 bg-[#F6C915]/10 rounded-full blur-3xl pointer-events-none" />
@@ -51,7 +51,7 @@ export function LearningExperience() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Simple & Clean Centered Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/95 text-[#8A6208] text-[11px] sm:text-xs font-black tracking-widest uppercase mb-2.5 border border-[#E8DEC0] shadow-xs backdrop-blur-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#F6C915]" />
             <span>HOW YOU&apos;LL LEARN</span>

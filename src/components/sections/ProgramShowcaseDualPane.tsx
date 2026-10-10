@@ -37,7 +37,7 @@ export function ProgramShowcaseDualPane() {
     <section
       id="program-showcase"
       data-screen-label="01.5 Dual Pane Program Showcase"
-      className="w-full relative py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-[#FDF6DC] via-[#FFFDF9] to-[#FAF1D0] border-b border-[#E8DEC0]/80 overflow-hidden"
+      className="w-full relative py-8 sm:py-12 lg:py-14 bg-gradient-to-b from-[#FDF6DC] via-[#FFFDF9] to-[#FAF1D0] border-b border-[#E8DEC0]/80 overflow-hidden"
     >
       {/* Ambient Atmospheric Sun & Azure Glows */}
       <div className="absolute top-10 left-10 w-96 h-96 rounded-full bg-[#F6C915]/15 blur-3xl pointer-events-none" />

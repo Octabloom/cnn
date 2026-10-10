@@ -9,10 +9,13 @@ import {
   ArrowRight,
   ArrowLeft,
   ShieldCheck,
+  CheckCircle2,
+  Sparkles,
 } from "lucide-react";
 
 export function RegistrationWizard() {
   const [currentStep, setCurrentStep] = useState<number>(1);
+  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
   // Form State
   const [motivation, setMotivation] = useState<string>("health-energy");
@@ -87,6 +90,55 @@ export function RegistrationWizard() {
   };
 
   const progressPct = currentStep * 25;
+
+  if (isSubmitted) {
+    return (
+      <div className="glass-card-light rounded-[22px] sm:rounded-[36px] shadow-[0_30px_80px_rgba(19,39,122,0.15)] border-2 border-white/90 overflow-hidden relative p-6 sm:p-10 text-center flex flex-col items-center gap-4 sm:gap-6 animate-in fade-in zoom-in-95 duration-300">
+        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-emerald-50 border-3 border-emerald-400 flex items-center justify-center text-emerald-600 shadow-lg">
+          <CheckCircle2 className="w-9 h-9 sm:w-11 sm:h-11" />
+        </div>
+        
+        <div className="max-w-md mx-auto">
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-emerald-100 text-emerald-800 text-xs font-black uppercase tracking-wider mb-2.5">
+            <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
+            Official Seat Hold Confirmed
+          </span>
+          <h3 className="text-2xl sm:text-3xl font-black text-[#13277A] leading-tight">
+            Welcome, {firstName || "Friend"}!
+          </h3>
+          <p className="text-xs sm:text-sm text-[#5B5440] font-semibold mt-2 leading-relaxed">
+            Your intake profile for the <strong>October 14, 2026</strong> Healthy Eating &amp; Lifestyle Certificate has been recorded. A CSNN Toronto admissions advisor will reach out to you within 24 hours.
+          </p>
+        </div>
+
+        <div className="w-full max-w-md bg-[#FAF3D8] rounded-2xl p-4 border border-[#E8DEC0] text-xs font-bold text-[#8A6208] space-y-1.5 text-left">
+          <div className="flex justify-between items-center pb-1.5 border-b border-[#E8DEC0]/80">
+            <span className="text-[#5B5440]">Applicant:</span>
+            <span className="text-[#13277A] font-black">{firstName} {lastName}</span>
+          </div>
+          <div className="flex justify-between items-center pb-1.5 border-b border-[#E8DEC0]/80">
+            <span className="text-[#5B5440]">Confirmation sent to:</span>
+            <span className="text-[#13277A] font-black">{email}</span>
+          </div>
+          <div className="flex justify-between items-center">
+            <span className="text-[#5B5440]">Status:</span>
+            <span className="text-emerald-700 font-black">Zero Tuition Due Today · Confirmed</span>
+          </div>
+        </div>
+
+        <button
+          type="button"
+          onClick={() => {
+            setIsSubmitted(false);
+            setCurrentStep(1);
+          }}
+          className="text-xs sm:text-sm font-black text-[#13277A] hover:underline cursor-pointer pt-2"
+        >
+          ← Edit Reservation or Register Another Student
+        </button>
+      </div>
+    );
+  }
 
   return (
     <div className="glass-card-light rounded-[22px] sm:rounded-[36px] shadow-[0_30px_80px_rgba(19,39,122,0.15)] border-2 border-white/90 overflow-hidden relative">
@@ -591,13 +643,14 @@ export function RegistrationWizard() {
             <button
               type="button"
               onClick={() => {
-                validateStep4();
+                if (validateStep4()) {
+                  setIsSubmitted(true);
+                }
               }}
-              disabled
-              className="inline-flex items-center gap-2 px-5 sm:px-9 h-11 sm:h-13 rounded-full bg-gradient-to-b from-[#1C389E] to-[#0A1856] text-white/90 text-xs sm:text-sm font-black cursor-not-allowed opacity-90 shadow-none border border-[#13277A]"
+              className="btn-skeuo-gold animate-shimmer inline-flex items-center gap-2 px-6 sm:px-10 h-11 sm:h-13 rounded-full text-[#071245] text-xs sm:text-sm font-black cursor-pointer shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0.5 transition-all border-2 border-[#FFF8B8]"
             >
-              <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-[#F6C915]" />
-              <span>Submission Paused (Staging)</span>
+              <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 text-[#071245]" />
+              <span>Complete Free Registration</span>
             </button>
           )}
         </div>

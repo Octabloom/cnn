@@ -9,14 +9,14 @@ export function Footer() {
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
 
   return (
-    <footer className="bg-gradient-to-b from-[#071245] to-[#03091F] text-white pt-18 pb-24 lg:pb-16 border-t-4 border-[#F6C915] relative z-20 shadow-2xl">
+    <footer className="bg-gradient-to-b from-[#071245] to-[#03091F] text-white pt-10 sm:pt-12 pb-24 lg:pb-14 border-t-4 border-[#F6C915] relative z-20 shadow-2xl">
       {/* Top golden ambient glow sweep */}
       <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#FFE685] to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Footer Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8 pb-14 border-b border-white/10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8 lg:gap-8 pb-8 sm:pb-10 border-b border-white/10">
           
           {/* Brand & Mission (5 cols) */}
           <div className="lg:col-span-5 flex flex-col gap-4">

@@ -8,7 +8,7 @@ export function FinalRegistration() {
     <section
       id="register"
       data-screen-label="10 Form 3 Intake"
-      className="py-12 sm:py-20 lg:py-28 bg-gradient-to-b from-[#FDF8E8] via-[#FAF3D8] to-[#F7EBB8] border-b border-[#EFE1AD] relative overflow-hidden"
+      className="py-8 sm:py-12 lg:py-14 bg-gradient-to-b from-[#FDF8E8] via-[#FAF3D8] to-[#F7EBB8] border-b border-[#EFE1AD] relative overflow-hidden"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[700px] h-[700px] bg-[#F6C915]/15 rounded-full blur-3xl pointer-events-none" />
@@ -16,7 +16,7 @@ export function FinalRegistration() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center mb-8 sm:mb-12">
+        <div className="text-center mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-2 px-3.5 sm:px-5 py-1.5 sm:py-2 rounded-full bg-gradient-to-b from-[#1C389E] to-[#0A1856] text-[#F6C915] text-[11px] sm:text-xs font-black tracking-widest uppercase mb-3 sm:mb-4 shadow-[0_4px_16px_rgba(19,39,122,0.3)] border border-[#F6C915]/40 backdrop-blur-md">
             <Sparkles className="w-3.5 h-3.5" />
             <span>REGISTER IN 30 SECONDS</span>

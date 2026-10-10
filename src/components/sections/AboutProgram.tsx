@@ -7,7 +7,7 @@ export function AboutProgram() {
     <section
       id="about"
       data-screen-label="02 What is HELC"
-      className="py-12 sm:py-20 lg:py-28 bg-gradient-to-b from-[#FDF8E8] via-[#FAF3D8] to-[#FDF8E8] border-b border-[#EFE1AD] relative overflow-hidden"
+      className="py-8 sm:py-12 lg:py-14 bg-gradient-to-b from-[#FDF8E8] via-[#FAF3D8] to-[#FDF8E8] border-b border-[#EFE1AD] relative overflow-hidden"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-1/3 left-0 w-96 h-96 bg-[#F6C915]/15 rounded-full blur-3xl pointer-events-none" />
@@ -16,7 +16,7 @@ export function AboutProgram() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Centered Eyebrow & Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-14 lg:mb-18">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 lg:mb-10">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-white/90 text-[#8A6208] text-[10px] sm:text-xs font-black tracking-widest uppercase mb-3 sm:mb-4 border border-[#EFE1AD] shadow-sm backdrop-blur-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#F6C915]" />
             <span>PRACTICAL HOLISTIC NUTRITION EDUCATION</span>

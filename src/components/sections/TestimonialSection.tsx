@@ -62,7 +62,7 @@ export function TestimonialSection() {
     <section
       id="testimonial"
       data-screen-label="08 Testimonial"
-      className="py-12 sm:py-20 lg:py-24 bg-[#FBF4D8] border-b border-[#EFE1AD] relative overflow-hidden"
+      className="py-8 sm:py-12 lg:py-14 bg-[#FBF4D8] border-b border-[#EFE1AD] relative overflow-hidden"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-1/4 left-0 w-96 h-96 bg-[#F6C915]/12 rounded-full blur-3xl pointer-events-none" />
@@ -71,7 +71,7 @@ export function TestimonialSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/95 text-[#8A6208] text-[11px] sm:text-xs font-black tracking-widest uppercase mb-3 border border-[#E8DEC0] shadow-xs backdrop-blur-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#F6C915]" />
             <span>AUTHENTIC CSNN TORONTO VOICES</span>

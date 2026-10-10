@@ -66,40 +66,40 @@ export function HeroSection() {
       <div className="absolute bottom-20 left-0 w-[450px] h-[450px] rounded-full bg-[#13277A]/8 blur-3xl pointer-events-none z-0" />
 
       {/* Main Hero Container: Spacious, majestic & perfectly balanced */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-6 sm:pt-8 lg:pt-10 pb-[110px] sm:pb-[120px] lg:pb-[130px]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-4 sm:pt-6 lg:pt-8 pb-[102px] sm:pb-[106px] lg:pb-[110px]">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-end">
           
           {/* ==============================================================
               LEFT COLUMN (7 cols): Bold, Grand & Impactful Hero Content
               ============================================================== */}
-          <div className="lg:col-span-7 xl:col-span-7 flex flex-col gap-4 sm:gap-5 text-left relative z-10 pb-2 sm:pb-4">
+          <div className="lg:col-span-7 xl:col-span-7 flex flex-col gap-3.5 sm:gap-4.5 text-left relative z-10 pb-4 lg:pb-2">
             
             {/* Top Live Intake Status Pill */}
-            <div className="flex items-center gap-2.5 mb-1 sm:mb-2">
-              <div className="inline-flex items-center gap-2.5 px-4 sm:px-5 py-2 sm:py-2.5 rounded-full bg-[#071245] text-white text-xs sm:text-[13.5px] font-bold shadow-xl border-2 border-[#F6C915]/70 w-fit backdrop-blur-md hover:scale-[1.02] transition-transform">
-                <span className="relative flex h-2.5 w-2.5">
+            <div className="flex items-center gap-2 mb-1">
+              <div className="inline-flex items-center gap-2 px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full bg-[#071245] text-white text-[11px] sm:text-[13px] font-bold shadow-xl border-2 border-[#F6C915]/70 w-fit backdrop-blur-md hover:scale-[1.02] transition-transform">
+                <span className="relative flex h-2 sm:h-2.5 w-2 sm:w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F6C915] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#F6C915]"></span>
+                  <span className="relative inline-flex rounded-full h-2 sm:h-2.5 w-2 sm:w-2.5 bg-[#F6C915]"></span>
                 </span>
                 <span>Live Online Intake Starts <strong className="text-[#F6C915]">Oct 14, 2026</strong> · 10 Workshops</span>
               </div>
             </div>
 
-            {/* Hero Text Stack (Grand, Commanding & Bold) */}
-            <div className="flex flex-col gap-3 sm:gap-4 max-w-xl">
+            {/* Hero Text Stack (Grand, Commanding & Mobile Responsive) */}
+            <div className="flex flex-col gap-2.5 sm:gap-3.5 max-w-xl">
               
               {/* Holistic Nutrition Workshops */}
               <div className="flex flex-col">
-                <span className="font-serif italic font-black text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] text-[#071245] leading-[1.05] tracking-tight drop-shadow-sm">
+                <span className="font-serif italic font-black text-3xl sm:text-5xl lg:text-6xl xl:text-[68px] text-[#071245] leading-[1.05] tracking-tight drop-shadow-sm">
                   Holistic Nutrition
                 </span>
-                <span className="font-serif italic font-black text-3xl sm:text-4xl lg:text-5xl xl:text-[56px] text-[#071245] leading-[1.05] tracking-tight drop-shadow-sm">
+                <span className="font-serif italic font-black text-2xl sm:text-4xl lg:text-5xl xl:text-[56px] text-[#071245] leading-[1.05] tracking-tight drop-shadow-sm">
                   Workshops
                 </span>
               </div>
 
               {/* Sunshine Golden Headline */}
-              <h1 className="text-3xl sm:text-4xl lg:text-[46px] xl:text-[50px] font-black text-[#B87503] sm:text-[#C4880B] tracking-tight leading-tight pt-1 drop-shadow-2xs">
+              <h1 className="text-2xl sm:text-3xl lg:text-[44px] xl:text-[48px] font-black text-[#B87503] sm:text-[#C4880B] tracking-tight leading-tight pt-0.5 drop-shadow-2xs">
                 Healthy Starts Here.
               </h1>
 
@@ -143,7 +143,7 @@ export function HeroSection() {
               Comfortably positioned, full luxury padding, and beautifully aligned
               ============================================================== */}
           <div id="form-1" className="lg:col-span-5 xl:col-span-5 w-full relative z-20 flex flex-col justify-end lg:items-end self-end">
-            <div className="w-full max-w-[440px] lg:max-w-[430px] xl:max-w-[450px] lg:ml-auto">
+            <div className="w-full max-w-[440px] lg:max-w-[430px] xl:max-w-[450px] mx-auto lg:mx-0 lg:ml-auto">
               <HeroRegistrationForm />
             </div>
           </div>
