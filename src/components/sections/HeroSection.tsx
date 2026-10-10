@@ -34,52 +34,12 @@ export function HeroSection() {
               ============================================================== */}
           <div className="lg:col-span-7 xl:col-span-7 flex flex-col gap-3.5 sm:gap-4 text-left relative z-10 pb-3 sm:pb-5">
             
-            {/* Top Brand Lockup Row (Sleek, Compact & Proportional) */}
-            <div className="flex flex-wrap items-center justify-between gap-2.5">
-              
-              {/* Compact CSNN Toronto Brand Card */}
-              <div className="flex items-center gap-2.5 sm:gap-3 bg-white/95 backdrop-blur-md px-3 sm:px-3.5 py-1.5 sm:py-2 rounded-2xl border border-[#EAE0BC] shadow-xs w-fit">
-                {/* Official CSNN Emblem */}
-                <div className="relative w-8 h-8 sm:w-9 sm:h-9 rounded-xl overflow-hidden bg-white p-0.5 border border-[#F6C915] shadow-2xs shrink-0 flex items-center justify-center">
-                  <Image
-                    src="/assets/logo.jpg"
-                    alt="Canadian School of Natural Nutrition Toronto"
-                    fill
-                    sizes="36px"
-                    className="object-contain"
-                    priority
-                  />
-                </div>
-
-                {/* Vertical Gold Accent */}
-                <div className="w-[2px] h-7 sm:h-8 bg-[#F6C915] rounded-full shrink-0" />
-
-                {/* Typography Stack */}
-                <div className="flex flex-col">
-                  <span className="text-[8.5px] sm:text-[9.5px] font-black uppercase tracking-[0.14em] text-[#5B5440] leading-none">
-                    Canadian School of Natural Nutrition
-                  </span>
-                  <span className="text-base sm:text-xl font-black text-[#13277A] tracking-[-0.02em] leading-tight my-0.5">
-                    TORONTO
-                  </span>
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-[9.5px] sm:text-[11px] font-bold text-[#A8780F] leading-none">
-                      Healthy Eating &amp; Lifestyle Certificate
-                    </span>
-                    <span className="text-[9px] text-[#13277A]/40">•</span>
-                    <span className="text-[9px] sm:text-[10px] font-black text-[#13277A] bg-[#FAF1D0] px-1.5 py-0.2 rounded border border-[#E8DEC0]">
-                      Live Online
-                    </span>
-                  </div>
-                </div>
+            {/* Top Live Intake Status Pill */}
+            <div className="flex items-center gap-2.5">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#071245] text-white text-[11px] sm:text-xs font-bold shadow-xs border border-[#F6C915]/40 w-fit">
+                <span className="w-2 h-2 rounded-full bg-[#F6C915] animate-ping" />
+                <span>Live Online Intake Starts <strong className="text-[#F6C915]">Oct 14, 2026</strong> · 10 Workshops</span>
               </div>
-
-              {/* Slim Live Intake Pill */}
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#071245] text-white text-[10px] sm:text-[11px] font-bold shadow-xs border border-[#F6C915]/30">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#F6C915] animate-ping" />
-                <span>Starts <strong className="text-[#F6C915]">Oct 14, 2026</strong> · 10 Workshops</span>
-              </div>
-
             </div>
 
             {/* Hero Text Stack (Directly on canvas - Clear & 100% Visible) */}

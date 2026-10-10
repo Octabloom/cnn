@@ -120,24 +120,32 @@ export function TorontoSkylineGraphic({
           className="animate-sun-aura"
         />
 
-        {/* Concentric Golden Halo Rings */}
-        <circle
-          cx="375"
-          cy="245"
-          r="165"
-          stroke="#F6C915"
-          strokeWidth="1.5"
-          strokeOpacity="0.35"
-          strokeDasharray="8 6"
-        />
-        <circle
-          cx="375"
-          cy="245"
-          r="150"
-          stroke="#F6C915"
-          strokeWidth="1"
-          strokeOpacity="0.5"
-        />
+        {/* Concentric Golden Halo Rings with Slow Majestic Spin */}
+        <g className="animate-sun-spin">
+          <circle
+            cx="375"
+            cy="245"
+            r="165"
+            stroke="#F6C915"
+            strokeWidth="1.5"
+            strokeOpacity="0.45"
+            strokeDasharray="10 8"
+          />
+          <circle
+            cx="375"
+            cy="245"
+            r="150"
+            stroke="#F6C915"
+            strokeWidth="1.2"
+            strokeOpacity="0.35"
+            strokeDasharray="6 6"
+          />
+          {/* Subtle Sun Accent Ticks */}
+          <line x1="375" y1="75" x2="375" y2="85" stroke="#F6C915" strokeWidth="2" strokeOpacity="0.6" />
+          <line x1="375" y1="405" x2="375" y2="415" stroke="#F6C915" strokeWidth="2" strokeOpacity="0.6" />
+          <line x1="205" y1="245" x2="215" y2="245" stroke="#F6C915" strokeWidth="2" strokeOpacity="0.6" />
+          <line x1="535" y1="245" x2="545" y2="245" stroke="#F6C915" strokeWidth="2" strokeOpacity="0.6" />
+        </g>
 
         {/* Solid Vibrant Sun Disc */}
         <circle
@@ -223,6 +231,15 @@ export function TorontoSkylineGraphic({
           className="animate-beacon-pulse"
         />
         <circle cx="377" cy="35" r="3.5" fill="#FF3333" filter="drop-shadow(0 0 6px #FF3333)" />
+
+        {/* Shining Spire Star Glint / Lens Flare */}
+        <g className="animate-spire-glint">
+          <polygon
+            points="377,26 379,33 386,35 379,37 377,44 375,37 368,35 375,33"
+            fill="#FFF9D2"
+            filter="drop-shadow(0 0 4px #F6C915)"
+          />
+        </g>
 
         {/* -------------------------------------------------------------
             5. FOREGROUND SKYSCRAPER TOWERS (Layer 2 - Prominent Skyline)
@@ -340,6 +357,35 @@ export function TorontoSkylineGraphic({
             stroke="#F6C915"
             strokeWidth="3.5"
             strokeOpacity="1"
+          />
+
+          {/* Flowing Highway Traffic Lights (Cruising smoothly along road lanes) */}
+          <g className="animate-traffic-1">
+            <rect x="0" y="422" width="22" height="3" rx="1.5" fill="#FFFFFF" filter="drop-shadow(0 0 4px #FFF9D2)" />
+            <circle cx="22" cy="423.5" r="2" fill="#FFE875" />
+          </g>
+          <g className="animate-traffic-2">
+            <rect x="0" y="422" width="28" height="3" rx="1.5" fill="#FFFFFF" filter="drop-shadow(0 0 5px #FFF9D2)" />
+            <circle cx="28" cy="423.5" r="2" fill="#FFE875" />
+          </g>
+          <g className="animate-traffic-3">
+            <rect x="0" y="446" width="26" height="2.5" rx="1.2" fill="#FF4A4A" filter="drop-shadow(0 0 4px #FF2222)" />
+            <circle cx="26" cy="447.2" r="1.8" fill="#FFA5A5" />
+          </g>
+          <g className="animate-traffic-1" style={{ animationDelay: "2.5s" }}>
+            <rect x="0" y="446" width="22" height="2.5" rx="1.2" fill="#FF5555" filter="drop-shadow(0 0 4px #FF2222)" />
+          </g>
+
+          {/* Lake Water Surface Shimmer */}
+          <line
+            x1="0"
+            y1="462"
+            x2="560"
+            y2="462"
+            stroke="#2A4BBF"
+            strokeWidth="1.2"
+            strokeOpacity="0.45"
+            className="animate-wave-ripple"
           />
         </g>
       </svg>

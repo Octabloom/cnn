@@ -2,6 +2,7 @@ import React from "react";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Header } from "@/components/layout/Header";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { ProgramShowcaseDualPane } from "@/components/sections/ProgramShowcaseDualPane";
 import { AboutProgram } from "@/components/sections/AboutProgram";
 import { LearningOutcomes } from "@/components/sections/LearningOutcomes";
 import { LearningExperience } from "@/components/sections/LearningExperience";
@@ -31,6 +32,9 @@ export default function Home() {
 
       {/* Main Page Content */}
       <main className="flex-1">
+
+        {/* 01.5 CSNN Toronto Dual-Pane Program Showcase (Just Below Hero) */}
+        <ProgramShowcaseDualPane />
 
         {/* 02. What is the Certificate (Culinary Masterclass & Outcomes) */}
         <AboutProgram />
