@@ -99,13 +99,13 @@ export function AcademicBlueprint() {
             </p>
           </div>
 
-          {/* Desktop Undulating Snake Timeline (hidden on mobile, zero overflow) */}
-          <div className="hidden md:block w-full relative px-1 sm:px-3 overflow-hidden">
+          {/* Desktop Undulating Snake Timeline (overflow-visible with generous headroom so cards never crop) */}
+          <div className="hidden md:block w-full relative px-1 sm:px-3 overflow-visible pt-16 pb-12">
             {/* Underlying Mathematical Sine Wave SVG */}
             <div className="absolute inset-0 pointer-events-none z-0">
               <svg
                 className="w-full h-full"
-                viewBox="0 0 1080 440"
+                viewBox="0 0 1080 540"
                 preserveAspectRatio="none"
                 fill="none"
               >
@@ -121,7 +121,7 @@ export function AcademicBlueprint() {
 
                 {/* Undulating Continuous Snake Wave Path */}
                 <path
-                  d="M 20,235 C 50,220 80,210 108,210 C 180,210 250,260 324,260 C 400,260 470,210 540,210 C 610,210 680,260 756,260 C 830,260 900,210 972,210 C 1000,210 1030,225 1060,235"
+                  d="M 20,270 C 50,255 80,245 108,245 C 180,245 250,295 324,295 C 400,295 470,245 540,245 C 610,245 680,295 756,295 C 830,295 900,245 972,245 C 1000,245 1030,260 1060,270"
                   stroke="url(#horizontalSnakeGrad)"
                   strokeWidth="3.5"
                   strokeDasharray="6 6"
@@ -132,19 +132,19 @@ export function AcademicBlueprint() {
             </div>
 
             {/* 5-Column Grid */}
-            <div className="grid grid-cols-5 gap-2 sm:gap-3 lg:gap-4 relative z-10 w-full">
+            <div className="grid grid-cols-5 gap-2 sm:gap-3 lg:gap-4 relative z-10 w-full overflow-visible">
               {milestones.map((m) => {
                 return (
                   <div
                     key={m.phase}
-                    className="flex flex-col items-center justify-between min-h-[440px]"
+                    className="flex flex-col items-center justify-between min-h-[540px] overflow-visible"
                   >
                     {/* TOP HALF: Card on top OR Empty space */}
-                    <div className="w-full h-[185px] flex flex-col justify-end items-center">
+                    <div className="w-full h-[235px] flex flex-col justify-end items-center overflow-visible">
                       {m.isTop ? (
-                        <div className="w-full flex flex-col items-center">
+                        <div className="w-full flex flex-col items-center overflow-visible">
                           {/* Top Card */}
-                          <div className="w-full bg-white/95 backdrop-blur-md rounded-2xl p-4 border border-[#E8DFC2] shadow-[0_6px_18px_rgba(19,39,122,0.06)] hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                          <div className="w-full bg-white/95 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 border border-[#E8DFC2] shadow-[0_6px_18px_rgba(19,39,122,0.06)] hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                             <div className="flex items-center justify-between gap-1 mb-2">
                               <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full border ${m.badgeColor}`}>
                                 {m.phase}
@@ -169,7 +169,7 @@ export function AcademicBlueprint() {
                           </div>
 
                           {/* Vertical Connector Line from Card to Circle */}
-                          <div className="w-[2px] h-6 border-l-2 border-dashed border-[#13277A]/40 mt-1" />
+                          <div className="w-[2px] h-4 border-l-2 border-dashed border-[#13277A]/40 mt-1" />
                         </div>
                       ) : null}
                     </div>
@@ -184,14 +184,14 @@ export function AcademicBlueprint() {
                     </div>
 
                     {/* BOTTOM HALF: Card on bottom OR Empty space */}
-                    <div className="w-full h-[185px] flex flex-col justify-start items-center">
+                    <div className="w-full h-[235px] flex flex-col justify-start items-center overflow-visible">
                       {!m.isTop ? (
-                        <div className="w-full flex flex-col items-center">
+                        <div className="w-full flex flex-col items-center overflow-visible">
                           {/* Vertical Connector Line from Circle to Card */}
-                          <div className="w-[2px] h-6 border-l-2 border-dashed border-[#13277A]/40 mb-1" />
+                          <div className="w-[2px] h-4 border-l-2 border-dashed border-[#13277A]/40 mb-1" />
 
                           {/* Bottom Card */}
-                          <div className="w-full bg-white/95 backdrop-blur-md rounded-2xl p-4 border border-[#E8DFC2] shadow-[0_6px_18px_rgba(19,39,122,0.06)] hover:shadow-lg transition-all duration-300 hover:translate-y-1">
+                          <div className="w-full bg-white/95 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 border border-[#E8DFC2] shadow-[0_6px_18px_rgba(19,39,122,0.06)] hover:shadow-lg transition-all duration-300 hover:translate-y-1">
                             <div className="flex items-center justify-between gap-1 mb-2">
                               <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full border ${m.badgeColor}`}>
                                 {m.phase}

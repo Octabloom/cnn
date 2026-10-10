@@ -189,20 +189,39 @@
   transform-origin: 375px 245px;
 }
 
-@keyframes trafficMove {
-  0% { transform: translateX(-80px); opacity: 0; }
-  10% { opacity: 1; }
-  90% { opacity: 1; }
-  100% { transform: translateX(640px); opacity: 0; }
+/* Highway Traffic Headlights & Taillights Cruising Across Full Screen */
+@keyframes trafficEastbound {
+  0% { transform: translateX(-120px); opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { transform: translateX(calc(100vw + 120px)); opacity: 0; }
 }
-.animate-traffic-1 {
-  animation: trafficMove 5s linear infinite;
+
+@keyframes trafficWestbound {
+  0% { transform: translateX(calc(100vw + 120px)); opacity: 0; }
+  5% { opacity: 1; }
+  95% { opacity: 1; }
+  100% { transform: translateX(-120px); opacity: 0; }
 }
-.animate-traffic-2 {
-  animation: trafficMove 7s linear infinite 2s;
+
+.animate-traffic-east-1 {
+  animation: trafficEastbound 6.5s linear infinite;
 }
-.animate-traffic-3 {
-  animation: trafficMove 6s linear infinite 3.5s;
+.animate-traffic-east-2 {
+  animation: trafficEastbound 8.5s linear infinite 2.2s;
+}
+.animate-traffic-east-3 {
+  animation: trafficEastbound 5.2s linear infinite 4.4s;
+}
+
+.animate-traffic-west-1 {
+  animation: trafficWestbound 7s linear infinite 0.8s;
+}
+.animate-traffic-west-2 {
+  animation: trafficWestbound 9.2s linear infinite 3.5s;
+}
+.animate-traffic-west-3 {
+  animation: trafficWestbound 6.2s linear infinite 5s;
 }
 
 @keyframes spireGlint {

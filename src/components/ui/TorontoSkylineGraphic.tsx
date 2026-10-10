@@ -21,7 +21,7 @@ export function TorontoSkylineGraphic({
 
       {/* SVG Canvas */}
       <svg
-        viewBox="0 0 560 480"
+        viewBox="0 0 560 405"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
         className="w-full h-full drop-shadow-xl"
@@ -313,81 +313,8 @@ export function TorontoSkylineGraphic({
           <rect x="468" y="315" width="5" height="6" rx="1" />
         </g>
 
-        {/* -------------------------------------------------------------
-            7. WATERFRONT ROAD BASE & CRISP ROAD LANES
-            Strictly clipped with roadClip so no lines overflow outside
-            ------------------------------------------------------------- */}
-        <g clipPath="url(#roadClip)">
-          {/* Solid Deep Blue Road Bed */}
-          <rect x="0" y="400" width="560" height="80" fill="url(#lakeWater)" />
-          
-          {/* Top Road Curb / Yellow Line */}
-          <line x1="0" y1="400" x2="560" y2="400" stroke="#F6C915" strokeWidth="2.5" />
-
-          {/* Upper Highway Lane: Golden Dashes */}
-          <line
-            x1="0"
-            y1="424"
-            x2="560"
-            y2="424"
-            stroke="#F6C915"
-            strokeWidth="2.5"
-            strokeDasharray="22 16"
-            strokeOpacity="0.95"
-          />
-
-          {/* Lower Road Lane: Dashed Light Gold */}
-          <line
-            x1="0"
-            y1="448"
-            x2="560"
-            y2="448"
-            stroke="#FFE676"
-            strokeWidth="2"
-            strokeDasharray="18 14"
-            strokeOpacity="0.8"
-          />
-
-          {/* Road Last Yellow Line in the Bottom */}
-          <line
-            x1="0"
-            y1="475"
-            x2="560"
-            y2="475"
-            stroke="#F6C915"
-            strokeWidth="3.5"
-            strokeOpacity="1"
-          />
-
-          {/* Flowing Highway Traffic Lights (Cruising smoothly along road lanes) */}
-          <g className="animate-traffic-1">
-            <rect x="0" y="422" width="22" height="3" rx="1.5" fill="#FFFFFF" filter="drop-shadow(0 0 4px #FFF9D2)" />
-            <circle cx="22" cy="423.5" r="2" fill="#FFE875" />
-          </g>
-          <g className="animate-traffic-2">
-            <rect x="0" y="422" width="28" height="3" rx="1.5" fill="#FFFFFF" filter="drop-shadow(0 0 5px #FFF9D2)" />
-            <circle cx="28" cy="423.5" r="2" fill="#FFE875" />
-          </g>
-          <g className="animate-traffic-3">
-            <rect x="0" y="446" width="26" height="2.5" rx="1.2" fill="#FF4A4A" filter="drop-shadow(0 0 4px #FF2222)" />
-            <circle cx="26" cy="447.2" r="1.8" fill="#FFA5A5" />
-          </g>
-          <g className="animate-traffic-1" style={{ animationDelay: "2.5s" }}>
-            <rect x="0" y="446" width="22" height="2.5" rx="1.2" fill="#FF5555" filter="drop-shadow(0 0 4px #FF2222)" />
-          </g>
-
-          {/* Lake Water Surface Shimmer */}
-          <line
-            x1="0"
-            y1="462"
-            x2="560"
-            y2="462"
-            stroke="#2A4BBF"
-            strokeWidth="1.2"
-            strokeOpacity="0.45"
-            className="animate-wave-ripple"
-          />
-        </g>
+        {/* Base line where buildings meet the road */}
+        <line x1="0" y1="400" x2="560" y2="400" stroke="#F6C915" strokeWidth="1" strokeOpacity="0.4" />
       </svg>
 
       {/* Floating Badges for Enhanced Modern Aesthetic */}
