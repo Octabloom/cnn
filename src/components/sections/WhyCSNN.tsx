@@ -138,116 +138,157 @@ export function WhyCSNN() {
             </a>
           </div>
 
-          {/* 3 Interconnected Milestone Columns (Zero Text Overlap Guaranteed) */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5 lg:gap-6 relative">
+          {/* 3 Interconnected Milestone Columns (Visually Connected with Flowing Animation) */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-8 relative">
             {pathwaySteps.map((s, idx) => (
-              <div
-                key={s.step}
-                className={`flex flex-col rounded-xl sm:rounded-2xl p-3.5 sm:p-5 transition-all duration-300 relative group ${
-                  s.current
-                    ? "bg-gradient-to-b from-[#F6C915]/[0.08] via-white/[0.04] to-transparent border-2 border-[#F6C915]/50 shadow-[0_8px_30px_rgba(246,201,21,0.1)]"
-                    : "bg-white/[0.02] border border-white/10 hover:border-white/20 hover:bg-white/[0.04]"
-                }`}
-              >
-                {/* TOP ROW: Node & Energy Conduit (Exclusively for rail animation, NEVER touches text) */}
-                <div className="flex items-center mb-3.5">
-                  {/* Glowing Waypoint Node */}
-                  <div
-                    className={`w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm shrink-0 transition-all duration-300 group-hover:scale-105 z-10 ${
-                      s.current
-                        ? "bg-gradient-to-b from-[#FFE566] via-[#F6C915] to-[#D4A017] text-[#071245] shadow-[0_0_25px_rgba(246,201,21,0.65),inset_0_1px_1px_#FFF] ring-4 ring-[#F6C915]/30"
-                        : "bg-[#0E2068] text-white/90 border border-white/20 shadow-md group-hover:border-[#F6C915]/50 group-hover:text-white"
-                    }`}
-                  >
-                    {s.current ? (
-                      <span className="relative flex items-center justify-center">
-                        <span className="animate-ping absolute h-6 w-6 rounded-full bg-[#F6C915] opacity-50" />
-                        <span>{s.step}</span>
-                      </span>
-                    ) : (
-                      <span>{s.step}</span>
-                    )}
-                  </div>
-
-                  {/* Inter-node Connecting Conduit (Active beam travels only between nodes) */}
-                  {idx < 2 ? (
-                    <div className="hidden md:flex flex-1 items-center ml-3.5 relative">
-                      <div className="w-full h-[3px] bg-white/10 rounded-full relative overflow-hidden">
-                        {/* Gradient Track */}
-                        <div
-                          className={`absolute inset-0 bg-gradient-to-r ${
-                            s.current
-                              ? "from-[#F6C915] via-[#F6C915]/80 to-[#F6C915]/40"
-                              : "from-[#F6C915]/40 via-white/25 to-white/10"
-                          }`}
-                        />
-                        {/* Smooth Animated Traveling Energy Beam */}
-                        <div className="absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white to-transparent blur-[1px] animate-beam-travel" />
-                      </div>
-                      {/* Directional Chevron */}
-                      <span className={`text-[11px] font-black ml-1.5 ${s.current ? "text-[#F6C915]" : "text-white/40"}`}>
-                        ›
-                      </span>
-                    </div>
-                  ) : (
-                    /* Destination Goal Indicator */
-                    <div className="hidden md:flex items-center ml-3.5 px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-400/30 text-[10px] font-black uppercase tracking-wider text-emerald-300">
-                      <span>CAREER GOAL</span>
-                    </div>
-                  )}
-                </div>
-
-                {/* BADGES & TIMEFRAME: Situated cleanly BELOW the top rail row */}
-                <div className="flex flex-wrap items-center gap-1.5 mb-2.5">
-                  <span
-                    className={`text-[9px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
-                      s.current
-                        ? "bg-[#F6C915] text-[#071245] shadow-sm font-black"
-                        : "bg-white/10 text-white/80 border border-white/15"
-                    }`}
-                  >
-                    {s.badge}
-                  </span>
-                  
-                  <span
-                    className={`text-[10px] font-bold ${
-                      s.current ? "text-[#F6C915] font-black flex items-center gap-1" : "text-white/60"
-                    }`}
-                  >
-                    {s.current && <span className="w-1.5 h-1.5 rounded-full bg-[#F6C915] animate-ping" />}
-                    {s.timeframe}
-                  </span>
-                </div>
-
-                {/* Step Title */}
-                <h4
-                  className={`text-base sm:text-[17px] font-black leading-snug mb-1.5 transition-colors ${
-                    s.current ? "text-white group-hover:text-[#F6C915]" : "text-white/95 group-hover:text-white"
+              <React.Fragment key={s.step}>
+                <div
+                  className={`flex flex-col rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 transition-all duration-300 relative group overflow-visible ${
+                    s.current
+                      ? "bg-gradient-to-b from-[#F6C915]/[0.12] via-white/[0.05] to-transparent border-2 border-[#F6C915] shadow-[0_8px_35px_rgba(246,201,21,0.22)] ring-1 ring-[#F6C915]/50"
+                      : "bg-white/[0.03] border border-white/15 hover:border-[#F6C915]/50 hover:bg-white/[0.06] shadow-lg"
                   }`}
                 >
-                  {s.title}
-                </h4>
+                  {/* TOP ROW: Waypoint Node & Continuous Energy Conduit */}
+                  <div className="flex items-center mb-4 relative">
+                    
+                    {/* Left Incoming Conduit (for Card 02 and 03) */}
+                    {idx > 0 && (
+                      <div className="hidden md:flex items-center -ml-4 sm:-ml-5 lg:-ml-6 mr-3 w-5 sm:w-6 h-[3px] bg-gradient-to-r from-[#F6C915]/60 to-[#F6C915] relative overflow-hidden shrink-0 shadow-[0_0_8px_#F6C915]">
+                        <div className="absolute inset-0 bg-white blur-[0.5px] animate-conduit-flow" />
+                      </div>
+                    )}
 
-                {/* Description */}
-                <p className="text-xs text-white/70 leading-relaxed font-normal mb-3.5">
-                  {s.desc}
-                </p>
-
-                {/* Deliverables Checklist */}
-                <div className="space-y-1.5 mt-auto pt-3 border-t border-white/10 text-[11px]">
-                  {s.features.map((feat, fIdx) => (
-                    <div key={fIdx} className="flex items-start gap-2 text-white/85 font-medium leading-tight">
-                      <CheckCircle2
-                        className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${
-                          s.current ? "text-[#F6C915]" : "text-white/40"
-                        }`}
-                      />
-                      <span>{feat}</span>
+                    {/* Glowing Waypoint Node */}
+                    <div
+                      className={`w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm shrink-0 transition-all duration-300 group-hover:scale-105 z-10 ${
+                        s.current
+                          ? "bg-gradient-to-b from-[#FFE566] via-[#F6C915] to-[#D4A017] text-[#071245] shadow-[0_0_25px_rgba(246,201,21,0.65),inset_0_1px_1px_#FFF] ring-4 ring-[#F6C915]/30"
+                          : "bg-[#0E2068] text-white/90 border border-white/20 shadow-md group-hover:border-[#F6C915]/50 group-hover:text-white"
+                      }`}
+                    >
+                      {s.current ? (
+                        <span className="relative flex items-center justify-center">
+                          <span className="animate-ping absolute h-6 w-6 rounded-full bg-[#F6C915] opacity-50" />
+                          <span>{s.step}</span>
+                        </span>
+                      ) : (
+                        <span>{s.step}</span>
+                      )}
                     </div>
-                  ))}
+
+                    {/* Right Outgoing Conduit (for Card 01 and 02) */}
+                    {idx < 2 ? (
+                      <div className="hidden md:flex flex-1 items-center ml-3 relative -mr-4 sm:-mr-5 lg:-mr-6">
+                        <div className="w-full h-[3px] bg-white/10 rounded-full relative overflow-hidden">
+                          {/* Gradient Track */}
+                          <div
+                            className={`absolute inset-0 bg-gradient-to-r ${
+                              s.current
+                                ? "from-[#F6C915] via-[#F6C915]/90 to-[#F6C915]"
+                                : "from-[#F6C915]/80 via-white/40 to-[#F6C915]/80"
+                            }`}
+                          />
+                          {/* Smooth Animated Traveling Energy Beam */}
+                          <div className="absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white to-transparent blur-[1px] animate-beam-travel" />
+                        </div>
+                      </div>
+                    ) : (
+                      /* Destination Goal Indicator */
+                      <div className="hidden md:flex items-center ml-3 px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-400/30 text-[10px] font-black uppercase tracking-wider text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.2)]">
+                        <span>CAREER GOAL</span>
+                      </div>
+                    )}
+
+                    {/* Flowing Inter-Card Bridge: Spans the physical gap between cards on desktop */}
+                    {idx < 2 && (
+                      <div className="hidden md:flex absolute -right-7 sm:-right-8 lg:-right-10 top-1/2 -translate-y-1/2 w-7 sm:w-8 lg:w-10 h-6 items-center justify-center z-30 pointer-events-none">
+                        {/* Laser Conduit Tube */}
+                        <div className="w-full h-[3px] bg-gradient-to-r from-[#F6C915] to-[#F6C915]/90 relative overflow-hidden shadow-[0_0_12px_#F6C915]">
+                          <div className="absolute inset-0 bg-white blur-[0.5px] animate-conduit-flow" />
+                        </div>
+                        {/* Floating Active Pulse Waypoint Chevron */}
+                        <div className="absolute -translate-x-1/2 left-1/2 w-5 h-5 rounded-full bg-[#071245] border-2 border-[#F6C915] flex items-center justify-center shadow-[0_0_14px_#F6C915] animate-chevron-flow">
+                          <span className="text-[#F6C915] text-[10px] font-black leading-none">›</span>
+                        </div>
+                      </div>
+                    )}
+
+                  </div>
+
+                  {/* Mid-Body Laser Connector (Desktop) */}
+                  {idx < 2 && (
+                    <div className="hidden md:flex absolute -right-7 sm:-right-8 lg:-right-10 top-1/2 -translate-y-1/2 w-7 sm:w-8 lg:w-10 h-[2px] items-center justify-center z-20 pointer-events-none">
+                      <div className="w-full h-full bg-gradient-to-r from-[#F6C915]/50 via-[#F6C915] to-[#F6C915]/50 shadow-[0_0_8px_#F6C915]" />
+                      <div className="absolute -left-1 w-2 h-2 rounded-full bg-[#F6C915] shadow-[0_0_6px_#F6C915]" />
+                      <div className="absolute -right-1 w-2 h-2 rounded-full bg-[#F6C915] shadow-[0_0_6px_#F6C915]" />
+                    </div>
+                  )}
+
+                  {/* BADGES & TIMEFRAME: Situated cleanly BELOW the top rail row */}
+                  <div className="flex flex-wrap items-center gap-1.5 mb-2.5">
+                    <span
+                      className={`text-[9px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
+                        s.current
+                          ? "bg-[#F6C915] text-[#071245] shadow-sm font-black"
+                          : "bg-white/10 text-white/80 border border-white/15"
+                      }`}
+                    >
+                      {s.badge}
+                    </span>
+                    
+                    <span
+                      className={`text-[10px] font-bold ${
+                        s.current ? "text-[#F6C915] font-black flex items-center gap-1" : "text-white/60"
+                      }`}
+                    >
+                      {s.current && <span className="w-1.5 h-1.5 rounded-full bg-[#F6C915] animate-ping" />}
+                      {s.timeframe}
+                    </span>
+                  </div>
+
+                  {/* Step Title */}
+                  <h4
+                    className={`text-base sm:text-[17px] font-black leading-snug mb-1.5 transition-colors ${
+                      s.current ? "text-white group-hover:text-[#F6C915]" : "text-white/95 group-hover:text-white"
+                    }`}
+                  >
+                    {s.title}
+                  </h4>
+
+                  {/* Description */}
+                  <p className="text-xs text-white/70 leading-relaxed font-normal mb-3.5">
+                    {s.desc}
+                  </p>
+
+                  {/* Deliverables Checklist */}
+                  <div className="space-y-1.5 mt-auto pt-3 border-t border-white/10 text-[11px]">
+                    {s.features.map((feat, fIdx) => (
+                      <div key={fIdx} className="flex items-start gap-2 text-white/85 font-medium leading-tight">
+                        <CheckCircle2
+                          className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${
+                            s.current ? "text-[#F6C915]" : "text-white/40"
+                          }`}
+                        />
+                        <span>{feat}</span>
+                      </div>
+                    ))}
+                  </div>
+
                 </div>
 
-              </div>
+                {/* Mobile Flowing Vertical Connector */}
+                {idx < 2 && (
+                  <div className="md:hidden flex flex-col items-center justify-center -my-2 relative z-20">
+                    <div className="w-[3px] h-7 bg-gradient-to-b from-[#F6C915] to-[#F6C915]/50 relative overflow-hidden rounded-full shadow-[0_0_10px_#F6C915]">
+                      <div className="absolute inset-x-0 h-1/2 bg-white blur-[0.5px] animate-pulse" />
+                    </div>
+                    <div className="w-6 h-6 -mt-1 rounded-full bg-[#071245] border-2 border-[#F6C915] flex items-center justify-center shadow-[0_0_12px_#F6C915]">
+                      <span className="text-[#F6C915] text-[10px] font-black leading-none animate-bounce">↓</span>
+                    </div>
+                  </div>
+                )}
+              </React.Fragment>
             ))}
           </div>
 
