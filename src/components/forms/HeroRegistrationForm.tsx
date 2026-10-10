@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { MOTIVATION_OPTIONS } from "@/data/programData";
 import { isValidEmail, isValidPhone, isValidName } from "@/lib/validation";
-import { ShieldCheck, AlertCircle, ChevronDown, ArrowRight, CheckCircle2, Sparkles, Lock } from "lucide-react";
+import { ShieldCheck, AlertCircle, ChevronDown, ArrowRight, CheckCircle2, Sparkles, Lock, Check } from "lucide-react";
 
 export function HeroRegistrationForm() {
   const [selectedMotivation, setSelectedMotivation] = useState<string>("");
@@ -42,25 +42,35 @@ export function HeroRegistrationForm() {
 
   if (isSubmitted) {
     return (
-      <div className="bg-white/98 backdrop-blur-2xl rounded-2xl sm:rounded-3xl p-6 sm:p-7 shadow-[0_25px_60px_-15px_rgba(19,39,122,0.22),0_1px_0_rgba(255,255,255,1)] border-2 border-[#E2D8B3] relative text-left flex flex-col gap-4 animate-in fade-in zoom-in-95 duration-300">
+      <div className="bg-white/98 backdrop-blur-2xl rounded-2xl sm:rounded-3xl p-5 sm:p-6 shadow-[0_25px_60px_-15px_rgba(19,39,122,0.22),0_1px_0_rgba(255,255,255,1)] border-2 border-[#E2D8B3] relative text-left flex flex-col gap-3.5 animate-in fade-in zoom-in-95 duration-300">
         {/* Top ambient highlight */}
         <div className="absolute inset-x-8 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#F6C915] to-transparent pointer-events-none" />
 
-        {/* Celebration Header */}
-        <div className="flex items-start gap-3.5 pb-3 border-b border-[#E8DEC0]">
-          <div className="w-12 h-12 rounded-2xl bg-gradient-to-br from-[#1B7A42] to-[#145C32] text-white flex items-center justify-center shadow-lg shrink-0 border border-emerald-400/50">
-            <CheckCircle2 className="w-6 h-6 text-[#FFE676]" />
-          </div>
-          <div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-100/90 text-emerald-800 text-[10px] font-black uppercase tracking-wider mb-1">
-              <Sparkles className="w-3 h-3 text-emerald-600" />
-              <span>Official Seat Hold Confirmed</span>
+        {/* Clean & Clear Celebration Header with 3D Skeuomorphic Bouncing Checkmark Icon */}
+        <div className="flex items-center gap-3.5 pb-2.5 border-b border-[#E8DEC0]">
+          <div className="relative shrink-0">
+            <div className="animate-bounce-skeuo relative flex items-center justify-center select-none">
+              <div className="absolute -inset-2 rounded-full bg-emerald-400/35 blur-md animate-pulse pointer-events-none" />
+              <div className="relative p-1.5 rounded-full bg-gradient-to-b from-[#FFF6CC] via-[#F6C915] via-[#DF9F0E] to-[#8C6005] shadow-[0_10px_22px_rgba(7,18,69,0.22),inset_0_1.5px_2px_rgba(255,255,255,0.9),inset_0_-2px_4px_rgba(0,0,0,0.4)]">
+                <div className="p-0.5 rounded-full bg-gradient-to-b from-[#7A5303] via-[#B8860B] to-[#FFE685] shadow-inner">
+                  <div className="w-11 h-11 rounded-full bg-gradient-to-b from-[#34D399] via-[#059669] to-[#044E36] flex items-center justify-center relative overflow-hidden shadow-[inset_0_3px_6px_rgba(255,255,255,0.65),inset_0_-3px_6px_rgba(0,0,0,0.5),0_6px_14px_rgba(5,150,105,0.4)]">
+                    <div className="absolute top-0.5 left-1.5 right-1.5 h-4.5 rounded-t-full bg-gradient-to-b from-white/75 via-white/25 to-transparent pointer-events-none" />
+                    <Check className="w-6 h-6 text-white stroke-[3.8] drop-shadow-[0_2px_3px_rgba(0,0,0,0.4)] relative z-10" />
+                  </div>
+                </div>
+                <div className="absolute -top-1 -right-1 w-5 h-5 rounded-full bg-gradient-to-b from-[#FFF9D2] via-[#F6C915] to-[#B37A08] border border-white shadow-xs flex items-center justify-center">
+                  <Sparkles className="w-2.5 h-2.5 text-[#071245] fill-[#071245]" />
+                </div>
+              </div>
             </div>
-            <h3 className="text-lg sm:text-xl font-black text-[#071245] leading-tight">
-              Congratulations, {fullName}! 🎉
+          </div>
+
+          <div>
+            <h3 className="text-base sm:text-lg font-black text-[#071245] leading-tight">
+              Congratulations{fullName ? `, ${fullName}` : ""}!
             </h3>
-            <p className="text-[11px] sm:text-xs text-[#5B5440] font-semibold mt-0.5">
-              Welcome to CSNN Toronto! Your seat for October 14 is officially reserved.
+            <p className="text-[11px] sm:text-xs text-[#5B5440] font-bold mt-0.5">
+              Your seat for October 14 is officially reserved.
             </p>
           </div>
         </div>

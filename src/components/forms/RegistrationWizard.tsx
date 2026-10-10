@@ -112,30 +112,44 @@ export function RegistrationWizard() {
 
   if (isSubmitted) {
     return (
-      <div className="glass-card-light rounded-[22px] sm:rounded-[36px] shadow-[0_30px_80px_rgba(19,39,122,0.18)] border-2 border-white/95 overflow-hidden relative p-6 sm:p-12 text-center flex flex-col items-center gap-6 animate-in fade-in zoom-in-95 duration-400">
-        {/* Animated Celebration Icon with Golden Halo */}
-        <div className="relative">
-          <div className="w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-gradient-to-tr from-[#1B7A42] via-[#22C55E] to-[#15803D] flex items-center justify-center text-white shadow-[0_10px_35px_rgba(34,197,94,0.45)] border-4 border-white">
-            <CheckCircle2 className="w-9 h-9 sm:w-11 sm:h-11 text-[#FFE676]" />
+      <div className="glass-card-light rounded-[22px] sm:rounded-[36px] shadow-[0_30px_80px_rgba(19,39,122,0.18)] border-2 border-white/95 overflow-hidden relative p-6 sm:p-10 text-center flex flex-col items-center gap-4 sm:gap-5 animate-in fade-in zoom-in-95 duration-400">
+        {/* 3D Skeuomorphic Animated Bouncing Correct Checkmark Icon */}
+        <div className="relative pt-2 pb-1">
+          <div className="animate-bounce-skeuo relative flex items-center justify-center select-none">
+            {/* Ambient Pulsing Glow Aura */}
+            <div className="absolute -inset-3 rounded-full bg-gradient-to-r from-emerald-400/40 via-[#F6C915]/35 to-emerald-500/40 blur-xl animate-pulse pointer-events-none" />
+
+            {/* 3D Beveled Golden Rim / Coin Bezel */}
+            <div className="relative p-2 sm:p-2.5 rounded-full bg-gradient-to-b from-[#FFF6CC] via-[#F6C915] via-[#DF9F0E] to-[#8C6005] shadow-[0_16px_36px_rgba(7,18,69,0.28),0_6px_12px_rgba(0,0,0,0.18),inset_0_2px_2px_rgba(255,255,255,0.9),inset_0_-3px_5px_rgba(0,0,0,0.45)]">
+              {/* Inner Metallic Groove Ring */}
+              <div className="p-1 rounded-full bg-gradient-to-b from-[#7A5303] via-[#B8860B] to-[#FFE685] shadow-inner">
+                {/* 3D Emerald Gem Sphere with Specular Highlighting */}
+                <div className="w-18 h-18 sm:w-22 sm:h-22 rounded-full bg-gradient-to-b from-[#34D399] via-[#059669] to-[#044E36] flex items-center justify-center relative overflow-hidden shadow-[inset_0_4px_8px_rgba(255,255,255,0.65),inset_0_-5px_10px_rgba(0,0,0,0.55),0_8px_20px_rgba(5,150,105,0.45)]">
+                  {/* Top 3D Curved Glass Specular Sheen */}
+                  <div className="absolute top-1 left-2.5 right-2.5 h-7 sm:h-9 rounded-t-full bg-gradient-to-b from-white/75 via-white/25 to-transparent pointer-events-none" />
+                  {/* Bottom Ambient Reflection Highlight */}
+                  <div className="absolute bottom-1.5 inset-x-4 h-3 rounded-b-full bg-gradient-to-t from-white/30 to-transparent pointer-events-none" />
+
+                  {/* 3D Embossed Heavyweight Checkmark Icon */}
+                  <Check className="w-9 h-9 sm:w-11 sm:h-11 text-white stroke-[3.8] drop-shadow-[0_3px_5px_rgba(0,0,0,0.4)] relative z-10" />
+                </div>
+              </div>
+
+              {/* Top-Right 3D Mini Golden Badge with Sparkle */}
+              <div className="absolute -top-1 -right-1 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-gradient-to-b from-[#FFF9D2] via-[#F6C915] to-[#B37A08] border-2 border-white shadow-[0_4px_10px_rgba(0,0,0,0.25),inset_0_1px_1px_rgba(255,255,255,0.9)] flex items-center justify-center">
+                <Sparkles className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#071245] fill-[#071245]" />
+              </div>
+            </div>
           </div>
-          <span className="absolute -top-1 -right-1 w-6.5 h-6.5 rounded-full bg-[#F6C915] text-[#071245] flex items-center justify-center shadow-md text-xs font-black">
-            ✓
-          </span>
         </div>
 
-        {/* Primary Warm Greeting */}
-        <div className="max-w-2xl mx-auto space-y-2">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-100/90 text-emerald-800 text-xs font-black uppercase tracking-wider shadow-xs">
-            <Sparkles className="w-3.5 h-3.5 text-emerald-600" />
-            <span>Official CSNN Toronto Registration Confirmed</span>
-          </div>
-
-          <h3 className="text-2xl sm:text-4xl font-black text-[#13277A] tracking-tight leading-tight">
-            Congratulations &amp; Welcome, {firstName} {lastName}! 🎉
+        {/* Clean, Clear & Compact Header: No Clutter */}
+        <div className="max-w-xl mx-auto text-center space-y-1">
+          <h3 className="text-2xl sm:text-3xl font-black text-[#071245] tracking-tight">
+            Congratulations{firstName ? `, ${firstName}` : ""}!
           </h3>
-
-          <p className="text-sm sm:text-base text-[#5B5440] font-semibold max-w-xl mx-auto leading-relaxed">
-            You have successfully reserved your seat for the <strong className="text-[#13277A]">October 14, 2026</strong> intake of the <strong className="text-[#A8780F]">Healthy Eating &amp; Lifestyle Certificate</strong>. We are thrilled to partner with you on your holistic nutrition journey!
+          <p className="text-xs sm:text-sm text-[#5B5440] font-bold">
+            Your seat for October 14 is officially reserved.
           </p>
         </div>
 
