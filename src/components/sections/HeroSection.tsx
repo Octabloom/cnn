@@ -11,13 +11,13 @@ export function HeroSection() {
   return (
     <section
       data-screen-label="01 Hero + Form 1"
-      className="w-full relative bg-gradient-to-b from-[#FDF8E8] via-[#FAF2D4] to-[#FDF6DC] overflow-x-clip min-h-[calc(100vh-104px)] flex flex-col justify-between"
+      className="w-full flex-1 relative bg-gradient-to-b from-[#FDF8E8] via-[#FAF2D4] to-[#FDF6DC] overflow-x-clip flex flex-col justify-between min-h-[calc(100vh-84px)] min-h-[calc(100dvh-84px)]"
     >
       {/* ==============================================================
           TORONTO LANDMARK SKYLINE & GOLDEN SUN: Original Position
           Grand, impressive proportions resting directly on top of single road
           ============================================================== */}
-      <div className="absolute left-0 lg:left-0 xl:left-[2%] bottom-[80px] sm:bottom-[84px] w-full sm:w-[620px] md:w-[720px] lg:w-[820px] xl:w-[920px] h-[340px] sm:h-[400px] md:h-[460px] lg:h-[500px] xl:h-[540px] pointer-events-none select-none z-0 flex items-end justify-start opacity-100 transition-opacity">
+      <div className="absolute left-0 lg:left-0 xl:left-[2%] bottom-[84px] sm:bottom-[88px] w-full sm:w-[620px] md:w-[720px] lg:w-[820px] xl:w-[920px] h-[340px] sm:h-[400px] md:h-[460px] lg:h-[500px] xl:h-[540px] pointer-events-none select-none z-0 flex items-end justify-start opacity-100 transition-opacity">
         <TorontoSkylineGraphic showBadges={false} className="w-full h-full" />
       </div>
 
@@ -26,7 +26,7 @@ export function HeroSection() {
       <div className="absolute bottom-20 left-0 w-[450px] h-[450px] rounded-full bg-[#13277A]/8 blur-3xl pointer-events-none z-0" />
 
       {/* Main Hero Container: Grand proportions & comfortably filling the viewport window */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-3 sm:pt-4 lg:pt-5 pb-4 sm:pb-6 my-auto">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-4 sm:pt-6 lg:pt-8 pb-3 sm:pb-5 my-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-end">
           
           {/* ==============================================================
