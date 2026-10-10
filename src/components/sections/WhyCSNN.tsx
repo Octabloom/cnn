@@ -149,16 +149,9 @@ export function WhyCSNN() {
                       : "bg-white/[0.03] border border-white/15 hover:border-[#F6C915]/50 hover:bg-white/[0.06] shadow-lg"
                   }`}
                 >
-                  {/* TOP ROW: Waypoint Node & Continuous Energy Conduit */}
+                  {/* TOP ROW: Waypoint Node & Single Unbroken Energy Conduit Line */}
                   <div className="flex items-center mb-4 relative">
                     
-                    {/* Left Incoming Conduit (for Card 02 and 03) */}
-                    {idx > 0 && (
-                      <div className="hidden md:flex items-center -ml-4 sm:-ml-5 lg:-ml-6 mr-3 w-5 sm:w-6 h-[3px] bg-gradient-to-r from-[#F6C915]/60 to-[#F6C915] relative overflow-hidden shrink-0 shadow-[0_0_8px_#F6C915]">
-                        <div className="absolute inset-0 bg-white blur-[0.5px] animate-conduit-flow" />
-                      </div>
-                    )}
-
                     {/* Glowing Waypoint Node */}
                     <div
                       className={`w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm shrink-0 transition-all duration-300 group-hover:scale-105 z-10 ${
@@ -177,21 +170,21 @@ export function WhyCSNN() {
                       )}
                     </div>
 
-                    {/* Right Outgoing Conduit (for Card 01 and 02) */}
+                    {/* ONLY ONE CONTINUOUS UNBROKEN CONDUIT LINE: Connects seamlessly to next step */}
                     {idx < 2 ? (
-                      <div className="hidden md:flex flex-1 items-center ml-3 relative -mr-4 sm:-mr-5 lg:-mr-6">
-                        <div className="w-full h-[3px] bg-white/10 rounded-full relative overflow-hidden">
-                          {/* Gradient Track */}
+                      <div className="hidden md:flex flex-1 items-center ml-3 relative">
+                        {/* Single continuous unbroken track spanning across card edge and gap directly to next node */}
+                        <div className="w-[calc(100%+1.5rem)] lg:w-[calc(100%+2.25rem)] h-[3px] bg-gradient-to-r from-[#F6C915] via-[#F6C915]/90 to-[#F6C915]/75 rounded-full relative overflow-hidden shadow-[0_0_10px_rgba(246,201,21,0.6)]">
+                          {/* Smooth Continuous Flowing Energy Laser */}
                           <div
-                            className={`absolute inset-0 bg-gradient-to-r ${
-                              s.current
-                                ? "from-[#F6C915] via-[#F6C915]/90 to-[#F6C915]"
-                                : "from-[#F6C915]/80 via-white/40 to-[#F6C915]/80"
-                            }`}
+                            className="absolute inset-y-0 w-2/5 bg-gradient-to-r from-transparent via-white to-transparent blur-[0.5px] animate-smooth-beam"
+                            style={idx === 1 ? { animationDelay: "1.1s" } : undefined}
                           />
-                          {/* Smooth Animated Traveling Energy Beam */}
-                          <div className="absolute inset-y-0 w-1/3 bg-gradient-to-r from-transparent via-white to-transparent blur-[1px] animate-beam-travel" />
                         </div>
+                        {/* Clean Directional Arrow Pointing to Next Step */}
+                        <span className="text-xs font-black text-[#F6C915] absolute -right-6 lg:-right-9 top-1/2 -translate-y-1/2 drop-shadow-[0_0_6px_#F6C915]">
+                          ›
+                        </span>
                       </div>
                     ) : (
                       /* Destination Goal Indicator */
@@ -200,30 +193,7 @@ export function WhyCSNN() {
                       </div>
                     )}
 
-                    {/* Flowing Inter-Card Bridge: Spans the physical gap between cards on desktop */}
-                    {idx < 2 && (
-                      <div className="hidden md:flex absolute -right-7 sm:-right-8 lg:-right-10 top-1/2 -translate-y-1/2 w-7 sm:w-8 lg:w-10 h-6 items-center justify-center z-30 pointer-events-none">
-                        {/* Laser Conduit Tube */}
-                        <div className="w-full h-[3px] bg-gradient-to-r from-[#F6C915] to-[#F6C915]/90 relative overflow-hidden shadow-[0_0_12px_#F6C915]">
-                          <div className="absolute inset-0 bg-white blur-[0.5px] animate-conduit-flow" />
-                        </div>
-                        {/* Floating Active Pulse Waypoint Chevron */}
-                        <div className="absolute -translate-x-1/2 left-1/2 w-5 h-5 rounded-full bg-[#071245] border-2 border-[#F6C915] flex items-center justify-center shadow-[0_0_14px_#F6C915] animate-chevron-flow">
-                          <span className="text-[#F6C915] text-[10px] font-black leading-none">›</span>
-                        </div>
-                      </div>
-                    )}
-
                   </div>
-
-                  {/* Mid-Body Laser Connector (Desktop) */}
-                  {idx < 2 && (
-                    <div className="hidden md:flex absolute -right-7 sm:-right-8 lg:-right-10 top-1/2 -translate-y-1/2 w-7 sm:w-8 lg:w-10 h-[2px] items-center justify-center z-20 pointer-events-none">
-                      <div className="w-full h-full bg-gradient-to-r from-[#F6C915]/50 via-[#F6C915] to-[#F6C915]/50 shadow-[0_0_8px_#F6C915]" />
-                      <div className="absolute -left-1 w-2 h-2 rounded-full bg-[#F6C915] shadow-[0_0_6px_#F6C915]" />
-                      <div className="absolute -right-1 w-2 h-2 rounded-full bg-[#F6C915] shadow-[0_0_6px_#F6C915]" />
-                    </div>
-                  )}
 
                   {/* BADGES & TIMEFRAME: Situated cleanly BELOW the top rail row */}
                   <div className="flex flex-wrap items-center gap-1.5 mb-2.5">
@@ -277,15 +247,13 @@ export function WhyCSNN() {
 
                 </div>
 
-                {/* Mobile Flowing Vertical Connector */}
+                {/* Mobile Flowing Vertical Connector: Single clean line */}
                 {idx < 2 && (
-                  <div className="md:hidden flex flex-col items-center justify-center -my-2 relative z-20">
-                    <div className="w-[3px] h-7 bg-gradient-to-b from-[#F6C915] to-[#F6C915]/50 relative overflow-hidden rounded-full shadow-[0_0_10px_#F6C915]">
-                      <div className="absolute inset-x-0 h-1/2 bg-white blur-[0.5px] animate-pulse" />
+                  <div className="md:hidden flex flex-col items-center justify-center my-1 relative z-20">
+                    <div className="w-[2.5px] h-6 bg-[#F6C915] relative overflow-hidden rounded-full shadow-[0_0_8px_#F6C915]">
+                      <div className="absolute inset-0 bg-white blur-[0.5px] animate-pulse" />
                     </div>
-                    <div className="w-6 h-6 -mt-1 rounded-full bg-[#071245] border-2 border-[#F6C915] flex items-center justify-center shadow-[0_0_12px_#F6C915]">
-                      <span className="text-[#F6C915] text-[10px] font-black leading-none animate-bounce">↓</span>
-                    </div>
+                    <span className="text-[#F6C915] text-xs font-black -mt-0.5">↓</span>
                   </div>
                 )}
               </React.Fragment>
