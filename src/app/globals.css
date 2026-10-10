@@ -1,0 +1,292 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --navy-primary: #13277A;
+    --navy-deep: #0B1A5A;
+    --navy-dark: #071245;
+    --cream-warm: #FDF6DC;
+    --yellow-pale: #FBECB0;
+    --yellow-accent: #F6C915;
+    --gold-dark: #A8780F;
+    --white: #FFFFFF;
+    --body-text: #0F1F5C;
+    --muted-text: #5B5440;
+    --border-cream: #EFE1AD;
+    --alert-red: #D62B2B;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+    background-color: #FBF4D8;
+    color: #0F1F5C;
+    font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #FBF4D8;
+    color: #0F1F5C;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background-color: #F6C915;
+    color: #071245;
+  }
+}
+
+/* ==============================================================================
+   LUXURY SKEUOMORPHISM & GLASSMORPHISM DESIGN SYSTEM TOKENS
+   ============================================================================== */
+
+/* Shimmer Animation */
+@keyframes shimmerSweep {
+  0% { transform: translateX(-150%) skewX(-20deg); }
+  50%, 100% { transform: translateX(250%) skewX(-20deg); }
+}
+
+@keyframes pulseGoldGlow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(246, 201, 21, 0.35), 0 0 45px rgba(246, 201, 21, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 35px rgba(246, 201, 21, 0.65), 0 0 65px rgba(246, 201, 21, 0.35);
+  }
+}
+
+@keyframes floatGentle {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-6px); }
+}
+
+.animate-shimmer {
+  position: relative;
+  overflow: hidden;
+}
+.animate-shimmer::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0) 35%,
+    rgba(255, 255, 255, 0.45) 50%,
+    rgba(255, 255, 255, 0) 65%,
+    transparent 100%
+  );
+  animation: shimmerSweep 4.5s infinite ease-in-out;
+  pointer-events: none;
+}
+
+.animate-pulse-gold {
+  animation: pulseGoldGlow 3s infinite ease-in-out;
+}
+
+.animate-float-gentle {
+  animation: floatGentle 5s infinite ease-in-out;
+}
+
+/* Infinite Auto-Scroll Marquee Strip */
+@keyframes marqueeScroll {
+  0% { transform: translateX(0%); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marqueeScroll 28s linear infinite;
+}
+.animate-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Snake-like Flowing Pulse */
+@keyframes snakeDash {
+  to {
+    stroke-dashoffset: -80;
+  }
+}
+.animate-snake-flow {
+  stroke-dasharray: 10 10;
+  animation: snakeDash 3s linear infinite;
+}
+
+/* Energy Conduit Beam Travel for Stepper Rails */
+@keyframes beamTravel {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(300%); }
+}
+.animate-beam-travel {
+  animation: beamTravel 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* Metallic Gold Foil Text */
+.gold-foil-text {
+  background: linear-gradient(135deg, #A8780F 0%, #D4A017 25%, #F6C915 50%, #C69214 75%, #8B6508 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Deep Sapphire Navy Text */
+.navy-foil-text {
+  background: linear-gradient(135deg, #071245 0%, #13277A 50%, #1D3B9F 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Frosted Glass Cards (Light Cream Mode) */
+.glass-card-light {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(253, 246, 220, 0.72) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-top: 1.5px solid rgba(255, 255, 255, 1);
+  box-shadow: 
+    0 20px 40px -15px rgba(19, 39, 122, 0.09),
+    0 4px 10px -2px rgba(19, 39, 122, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+}
+
+/* Frosted Glass Cards (Dark Navy Mode) */
+.glass-card-dark {
+  background: linear-gradient(145deg, rgba(19, 39, 122, 0.7) 0%, rgba(7, 18, 69, 0.9) 100%);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-top: 1.5px solid rgba(246, 201, 21, 0.45);
+  box-shadow: 
+    0 25px 50px -12px rgba(0, 0, 0, 0.5),
+    0 8px 16px -4px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* Tactile 3D Skeuomorphic Buttons */
+.btn-skeuo-primary {
+  background: linear-gradient(180deg, #1C389E 0%, #13277A 50%, #0B1A5A 100%);
+  color: #FFFFFF;
+  border: 1px solid #2A48B8;
+  border-top: 1.5px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 
+    0 10px 25px -4px rgba(19, 39, 122, 0.45),
+    0 4px 8px -2px rgba(19, 39, 122, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.35);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+.btn-skeuo-primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 16px 32px -6px rgba(19, 39, 122, 0.55),
+    0 6px 12px -2px rgba(19, 39, 122, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5),
+    inset 0 -2px 0 rgba(0, 0, 0, 0.4);
+}
+.btn-skeuo-primary:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: 
+    0 4px 12px -2px rgba(19, 39, 122, 0.4),
+    inset 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.btn-skeuo-gold {
+  background: linear-gradient(180deg, #FFE46B 0%, #F6C915 50%, #DEAB07 100%);
+  color: #071245;
+  border: 1px solid #FFE885;
+  border-top: 1.5px solid #FFFFFF;
+  box-shadow: 
+    0 10px 25px -4px rgba(246, 201, 21, 0.6),
+    0 4px 8px -2px rgba(246, 201, 21, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85),
+    inset 0 -2px 0 rgba(168, 120, 15, 0.5);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  overflow: hidden;
+}
+.btn-skeuo-gold:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 
+    0 16px 35px -6px rgba(246, 201, 21, 0.75),
+    0 6px 14px -2px rgba(246, 201, 21, 0.4),
+    inset 0 1px 0 #FFFFFF,
+    inset 0 -2px 0 rgba(168, 120, 15, 0.6);
+}
+.btn-skeuo-gold:active:not(:disabled) {
+  transform: translateY(1px);
+  box-shadow: 
+    0 4px 10px -2px rgba(246, 201, 21, 0.5),
+    inset 0 2px 4px rgba(168, 120, 15, 0.5);
+}
+
+/* Tactile Skeuomorphic Form Controls */
+.input-skeuo {
+  background: #FFFFFF;
+  border: 1.5px solid #E6D9A8;
+  border-top: 2px solid #D8C78B;
+  box-shadow: 
+    inset 0 2px 4px rgba(15, 31, 92, 0.06),
+    0 1px 0 rgba(255, 255, 255, 0.85);
+  transition: all 0.2s ease;
+}
+.input-skeuo:focus {
+  border-color: #13277A;
+  box-shadow: 
+    0 0 0 3.5px rgba(246, 201, 21, 0.35),
+    inset 0 1px 2px rgba(15, 31, 92, 0.08);
+  outline: none;
+}
+
+/* Skeuomorphic Medal Badges */
+.badge-skeuo-gold {
+  background: linear-gradient(180deg, #FFF6D1 0%, #FBECB0 100%);
+  border: 1px solid #F6C915;
+  box-shadow: 
+    0 2px 6px rgba(168, 120, 15, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+}
+
+.badge-skeuo-navy {
+  background: linear-gradient(180deg, #13277A 0%, #0B1A5A 100%);
+  border: 1px solid rgba(246, 201, 21, 0.4);
+  box-shadow: 
+    0 4px 12px rgba(7, 18, 69, 0.35),
+    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #FDF6DC;
+}
+::-webkit-scrollbar-thumb {
+  background: #DFCD8A;
+  border-radius: 5px;
+  border: 2px solid #FDF6DC;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C4B16E;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
