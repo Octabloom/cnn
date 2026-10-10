@@ -10,21 +10,22 @@ interface TorontoSkylineGraphicProps {
 
 export function TorontoSkylineGraphic({
   className = "",
-  showBadges = true,
+  showBadges = false,
 }: TorontoSkylineGraphicProps) {
   return (
     <div
-      className={`relative w-full overflow-hidden select-none flex items-center justify-center ${className}`}
+      className={`relative w-full h-full select-none flex items-end justify-center ${className}`}
     >
       {/* Ambient background glow behind the sun */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[340px] h-[340px] rounded-full bg-[#F6C915]/20 blur-3xl pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[380px] h-[380px] rounded-full bg-[#F6C915]/20 blur-3xl pointer-events-none" />
 
       {/* SVG Canvas */}
       <svg
         viewBox="0 0 560 480"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="w-full h-auto max-h-[460px] drop-shadow-xl"
+        className="w-full h-full drop-shadow-xl"
+        preserveAspectRatio="xMidYMax meet"
       >
         <defs>
           {/* Radiant Sun Gradients */}

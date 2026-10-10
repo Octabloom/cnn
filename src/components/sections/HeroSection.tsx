@@ -13,18 +13,26 @@ export function HeroSection() {
       data-screen-label="01 Hero + Form 1"
       className="w-full flex-1 flex flex-col justify-between relative bg-gradient-to-b from-[#FDF8E8] via-[#FAF2D4] to-[#FDF6DC] overflow-hidden"
     >
-      {/* Soft Ambient Warm Auroras */}
-      <div className="absolute top-0 right-1/4 w-[450px] h-[450px] rounded-full bg-gradient-to-br from-[#F6C915]/15 to-transparent blur-3xl pointer-events-none z-0" />
-      <div className="absolute bottom-5 left-5 w-[400px] h-[400px] rounded-full bg-gradient-to-tr from-[#13277A]/8 to-transparent blur-3xl pointer-events-none z-0" />
+      {/* ==============================================================
+          FULL BACKGROUND: Animated Toronto Landmark Skyline & Golden Sun
+          Significantly larger, anchored to bottom right of left hero area
+          ============================================================== */}
+      <div className="absolute right-0 lg:right-[30%] xl:right-[33%] bottom-0 w-full sm:w-[620px] md:w-[720px] lg:w-[840px] xl:w-[960px] h-[380px] sm:h-[460px] md:h-[520px] lg:h-[580px] xl:h-[640px] pointer-events-none select-none z-0 flex items-end justify-end opacity-55 sm:opacity-80 lg:opacity-100 transition-opacity">
+        <TorontoSkylineGraphic showBadges={false} className="w-full h-full" />
+      </div>
+
+      {/* Atmospheric Soft Radiant Sun Auroras */}
+      <div className="absolute top-1/4 right-1/3 w-[500px] h-[500px] rounded-full bg-[#F6C915]/15 blur-3xl pointer-events-none z-0" />
+      <div className="absolute bottom-5 left-0 w-[450px] h-[450px] rounded-full bg-[#13277A]/8 blur-3xl pointer-events-none z-0" />
 
       {/* Main Hero Container */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto py-2 sm:py-3 lg:py-4">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-6 lg:gap-8 items-center">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full my-auto py-3 sm:py-4 lg:py-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
           
           {/* ==============================================================
-              LEFT COLUMN (7 cols): Sleek Brand Card + Text & Toronto Graphic
+              LEFT COLUMN (7 cols): Sleek Brand Card + Unboxed Hero Text
               ============================================================== */}
-          <div className="lg:col-span-7 xl:col-span-7 flex flex-col gap-3 sm:gap-3.5 text-left relative z-10">
+          <div className="lg:col-span-7 xl:col-span-7 flex flex-col gap-3.5 sm:gap-4 text-left relative z-10">
             
             {/* Top Brand Lockup Row (Sleek, Compact & Proportional) */}
             <div className="flex flex-wrap items-center justify-between gap-2.5">
@@ -74,71 +82,58 @@ export function HeroSection() {
 
             </div>
 
-            {/* Main Showcase: Side-by-Side Typography & Animated Toronto Skyline */}
-            <div className="grid grid-cols-1 md:grid-cols-12 gap-4 sm:gap-5 items-center bg-gradient-to-br from-white/60 via-white/40 to-transparent p-3 sm:p-4 rounded-3xl border border-[#EAE0BC]/80 backdrop-blur-xs">
+            {/* Hero Text Stack (Directly on canvas - NOT in a card) */}
+            <div className="flex flex-col gap-2.5 sm:gap-3 max-w-xl">
               
-              {/* Left Sub-Column: High-Impact Typography (7 cols) */}
-              <div className="md:col-span-7 flex flex-col gap-2 sm:gap-2.5">
-                
-                {/* 10 Holistic Nutrition Workshops */}
-                <div className="flex items-baseline gap-2 sm:gap-3">
-                  <span className="font-serif italic font-black text-5xl sm:text-6xl text-[#13277A] leading-none tracking-tight drop-shadow-xs">
-                    10
+              {/* 10 Holistic Nutrition Workshops */}
+              <div className="flex items-baseline gap-2.5 sm:gap-3.5">
+                <span className="font-serif italic font-black text-6xl sm:text-7xl lg:text-[76px] text-[#13277A] leading-none tracking-tight drop-shadow-xs">
+                  10
+                </span>
+                <div className="flex flex-col">
+                  <span className="font-serif italic font-black text-2xl sm:text-3xl lg:text-[34px] text-[#13277A] leading-tight tracking-tight">
+                    Holistic Nutrition
                   </span>
-                  <div className="flex flex-col">
-                    <span className="font-serif italic font-black text-xl sm:text-2xl text-[#13277A] leading-tight tracking-tight">
-                      Holistic Nutrition
-                    </span>
-                    <span className="font-serif italic font-black text-lg sm:text-xl text-[#13277A] leading-tight tracking-tight">
-                      Workshops
-                    </span>
-                  </div>
+                  <span className="font-serif italic font-black text-xl sm:text-2xl lg:text-[28px] text-[#13277A] leading-tight tracking-tight">
+                    Workshops
+                  </span>
                 </div>
-
-                {/* Sunshine Golden Headline */}
-                <h1 className="text-2xl sm:text-3xl lg:text-[32px] font-black text-[#D49B0E] tracking-tight leading-tight">
-                  Healthy Starts Here.
-                </h1>
-
-                {/* Lead Description */}
-                <p className="text-xs sm:text-[13px] text-[#0F1F5C] font-semibold leading-relaxed max-w-sm">
-                  Every meal is a choice that energizes and transforms your vitality. Learn practical whole-food science live online with licensed CSNN faculty.
-                </p>
-
-                {/* 3 Quick Benefit Chips */}
-                <div className="flex flex-wrap gap-1.5 pt-0.5">
-                  {["21 Live Online Hours", "Practical Kitchen Habits", "4 canfitpro CECs"].map((pill) => (
-                    <span
-                      key={pill}
-                      className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-lg bg-white/95 border border-[#E8DEC0] text-[10px] sm:text-[11px] font-black text-[#13277A] shadow-2xs"
-                    >
-                      <CheckCircle2 className="w-3 h-3 text-[#1B7A42] shrink-0" />
-                      <span>{pill}</span>
-                    </span>
-                  ))}
-                </div>
-
               </div>
 
-              {/* Right Sub-Column: Fully Visible Animated Toronto Landmark Artwork (5 cols) */}
-              <div className="md:col-span-5 flex items-center justify-center relative">
-                <div className="w-full max-w-[240px] sm:max-w-[270px] md:max-w-none">
-                  <TorontoSkylineGraphic showBadges={true} />
-                </div>
+              {/* Sunshine Golden Headline */}
+              <h1 className="text-3xl sm:text-4xl lg:text-[42px] font-black text-[#D49B0E] tracking-tight leading-tight">
+                Healthy Starts Here.
+              </h1>
+
+              {/* Lead Paragraph */}
+              <p className="text-sm sm:text-base lg:text-[16px] text-[#0F1F5C] font-semibold leading-relaxed max-w-lg">
+                Every meal is a choice that energizes and transforms your vitality. Learn practical whole-food science live online with licensed CSNN faculty.
+              </p>
+
+              {/* Benefit Chips */}
+              <div className="flex flex-wrap gap-2 pt-1">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-xs border border-[#E8DEC0] text-xs sm:text-[13px] font-black text-[#13277A] shadow-xs">
+                  <CheckCircle2 className="w-4 h-4 text-[#1B7A42] shrink-0" />
+                  <span>21 Live Online Hours</span>
+                </span>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white/95 backdrop-blur-xs border border-[#E8DEC0] text-xs sm:text-[13px] font-black text-[#13277A] shadow-xs">
+                  <CheckCircle2 className="w-4 h-4 text-[#1B7A42] shrink-0" />
+                  <span>Practical Kitchen Habits</span>
+                </span>
               </div>
 
             </div>
 
             {/* Quick Micro-Highlight Strip */}
-            <div className="flex items-center gap-2 sm:gap-3 flex-wrap text-[10px] sm:text-[11px] font-bold text-[#13277A]">
-              <span className="inline-flex items-center gap-1 bg-white/80 px-2.5 py-1 rounded-lg border border-[#E8DEC0]">
+            <div className="flex items-center gap-2 sm:gap-3 flex-wrap text-[10px] sm:text-[11px] font-bold text-[#13277A] pt-0.5">
+              <span className="inline-flex items-center gap-1 bg-white/85 px-2.5 py-1 rounded-lg border border-[#E8DEC0] shadow-2xs">
                 <Sparkles className="w-3 h-3 text-[#F6C915]" />
                 <span>Evenings 6:00–8:00 pm EST</span>
               </span>
-              <span className="inline-flex items-center gap-1 bg-white/80 px-2.5 py-1 rounded-lg border border-[#E8DEC0]">
+              <span className="inline-flex items-center gap-1 bg-white/85 px-2.5 py-1 rounded-lg border border-[#E8DEC0] shadow-2xs">
                 <span>100% Live Interactive Dialogue</span>
               </span>
-              <span className="inline-flex items-center gap-1 bg-white/80 px-2.5 py-1 rounded-lg border border-[#E8DEC0]">
+              <span className="inline-flex items-center gap-1 bg-white/85 px-2.5 py-1 rounded-lg border border-[#E8DEC0] shadow-2xs">
                 <span>Zero Prerequisites Required</span>
               </span>
             </div>
