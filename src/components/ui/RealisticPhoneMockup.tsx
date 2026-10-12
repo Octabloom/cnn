@@ -12,7 +12,7 @@ import {
   Sparkles,
   Award,
   User,
-  ThumbsUp,
+  Quote,
 } from "lucide-react";
 import {
   TestimonialItem,
@@ -61,10 +61,10 @@ export function RealisticPhoneMockup({
   return (
     <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[365px] select-none py-2">
       {/* Ambient Lighting Behind Chassis */}
-      <div className="absolute -inset-2 bg-gradient-to-tr from-[#071245]/15 via-[#F6C915]/15 to-[#071245]/10 rounded-[58px] blur-2xl pointer-events-none" />
+      <div className="absolute -inset-2 bg-gradient-to-tr from-[#071245]/20 via-[#F6C915]/15 to-[#071245]/15 rounded-[58px] blur-2xl pointer-events-none" />
 
-      {/* Titanium Hardware Chassis */}
-      <div className="relative rounded-[50px] p-[9px] bg-gradient-to-b from-[#2A2D34] via-[#1E2026] to-[#141519] shadow-[0_25px_60px_-15px_rgba(7,18,69,0.25),0_0_0_1px_rgba(255,255,255,0.12),inset_0_1px_2px_rgba(255,255,255,0.25)] border-2 border-[#3F424A]/70">
+      {/* Titanium Hardware Chassis with Sleek Metallic Finish */}
+      <div className="relative rounded-[50px] p-[9px] bg-gradient-to-b from-[#2D3037] via-[#1E2026] to-[#141519] shadow-[0_25px_60px_-15px_rgba(7,18,69,0.28),0_0_0_1px_rgba(255,255,255,0.15),inset_0_1px_2px_rgba(255,255,255,0.3)] border-2 border-[#41444D]/70">
         
         {/* Left Side Hardware Buttons (Mute / Volume) */}
         <div className="absolute -left-[5px] top-24 w-[3px] h-7 bg-[#34373F] rounded-l-md" />
@@ -75,7 +75,7 @@ export function RealisticPhoneMockup({
         <div className="absolute -right-[5px] top-32 w-[3px] h-14 bg-[#34373F] rounded-r-md" />
 
         {/* Inner Phone Screen (Clean, Bright Apple iOS Light Theme) */}
-        <div className="relative rounded-[42px] bg-slate-50 overflow-hidden flex flex-col h-[600px] sm:h-[630px] border border-slate-200/80 shadow-inner text-slate-800">
+        <div className="relative rounded-[42px] bg-slate-50 overflow-hidden flex flex-col h-[610px] sm:h-[635px] border border-slate-200/90 shadow-inner text-slate-800">
           
           {/* 1. REALISTIC IOS STATUS BAR */}
           <div className="pt-2.5 px-6 flex items-center justify-between z-30 shrink-0 text-slate-800">
@@ -102,21 +102,26 @@ export function RealisticPhoneMockup({
           </div>
 
           {/* 2. CLEAN APP HEADER */}
-          <div className="px-4 pt-2.5 pb-2.5 bg-white border-b border-slate-200/90 shrink-0 z-20 flex items-center justify-between shadow-2xs">
+          <div className="px-4 pt-2 pb-2.5 bg-white border-b border-slate-200/90 shrink-0 z-20 flex items-center justify-between shadow-2xs">
             <div className="flex items-center gap-2">
               <div className="w-8 h-8 rounded-full bg-[#071245] text-[#F6C915] flex items-center justify-center shadow-xs">
                 <ShieldCheck className="w-4 h-4" />
               </div>
               <div>
-                <div className="flex items-center gap-1">
+                <div className="flex items-center gap-1.5">
                   <h3 className="text-xs font-black text-[#071245] leading-tight">
                     Student Reviews
                   </h3>
                   <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-500" />
                 </div>
-                <p className="text-[9.5px] font-bold text-slate-500 leading-tight">
-                  CSNN Toronto · 100% Verified
-                </p>
+                <div className="flex items-center gap-1 text-[9.5px] font-bold text-slate-500 leading-tight">
+                  <div className="flex items-center text-[#F6C915]">
+                    {[...Array(5)].map((_, i) => (
+                      <Star key={i} className="w-2 h-2 fill-[#F6C915]" />
+                    ))}
+                  </div>
+                  <span>5.0 (100% Verified)</span>
+                </div>
               </div>
             </div>
 
@@ -130,7 +135,7 @@ export function RealisticPhoneMockup({
               >
                 <ChevronLeft className="w-3.5 h-3.5" />
               </button>
-              <span className="text-[10px] font-extrabold text-[#071245] px-1">
+              <span className="text-[10px] font-black text-[#071245] px-1">
                 {activeIndex + 1}/{activeList.length}
               </span>
               <button
@@ -144,22 +149,22 @@ export function RealisticPhoneMockup({
             </div>
           </div>
 
-          {/* 3. SIMPLE, CLEAN REVIEW CARDS SCROLLABLE FEED */}
+          {/* 3. SIMPLE, ATTRACTIVE REVIEW CARDS FEED */}
           <div className="flex-1 overflow-y-auto px-3.5 py-3 space-y-3 relative">
             
-            {/* Spotlight Banner */}
+            {/* Top helper text */}
             <div className="flex items-center justify-between px-1">
-              <div className="flex items-center gap-1 text-[10.5px] font-black text-[#071245]">
+              <div className="flex items-center gap-1.5 text-[10.5px] font-black text-[#071245]">
                 <Sparkles className="w-3 h-3 text-[#B87503]" />
-                <span>Featured Review</span>
+                <span>Verified Reflections</span>
               </div>
               <span className="text-[9.5px] font-bold text-slate-500">
-                Tap card to switch spotlight
+                Tap card to spotlight
               </span>
             </div>
 
-            {/* List of Simple Cards */}
-            {activeList.map((item, idx) => {
+            {/* List of Simple & Attractive Cards with Male / Female Profiles */}
+            {activeList.map((item) => {
               const isSelected = item.id === current.id;
               const liked = likedList[item.id];
 
@@ -167,49 +172,60 @@ export function RealisticPhoneMockup({
                 <div
                   key={item.id}
                   onClick={() => onSelectTestimonial(item.id)}
-                  className={`rounded-2xl p-3.5 transition-all cursor-pointer relative text-left border ${
+                  className={`rounded-2xl p-4 transition-all cursor-pointer relative text-left border ${
                     isSelected
-                      ? "bg-white border-[#071245] shadow-md ring-2 ring-[#071245]/10 scale-[1.01]"
-                      : "bg-white/85 border-slate-200 shadow-2xs hover:bg-white hover:border-slate-300 opacity-85 hover:opacity-100"
+                      ? "bg-white border-[#071245] shadow-[0_10px_25px_-5px_rgba(7,18,69,0.12)] ring-2 ring-[#071245]/15 scale-[1.01]"
+                      : "bg-white/90 border-slate-200/90 shadow-2xs hover:bg-white hover:border-slate-300 opacity-90 hover:opacity-100"
                   }`}
                 >
                   {/* Active Indicator Chip */}
                   {isSelected && (
-                    <div className="absolute top-3 right-3 flex items-center gap-1 px-2 py-0.5 rounded-full bg-[#071245] text-[#F6C915] text-[9px] font-black shadow-xs">
+                    <div className="absolute top-3.5 right-3.5 flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#071245] text-[#F6C915] text-[9.5px] font-black shadow-xs">
                       <Sparkles className="w-2.5 h-2.5" />
                       <span>Spotlight</span>
                     </div>
                   )}
 
-                  {/* Header: Human Icon Avatar + Student Name + Rating */}
-                  <div className="flex items-center gap-2.5 mb-2.5">
-                    {/* Human Icon Avatar with Verified Ring */}
+                  {/* Header: Male/Female Profile Portrait + Student Info + Stars */}
+                  <div className="flex items-center gap-3 mb-3">
+                    {/* Realistic Profile Photo with Verified Badge */}
                     <div className="relative shrink-0">
-                      <div className="w-10 h-10 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-[#071245] shadow-2xs">
-                        <User className="w-5 h-5 text-[#071245]" />
-                      </div>
-                      <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-emerald-600 border-2 border-white flex items-center justify-center">
+                      {item.image ? (
+                        <img
+                          src={item.image}
+                          alt={item.name}
+                          className="w-11 h-11 rounded-full object-cover border-2 border-white shadow-xs ring-1 ring-slate-200"
+                        />
+                      ) : (
+                        <div className="w-11 h-11 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-[#071245] shadow-2xs">
+                          <User className="w-5 h-5 text-[#071245]" />
+                        </div>
+                      )}
+                      <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 rounded-full bg-emerald-600 border-2 border-white flex items-center justify-center shadow-2xs">
                         <CheckCircle2 className="w-2.5 h-2.5 text-white" />
                       </div>
                     </div>
 
                     {/* Student Info */}
                     <div className="flex-1 min-w-0 pr-14">
-                      <div className="flex items-center gap-1">
-                        <h4 className="text-xs font-black text-[#071245] truncate">
-                          {item.name}
-                        </h4>
-                      </div>
-                      <p className="text-[10px] font-bold text-slate-500 truncate">
+                      <h4 className="text-xs font-black text-[#071245] truncate flex items-center gap-1">
+                        <span>{item.name}</span>
+                        <span className="text-[9px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded">
+                          Verified
+                        </span>
+                      </h4>
+                      <p className="text-[10px] font-medium text-slate-500 truncate mt-0.5">
                         {item.role}
                       </p>
                       
-                      {/* 5-Star Rating */}
-                      <div className="flex items-center gap-0.5 mt-0.5 text-[#F6C915]">
-                        {[...Array(item.rating)].map((_, i) => (
-                          <Star key={i} className="w-2.5 h-2.5 fill-[#F6C915]" />
-                        ))}
-                        <span className="text-[9.5px] font-bold text-[#071245] ml-1">
+                      {/* 5-Star Golden Rating */}
+                      <div className="flex items-center gap-1 mt-1 text-[#F6C915]">
+                        <div className="flex items-center">
+                          {[...Array(item.rating)].map((_, i) => (
+                            <Star key={i} className="w-2.5 h-2.5 fill-[#F6C915]" />
+                          ))}
+                        </div>
+                        <span className="text-[9.5px] font-black text-[#071245] ml-0.5">
                           5.0
                         </span>
                       </div>
@@ -218,36 +234,38 @@ export function RealisticPhoneMockup({
 
                   {/* Headline if available */}
                   {item.headline && (
-                    <h5 className="text-[11.5px] font-black text-[#071245] leading-snug mb-1.5">
+                    <h5 className="text-[12px] font-black text-[#071245] leading-snug mb-1.5">
                       &ldquo;{item.headline}&rdquo;
                     </h5>
                   )}
 
                   {/* Quote Body */}
-                  <p className="text-[11px] text-slate-700 leading-relaxed font-normal mb-2.5 line-clamp-4">
-                    {item.quote}
-                  </p>
+                  <div className="relative">
+                    <p className="text-[11.5px] text-slate-700 leading-relaxed font-normal mb-3 line-clamp-4">
+                      {item.quote}
+                    </p>
+                  </div>
 
                   {/* Highlight Chip if available */}
                   {item.highlightChip && (
-                    <div className="inline-flex items-center gap-1 px-2 py-0.5 rounded-lg bg-slate-100 border border-slate-200 text-[9.5px] font-bold text-[#071245] mb-2.5">
+                    <div className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-amber-50/80 border border-amber-200/60 text-[9.5px] font-bold text-[#8A5600] mb-3">
                       <Award className="w-3 h-3 text-[#B87503]" />
                       <span>{item.highlightChip}</span>
                     </div>
                   )}
 
                   {/* Card Footer: Badge & Like Interaction */}
-                  <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-500">
+                  <div className="pt-2.5 border-t border-slate-100 flex items-center justify-between text-[10px] text-slate-500">
                     <span className="text-[9.5px] font-bold text-slate-500 inline-flex items-center gap-1">
                       <ShieldCheck className="w-3 h-3 text-emerald-600" />
                       <span>{item.badge}</span>
                     </span>
 
-                    {/* Like Button */}
+                    {/* Interactive Like Heart Button */}
                     <button
                       type="button"
                       onClick={(e) => handleLike(item.id, e)}
-                      className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full transition-all border ${
+                      className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full transition-all border ${
                         liked
                           ? "bg-rose-50 text-rose-600 border-rose-200 font-bold scale-105"
                           : "bg-slate-50 hover:bg-slate-100 text-slate-600 border-slate-200"

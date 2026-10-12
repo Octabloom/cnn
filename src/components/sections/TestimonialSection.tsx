@@ -186,22 +186,32 @@ export function TestimonialSection() {
               {/* Student Bio Row + Controls */}
               <div className="flex items-center justify-between flex-wrap gap-4 pt-4 border-t border-slate-100">
                 
-                {/* Author Info with Human Icon Avatar */}
-                <div className="flex items-center gap-3">
+                {/* Author Info with Male / Female Profile Portrait */}
+                <div className="flex items-center gap-3.5">
                   <div className="relative shrink-0">
-                    <div className="w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-[#071245] shadow-xs">
-                      <User className="w-5 h-5 sm:w-6 sm:h-6 text-[#071245]" />
-                    </div>
-                    <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 sm:w-4.5 sm:h-4.5 rounded-full bg-emerald-600 border-2 border-white flex items-center justify-center">
-                      <CheckCircle2 className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white" />
+                    {currentTestimonial.image ? (
+                      <img
+                        src={currentTestimonial.image}
+                        alt={currentTestimonial.name}
+                        className="w-13 h-13 sm:w-15 sm:h-15 rounded-full object-cover border-2 border-white shadow-md ring-2 ring-slate-200"
+                      />
+                    ) : (
+                      <div className="w-13 h-13 sm:w-15 sm:h-15 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-[#071245] shadow-xs">
+                        <User className="w-6 h-6 sm:w-7 sm:h-7 text-[#071245]" />
+                      </div>
+                    )}
+                    <div className="absolute -bottom-0.5 -right-0.5 w-4.5 h-4.5 sm:w-5 sm:h-5 rounded-full bg-emerald-600 border-2 border-white flex items-center justify-center shadow-xs">
+                      <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" />
                     </div>
                   </div>
                   <div>
-                    <h4 className="font-black text-base sm:text-lg text-[#071245] leading-tight flex items-center gap-1.5">
+                    <h4 className="font-black text-base sm:text-lg text-[#071245] leading-tight flex items-center gap-2">
                       <span>{currentTestimonial.name}</span>
-                      <CheckCircle2 className="w-4 h-4 text-[#1B7A42]" />
+                      <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/50">
+                        Verified Student
+                      </span>
                     </h4>
-                    <p className="text-xs sm:text-[13px] text-[#B87503] font-bold">
+                    <p className="text-xs sm:text-[13px] text-[#B87503] font-bold mt-0.5">
                       {currentTestimonial.role}
                     </p>
                     <p className="text-[10px] sm:text-[11px] text-slate-500 font-semibold">
@@ -239,7 +249,7 @@ export function TestimonialSection() {
 
             </div>
 
-            {/* Quick-Jump Student Pills in this Category */}
+            {/* Quick-Jump Student Pills in this Category with Male/Female Mini Avatars */}
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider shrink-0">
                 Browse Reviews:
@@ -249,14 +259,22 @@ export function TestimonialSection() {
                   key={item.id}
                   type="button"
                   onClick={() => setSelectedId(item.id)}
-                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all border ${
+                  className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold transition-all border ${
                     selectedId === item.id
                       ? "bg-[#071245] text-white border-[#071245] font-black shadow-xs scale-102"
-                      : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-white"
+                      : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-white hover:border-slate-300"
                   }`}
                 >
-                  <User className={`w-3 h-3 ${selectedId === item.id ? "text-[#F6C915]" : "text-slate-400"}`} />
-                  <span>{item.shortLabel || item.name}</span>
+                  {item.image ? (
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="w-5 h-5 rounded-full object-cover border border-white shrink-0"
+                    />
+                  ) : (
+                    <User className={`w-3.5 h-3.5 ${selectedId === item.id ? "text-[#F6C915]" : "text-slate-400"}`} />
+                  )}
+                  <span>{item.name}: {item.shortLabel || item.name}</span>
                 </button>
               ))}
             </div>
