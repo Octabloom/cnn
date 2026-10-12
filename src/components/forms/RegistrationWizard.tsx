@@ -8,9 +8,6 @@ import {
   ArrowRight,
   ArrowLeft,
   ShieldCheck,
-  CheckCircle2,
-  Sparkles,
-  Lock,
   Phone,
 } from "lucide-react";
 

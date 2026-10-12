@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   Star,
   Quote,
@@ -18,7 +19,6 @@ import {
   ALL_TESTIMONIALS,
   HELC_TESTIMONIALS,
   QUICK_STUDENT_REVIEWS,
-  TestimonialItem,
 } from "@/data/testimonialData";
 import { RealisticPhoneMockup } from "@/components/ui/RealisticPhoneMockup";
 
@@ -190,9 +190,11 @@ export function TestimonialSection() {
                 <div className="flex items-center gap-3.5">
                   <div className="relative shrink-0">
                     {currentTestimonial.image ? (
-                      <img
+                      <Image
                         src={currentTestimonial.image}
                         alt={currentTestimonial.name}
+                        width={60}
+                        height={60}
                         className="w-13 h-13 sm:w-15 sm:h-15 rounded-full object-cover border-2 border-white shadow-md ring-2 ring-slate-200"
                       />
                     ) : (
@@ -266,9 +268,11 @@ export function TestimonialSection() {
                   }`}
                 >
                   {item.image ? (
-                    <img
+                    <Image
                       src={item.image}
                       alt={item.name}
+                      width={20}
+                      height={20}
                       className="w-5 h-5 rounded-full object-cover border border-white shrink-0"
                     />
                   ) : (

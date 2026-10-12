@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import { MOTIVATION_OPTIONS } from "@/data/programData";
 import { isValidEmail, isValidPhone, isValidName } from "@/lib/validation";
-import { ShieldCheck, AlertCircle, ChevronDown, ArrowRight, CheckCircle2, Sparkles, Lock, Check } from "lucide-react";
+import { ShieldCheck, AlertCircle, ChevronDown, ArrowRight, Lock, Check } from "lucide-react";
 
 export function HeroRegistrationForm() {
   const [selectedMotivation, setSelectedMotivation] = useState<string>("");

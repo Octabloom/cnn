@@ -13,7 +13,6 @@ import {
   ArrowRight,
   BookOpen,
   Award,
-  Layers,
 } from "lucide-react";
 
 interface CurriculumPillar {

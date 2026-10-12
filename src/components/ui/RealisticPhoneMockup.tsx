@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
 import {
   Star,
   CheckCircle2,
@@ -12,10 +13,8 @@ import {
   Sparkles,
   Award,
   User,
-  Quote,
 } from "lucide-react";
 import {
-  TestimonialItem,
   ALL_TESTIMONIALS,
   HELC_TESTIMONIALS,
   QUICK_STUDENT_REVIEWS,
@@ -191,9 +190,11 @@ export function RealisticPhoneMockup({
                     {/* Realistic Profile Photo with Verified Badge */}
                     <div className="relative shrink-0">
                       {item.image ? (
-                        <img
+                        <Image
                           src={item.image}
                           alt={item.name}
+                          width={44}
+                          height={44}
                           className="w-11 h-11 rounded-full object-cover border-2 border-white shadow-xs ring-1 ring-slate-200"
                         />
                       ) : (
