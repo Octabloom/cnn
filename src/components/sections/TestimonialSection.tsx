@@ -12,6 +12,7 @@ import {
   Award,
   MessageSquare,
   BookOpen,
+  User,
 } from "lucide-react";
 import {
   ALL_TESTIMONIALS,
@@ -185,12 +186,15 @@ export function TestimonialSection() {
               {/* Student Bio Row + Controls */}
               <div className="flex items-center justify-between flex-wrap gap-4 pt-4 border-t border-slate-100">
                 
-                {/* Author Info */}
+                {/* Author Info with Human Icon Avatar */}
                 <div className="flex items-center gap-3">
-                  <div
-                    className={`w-11 h-11 sm:w-13 sm:h-13 rounded-full ${currentTestimonial.avatarBg} text-white font-black text-sm sm:text-base flex items-center justify-center shadow-md border-2 border-white`}
-                  >
-                    {currentTestimonial.avatarText}
+                  <div className="relative shrink-0">
+                    <div className="w-11 h-11 sm:w-13 sm:h-13 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-[#071245] shadow-xs">
+                      <User className="w-5 h-5 sm:w-6 sm:h-6 text-[#071245]" />
+                    </div>
+                    <div className="absolute -bottom-0.5 -right-0.5 w-4 h-4 sm:w-4.5 sm:h-4.5 rounded-full bg-emerald-600 border-2 border-white flex items-center justify-center">
+                      <CheckCircle2 className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-white" />
+                    </div>
                   </div>
                   <div>
                     <h4 className="font-black text-base sm:text-lg text-[#071245] leading-tight flex items-center gap-1.5">
@@ -238,20 +242,21 @@ export function TestimonialSection() {
             {/* Quick-Jump Student Pills in this Category */}
             <div className="flex flex-wrap items-center gap-2">
               <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider shrink-0">
-                Browse Students:
+                Browse Reviews:
               </span>
               {activeList.map((item) => (
                 <button
                   key={item.id}
                   type="button"
                   onClick={() => setSelectedId(item.id)}
-                  className={`px-3 py-1 rounded-xl text-xs font-bold transition-all border ${
+                  className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl text-xs font-bold transition-all border ${
                     selectedId === item.id
-                      ? "bg-[#071245] text-white border-[#071245] font-black shadow-xs scale-105"
+                      ? "bg-[#071245] text-white border-[#071245] font-black shadow-xs scale-102"
                       : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-white"
                   }`}
                 >
-                  {item.name}
+                  <User className={`w-3 h-3 ${selectedId === item.id ? "text-[#F6C915]" : "text-slate-400"}`} />
+                  <span>{item.shortLabel || item.name}</span>
                 </button>
               ))}
             </div>

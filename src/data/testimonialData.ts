@@ -13,6 +13,7 @@ export interface TestimonialItem {
   quote: string;
   highlightChip?: string;
   likes: number;
+  shortLabel?: string;
 }
 
 export const HELC_TESTIMONIALS: TestimonialItem[] = [
@@ -23,10 +24,11 @@ export const HELC_TESTIMONIALS: TestimonialItem[] = [
     role: "Healthy Eating & Lifestyle Certificate Student",
     program: "10 Live Online Workshops",
     avatarText: "HS",
-    avatarBg: "bg-emerald-600",
+    avatarBg: "bg-[#071245]",
     rating: 5,
     badge: "Verified Workshop Student",
     timeAgo: "2 hours ago",
+    shortLabel: "Theory & Practice",
     headline: "Completely satisfied with theoretical & practical knowledge",
     quote:
       "Thank you for the comprehensive workshop you have presented and which I am completely satisfied with all the theoretical and practical knowledge I have acquired and revisited. We are very lucky to have a teacher providing us with so much excellent information from her own client-based practice and educational background. We appreciate our highly qualified instructor and all the time and patience they have provided.",
@@ -44,6 +46,7 @@ export const HELC_TESTIMONIALS: TestimonialItem[] = [
     rating: 5,
     badge: "Interactive Evening Session",
     timeAgo: "Yesterday",
+    shortLabel: "Engaging Faculty",
     headline: "Passionate, engaging instructor & detailed slides",
     quote:
       "I enjoyed the class. The instructor was so passionate and engaging. The content and slides were detailed and informative.",
@@ -61,6 +64,7 @@ export const HELC_TESTIMONIALS: TestimonialItem[] = [
     rating: 5,
     badge: "Hands-on Meal Planning",
     timeAgo: "3 days ago",
+    shortLabel: "Kitchen Recipes",
     headline: "Practical recipes we can easily implement in our health journey",
     quote:
       "The instructor is very knowledgeable as a facilitator, positive and upbeat. The content itself is excellent as I have learned so much. Group work has been positive to allow for getting to know other participants and sharing ideas. Practical exercises of developing meal ideas incorporating the week's learnings has been very helpful as we can easily implement these recipes to help our health journey.",
@@ -78,6 +82,7 @@ export const HELC_TESTIMONIALS: TestimonialItem[] = [
     rating: 5,
     badge: "100% Positive Learning Environment",
     timeAgo: "5 days ago",
+    shortLabel: "Lifestyle Growth",
     headline: "Strengthened my understanding & opened new windows for study",
     quote:
       "I wanted to express my sincere appreciation for the wonderful Healthy Eating & Lifestyle course we shared. I am truly grateful for the opportunity to participate and learn from CSNN Toronto. This course not only strengthened my understanding of nutrition but also opened new windows for deeper study and exploration. Each session inspired me to continue learning and improving my lifestyle. Thank you again for your guidance, support, and the positive learning environment you created.",
@@ -233,10 +238,11 @@ export const QUICK_STUDENT_REVIEWS: TestimonialItem[] = [
     role: "Graduating Student",
     program: "CSNN Toronto Cohort",
     avatarText: "S1",
-    avatarBg: "bg-amber-500",
+    avatarBg: "bg-amber-600",
     rating: 5,
     badge: "Graduation Reflection",
     timeAgo: "1 day ago",
+    shortLabel: "Graduation Journey",
     quote:
       "What a journey I went through. It felt more like a roller coaster ride. Thank you so much for all your support throughout the journey. Can't believe I am about to graduate! I have learned so much from CSNN Toronto.",
     likes: 31,
@@ -248,10 +254,11 @@ export const QUICK_STUDENT_REVIEWS: TestimonialItem[] = [
     role: "Interactive Class Student",
     program: "Live Online Classes",
     avatarText: "S2",
-    avatarBg: "bg-emerald-500",
+    avatarBg: "bg-emerald-600",
     rating: 5,
     badge: "Classroom Quality",
     timeAgo: "2 days ago",
+    shortLabel: "Classroom Quality",
     quote:
       "I like the efforts and preparations some instructors have put for the classes. You can see that they are not just giving a lecture but they are taking you to real-life experience.",
     likes: 27,
@@ -263,10 +270,11 @@ export const QUICK_STUDENT_REVIEWS: TestimonialItem[] = [
     role: "Practicum Student",
     program: "Mind & Body Component",
     avatarText: "S3",
-    avatarBg: "bg-blue-500",
+    avatarBg: "bg-blue-600",
     rating: 5,
     badge: "Mind-Body Practicums",
     timeAgo: "4 days ago",
+    shortLabel: "Mind-Body Practicum",
     quote:
       "I really liked the body and mind component which I feel makes it truly holistic. I also learned a lot through the practicums.",
     likes: 35,
@@ -278,10 +286,11 @@ export const QUICK_STUDENT_REVIEWS: TestimonialItem[] = [
     role: "Current Student",
     program: "Coordinator & Faculty Support",
     avatarText: "S4",
-    avatarBg: "bg-purple-500",
+    avatarBg: "bg-purple-600",
     rating: 5,
     badge: "Staff & Textbooks",
     timeAgo: "6 days ago",
+    shortLabel: "Faculty & Staff",
     quote:
       "The easy communication with the program coordinator, the teachers are awesome, and readable textbooks/readings are well written.",
     likes: 29,
@@ -293,10 +302,11 @@ export const QUICK_STUDENT_REVIEWS: TestimonialItem[] = [
     role: "Comprehensive Health Student",
     program: "Broad Curriculum Coverage",
     avatarText: "S5",
-    avatarBg: "bg-pink-500",
+    avatarBg: "bg-teal-600",
     rating: 5,
     badge: "Broad Curriculum",
     timeAgo: "1 week ago",
+    shortLabel: "Curriculum Breadth",
     quote:
       "Enjoyed all course content that was taught and how it covered many different areas of health and wellness.",
     likes: 33,
