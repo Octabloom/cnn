@@ -13,9 +13,8 @@ export function HeroSection() {
       className="w-full flex-1 relative bg-sky-50 overflow-x-clip flex flex-col justify-between min-h-[calc(100vh-84px)] min-h-[calc(100dvh-84px)]"
     >
       {/* ==============================================================
-          TORONTO LANDMARK SKYLINE BACKDROP (Super Clear, Flipped Photo):
+          TORONTO LANDMARK SKYLINE BACKDROP:
           Iconic CN Tower, Rogers Centre & Lake Ontario Waterfront
-          Zero overlays, zero fog, 100% crystal clear natural clarity
           ============================================================== */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none select-none">
         <Image
@@ -25,22 +24,25 @@ export function HeroSection() {
           priority
           quality={100}
           sizes="100vw"
-          className="object-cover object-[center_35%]"
+          className="object-cover object-[center_28%]"
         />
+        {/* Soft atmospheric gradient for pristine text contrast */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/45 via-white/20 to-transparent pointer-events-none" />
       </div>
 
-      {/* Main Hero Container: Grand proportions & comfortably filling the viewport window */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-4 sm:pt-6 lg:pt-8 pb-3 sm:pb-5 my-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 xl:gap-10 items-end">
+      {/* Main Hero Container: Perfectly balanced & vertically centered */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full pt-6 sm:pt-8 lg:pt-10 pb-6 sm:pb-8 my-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 xl:gap-12 items-center">
           
           {/* ==============================================================
               LEFT COLUMN (7 cols): Bold, Grand & Impactful Hero Content
+              Spacious vertical rhythm — Zero overlapping elements
               ============================================================== */}
-          <div className="lg:col-span-7 xl:col-span-7 flex flex-col gap-3 sm:gap-3.5 text-left relative z-10 pb-2 lg:pb-0">
+          <div className="lg:col-span-7 xl:col-span-7 flex flex-col gap-3.5 sm:gap-4 text-left relative z-10 pb-3 lg:pb-0">
             
             {/* Top Live Intake Status Pill */}
-            <div className="flex items-center gap-2 mb-0.5">
-              <div className="inline-flex items-center gap-2 px-3.5 sm:px-4.5 py-1.5 sm:py-2 rounded-full bg-[#071245] text-white text-[11px] sm:text-[13px] font-bold border-2 border-[#F6C915]/70 w-fit backdrop-blur-md shadow-none hover:scale-[1.02] transition-transform">
+            <div className="flex items-center gap-2 mb-1">
+              <div className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-1.5 sm:py-2 rounded-full bg-[#071245] text-white text-[11px] sm:text-[13px] font-bold border-2 border-[#F6C915]/80 w-fit shadow-xs hover:scale-[1.02] transition-transform">
                 <span className="relative flex h-2 sm:h-2.5 w-2 sm:w-2.5">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F6C915] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 sm:h-2.5 w-2 sm:w-2.5 bg-[#F6C915]"></span>
@@ -49,39 +51,39 @@ export function HeroSection() {
               </div>
             </div>
 
-            {/* Hero Text Stack (Grand, Commanding & Mobile Responsive) */}
-            <div className="flex flex-col gap-2 sm:gap-3 max-w-xl">
+            {/* Hero Text Stack (Clean, Elevated & Crisp Typography) */}
+            <div className="flex flex-col gap-2.5 max-w-xl">
               
               {/* Holistic Nutrition Workshops */}
               <div className="flex flex-col">
-                <span className="font-serif italic font-black text-3xl sm:text-5xl lg:text-[54px] xl:text-[62px] text-[#071245] leading-[1.05] tracking-tight">
+                <span className="font-serif italic font-black text-3xl sm:text-5xl lg:text-[54px] xl:text-[62px] text-[#071245] leading-[1.08] tracking-tight">
                   Holistic Nutrition
                 </span>
-                <span className="font-serif italic font-black text-2xl sm:text-4xl lg:text-[42px] xl:text-[50px] text-[#071245] leading-[1.05] tracking-tight">
+                <span className="font-serif italic font-black text-2xl sm:text-4xl lg:text-[42px] xl:text-[50px] text-[#071245] leading-[1.08] tracking-tight">
                   Workshops
                 </span>
               </div>
 
               {/* Sunshine Golden Headline */}
-              <h1 className="text-2xl sm:text-3xl lg:text-[34px] xl:text-[40px] font-black text-[#B87503] sm:text-[#C4880B] tracking-tight leading-tight pt-0.5">
+              <h1 className="text-2xl sm:text-3xl lg:text-[34px] xl:text-[38px] font-black text-[#B87503] sm:text-[#C4880B] tracking-tight leading-snug mt-1 mb-1">
                 Healthy Starts Here.
               </h1>
 
-              {/* Lead Paragraph: Ultra-Transparent so artwork is completely visible */}
-              <div className="relative rounded-2xl bg-white/10 sm:bg-white/15 backdrop-blur-[2px] border border-white/40 p-2.5 sm:p-3.5 max-w-xl z-20 shadow-none">
-                <div className="absolute left-0 top-2 bottom-2 w-1.5 bg-gradient-to-b from-[#F6C915] to-[#DEAB07] rounded-r-full" />
-                <p className="pl-2.5 text-xs sm:text-sm lg:text-[15px] text-[#071245] font-black leading-relaxed">
+              {/* Lead Paragraph Card: Elegant Frosted Backing for 100% Legibility */}
+              <div className="relative rounded-2xl bg-white/80 sm:bg-white/85 backdrop-blur-md border border-white/90 p-4 sm:p-5 max-w-xl z-20 shadow-[0_8px_30px_rgba(7,18,69,0.06)]">
+                <div className="absolute left-0 top-3 bottom-3 w-1.5 bg-gradient-to-b from-[#F6C915] to-[#DEAB07] rounded-r-full" />
+                <p className="pl-3 text-xs sm:text-sm lg:text-[15px] text-[#071245] font-bold leading-relaxed">
                   Every meal is a choice that energizes and transforms your vitality. Learn holistic wellness in simple way live online with Registered Holistic Nutritionist (RHN).
                 </p>
               </div>
 
-              {/* Benefit Chips: Semi-Transparent Glass */}
-              <div className="flex flex-wrap gap-2.5 sm:gap-3 pt-0.5">
-                <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2.5 rounded-xl bg-white/15 sm:bg-white/25 backdrop-blur-[2px] border border-white/50 text-xs sm:text-sm font-black text-[#071245] shadow-none hover:bg-white/30 transition-colors">
+              {/* Benefit Chips */}
+              <div className="flex flex-wrap gap-2.5 sm:gap-3 pt-1">
+                <span className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-white/80 sm:bg-white/85 backdrop-blur-md border border-white/90 text-xs sm:text-sm font-black text-[#071245] shadow-2xs hover:bg-white transition-colors">
                   <CheckCircle2 className="w-4 h-4 text-[#1B7A42] shrink-0" />
                   <span>21 Live Online Hours</span>
                 </span>
-                <span className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2.5 rounded-xl bg-white/15 sm:bg-white/25 backdrop-blur-[2px] border border-white/50 text-xs sm:text-sm font-black text-[#071245] shadow-none hover:bg-white/30 transition-colors">
+                <span className="inline-flex items-center gap-2 px-3.5 sm:px-4 py-2 sm:py-2.5 rounded-xl bg-white/80 sm:bg-white/85 backdrop-blur-md border border-white/90 text-xs sm:text-sm font-black text-[#071245] shadow-2xs hover:bg-white transition-colors">
                   <CheckCircle2 className="w-4 h-4 text-[#1B7A42] shrink-0" />
                   <span>Practical Kitchen Hacks</span>
                 </span>
@@ -90,15 +92,15 @@ export function HeroSection() {
             </div>
 
             {/* Quick Micro-Highlight Strip */}
-            <div className="flex items-center gap-2 sm:gap-2.5 flex-wrap text-xs sm:text-[12px] font-bold text-[#071245] pt-0.5">
-              <span className="inline-flex items-center gap-1.5 bg-white/15 sm:bg-white/25 backdrop-blur-[2px] px-2.5 py-1 rounded-lg border border-white/50 shadow-none font-black">
+            <div className="flex items-center gap-2 sm:gap-2.5 flex-wrap text-xs sm:text-[12px] font-bold text-[#071245] pt-1">
+              <span className="inline-flex items-center gap-1.5 bg-white/80 sm:bg-white/85 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/90 shadow-2xs font-black">
                 <Sparkles className="w-3.5 h-3.5 text-[#F6C915]" />
                 <span>Evenings 6:00–8:30 pm EST</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 bg-white/15 sm:bg-white/25 backdrop-blur-[2px] px-2.5 py-1 rounded-lg border border-white/50 shadow-none font-black">
+              <span className="inline-flex items-center gap-1.5 bg-white/80 sm:bg-white/85 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/90 shadow-2xs font-black">
                 <span>100% Live Interactive Dialogue</span>
               </span>
-              <span className="inline-flex items-center gap-1.5 bg-white/15 sm:bg-white/25 backdrop-blur-[2px] px-2.5 py-1 rounded-lg border border-white/50 shadow-none font-black">
+              <span className="inline-flex items-center gap-1.5 bg-white/80 sm:bg-white/85 backdrop-blur-md px-3 py-1.5 rounded-lg border border-white/90 shadow-2xs font-black">
                 <span>Zero Prerequisites Required</span>
               </span>
             </div>
@@ -107,9 +109,9 @@ export function HeroSection() {
 
           {/* ==============================================================
               RIGHT COLUMN (5 cols): Full-Sized Official Intake Registration Form
-              Transparent glass, zero shadow, clear view to the skyline backdrop
+              Clean, elegant frosted glass card with maximum legibility
               ============================================================== */}
-          <div id="form-1" className="lg:col-span-5 xl:col-span-5 w-full relative z-20 flex flex-col justify-end lg:items-end self-end">
+          <div id="form-1" className="lg:col-span-5 xl:col-span-5 w-full relative z-20 flex flex-col justify-center lg:items-end">
             <div className="w-full max-w-[440px] lg:max-w-[440px] xl:max-w-[460px] mx-auto lg:mx-0 lg:ml-auto">
               <HeroRegistrationForm />
             </div>
@@ -118,7 +120,7 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Running Marquee Attached Directly at the Base of the Hero Window (No Road Animation) */}
+      {/* Running Marquee Attached Directly at the Base of the Hero Window */}
       <div className="w-full shrink-0 relative z-20 mt-auto">
         <TrustMarquee />
       </div>
