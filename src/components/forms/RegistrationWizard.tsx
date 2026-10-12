@@ -89,7 +89,7 @@ export function RegistrationWizard() {
     } else if (currentStep === 3) {
       const errs: Record<string, string> = {};
       if (!readyOct14) {
-        errs.readyOct14 = "Please confirm your availability for October 14.";
+        errs.readyOct14 = "Please confirm your availability for October 28.";
       }
       if (!reachMethod) {
         errs.reachMethod = "Please select your preferred contact method.";
@@ -112,7 +112,7 @@ export function RegistrationWizard() {
 
   if (isSubmitted) {
     return (
-      <div className="glass-card-light rounded-[22px] sm:rounded-[36px] shadow-[0_30px_80px_rgba(19,39,122,0.18)] border-2 border-white/95 overflow-hidden relative p-6 sm:p-10 text-center flex flex-col items-center gap-4 sm:gap-5 animate-in fade-in zoom-in-95 duration-400">
+      <div className="bg-white rounded-[24px] sm:rounded-[36px] shadow-[0_25px_60px_-15px_rgba(7,18,69,0.12)] border border-slate-200 overflow-hidden relative p-6 sm:p-10 text-center flex flex-col items-center gap-4 sm:gap-5 animate-in fade-in zoom-in-95 duration-400">
         {/* Simple & Clean Smooth Bouncing Checkmark Icon (No Golden Surround) */}
         <div className="relative pt-1 pb-1">
           <div className="animate-smooth-bounce relative flex items-center justify-center select-none">
@@ -134,15 +134,15 @@ export function RegistrationWizard() {
           <h3 className="text-2xl sm:text-3xl font-black text-[#071245] tracking-tight">
             Congratulations{firstName ? `, ${firstName}` : ""}!
           </h3>
-          <p className="text-xs sm:text-sm text-[#5B5440] font-bold">
-            Your seat for October 14 is officially reserved.
+          <p className="text-xs sm:text-sm text-slate-600 font-bold">
+            Your seat for October 28 is officially reserved.
           </p>
         </div>
 
         {/* Customized Student Intake Summary Card */}
-        <div className="w-full max-w-2xl bg-gradient-to-br from-[#FFFDF5] via-[#FFF9E6] to-[#FAF1D0] rounded-2xl sm:rounded-3xl p-5 sm:p-7 border-2 border-[#E8DEC0] shadow-sm text-left space-y-4">
-          <div className="flex items-center justify-between pb-3 border-b border-[#E8DEC0]">
-            <span className="text-xs font-black uppercase tracking-wider text-[#A8780F]">
+        <div className="w-full max-w-2xl bg-slate-50/80 rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-slate-200 shadow-2xs text-left space-y-4">
+          <div className="flex items-center justify-between pb-3 border-b border-slate-200">
+            <span className="text-xs font-black uppercase tracking-wider text-[#B87503]">
               Your Registration Profile
             </span>
             <span className="text-xs font-black text-emerald-700 bg-emerald-100/80 px-2.5 py-0.5 rounded-full border border-emerald-300">
@@ -152,42 +152,42 @@ export function RegistrationWizard() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
             <div>
-              <span className="text-[#5B5440] font-bold block text-[11px]">Applicant Name:</span>
-              <span className="text-[#13277A] font-black text-sm">{firstName} {lastName}</span>
+              <span className="text-slate-500 font-bold block text-[11px]">Applicant Name:</span>
+              <span className="text-[#071245] font-black text-sm">{firstName} {lastName}</span>
             </div>
             <div>
-              <span className="text-[#5B5440] font-bold block text-[11px]">Primary Email:</span>
-              <span className="text-[#13277A] font-black text-sm">{email}</span>
+              <span className="text-slate-500 font-bold block text-[11px]">Primary Email:</span>
+              <span className="text-[#071245] font-black text-sm">{email}</span>
             </div>
             <div>
-              <span className="text-[#5B5440] font-bold block text-[11px]">Phone &amp; Preference:</span>
-              <span className="text-[#13277A] font-black text-sm">{phone} ({reachMethod})</span>
+              <span className="text-slate-500 font-bold block text-[11px]">Phone &amp; Preference:</span>
+              <span className="text-[#071245] font-black text-sm">{phone} ({reachMethod})</span>
             </div>
             <div>
-              <span className="text-[#5B5440] font-bold block text-[11px]">Location:</span>
-              <span className="text-[#13277A] font-black text-sm">{city}, {provinceCountry}</span>
+              <span className="text-slate-500 font-bold block text-[11px]">Location:</span>
+              <span className="text-[#071245] font-black text-sm">{city}, {provinceCountry}</span>
             </div>
             <div>
-              <span className="text-[#5B5440] font-bold block text-[11px]">Certificate Goal:</span>
-              <span className="text-[#13277A] font-black text-sm">{certificateType || "Attendance"} Certificate</span>
+              <span className="text-slate-500 font-bold block text-[11px]">Certificate Goal:</span>
+              <span className="text-[#071245] font-black text-sm">{certificateType || "Attendance"} Certificate</span>
             </div>
             <div>
-              <span className="text-[#5B5440] font-bold block text-[11px]">Live Schedule:</span>
-              <span className="text-[#13277A] font-black text-sm">Wednesdays 6:00–8:00 pm EST</span>
+              <span className="text-slate-500 font-bold block text-[11px]">Live Schedule:</span>
+              <span className="text-[#071245] font-black text-sm">Wednesdays 6:00–8:30 pm EST</span>
             </div>
           </div>
 
           {/* Focus Areas Chips */}
           {focusAreas.length > 0 && (
-            <div className="pt-2 border-t border-[#E8DEC0]/80">
-              <span className="text-[#5B5440] font-bold block text-[11px] mb-1.5">
+            <div className="pt-2 border-t border-slate-200">
+              <span className="text-slate-500 font-bold block text-[11px] mb-1.5">
                 Selected Nutritional Focus Areas:
               </span>
               <div className="flex flex-wrap gap-1.5">
                 {focusAreas.map((area) => (
                   <span
                     key={area}
-                    className="px-2.5 py-1 rounded-lg bg-[#13277A] text-white font-black text-[11px] shadow-2xs border border-[#13277A]"
+                    className="px-2.5 py-1 rounded-lg bg-[#071245] text-white font-black text-[11px] shadow-2xs border border-[#071245]"
                   >
                     ✓ {area}
                   </span>
@@ -198,31 +198,31 @@ export function RegistrationWizard() {
         </div>
 
         {/* 3 Clear Next Steps */}
-        <div className="w-full max-w-2xl bg-white/95 rounded-2xl p-5 border border-[#E8DEC0] text-left">
-          <h4 className="text-xs sm:text-sm font-black uppercase tracking-wider text-[#13277A] mb-3 flex items-center gap-2">
+        <div className="w-full max-w-2xl bg-white rounded-2xl p-5 border border-slate-200 text-left shadow-2xs">
+          <h4 className="text-xs sm:text-sm font-black uppercase tracking-wider text-[#071245] mb-3 flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#F6C915]" />
             What Happens Next — Simple 3-Step Onboarding:
           </h4>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-            <div className="bg-[#FAF6E8] p-3 rounded-xl border border-[#EFE1AD]">
-              <span className="w-5 h-5 rounded-full bg-[#13277A] text-white flex items-center justify-center font-black text-[10px] mb-1.5">1</span>
-              <p className="font-black text-[#13277A] mb-0.5">Advising Welcome</p>
-              <p className="text-[11px] text-[#5B5440] font-semibold leading-relaxed">
+            <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
+              <span className="w-5 h-5 rounded-full bg-[#071245] text-white flex items-center justify-center font-black text-[10px] mb-1.5">1</span>
+              <p className="font-black text-[#071245] mb-0.5">Advising Welcome</p>
+              <p className="text-[11px] text-slate-600 font-medium leading-relaxed">
                 Your admissions advisor will connect within 24 hours via {reachMethod} to review syllabus details.
               </p>
             </div>
-            <div className="bg-[#FAF6E8] p-3 rounded-xl border border-[#EFE1AD]">
-              <span className="w-5 h-5 rounded-full bg-[#13277A] text-white flex items-center justify-center font-black text-[10px] mb-1.5">2</span>
-              <p className="font-black text-[#13277A] mb-0.5">Course Pack &amp; Guide</p>
-              <p className="text-[11px] text-[#5B5440] font-semibold leading-relaxed">
+            <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
+              <span className="w-5 h-5 rounded-full bg-[#071245] text-white flex items-center justify-center font-black text-[10px] mb-1.5">2</span>
+              <p className="font-black text-[#071245] mb-0.5">Course Pack &amp; Guide</p>
+              <p className="text-[11px] text-slate-600 font-medium leading-relaxed">
                 You will receive your student guide, weekly recipes, and recommended whole-food grocery list.
               </p>
             </div>
-            <div className="bg-[#FAF6E8] p-3 rounded-xl border border-[#EFE1AD]">
-              <span className="w-5 h-5 rounded-full bg-[#13277A] text-white flex items-center justify-center font-black text-[10px] mb-1.5">3</span>
-              <p className="font-black text-[#13277A] mb-0.5">Live Zoom Access</p>
-              <p className="text-[11px] text-[#5B5440] font-semibold leading-relaxed">
-                Live interactive link delivered before the first session on October 14 at 6:00 pm EST.
+            <div className="bg-slate-50 p-3 rounded-xl border border-slate-200">
+              <span className="w-5 h-5 rounded-full bg-[#071245] text-white flex items-center justify-center font-black text-[10px] mb-1.5">3</span>
+              <p className="font-black text-[#071245] mb-0.5">Live Zoom Access</p>
+              <p className="text-[11px] text-slate-600 font-medium leading-relaxed">
+                Live interactive link delivered before the first session on October 28 at 6:00 pm EST.
               </p>
             </div>
           </div>
@@ -232,9 +232,9 @@ export function RegistrationWizard() {
         <div className="flex flex-col sm:flex-row items-center gap-3 pt-2">
           <a
             href={`tel:${PROGRAM_INFO.phoneRaw}`}
-            className="inline-flex items-center gap-2 px-6 h-11 rounded-full bg-white border border-[#E8DEC0] text-[#13277A] font-black text-xs hover:bg-[#FAF6E8] transition-colors shadow-xs"
+            className="inline-flex items-center gap-2 px-6 h-11 rounded-full bg-white border border-slate-200 text-[#071245] font-black text-xs hover:bg-slate-50 transition-colors shadow-2xs"
           >
-            <Phone className="w-3.5 h-3.5 text-[#A8780F]" />
+            <Phone className="w-3.5 h-3.5 text-[#B87503]" />
             <span>Have questions now? Call {PROGRAM_INFO.phone}</span>
           </a>
 
@@ -244,7 +244,7 @@ export function RegistrationWizard() {
               setIsSubmitted(false);
               setCurrentStep(1);
             }}
-            className="text-xs font-black text-[#A8780F] hover:underline cursor-pointer py-2 px-4"
+            className="text-xs font-black text-[#B87503] hover:underline cursor-pointer py-2 px-4"
           >
             ← Register Another Household Member or Student
           </button>
@@ -254,16 +254,16 @@ export function RegistrationWizard() {
   }
 
   return (
-    <div className="glass-card-light rounded-[22px] sm:rounded-[36px] shadow-[0_30px_80px_rgba(19,39,122,0.15)] border-2 border-white/90 overflow-hidden relative">
+    <div className="bg-white rounded-[24px] sm:rounded-[36px] shadow-[0_25px_60px_-15px_rgba(7,18,69,0.1)] border border-slate-200/90 overflow-hidden relative">
       
       {/* Top Liquid Amber Progress Header */}
-      <div className="bg-gradient-to-r from-[#071245] via-[#0B1A5A] to-[#071245] text-white p-4 sm:p-7 sm:p-9 relative border-b border-[#F6C915]/30">
+      <div className="bg-[#071245] text-white p-4 sm:p-7 sm:p-9 relative border-b border-white/10">
         <div className="flex flex-wrap items-center justify-between gap-2.5 sm:gap-4 mb-3 sm:mb-5">
           <div className="flex items-center gap-2.5 sm:gap-3.5">
             <span className="w-7 h-7 sm:w-9 sm:h-9 rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#FFE46B] to-[#DEAB07] text-[#071245] font-black text-xs sm:text-sm flex items-center justify-center shadow-lg border border-[#FFF0A8]">
               {currentStep}
             </span>
-            <span className="text-xs sm:text-base font-black uppercase tracking-wider text-[#FBECB0]">
+            <span className="text-xs sm:text-base font-black uppercase tracking-wider text-white">
               Step {currentStep} of 4 —{" "}
               {currentStep === 1 && "About You"}
               {currentStep === 2 && "Your Goals"}
@@ -271,7 +271,7 @@ export function RegistrationWizard() {
               {currentStep === 4 && "Contact Details"}
             </span>
           </div>
-          <span className="badge-skeuo-gold text-[10px] sm:text-xs font-black px-2.5 sm:px-3.5 py-0.5 sm:py-1 rounded-full text-[#8A6208]">
+          <span className="bg-white/10 text-amber-300 border border-amber-300/30 text-[10px] sm:text-xs font-black px-2.5 sm:px-3.5 py-0.5 sm:py-1 rounded-full">
             {progressPct}% Completed
           </span>
         </div>
@@ -300,10 +300,10 @@ export function RegistrationWizard() {
         {currentStep === 1 && (
           <div className="space-y-4 sm:space-y-6">
             <div>
-              <h3 className="text-xl sm:text-3xl font-black text-[#13277A] mb-1 sm:mb-1.5 leading-tight">
+              <h3 className="text-xl sm:text-3xl font-black text-[#071245] mb-1 sm:mb-1.5 leading-tight">
                 Which best describes you?
               </h3>
-              <p className="text-xs sm:text-sm text-[#5B5440] font-semibold">
+              <p className="text-xs sm:text-sm text-slate-600 font-semibold">
                 Select the primary motivation that brought you to the Healthy Eating &amp; Lifestyle Certificate.
               </p>
             </div>
@@ -316,27 +316,27 @@ export function RegistrationWizard() {
                     type="button"
                     key={opt.id}
                     onClick={() => setMotivation(opt.id)}
-                    className={`p-3 sm:p-5 rounded-xl sm:rounded-2xl border-2 transition-all duration-200 text-left cursor-pointer flex items-center justify-between ${
+                    className={`p-3 sm:p-5 rounded-xl sm:rounded-2xl border transition-all duration-200 text-left cursor-pointer flex items-center justify-between ${
                       isSelected
-                        ? "bg-gradient-to-r from-[#0F2472] to-[#16329C] border-[#3861FB] text-white shadow-[0_6px_20px_rgba(19,39,122,0.35)] scale-[1.01]"
-                        : "bg-white/80 hover:bg-white border-[#EAE0B7] hover:border-[#CBD5E1] shadow-sm text-[#5B5440]"
+                        ? "bg-[#071245] border-[#071245] text-white shadow-md scale-[1.01]"
+                        : "bg-white hover:bg-slate-50 border-slate-200 hover:border-slate-300 shadow-2xs text-slate-700"
                     }`}
                   >
                     <div className="flex items-center gap-3 sm:gap-4">
                       <span
-                        className={`w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center font-black text-xs shrink-0 shadow-sm ${
+                        className={`w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center font-black text-xs shrink-0 shadow-2xs ${
                           isSelected
-                            ? "bg-white text-[#13277A] border border-white"
-                            : "bg-gradient-to-b from-white to-[#EAE0B7] text-[#13277A] border border-[#CBD5E1]"
+                            ? "bg-white text-[#071245] border border-white"
+                            : "bg-slate-100 text-[#071245] border border-slate-200"
                         }`}
                       >
                         {opt.num}
                       </span>
                       <div>
-                        <h4 className={`text-xs sm:text-base font-black leading-snug ${isSelected ? "text-white" : "text-[#0F1F5C]"}`}>
+                        <h4 className={`text-xs sm:text-base font-black leading-snug ${isSelected ? "text-white" : "text-[#071245]"}`}>
                           {opt.title}
                         </h4>
-                        <p className={`text-[11px] sm:text-xs mt-0.5 font-medium ${isSelected ? "text-blue-100" : "text-[#5B5440]"}`}>
+                        <p className={`text-[11px] sm:text-xs mt-0.5 font-medium ${isSelected ? "text-blue-100" : "text-slate-500"}`}>
                           {opt.subtitle}
                         </p>
                       </div>
@@ -345,8 +345,8 @@ export function RegistrationWizard() {
                     <span
                       className={`w-4.5 h-4.5 sm:w-5 sm:h-5 rounded-full border flex items-center justify-center shrink-0 ${
                         isSelected
-                          ? "border-white bg-white text-[#13277A] shadow-sm"
-                          : "border-[#D8C78B] bg-white/60"
+                          ? "border-white bg-white text-[#071245] shadow-xs"
+                          : "border-slate-300 bg-white"
                       }`}
                     >
                       {isSelected && <Check className="w-3 h-3 stroke-[3]" />}
@@ -365,17 +365,17 @@ export function RegistrationWizard() {
         {currentStep === 2 && (
           <div className="space-y-5 sm:space-y-8">
             <div>
-              <h3 className="text-xl sm:text-3xl font-black text-[#13277A] mb-1 sm:mb-1.5 leading-tight">
+              <h3 className="text-xl sm:text-3xl font-black text-[#071245] mb-1 sm:mb-1.5 leading-tight">
                 What do you want out of it?
               </h3>
-              <p className="text-xs sm:text-sm text-[#5B5440] font-semibold">
+              <p className="text-xs sm:text-sm text-slate-600 font-semibold">
                 Tailor your certificate experience and expectations.
               </p>
             </div>
 
             {/* Focus Areas (Multi-select) */}
             <div>
-              <label className="block text-xs font-black uppercase tracking-wider text-[#13277A] mb-2 sm:mb-3">
+              <label className="block text-xs font-black uppercase tracking-wider text-[#071245] mb-2 sm:mb-3">
                 Focus areas (pick all that interest you)
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3">
@@ -393,16 +393,16 @@ export function RegistrationWizard() {
                       type="button"
                       key={area}
                       onClick={() => toggleFocusArea(area)}
-                      className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl border-2 font-extrabold text-xs sm:text-sm flex items-center justify-between transition-all duration-200 cursor-pointer ${
+                      className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl border font-bold text-xs sm:text-sm flex items-center justify-between transition-all duration-200 cursor-pointer ${
                         isChecked
-                          ? "bg-gradient-to-r from-[#0F2472] to-[#16329C] border-[#3861FB] text-white shadow-[0_4px_14px_rgba(19,39,122,0.3)] scale-[1.01]"
-                          : "bg-white/80 border-[#EFE1AD] text-[#5B5440] hover:border-[#CBD5E1]"
+                          ? "bg-[#071245] border-[#071245] text-white shadow-md scale-[1.01]"
+                          : "bg-white hover:bg-slate-50 border-slate-200 text-slate-700 hover:border-slate-300 shadow-2xs"
                       }`}
                     >
                       <span>{area}</span>
                       <span
                         className={`w-4.5 h-4.5 sm:w-5 sm:h-5 rounded-lg border flex items-center justify-center shrink-0 ${
-                          isChecked ? "border-white bg-white text-[#13277A]" : "border-[#EFE1AD] bg-white"
+                          isChecked ? "border-white bg-white text-[#071245]" : "border-slate-300 bg-white"
                         }`}
                       >
                         {isChecked && <Check className="w-3 h-3 stroke-[3]" />}
@@ -418,7 +418,7 @@ export function RegistrationWizard() {
 
             {/* Certificate Aiming For */}
             <div>
-              <label className="block text-xs font-black uppercase tracking-wider text-[#13277A] mb-2 sm:mb-3">
+              <label className="block text-xs font-black uppercase tracking-wider text-[#071245] mb-2 sm:mb-3">
                 Certificate you&apos;re aiming for
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3.5">
@@ -447,14 +447,14 @@ export function RegistrationWizard() {
                           setStepErrors((prev) => ({ ...prev, certificateType: "" }));
                         }
                       }}
-                      className={`p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border-2 text-left transition-all duration-200 cursor-pointer ${
+                      className={`p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border text-left transition-all duration-200 cursor-pointer ${
                         isSelected
-                          ? "bg-gradient-to-br from-[#0F2472] to-[#16329C] border-[#3861FB] text-white shadow-[0_6px_20px_rgba(19,39,122,0.35)] scale-[1.01]"
-                          : "bg-white/80 border-[#EFE1AD] text-[#5B5440] hover:border-[#CBD5E1]"
+                          ? "bg-[#071245] border-[#071245] text-white shadow-md scale-[1.01]"
+                          : "bg-white hover:bg-slate-50 border-slate-200 text-slate-700 hover:border-slate-300 shadow-2xs"
                       }`}
                     >
                       <div className="font-black text-xs sm:text-sm mb-0.5 sm:mb-1">{item.title}</div>
-                      <div className={`text-[11px] sm:text-xs ${isSelected ? "text-blue-100" : "text-[#5B5440]"}`}>
+                      <div className={`text-[11px] sm:text-xs ${isSelected ? "text-blue-100" : "text-slate-500"}`}>
                         {item.desc}
                       </div>
                     </button>
@@ -468,7 +468,7 @@ export function RegistrationWizard() {
 
             {/* Nutrition Background */}
             <div>
-              <label className="block text-xs font-black uppercase tracking-wider text-[#13277A] mb-2 sm:mb-3">
+              <label className="block text-xs font-black uppercase tracking-wider text-[#071245] mb-2 sm:mb-3">
                 Your nutrition background
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-3.5">
@@ -488,10 +488,10 @@ export function RegistrationWizard() {
                           setStepErrors((prev) => ({ ...prev, background: "" }));
                         }
                       }}
-                      className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl border-2 text-center text-xs sm:text-sm font-black transition-all cursor-pointer ${
+                      className={`p-3 sm:p-4 rounded-xl sm:rounded-2xl border text-center text-xs sm:text-sm font-black transition-all cursor-pointer ${
                         isSelected
-                          ? "bg-gradient-to-br from-[#0F2472] to-[#16329C] border-[#3861FB] text-white shadow-md scale-[1.01]"
-                          : "bg-white/80 border-[#EFE1AD] text-[#5B5440] hover:border-[#CBD5E1]"
+                          ? "bg-[#071245] border-[#071245] text-white shadow-md scale-[1.01]"
+                          : "bg-white hover:bg-slate-50 border-slate-200 text-slate-700 hover:border-slate-300 shadow-2xs"
                       }`}
                     >
                       {bg}
@@ -510,22 +510,22 @@ export function RegistrationWizard() {
         {currentStep === 3 && (
           <div className="space-y-5 sm:space-y-8">
             <div>
-              <h3 className="text-xl sm:text-3xl font-black text-[#13277A] mb-1 sm:mb-1.5 leading-tight">
+              <h3 className="text-xl sm:text-3xl font-black text-[#071245] mb-1 sm:mb-1.5 leading-tight">
                 Your schedule &amp; contact preference
               </h3>
-              <p className="text-xs sm:text-sm text-[#5B5440] font-semibold">
-                Classes run live online, evenings 6:00–8:00 pm EST.
+              <p className="text-xs sm:text-sm text-slate-600 font-semibold">
+                Classes run live online, evenings 6:00–8:30 pm EST.
               </p>
             </div>
 
-            {/* October 14 Availability */}
+            {/* October 28 Availability */}
             <div>
-              <label className="block text-xs font-black uppercase tracking-wider text-[#13277A] mb-2 sm:mb-3">
-                Can you join us on October 14?
+              <label className="block text-xs font-black uppercase tracking-wider text-[#071245] mb-2 sm:mb-3">
+                Can you join us on October 28?
               </label>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3.5">
                 {[
-                  "Yes, I'm ready for October 14",
+                  "Yes, I'm ready for October 28",
                   "Not sure yet, please call me",
                   "Notify me of the next intake",
                 ].map((opt) => {
@@ -540,10 +540,10 @@ export function RegistrationWizard() {
                           setStepErrors((prev) => ({ ...prev, readyOct14: "" }));
                         }
                       }}
-                      className={`p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border-2 text-left text-xs sm:text-sm font-black transition-all cursor-pointer ${
+                      className={`p-3.5 sm:p-5 rounded-xl sm:rounded-2xl border text-left text-xs sm:text-sm font-black transition-all cursor-pointer ${
                         isSelected
-                          ? "bg-gradient-to-br from-[#0F2472] to-[#16329C] border-[#3861FB] text-white shadow-md scale-[1.01]"
-                          : "bg-white/80 border-[#EFE1AD] text-[#5B5440] hover:border-[#CBD5E1]"
+                          ? "bg-[#071245] border-[#071245] text-white shadow-md scale-[1.01]"
+                          : "bg-white hover:bg-slate-50 border-slate-200 text-slate-700 hover:border-slate-300 shadow-2xs"
                       }`}
                     >
                       {opt}
@@ -558,7 +558,7 @@ export function RegistrationWizard() {
 
             {/* Best way to reach you */}
             <div>
-              <label className="block text-xs font-black uppercase tracking-wider text-[#13277A] mb-2 sm:mb-3">
+              <label className="block text-xs font-black uppercase tracking-wider text-[#071245] mb-2 sm:mb-3">
                 Best way to reach you
               </label>
               <div className="grid grid-cols-3 gap-2 sm:gap-3.5">
@@ -574,10 +574,10 @@ export function RegistrationWizard() {
                           setStepErrors((prev) => ({ ...prev, reachMethod: "" }));
                         }
                       }}
-                      className={`p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border-2 text-center text-xs sm:text-sm font-black transition-all cursor-pointer ${
+                      className={`p-2.5 sm:p-4 rounded-xl sm:rounded-2xl border text-center text-xs sm:text-sm font-black transition-all cursor-pointer ${
                         isSelected
-                          ? "bg-gradient-to-br from-[#0F2472] to-[#16329C] border-[#3861FB] text-white shadow-md scale-[1.01]"
-                          : "bg-white/80 border-[#EFE1AD] text-[#5B5440] hover:border-[#CBD5E1]"
+                          ? "bg-[#071245] border-[#071245] text-white shadow-md scale-[1.01]"
+                          : "bg-white hover:bg-slate-50 border-slate-200 text-slate-700 hover:border-slate-300 shadow-2xs"
                       }`}
                     >
                       {method}
@@ -592,14 +592,14 @@ export function RegistrationWizard() {
 
             {/* How did you hear about us */}
             <div>
-              <label htmlFor="wizard-referral" className="block text-xs font-black uppercase tracking-wider text-[#13277A] mb-1.5 sm:mb-2">
+              <label htmlFor="wizard-referral" className="block text-xs font-black uppercase tracking-wider text-[#071245] mb-1.5 sm:mb-2">
                 How did you hear about us?
               </label>
               <select
                 id="wizard-referral"
                 value={heardFrom}
                 onChange={(e) => setHeardFrom(e.target.value)}
-                className="w-full h-11 sm:h-14 px-4 sm:px-5 rounded-xl sm:rounded-2xl input-skeuo text-xs sm:text-sm font-bold text-[#0F1F5C] focus:border-[#13277A]"
+                className="w-full h-11 sm:h-14 px-4 sm:px-5 rounded-xl sm:rounded-2xl bg-white border border-slate-200 text-xs sm:text-sm font-bold text-[#071245] focus:border-[#071245] shadow-2xs"
               >
                 <option value="">Select how you heard about CSNN...</option>
                 <option value="Google search">Google search</option>
@@ -616,24 +616,24 @@ export function RegistrationWizard() {
         {currentStep === 4 && (
           <div className="space-y-4 sm:space-y-6">
             <div>
-              <h3 className="text-xl sm:text-3xl font-black text-[#13277A] mb-1 sm:mb-1.5 leading-tight">
+              <h3 className="text-xl sm:text-3xl font-black text-[#071245] mb-1 sm:mb-1.5 leading-tight">
                 Where should we send your confirmation?
               </h3>
-              <p className="text-xs sm:text-sm text-[#5B5440] font-semibold">
+              <p className="text-xs sm:text-sm text-slate-600 font-semibold">
                 Enter your details to finalize your intake profile.
               </p>
             </div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               <div>
-                <label htmlFor="wizard-fname" className="block text-xs font-black text-[#13277A] mb-1">First name *</label>
+                <label htmlFor="wizard-fname" className="block text-xs font-black text-[#071245] mb-1">First name *</label>
                 <input
                   id="wizard-fname"
                   type="text"
                   value={firstName}
                   onChange={(e) => setFirstName(e.target.value)}
                   placeholder="First name"
-                  className={`w-full h-10 sm:h-13 px-3.5 sm:px-4 rounded-xl sm:rounded-2xl input-skeuo text-xs sm:text-sm font-bold text-[#0F1F5C] ${
+                  className={`w-full h-10 sm:h-13 px-3.5 sm:px-4 rounded-xl sm:rounded-2xl bg-white border border-slate-200 text-xs sm:text-sm font-bold text-[#071245] focus:border-[#071245] focus:ring-1 focus:ring-[#071245] shadow-2xs ${
                     stepErrors.firstName ? "border-[#D62B2B]" : ""
                   }`}
                 />
@@ -643,14 +643,14 @@ export function RegistrationWizard() {
               </div>
 
               <div>
-                <label htmlFor="wizard-lname" className="block text-xs font-black text-[#13277A] mb-1">Last name *</label>
+                <label htmlFor="wizard-lname" className="block text-xs font-black text-[#071245] mb-1">Last name *</label>
                 <input
                   id="wizard-lname"
                   type="text"
                   value={lastName}
                   onChange={(e) => setLastName(e.target.value)}
                   placeholder="Last name"
-                  className={`w-full h-10 sm:h-13 px-3.5 sm:px-4 rounded-xl sm:rounded-2xl input-skeuo text-xs sm:text-sm font-bold text-[#0F1F5C] ${
+                  className={`w-full h-10 sm:h-13 px-3.5 sm:px-4 rounded-xl sm:rounded-2xl bg-white border border-slate-200 text-xs sm:text-sm font-bold text-[#071245] focus:border-[#071245] focus:ring-1 focus:ring-[#071245] shadow-2xs ${
                     stepErrors.lastName ? "border-[#D62B2B]" : ""
                   }`}
                 />
@@ -660,14 +660,14 @@ export function RegistrationWizard() {
               </div>
 
               <div>
-                <label htmlFor="wizard-email" className="block text-xs font-black text-[#13277A] mb-1">Email address *</label>
+                <label htmlFor="wizard-email" className="block text-xs font-black text-[#071245] mb-1">Email address *</label>
                 <input
                   id="wizard-email"
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="Email"
-                  className={`w-full h-10 sm:h-13 px-3.5 sm:px-4 rounded-xl sm:rounded-2xl input-skeuo text-xs sm:text-sm font-bold text-[#0F1F5C] ${
+                  className={`w-full h-10 sm:h-13 px-3.5 sm:px-4 rounded-xl sm:rounded-2xl bg-white border border-slate-200 text-xs sm:text-sm font-bold text-[#071245] focus:border-[#071245] focus:ring-1 focus:ring-[#071245] shadow-2xs ${
                     stepErrors.email ? "border-[#D62B2B]" : ""
                   }`}
                 />
@@ -677,14 +677,14 @@ export function RegistrationWizard() {
               </div>
 
               <div>
-                <label htmlFor="wizard-phone" className="block text-xs font-black text-[#13277A] mb-1">Phone number *</label>
+                <label htmlFor="wizard-phone" className="block text-xs font-black text-[#071245] mb-1">Phone number *</label>
                 <input
                   id="wizard-phone"
                   type="tel"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
                   placeholder="Phone"
-                  className={`w-full h-10 sm:h-13 px-3.5 sm:px-4 rounded-xl sm:rounded-2xl input-skeuo text-xs sm:text-sm font-bold text-[#0F1F5C] ${
+                  className={`w-full h-10 sm:h-13 px-3.5 sm:px-4 rounded-xl sm:rounded-2xl bg-white border border-slate-200 text-xs sm:text-sm font-bold text-[#071245] focus:border-[#071245] focus:ring-1 focus:ring-[#071245] shadow-2xs ${
                     stepErrors.phone ? "border-[#D62B2B]" : ""
                   }`}
                 />
@@ -694,14 +694,14 @@ export function RegistrationWizard() {
               </div>
 
               <div>
-                <label htmlFor="wizard-city" className="block text-xs font-black text-[#13277A] mb-1">City *</label>
+                <label htmlFor="wizard-city" className="block text-xs font-black text-[#071245] mb-1">City *</label>
                 <input
                   id="wizard-city"
                   type="text"
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
                   placeholder="City"
-                  className={`w-full h-10 sm:h-13 px-3.5 sm:px-4 rounded-xl sm:rounded-2xl input-skeuo text-xs sm:text-sm font-bold text-[#0F1F5C] ${
+                  className={`w-full h-10 sm:h-13 px-3.5 sm:px-4 rounded-xl sm:rounded-2xl bg-white border border-slate-200 text-xs sm:text-sm font-bold text-[#071245] focus:border-[#071245] focus:ring-1 focus:ring-[#071245] shadow-2xs ${
                     stepErrors.city ? "border-[#D62B2B]" : ""
                   }`}
                 />
@@ -711,12 +711,12 @@ export function RegistrationWizard() {
               </div>
 
               <div>
-                <label htmlFor="wizard-province" className="block text-xs font-black text-[#13277A] mb-1">Province / Country *</label>
+                <label htmlFor="wizard-province" className="block text-xs font-black text-[#071245] mb-1">Province / Country *</label>
                 <select
                   id="wizard-province"
                   value={provinceCountry}
                   onChange={(e) => setProvinceCountry(e.target.value)}
-                  className="w-full h-10 sm:h-13 px-3.5 sm:px-4 rounded-xl sm:rounded-2xl input-skeuo text-xs sm:text-sm font-bold text-[#0F1F5C]"
+                  className="w-full h-10 sm:h-13 px-3.5 sm:px-4 rounded-xl sm:rounded-2xl bg-white border border-slate-200 text-xs sm:text-sm font-bold text-[#071245] shadow-2xs"
                 >
                   <option value="Ontario">Ontario</option>
                   <option value="Other province">Other province</option>
@@ -727,7 +727,7 @@ export function RegistrationWizard() {
 
             {/* Optional note */}
             <div>
-              <label htmlFor="wizard-message" className="block text-xs font-black text-[#13277A] mb-1">
+              <label htmlFor="wizard-message" className="block text-xs font-black text-[#071245] mb-1">
                 Optional note or question for your advisor
               </label>
               <textarea
@@ -736,7 +736,7 @@ export function RegistrationWizard() {
                 onChange={(e) => setMessage(e.target.value)}
                 rows={2}
                 placeholder="Any special questions or dietary areas you want covered?"
-                className="w-full p-3 sm:p-4 rounded-xl sm:rounded-2xl input-skeuo text-xs sm:text-sm font-bold text-[#0F1F5C] placeholder:text-[#9A9172]"
+                className="w-full p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-slate-200 text-xs sm:text-sm font-bold text-[#071245] placeholder:text-slate-400 shadow-2xs focus:border-[#071245]"
               />
             </div>
 
@@ -746,15 +746,15 @@ export function RegistrationWizard() {
                 type="checkbox"
                 checked={consentAgreed}
                 onChange={(e) => setConsentAgreed(e.target.checked)}
-                className="mt-0.5 w-4 h-4 rounded text-[#13277A] focus:ring-[#13277A] accent-[#13277A]"
+                className="mt-0.5 w-4 h-4 rounded text-[#071245] focus:ring-[#071245] accent-[#071245]"
               />
-              <span className="text-[11px] sm:text-xs text-[#5B5440] font-semibold leading-relaxed">
+              <span className="text-[11px] sm:text-xs text-slate-600 font-semibold leading-relaxed">
                 I agree to be contacted by CSNN Toronto about this program and related educational updates. I can unsubscribe anytime.
               </span>
             </label>
             {/* Official Admissions Security Guarantee */}
-            <div className="rounded-2xl bg-[#FAF6E8] border border-[#E8DEC0] p-4 text-[#5B5440] text-xs leading-relaxed shadow-xs">
-              <div className="flex items-center gap-2 text-[#13277A] font-black text-xs mb-1.5">
+            <div className="rounded-2xl bg-slate-50 border border-slate-200 p-4 text-slate-600 text-xs leading-relaxed shadow-2xs">
+              <div className="flex items-center gap-2 text-[#071245] font-black text-xs mb-1.5">
                 <ShieldCheck className="w-4 h-4 text-[#1B7A42]" />
                 <span>Official CSNN Toronto Admissions Privacy Guarantee</span>
               </div>
@@ -766,12 +766,12 @@ export function RegistrationWizard() {
         )}
 
         {/* Wizard Navigation Footer with Shimmer Buttons */}
-        <div className="flex items-center justify-between gap-3 pt-5 sm:pt-8 border-t border-[#EFE1AD]">
+        <div className="flex items-center justify-between gap-3 pt-5 sm:pt-8 border-t border-slate-200">
           {currentStep > 1 ? (
             <button
               type="button"
               onClick={handlePrev}
-              className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-7 h-11 sm:h-13 rounded-full border-2 border-[#EFE1AD] text-[#13277A] hover:bg-white text-xs sm:text-sm font-black transition-colors cursor-pointer shadow-sm"
+              className="inline-flex items-center gap-1.5 sm:gap-2 px-4 sm:px-7 h-11 sm:h-13 rounded-full border border-slate-200 text-[#071245] hover:bg-slate-50 text-xs sm:text-sm font-black transition-colors cursor-pointer shadow-2xs"
             >
               <ArrowLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
               <span>Back</span>

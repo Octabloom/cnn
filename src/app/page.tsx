@@ -18,7 +18,7 @@ import { StickyRegistrationBar } from "@/components/layout/StickyRegistrationBar
 
 export default function Home() {
   return (
-    <div className="min-h-screen flex flex-col bg-[#FDF6DC] text-[#0F1F5C]">
+    <div className="min-h-screen flex flex-col bg-white text-[#071245]">
       {/* 01. Above-The-Fold Hero Section */}
       <div className="w-full min-h-screen min-h-[100dvh] flex flex-col relative">
         <div className="shrink-0 z-30">

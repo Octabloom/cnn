@@ -188,20 +188,20 @@ export function RegistrationTeaser() {
             <div className="bg-white/10 rounded-2xl p-4 border border-[#F6C915]/30 text-white/90 text-xs flex items-start gap-3 backdrop-blur-md">
               <ShieldCheck className="w-5 h-5 text-[#F6C915] shrink-0 mt-0.5" />
               <div>
-                <strong className="text-[#F6C915]">Official Admissions Guarantee:</strong> Real-time seat hold for the October 14, 2026 intake. Zero upfront tuition required today.
+                <strong className="text-[#F6C915]">Official Admissions Guarantee:</strong> Real-time seat hold for the October 28, 2026 intake. Zero upfront tuition required today.
               </div>
             </div>
 
             {/* Action Bar */}
             <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
               <p className="text-xs text-white/70 font-semibold">
-                Starts October 14, 2026 · Evenings 6–8 pm EST · Live Online
+                Starts October 28, 2026 · Evenings 6:00–8:30 pm EST · Live Online
               </p>
               <button
                 type="submit"
                 className="btn-skeuo-gold animate-shimmer w-full sm:w-auto h-14 px-9 rounded-full text-[#071245] font-black text-sm flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0.5 transition-all"
               >
-                <span>Hold My Seat for Oct 14</span>
+                <span>Hold My Seat for Oct 28</span>
                 <ArrowRight className="w-4 h-4 text-[#071245]" />
               </button>
             </div>

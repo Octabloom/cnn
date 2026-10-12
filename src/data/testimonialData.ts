@@ -55,7 +55,7 @@ export const HELC_TESTIMONIALS: TestimonialItem[] = [
     category: "helc",
     name: "HELC Student",
     role: "Healthy Eating & Lifestyle Certificate Student",
-    program: "10 Workshops · Practical Kitchen Habits",
+    program: "10 Workshops · Practical Kitchen Hacks",
     avatarText: "HM",
     avatarBg: "bg-blue-600",
     rating: 5,
@@ -305,6 +305,5 @@ export const QUICK_STUDENT_REVIEWS: TestimonialItem[] = [
 
 export const ALL_TESTIMONIALS: TestimonialItem[] = [
   ...HELC_TESTIMONIALS,
-  ...GRADUATE_TESTIMONIALS,
   ...QUICK_STUDENT_REVIEWS,
 ];

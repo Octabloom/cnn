@@ -41,14 +41,14 @@ export function StickyRegistrationBar() {
 
         {/* Left Section: Live Intake Badge & Program Title */}
         <div className="flex items-center gap-2 sm:gap-3 text-white text-xs sm:text-sm overflow-hidden">
-          {/* Animated Starts Oct 14 Radar Badge */}
+          {/* Animated Starts Oct 28 Radar Badge */}
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-gradient-to-b from-[#1C3A9E] to-[#0A1856] text-[#F6C915] font-black text-xs border border-[#F6C915]/60 shadow-[inset_0_1px_0_rgba(255,255,255,0.3),0_2px_8px_rgba(0,0,0,0.3)] whitespace-nowrap shrink-0">
             <span className="relative flex h-2.5 w-2.5">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F6C915] opacity-75" />
               <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-[#FFE676] shadow-[0_0_8px_#F6C915]" />
             </span>
             <Calendar className="w-3.5 h-3.5 text-[#F6C915]" />
-            <span className="tracking-tight font-black">Starts Oct 14</span>
+            <span className="tracking-tight font-black">Starts Oct 28</span>
           </div>
 
           <span className="hidden md:inline text-white/30 font-bold">•</span>

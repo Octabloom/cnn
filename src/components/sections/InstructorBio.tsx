@@ -8,39 +8,39 @@ export function InstructorBio() {
     <section
       id="instructor"
       data-screen-label="07 Instructor"
-      className="py-8 sm:py-12 lg:py-14 bg-gradient-to-b from-[#FDF8E8] via-[#FAF2D4] to-[#FDF8E8] border-b border-[#EFE1AD] relative overflow-hidden"
+      className="py-10 sm:py-14 lg:py-16 bg-[#F8FAFC] border-b border-slate-200/80 relative overflow-hidden"
     >
       {/* Background ambient lighting */}
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#F6C915]/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-[450px] h-[450px] bg-[#13277A]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#F6C915]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-[450px] h-[450px] bg-[#071245]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Centered Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/90 text-[#8A6208] text-[11px] sm:text-xs font-black tracking-widest uppercase mb-3 border border-[#EFE1AD] shadow-sm backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white text-[#B87503] text-[11px] sm:text-xs font-black tracking-widest uppercase mb-3 border border-slate-200 shadow-2xs backdrop-blur-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#F6C915]" />
             <span>MEET YOUR INSTRUCTOR</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#13277A] tracking-[-0.03em] leading-[1.05]">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#071245] tracking-[-0.03em] leading-[1.05]">
             Rasha Abu Rabi, BSc., MSc., R.H.N.
           </h2>
 
-          <p className="mt-2.5 text-base sm:text-xl font-black text-[#A8780F]">
+          <p className="mt-2.5 text-base sm:text-xl font-black text-[#B87503]">
             Lead Instructor &amp; Registered Holistic Nutritionist
           </p>
 
-          <p className="mt-1.5 text-xs sm:text-base text-[#5B5440] font-semibold max-w-xl mx-auto">
+          <p className="mt-1.5 text-xs sm:text-base text-slate-600 font-medium max-w-xl mx-auto">
             Scientist, public health specialist, and certified CSNN nutritionist guiding you through 10 interactive live workshops.
           </p>
         </div>
 
         {/* Instructor Profile Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center p-4 sm:p-8 lg:p-10 rounded-[22px] sm:rounded-[32px] glass-card-light border-2 border-white/90 shadow-[0_20px_50px_-15px_rgba(19,39,122,0.08)]">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center p-5 sm:p-8 lg:p-10 rounded-[22px] sm:rounded-[32px] bg-white border border-slate-200/90 shadow-sm">
           {/* Portrait (4 cols) */}
           <div className="lg:col-span-4 flex flex-col items-center">
-            <div className="relative w-full max-w-[210px] sm:max-w-[280px] aspect-[4/5] rounded-2xl sm:rounded-[28px] overflow-hidden shadow-xl border-3 sm:border-4 border-white bg-[#071245] group">
+            <div className="relative w-full max-w-[210px] sm:max-w-[280px] aspect-[4/5] rounded-2xl sm:rounded-[28px] overflow-hidden shadow-lg border-2 border-slate-100 bg-[#071245] group">
               <Image
                 src="/assets/rasha-portrait.jpg"
                 alt="Rasha Abu Rabi, Lead Instructor at CSNN Toronto"
@@ -65,16 +65,16 @@ export function InstructorBio() {
 
           {/* Bio & Credentials (8 cols) */}
           <div className="lg:col-span-8 flex flex-col gap-3.5 sm:gap-4">
-            <div className="inline-flex items-center gap-1.5 px-3 py-0.5 sm:py-1 rounded-full bg-[#13277A] text-[#F6C915] text-[11px] sm:text-xs font-black w-fit shadow-xs">
+            <div className="inline-flex items-center gap-1.5 px-3 py-0.5 sm:py-1 rounded-full bg-[#071245] text-[#F6C915] text-[11px] sm:text-xs font-black w-fit shadow-2xs">
               <Sparkles className="w-3 h-3" />
               <span>Evidence-Informed Practical Guidance</span>
             </div>
 
-            <h3 className="text-base sm:text-xl lg:text-2xl font-black text-[#13277A] leading-snug">
+            <h3 className="text-base sm:text-xl lg:text-2xl font-black text-[#071245] leading-snug">
               &ldquo;I do not believe in good and bad food, but in sustainable, healthy daily practices.&rdquo;
             </h3>
 
-            <p className="text-xs sm:text-sm text-[#0F1F5C] leading-relaxed font-medium">
+            <p className="text-xs sm:text-sm text-slate-600 leading-relaxed font-medium">
               Rasha combines medical roots, rigorous public health research, and holistic clinical nutrition to empower you with tools you can use in your kitchen right away. Her focus spans digestive wellness, microbiome balance, and lifestyle harmony.
             </p>
 
@@ -83,7 +83,7 @@ export function InstructorBio() {
               {INSTRUCTOR.credentials.map((cred) => (
                 <div
                   key={cred}
-                  className="p-2 sm:p-2.5 rounded-xl bg-white/90 border border-[#E8DFC2] text-center text-[10px] sm:text-[11px] font-black text-[#13277A] shadow-xs flex items-center justify-center hover:scale-105 transition-transform"
+                  className="p-2 sm:p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-center text-[10px] sm:text-[11px] font-black text-[#071245] shadow-2xs flex items-center justify-center hover:bg-slate-100 transition-colors"
                 >
                   {cred}
                 </div>

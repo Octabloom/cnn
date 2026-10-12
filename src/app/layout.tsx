@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://toronto.csnn.ca"),
   title: "Healthy Eating & Lifestyle Certificate | CSNN Toronto",
   description:
-    "Learn practical nutrition live online with Rasha Abu Rabi, BSc., MSc., R.H.N. 10 interactive workshops, 21 hours of expert-led education. Starts October 14, 2026. Approved for 4 canfitpro CECs.",
+    "Learn practical nutrition live online with Rasha Abu Rabi, BSc., MSc., R.H.N. 10 interactive workshops, 21 hours of expert-led education. Starts October 28, 2026. Approved for 4 canfitpro CECs.",
   keywords: [
     "Healthy Eating Certificate",
     "CSNN Toronto",

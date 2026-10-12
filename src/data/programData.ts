@@ -22,8 +22,8 @@ export const PROGRAM_INFO = {
   programShortName: "HELC",
   tagline: "What if your wellness started in your kitchen?",
   subTagline: "Every meal is a choice that energises, nourishes and transforms your life. Learn practical nutrition live online with Rasha Abu Rabi, BSc., MSc., R.H.N. No experience needed.",
-  startDate: "October 14, 2026",
-  scheduleTime: "Evenings 6:00–8:00 pm EST",
+  startDate: "October 28, 2026",
+  scheduleTime: "Evenings 6:00–8:30 pm EST",
   totalWorkshops: 10,
   totalHours: 21,
   deliveryFormat: "Live Online (Interactive via Zoom)",
@@ -192,10 +192,10 @@ export const STUDENT_TESTIMONIAL = {
 
 export const HOW_YOU_LEARN_CARDS = [
   {
-    title: "Live, interactive classes",
+    title: "Live Instructor Classes",
     description: "Ask your instructor questions in real time, every session. Live engagement fosters deep comprehension.",
     image: "/assets/frames/crop-v657-36.1.jpg",
-    alt: "Live interactive class discussion with instructor",
+    alt: "Live instructor class discussion",
   },
   {
     title: "Learn with fellow students",

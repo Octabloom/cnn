@@ -33,8 +33,8 @@ export function AcademicBlueprint() {
       phase: "PHASE 03",
       timeline: "CSNN Diploma",
       title: "Holistic Nutritionist",
-      desc: "Completed CSNN’s flagship Natural Nutrition Diploma Program to earn the licensed R.H.N. clinical designation.",
-      tag: "LICENSED R.H.N.",
+      desc: "Completed CSNN’s flagship Natural Nutrition Diploma Program to earn the registered R.H.N. clinical designation.",
+      tag: "REGISTERED R.H.N.",
       badgeColor: "bg-amber-50 text-[#8A6208] border-amber-300",
       bulletColor: "bg-[#F6C915]",
       circleBg: "from-[#FFE052] to-[#D4A017] text-[#071245]",
@@ -74,11 +74,11 @@ export function AcademicBlueprint() {
     <section
       id="blueprint"
       data-screen-label="09 Academic Blueprint"
-      className="py-8 sm:py-12 lg:py-14 bg-gradient-to-b from-[#FDF8E8] via-[#FAF2D4] to-[#FDF8E8] border-b border-[#EFE1AD] relative overflow-hidden"
+      className="py-10 sm:py-14 lg:py-16 bg-[#F8FAFC] border-b border-slate-200/80 relative overflow-hidden"
     >
       {/* Background ambient lighting */}
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#F6C915]/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-1/4 left-0 w-[450px] h-[450px] bg-[#13277A]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-1/4 left-0 w-[450px] h-[450px] bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* =========================================================================
@@ -87,15 +87,15 @@ export function AcademicBlueprint() {
         <div>
           {/* Centered Timeline Header */}
           <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-8">
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/90 text-[#8A6208] text-xs font-black tracking-widest uppercase mb-4 border border-[#EFE1AD] shadow-sm backdrop-blur-sm">
-              <Sparkles className="w-3.5 h-3.5 text-[#F6C915]" />
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-slate-700 text-xs font-black tracking-widest uppercase mb-4 border border-slate-200 shadow-2xs backdrop-blur-sm">
+              <Sparkles className="w-3.5 h-3.5 text-[#B87503]" />
               <span>ACADEMIC &amp; CLINICAL BLUEPRINT</span>
             </div>
-            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#13277A] tracking-tight">
+            <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#071245] tracking-tight">
               From medical roots to compounding holistic scale.
             </h3>
-            <p className="text-xs sm:text-sm text-[#5B5440] font-semibold mt-2 max-w-xl mx-auto">
-              A 5-stage timeline engineered to bridge university nutritional science with everyday kitchen habits.
+            <p className="text-xs sm:text-sm text-slate-600 font-semibold mt-2 max-w-xl mx-auto">
+              A 5-stage timeline engineered to bridge university nutritional science with everyday kitchen hacks.
             </p>
           </div>
 
@@ -144,32 +144,32 @@ export function AcademicBlueprint() {
                       {m.isTop ? (
                         <div className="w-full flex flex-col items-center overflow-visible">
                           {/* Top Card */}
-                          <div className="w-full bg-white/95 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 border border-[#E8DFC2] shadow-[0_6px_18px_rgba(19,39,122,0.06)] hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                          <div className="w-full bg-white rounded-2xl p-3.5 sm:p-4 border border-slate-200/90 shadow-[0_4px_16px_rgba(7,18,69,0.05)] hover:shadow-md transition-all duration-300 hover:-translate-y-1">
                             <div className="flex items-center justify-between gap-1 mb-2">
                               <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full border ${m.badgeColor}`}>
                                 {m.phase}
                               </span>
-                              <span className="text-[10px] text-[#5B5440] font-bold">
+                              <span className="text-[10px] text-slate-500 font-bold">
                                 {m.timeline}
                               </span>
                             </div>
 
-                            <h4 className="text-xs sm:text-[13px] font-black text-[#13277A] leading-snug mb-1">
+                            <h4 className="text-xs sm:text-[13px] font-black text-[#071245] leading-snug mb-1">
                               {m.title}
                             </h4>
 
-                            <p className="text-[11px] text-[#5B5440] font-medium leading-relaxed mb-2.5">
+                            <p className="text-[11px] text-slate-600 font-medium leading-relaxed mb-2.5">
                               {m.desc}
                             </p>
 
-                            <div className="pt-2 border-t border-[#F0E6CC] flex items-center gap-1.5 text-[9px] font-black text-[#13277A]">
+                            <div className="pt-2 border-t border-slate-100 flex items-center gap-1.5 text-[9px] font-black text-[#071245]">
                               <span className={`w-1.5 h-1.5 rounded-full ${m.bulletColor}`} />
                               <span className="tracking-wider">{m.tag}</span>
                             </div>
                           </div>
 
                           {/* Vertical Connector Line from Card to Circle */}
-                          <div className="w-[2px] h-4 border-l-2 border-dashed border-[#13277A]/40 mt-1" />
+                          <div className="w-[2px] h-4 border-l-2 border-dashed border-[#071245]/30 mt-1" />
                         </div>
                       ) : null}
                     </div>
@@ -188,28 +188,28 @@ export function AcademicBlueprint() {
                       {!m.isTop ? (
                         <div className="w-full flex flex-col items-center overflow-visible">
                           {/* Vertical Connector Line from Circle to Card */}
-                          <div className="w-[2px] h-4 border-l-2 border-dashed border-[#13277A]/40 mb-1" />
+                          <div className="w-[2px] h-4 border-l-2 border-dashed border-[#071245]/30 mb-1" />
 
                           {/* Bottom Card */}
-                          <div className="w-full bg-white/95 backdrop-blur-md rounded-2xl p-3.5 sm:p-4 border border-[#E8DFC2] shadow-[0_6px_18px_rgba(19,39,122,0.06)] hover:shadow-lg transition-all duration-300 hover:translate-y-1">
+                          <div className="w-full bg-white rounded-2xl p-3.5 sm:p-4 border border-slate-200/90 shadow-[0_4px_16px_rgba(7,18,69,0.05)] hover:shadow-md transition-all duration-300 hover:translate-y-1">
                             <div className="flex items-center justify-between gap-1 mb-2">
                               <span className={`text-[9px] font-black uppercase px-2 py-0.5 rounded-full border ${m.badgeColor}`}>
                                 {m.phase}
                               </span>
-                              <span className="text-[10px] text-[#5B5440] font-bold">
+                              <span className="text-[10px] text-slate-500 font-bold">
                                 {m.timeline}
                               </span>
                             </div>
 
-                            <h4 className="text-xs sm:text-[13px] font-black text-[#13277A] leading-snug mb-1">
+                            <h4 className="text-xs sm:text-[13px] font-black text-[#071245] leading-snug mb-1">
                               {m.title}
                             </h4>
 
-                            <p className="text-[11px] text-[#5B5440] font-medium leading-relaxed mb-2.5">
+                            <p className="text-[11px] text-slate-600 font-medium leading-relaxed mb-2.5">
                               {m.desc}
                             </p>
 
-                            <div className="pt-2 border-t border-[#F0E6CC] flex items-center gap-1.5 text-[9px] font-black text-[#13277A]">
+                            <div className="pt-2 border-t border-slate-100 flex items-center gap-1.5 text-[9px] font-black text-[#071245]">
                               <span className={`w-1.5 h-1.5 rounded-full ${m.bulletColor}`} />
                               <span className="tracking-wider">{m.tag}</span>
                             </div>
@@ -269,25 +269,25 @@ export function AcademicBlueprint() {
                   </div>
 
                   {/* Milestone Card (Same design & tokens as desktop) */}
-                  <div className="flex-1 bg-white/95 backdrop-blur-md rounded-2xl p-4 border border-[#E8DFC2] shadow-[0_4px_16px_rgba(19,39,122,0.06)] hover:shadow-md transition-shadow">
+                  <div className="flex-1 bg-white rounded-2xl p-4 border border-slate-200/90 shadow-[0_4px_16px_rgba(7,18,69,0.05)] hover:shadow-md transition-shadow">
                     <div className="flex items-center justify-between gap-1 mb-2">
                       <span className={`text-[9.5px] font-black uppercase px-2.5 py-0.5 rounded-full border ${m.badgeColor}`}>
                         {m.phase}
                       </span>
-                      <span className="text-[11px] text-[#5B5440] font-bold">
+                      <span className="text-[11px] text-slate-500 font-bold">
                         {m.timeline}
                       </span>
                     </div>
 
-                    <h4 className="text-sm font-black text-[#13277A] leading-snug mb-1">
+                    <h4 className="text-sm font-black text-[#071245] leading-snug mb-1">
                       {m.title}
                     </h4>
 
-                    <p className="text-xs text-[#5B5440] font-medium leading-relaxed mb-2.5">
+                    <p className="text-xs text-slate-600 font-medium leading-relaxed mb-2.5">
                       {m.desc}
                     </p>
 
-                    <div className="pt-2 border-t border-[#F0E6CC] flex items-center gap-1.5 text-[9.5px] font-black text-[#13277A]">
+                    <div className="pt-2 border-t border-slate-100 flex items-center gap-1.5 text-[9.5px] font-black text-[#071245]">
                       <span className={`w-1.5 h-1.5 rounded-full ${m.bulletColor}`} />
                       <span className="tracking-wider">{m.tag}</span>
                     </div>

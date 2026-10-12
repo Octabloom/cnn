@@ -7,22 +7,22 @@ export function AboutProgram() {
     <section
       id="about"
       data-screen-label="02 What is HELC"
-      className="py-8 sm:py-12 lg:py-14 bg-gradient-to-b from-[#FDF8E8] via-[#FAF3D8] to-[#FDF8E8] border-b border-[#EFE1AD] relative overflow-hidden"
+      className="py-10 sm:py-14 lg:py-16 bg-[#F8FAFC] border-b border-slate-200/80 relative overflow-hidden"
     >
       {/* Background ambient lighting */}
-      <div className="absolute top-1/3 left-0 w-96 h-96 bg-[#F6C915]/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#13277A]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 left-0 w-96 h-96 bg-[#F6C915]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-[#071245]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Centered Eyebrow & Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 lg:mb-10">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-white/90 text-[#8A6208] text-[10px] sm:text-xs font-black tracking-widest uppercase mb-3 sm:mb-4 border border-[#EFE1AD] shadow-sm backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 sm:px-4 sm:py-1.5 rounded-full bg-white text-[#B87503] text-[10px] sm:text-xs font-black tracking-widest uppercase mb-3 sm:mb-4 border border-slate-200 shadow-2xs backdrop-blur-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#F6C915]" />
             <span>PRACTICAL HOLISTIC NUTRITION EDUCATION</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#13277A] tracking-[-0.03em] leading-[1.08] sm:leading-[1.05]">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#071245] tracking-[-0.03em] leading-[1.08] sm:leading-[1.05]">
             What is the Healthy Eating &amp; Lifestyle Certificate?
           </h2>
 
@@ -35,7 +35,7 @@ export function AboutProgram() {
           
           {/* Left Column: High-Trust Culinary Masterclass Showcase (5 cols) */}
           <div className="lg:col-span-5 flex flex-col items-center">
-            <div className="relative w-full max-w-[320px] sm:max-w-[420px] aspect-[4/4.5] sm:aspect-[4/5] rounded-[24px] sm:rounded-[32px] overflow-hidden shadow-[0_20px_50px_rgba(19,39,122,0.18)] border-2 border-[#D4AF37]/50 group bg-[#0A1856]">
+            <div className="relative w-full max-w-[320px] sm:max-w-[420px] aspect-[4/4.5] sm:aspect-[4/5] rounded-[24px] sm:rounded-[32px] overflow-hidden shadow-xl border-2 border-slate-200 group bg-[#071245]">
               {/* Premium Image */}
               <Image
                 src="/images/nutrition-masterclass.jpg"
@@ -51,17 +51,17 @@ export function AboutProgram() {
 
               {/* Top Trust Badge */}
               <div className="absolute top-3.5 left-3.5 right-3.5 flex items-center justify-between">
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 text-[#13277A] text-[11px] font-black shadow-md border border-[#F6C915]/40 backdrop-blur-md">
-                  <ShieldCheck className="w-3.5 h-3.5 text-[#A8780F]" />
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/95 text-[#071245] text-[11px] font-black shadow-md border border-slate-200 backdrop-blur-md">
+                  <ShieldCheck className="w-3.5 h-3.5 text-[#B87503]" />
                   <span>CSNN Toronto Certified</span>
                 </div>
-                <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#13277A]/80 text-[#F6C915] text-[10px] font-black border border-[#F6C915]/30 backdrop-blur-md">
+                <div className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#071245]/90 text-[#F6C915] text-[10px] font-black border border-[#F6C915]/40 backdrop-blur-md">
                   <span>Since 1994</span>
                 </div>
               </div>
 
               {/* Bottom Institutional Card */}
-              <div className="absolute bottom-3 left-3 right-3 p-3 sm:p-4 rounded-xl sm:rounded-2xl glass-card-dark border border-white/20 text-white backdrop-blur-md">
+              <div className="absolute bottom-3 left-3 right-3 p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-[#071245]/85 border border-white/20 text-white backdrop-blur-md">
                 <div className="flex items-center gap-1.5 text-[11px] font-black text-[#F6C915] mb-0.5">
                   <Award className="w-3.5 h-3.5" />
                   <span>EVIDENCE-BASED WHOLE FOOD EDUCATION</span>
@@ -79,7 +79,7 @@ export function AboutProgram() {
               </div>
             </div>
 
-            <div className="mt-3 flex items-center gap-2 text-xs font-extrabold text-[#8A6208]">
+            <div className="mt-3 flex items-center gap-2 text-xs font-bold text-slate-500">
               <Sparkles className="w-3.5 h-3.5 text-[#F6C915]" />
               <span>Interactive holistic nutrition masterclass series</span>
             </div>
@@ -87,7 +87,7 @@ export function AboutProgram() {
 
           {/* Right Column: Program Concept & Outcomes (7 cols) */}
           <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-6">
-            <p className="text-sm sm:text-base lg:text-lg text-[#0F1F5C] leading-relaxed font-medium">
+            <p className="text-sm sm:text-base lg:text-lg text-slate-700 leading-relaxed font-medium">
               The Healthy Eating &amp; Lifestyle Certificate (HELC) covers the core foundational
               pillars of natural nutrition and healthy living. Taught by certified experts, you will
               explore digestion, gut microbiome balance, whole-food energy, and sustainable lifestyle practices.
@@ -95,22 +95,22 @@ export function AboutProgram() {
 
             {/* 3 Metric Podiums (3-col compact row on both mobile and desktop) */}
             <div className="grid grid-cols-3 gap-2 sm:gap-4 pt-1">
-              <div className="glass-card-light p-3 sm:p-5 rounded-2xl sm:rounded-3xl flex flex-col items-center sm:items-start text-center sm:text-left hover:scale-105 transition-transform duration-200">
-                <span className="text-2xl sm:text-4xl font-black text-[#13277A] drop-shadow-sm">10</span>
-                <span className="text-xs sm:text-sm font-black text-[#0F1F5C] mt-0.5 sm:mt-1">Workshops</span>
-                <span className="hidden sm:block text-xs text-[#5B5440] font-semibold">Practical curriculum</span>
+              <div className="bg-white p-3 sm:p-5 rounded-2xl border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-[#071245]/20 flex flex-col items-center sm:items-start text-center sm:text-left hover:-translate-y-0.5 transition-all duration-200">
+                <span className="text-2xl sm:text-4xl font-black text-[#071245]">10</span>
+                <span className="text-xs sm:text-sm font-black text-[#071245] mt-0.5 sm:mt-1">Workshops</span>
+                <span className="hidden sm:block text-xs text-slate-500 font-medium">Practical curriculum</span>
               </div>
 
-              <div className="glass-card-light p-3 sm:p-5 rounded-2xl sm:rounded-3xl flex flex-col items-center sm:items-start text-center sm:text-left hover:scale-105 transition-transform duration-200">
-                <span className="text-2xl sm:text-4xl font-black text-[#13277A] drop-shadow-sm">21</span>
-                <span className="text-xs sm:text-sm font-black text-[#0F1F5C] mt-0.5 sm:mt-1">Hours Live</span>
-                <span className="hidden sm:block text-xs text-[#5B5440] font-semibold">Real-time coaching</span>
+              <div className="bg-white p-3 sm:p-5 rounded-2xl border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-[#071245]/20 flex flex-col items-center sm:items-start text-center sm:text-left hover:-translate-y-0.5 transition-all duration-200">
+                <span className="text-2xl sm:text-4xl font-black text-[#071245]">21</span>
+                <span className="text-xs sm:text-sm font-black text-[#071245] mt-0.5 sm:mt-1">Hours Live</span>
+                <span className="hidden sm:block text-xs text-slate-500 font-medium">Real-time coaching</span>
               </div>
 
-              <div className="glass-card-light p-3 sm:p-5 rounded-2xl sm:rounded-3xl flex flex-col items-center sm:items-start text-center sm:text-left hover:scale-105 transition-transform duration-200">
-                <span className="text-2xl sm:text-4xl font-black text-[#13277A] drop-shadow-sm">4</span>
-                <span className="text-xs sm:text-sm font-black text-[#0F1F5C] mt-0.5 sm:mt-1">CECs</span>
-                <span className="hidden sm:block text-xs text-[#5B5440] font-semibold">canfitpro approved</span>
+              <div className="bg-white p-3 sm:p-5 rounded-2xl border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-[#071245]/20 flex flex-col items-center sm:items-start text-center sm:text-left hover:-translate-y-0.5 transition-all duration-200">
+                <span className="text-2xl sm:text-4xl font-black text-[#071245]">4</span>
+                <span className="text-xs sm:text-sm font-black text-[#071245] mt-0.5 sm:mt-1">CECs</span>
+                <span className="hidden sm:block text-xs text-slate-500 font-medium">canfitpro approved</span>
               </div>
             </div>
 

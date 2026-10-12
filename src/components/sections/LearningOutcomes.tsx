@@ -115,26 +115,26 @@ export function LearningOutcomes() {
     <section
       id="curriculum-overview"
       data-screen-label="03 What you'll learn"
-      className="py-8 sm:py-12 lg:py-14 bg-[#FDF6DC] border-b border-[#EFE1AD] relative overflow-hidden"
+      className="py-10 sm:py-14 lg:py-16 bg-white border-b border-slate-200/80 relative overflow-hidden"
     >
       {/* Background ambient lighting */}
-      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#F6C915]/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 left-0 w-[450px] h-[450px] bg-[#13277A]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#F6C915]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 left-0 w-[450px] h-[450px] bg-[#071245]/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Centered Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white/95 text-[#8A6208] text-[11px] sm:text-xs font-black tracking-widest uppercase mb-3 border border-[#E8DEC0] shadow-xs backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-50 text-[#B87503] text-[11px] sm:text-xs font-black tracking-widest uppercase mb-3 border border-slate-200 shadow-2xs backdrop-blur-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#F6C915]" />
             <span>INTERACTIVE CURRICULUM EXPLORER</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#13277A] tracking-[-0.03em] leading-tight mb-2 sm:mb-3">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#071245] tracking-[-0.03em] leading-tight mb-2 sm:mb-3">
             What You&apos;ll Learn Inside 10 Live Workshops
           </h2>
 
-          <p className="text-xs sm:text-base text-[#5B5440] font-semibold max-w-2xl mx-auto">
+          <p className="text-xs sm:text-base text-slate-600 font-medium max-w-2xl mx-auto">
             Click across the 4 core learning pillars below to explore how academic nutritional science translates directly into everyday kitchen confidence.
           </p>
         </div>
@@ -151,21 +151,21 @@ export function LearningOutcomes() {
                 onClick={() => setActivePillarId(pillar.id)}
                 className={`p-2.5 sm:p-4 rounded-xl sm:rounded-2xl text-left transition-all duration-300 flex flex-col justify-between border cursor-pointer ${
                   isActive
-                    ? "bg-white text-[#13277A] border-[#D4AF37] shadow-[0_6px_20px_rgba(212,175,55,0.2)] ring-2 ring-[#F6C915]/60 -translate-y-0.5"
-                    : "bg-white/60 hover:bg-white text-[#5B5440] border-[#E8DEC0] hover:border-[#D4AF37]/50 shadow-xs"
+                    ? "bg-white text-[#071245] border-[#071245] shadow-md ring-2 ring-[#071245]/15 -translate-y-0.5"
+                    : "bg-slate-50/80 hover:bg-white text-slate-700 border-slate-200/90 hover:border-slate-300 shadow-2xs"
                 }`}
               >
                 <div className="flex items-center justify-between gap-1.5 mb-1.5 sm:mb-2">
                   <div
                     className={`w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center transition-colors ${
-                      isActive ? "bg-[#13277A] text-[#F6C915]" : "bg-[#FAF1D0] text-[#8A6208]"
+                      isActive ? "bg-[#071245] text-[#F6C915]" : "bg-white text-[#071245] border border-slate-200 shadow-2xs"
                     }`}
                   >
                     <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
                   </div>
                   <span
                     className={`text-[9px] sm:text-[10px] font-black uppercase tracking-wider px-1.5 sm:px-2 py-0.5 rounded-full ${
-                      isActive ? "bg-[#F6C915]/20 text-[#8A6208]" : "bg-black/5 text-[#8A6208]"
+                      isActive ? "bg-[#FEF9C3] text-[#854D0E]" : "bg-slate-100 text-slate-600"
                     }`}
                   >
                     Pillar {pillar.number}
@@ -173,10 +173,10 @@ export function LearningOutcomes() {
                 </div>
 
                 <div>
-                  <h3 className="font-black text-[11px] sm:text-sm leading-tight text-[#13277A] line-clamp-2">
+                  <h3 className="font-black text-[11px] sm:text-sm leading-tight text-[#071245] line-clamp-2">
                     {pillar.title}
                   </h3>
-                  <span className="text-[9px] sm:text-[10px] font-bold text-[#8A6208] block mt-0.5">
+                  <span className="text-[9px] sm:text-[10px] font-bold text-[#B87503] block mt-0.5">
                     {pillar.category}
                   </span>
                 </div>
@@ -186,7 +186,7 @@ export function LearningOutcomes() {
         </div>
 
         {/* Active Domain Detailed Showcase Card */}
-        <div className="rounded-[22px] sm:rounded-[36px] bg-gradient-to-br from-[#FFFDF7] via-[#FFF9EA] to-[#FAF1D2] border-2 border-[#E8DEC0] p-4 sm:p-8 lg:p-12 shadow-[0_15px_40px_-15px_rgba(19,39,122,0.1),0_1px_0_rgba(255,255,255,1)] relative overflow-hidden transition-all duration-500">
+        <div className="rounded-[22px] sm:rounded-[36px] bg-slate-50/80 border border-slate-200/90 p-4 sm:p-8 lg:p-12 shadow-sm relative overflow-hidden transition-all duration-500">
           
           {/* Top Gold Accent */}
           <div className="absolute inset-x-8 sm:inset-x-12 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#F6C915] to-transparent pointer-events-none" />
@@ -198,27 +198,27 @@ export function LearningOutcomes() {
               
               {/* Header Badge */}
               <div className="flex items-center gap-2 flex-wrap">
-                <span className="px-2.5 py-1 rounded-full bg-[#13277A] text-[#F6C915] text-[11px] sm:text-xs font-black flex items-center gap-1.5 shadow-xs">
+                <span className="px-2.5 py-1 rounded-full bg-[#071245] text-[#F6C915] text-[11px] sm:text-xs font-black flex items-center gap-1.5 shadow-2xs">
                   <ActiveIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   <span>PILLAR {activePillar.number} · {activePillar.category}</span>
                 </span>
-                <span className="text-[11px] sm:text-xs font-black text-[#8A6208]">
+                <span className="text-[11px] sm:text-xs font-bold text-[#B87503]">
                   {activePillar.workshops.length} Live Workshops
                 </span>
               </div>
 
               {/* Title */}
               <div>
-                <h3 className="text-xl sm:text-3xl lg:text-4xl font-black text-[#13277A] tracking-tight leading-tight">
+                <h3 className="text-xl sm:text-3xl lg:text-4xl font-black text-[#071245] tracking-tight leading-tight">
                   {activePillar.title}
                 </h3>
                 <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-2">
                   {activePillar.workshops.map((ws, i) => (
                     <span
                       key={i}
-                      className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-bold text-[#0F1F5C] bg-white/90 px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg border border-[#E8DEC0] shadow-2xs"
+                      className="inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-bold text-[#071245] bg-white px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-lg border border-slate-200 shadow-2xs"
                     >
-                      <BookOpen className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#A8780F]" />
+                      <BookOpen className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#B87503]" />
                       {ws}
                     </span>
                   ))}
@@ -228,23 +228,23 @@ export function LearningOutcomes() {
               {/* Before vs After Transformation Matrix */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3.5">
                 {/* Before */}
-                <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-red-50/70 border border-red-200/80 shadow-2xs">
+                <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-red-50/80 border border-red-200 shadow-2xs">
                   <div className="flex items-center gap-1.5 text-[11px] sm:text-xs font-black text-[#B91C1C] mb-1">
                     <XCircle className="w-3.5 h-3.5 text-[#B91C1C] shrink-0" />
                     <span>Before This Module:</span>
                   </div>
-                  <p className="text-[11px] sm:text-xs text-[#7F1D1D] font-medium leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-red-950 font-medium leading-relaxed">
                     {activePillar.beforeStruggle}
                   </p>
                 </div>
 
                 {/* After HELC */}
-                <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-emerald-50/80 border border-emerald-200/90 shadow-2xs">
+                <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-emerald-50/80 border border-emerald-200 shadow-2xs">
                   <div className="flex items-center gap-1.5 text-[11px] sm:text-xs font-black text-[#15803D] mb-1">
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#15803D] shrink-0" />
                     <span>After HELC Mastery:</span>
                   </div>
-                  <p className="text-[11px] sm:text-xs text-[#14532D] font-bold leading-relaxed">
+                  <p className="text-[11px] sm:text-xs text-emerald-950 font-bold leading-relaxed">
                     {activePillar.afterMastery}
                   </p>
                 </div>
@@ -252,12 +252,12 @@ export function LearningOutcomes() {
 
               {/* Key Practical Skills Learned */}
               <div className="space-y-1.5 sm:space-y-2">
-                <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-[#A8780F] block">
+                <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-slate-500 block">
                   Core Skills You Gain:
                 </span>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2">
                   {activePillar.keySkills.map((skill, idx) => (
-                    <div key={idx} className="flex items-start gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-bold text-[#13277A]">
+                    <div key={idx} className="flex items-start gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-bold text-[#071245]">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#1B7A42] shrink-0 mt-0.5" />
                       <span>{skill}</span>
                     </div>
@@ -266,15 +266,15 @@ export function LearningOutcomes() {
               </div>
 
               {/* In Your Kitchen Tonight Action Box */}
-              <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-gradient-to-r from-white via-[#FFFDF5] to-white border border-[#D4AF37] sm:border-2 shadow-xs flex items-start gap-2.5 sm:gap-3">
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-gradient-to-b from-[#13277A] to-[#0A1856] text-[#F6C915] flex items-center justify-center shrink-0 shadow-xs">
+              <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-slate-200 shadow-2xs flex items-start gap-2.5 sm:gap-3">
+                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-[#071245] text-[#F6C915] flex items-center justify-center shrink-0 shadow-2xs">
                   <ChefHat className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F6C915]" />
                 </div>
                 <div>
-                  <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-wider text-[#A8780F] block">
+                  <span className="text-[9px] sm:text-[10px] font-black uppercase tracking-wider text-[#B87503] block">
                     In Your Kitchen Tonight:
                   </span>
-                  <p className="text-[11px] sm:text-xs font-black text-[#13277A] leading-relaxed">
+                  <p className="text-[11px] sm:text-xs font-black text-[#071245] leading-relaxed">
                     {activePillar.kitchenExperiment}
                   </p>
                 </div>
@@ -284,7 +284,7 @@ export function LearningOutcomes() {
 
             {/* Right Column: Visual Showcase & Outcome Snapshot (5 cols) */}
             <div className="lg:col-span-5 flex flex-col items-center">
-              <div className="w-full relative h-48 sm:h-72 lg:h-80 rounded-2xl sm:rounded-3xl overflow-hidden shadow-md sm:shadow-xl border-2 border-white group">
+              <div className="w-full relative h-48 sm:h-72 lg:h-80 rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border-2 border-white group">
                 <Image
                   src={activePillar.image}
                   alt={activePillar.title}
@@ -296,7 +296,7 @@ export function LearningOutcomes() {
                 
                 {/* Floating Badge on Photo */}
                 <div className="absolute bottom-3 sm:bottom-4 left-3 sm:left-4 right-3 sm:right-4">
-                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/95 text-[#13277A] text-[10px] sm:text-xs font-black shadow-md backdrop-blur-md mb-1">
+                  <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-white/95 text-[#071245] text-[10px] sm:text-xs font-black shadow-md backdrop-blur-md mb-1">
                     <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#F6C915]" />
                     <span>Hands-on Clinical Application</span>
                   </span>
@@ -307,16 +307,16 @@ export function LearningOutcomes() {
               </div>
 
               {/* Enrollment Trigger */}
-              <div className="w-full mt-3 sm:mt-4 flex items-center justify-between gap-2 p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white/90 border border-[#E8DEC0] shadow-xs">
+              <div className="w-full mt-3 sm:mt-4 flex items-center justify-between gap-2 p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white border border-slate-200 shadow-2xs">
                 <div className="flex items-center gap-1.5 sm:gap-2">
-                  <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#A8780F]" />
-                  <span className="text-[11px] sm:text-xs font-black text-[#13277A]">4 canfitpro CECs Approved</span>
+                  <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#B87503]" />
+                  <span className="text-[11px] sm:text-xs font-black text-[#071245]">4 canfitpro CECs Approved</span>
                 </div>
                 <a
                   href="#register"
-                  className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-black text-[#A8780F] hover:text-[#13277A] transition-colors"
+                  className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-black text-[#B87503] hover:text-[#071245] transition-colors"
                 >
-                  <span>Register for Oct 14</span>
+                  <span>Register for Oct 28</span>
                   <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                 </a>
               </div>
@@ -327,21 +327,21 @@ export function LearningOutcomes() {
 
         {/* Bottom 4-Item Program Summary Matrix */}
         <div className="mt-6 sm:mt-8 grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 lg:gap-4">
-          <div className="p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white/80 border border-[#E8DEC0] text-center shadow-xs">
-            <span className="text-base sm:text-lg font-black text-[#13277A] block">10 Workshops</span>
-            <span className="text-[10px] sm:text-[11px] font-bold text-[#8A6208]">Comprehensive Scope</span>
+          <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50/80 border border-slate-200/90 text-center shadow-2xs">
+            <span className="text-base sm:text-lg font-black text-[#071245] block">10 Workshops</span>
+            <span className="text-[10px] sm:text-[11px] font-bold text-slate-500">Comprehensive Scope</span>
           </div>
-          <div className="p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white/80 border border-[#E8DEC0] text-center shadow-xs">
-            <span className="text-base sm:text-lg font-black text-[#13277A] block">21 Total Hours</span>
-            <span className="text-[10px] sm:text-[11px] font-bold text-[#8A6208]">Live Interactive</span>
+          <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50/80 border border-slate-200/90 text-center shadow-2xs">
+            <span className="text-base sm:text-lg font-black text-[#071245] block">21 Total Hours</span>
+            <span className="text-[10px] sm:text-[11px] font-bold text-slate-500">Live Interactive</span>
           </div>
-          <div className="p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white/80 border border-[#E8DEC0] text-center shadow-xs">
-            <span className="text-base sm:text-lg font-black text-[#13277A] block">4 canfitpro CECs</span>
-            <span className="text-[10px] sm:text-[11px] font-bold text-[#8A6208]">Accredited CECs</span>
+          <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50/80 border border-slate-200/90 text-center shadow-2xs">
+            <span className="text-base sm:text-lg font-black text-[#071245] block">4 canfitpro CECs</span>
+            <span className="text-[10px] sm:text-[11px] font-bold text-slate-500">Accredited CECs</span>
           </div>
-          <div className="p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white/80 border border-[#E8DEC0] text-center shadow-xs">
-            <span className="text-base sm:text-lg font-black text-[#13277A] block">Since 1994</span>
-            <span className="text-[10px] sm:text-[11px] font-bold text-[#8A6208]">Canada&apos;s Nutrition Pioneer</span>
+          <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-slate-50/80 border border-slate-200/90 text-center shadow-2xs">
+            <span className="text-base sm:text-lg font-black text-[#071245] block">Since 1994</span>
+            <span className="text-[10px] sm:text-[11px] font-bold text-slate-500">Canada&apos;s Nutrition Pioneer</span>
           </div>
         </div>
 

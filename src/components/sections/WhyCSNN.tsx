@@ -18,21 +18,21 @@ export function WhyCSNN() {
       desc: "10 live interactive workshops (21 hours). Gain everyday kitchen confidence and whole-food nutrition clarity.",
       features: [
         "10 Live Interactive Evening Workshops (21 Hours)",
-        "Everyday Kitchen Habits & Practical Food Swaps",
+        "Everyday Kitchen Hacks & Practical Food Swaps",
         "4 canfitpro Continuing Education Credits (CECs)",
       ],
       current: true,
-      timeframe: "Starts Oct 14, 2026",
+      timeframe: "Starts Oct 28, 2026",
     },
     {
       step: "02",
       badge: "OPTIONAL ADVANCEMENT",
       title: "Natural Nutrition Diploma Program",
-      desc: "Comprehensive accredited clinical curriculum to earn the licensed Registered Holistic Nutritionist designation.",
+      desc: "Comprehensive accredited clinical curriculum to earn the Registered Holistic Nutritionist (R.H.N.) designation.",
       features: [
         "CSNN Flagship Comprehensive Diploma",
         "Clinical Anatomy, Biochemistry & Pathology",
-        "Licensed R.H.N. Professional Designation",
+        "Registered R.H.N. Professional Designation",
       ],
       current: false,
       timeframe: "Flexible Full-Time / Part-Time",
@@ -56,10 +56,10 @@ export function WhyCSNN() {
     <section
       id="why-csnn"
       data-screen-label="09 Why CSNN"
-      className="py-8 sm:py-14 bg-gradient-to-b from-[#071245] via-[#0B1A5A] to-[#050D32] text-white relative overflow-hidden border-y-2 border-[#F6C915]/60 shadow-2xl"
+      className="py-10 sm:py-16 bg-gradient-to-b from-[#071245] via-[#0B1A5A] to-[#050D32] text-white relative overflow-hidden border-y border-white/10 shadow-2xl"
     >
       {/* Background ambient lighting */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#1E389B]/25 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#1E389B]/20 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 left-10 w-96 h-96 bg-[#F6C915]/10 rounded-full blur-2xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -78,7 +78,7 @@ export function WhyCSNN() {
           </h2>
 
           <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mt-2 text-[11px] sm:text-xs text-white/80">
-            <span>Teaching the Medicine of the Future™ · Live online with licensed faculty</span>
+            <span>Teaching the Medicine of the Future™ · Live online with registered faculty</span>
             <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/15 text-[10px] sm:text-[11px] font-bold text-white/90">
               <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#F6C915]" />
               <span>30+ Years Heritage</span>
@@ -122,7 +122,7 @@ export function WhyCSNN() {
                 <span>STRUCTURED EDUCATIONAL PATHWAY</span>
               </div>
               <h3 className="text-lg sm:text-2xl font-black text-white tracking-tight">
-                From Kitchen Foundation to Licensed Excellence
+                From Kitchen Foundation to Registered Excellence
               </h3>
               <p className="text-[11px] sm:text-xs text-white/70 mt-0.5 max-w-xl">
                 A sequential educational journey from home cooking clarity to accredited clinical nutrition leadership.

@@ -2,33 +2,33 @@
 
 @layer base {
   :root {
-    --navy-primary: #13277A;
+    --navy-primary: #071245;
     --navy-deep: #0B1A5A;
-    --navy-dark: #071245;
-    --cream-warm: #FDF6DC;
-    --yellow-pale: #FBECB0;
+    --navy-dark: #040924;
+    --cream-warm: #F8FAFC;
+    --yellow-pale: #FEF9C3;
     --yellow-accent: #F6C915;
-    --gold-dark: #A8780F;
+    --gold-dark: #B87503;
     --white: #FFFFFF;
-    --body-text: #0F1F5C;
-    --muted-text: #5B5440;
-    --border-cream: #EFE1AD;
-    --alert-red: #D62B2B;
+    --body-text: #1E293B;
+    --muted-text: #64748B;
+    --border-cream: #E2E8F0;
+    --alert-red: #DC2626;
   }
 
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 100px;
-    background-color: #FBF4D8;
-    color: #0F1F5C;
+    background-color: #FFFFFF;
+    color: #071245;
     font-family: var(--font-sans), system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-    background-color: #FBF4D8;
-    color: #0F1F5C;
+    background-color: #FFFFFF;
+    color: #071245;
     min-height: 100vh;
     overflow-x: hidden;
   }
@@ -286,22 +286,21 @@
   -webkit-text-fill-color: transparent;
 }
 
-/* Frosted Glass Cards (Light Cream Mode) */
+/* Frosted Glass Cards (Light Modern Mode) */
 .glass-card-light {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.88) 0%, rgba(253, 246, 220, 0.72) 100%);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
   border-top: 1.5px solid rgba(255, 255, 255, 1);
   box-shadow: 
-    0 20px 40px -15px rgba(19, 39, 122, 0.09),
-    0 4px 10px -2px rgba(19, 39, 122, 0.04),
-    inset 0 1px 0 rgba(255, 255, 255, 0.95);
+    0 12px 30px -8px rgba(15, 23, 42, 0.05),
+    0 4px 10px -2px rgba(15, 23, 42, 0.02);
 }
 
 /* Frosted Glass Cards (Dark Navy Mode) */
 .glass-card-dark {
-  background: linear-gradient(145deg, rgba(19, 39, 122, 0.7) 0%, rgba(7, 18, 69, 0.9) 100%);
+  background: linear-gradient(145deg, rgba(11, 26, 90, 0.85) 0%, rgba(7, 18, 69, 0.95) 100%);
   backdrop-filter: blur(24px);
   -webkit-backdrop-filter: blur(24px);
   border: 1px solid rgba(255, 255, 255, 0.12);
@@ -314,15 +313,14 @@
 
 /* Tactile 3D Skeuomorphic Buttons */
 .btn-skeuo-primary {
-  background: linear-gradient(180deg, #1C389E 0%, #13277A 50%, #0B1A5A 100%);
+  background: linear-gradient(180deg, #1C389E 0%, #071245 100%);
   color: #FFFFFF;
   border: 1px solid #2A48B8;
   border-top: 1.5px solid rgba(255, 255, 255, 0.45);
   box-shadow: 
-    0 10px 25px -4px rgba(19, 39, 122, 0.45),
-    0 4px 8px -2px rgba(19, 39, 122, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.35),
-    inset 0 -2px 0 rgba(0, 0, 0, 0.35);
+    0 10px 25px -4px rgba(7, 18, 69, 0.35),
+    0 4px 8px -2px rgba(7, 18, 69, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.35);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
@@ -330,16 +328,15 @@
 .btn-skeuo-primary:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 
-    0 16px 32px -6px rgba(19, 39, 122, 0.55),
-    0 6px 12px -2px rgba(19, 39, 122, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.5),
-    inset 0 -2px 0 rgba(0, 0, 0, 0.4);
+    0 16px 32px -6px rgba(7, 18, 69, 0.45),
+    0 6px 12px -2px rgba(7, 18, 69, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 .btn-skeuo-primary:active:not(:disabled) {
   transform: translateY(1px);
   box-shadow: 
-    0 4px 12px -2px rgba(19, 39, 122, 0.4),
-    inset 0 2px 4px rgba(0, 0, 0, 0.4);
+    0 4px 12px -2px rgba(7, 18, 69, 0.3),
+    inset 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .btn-skeuo-gold {
@@ -348,10 +345,9 @@
   border: 1px solid #FFE885;
   border-top: 1.5px solid #FFFFFF;
   box-shadow: 
-    0 10px 25px -4px rgba(246, 201, 21, 0.6),
-    0 4px 8px -2px rgba(246, 201, 21, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.85),
-    inset 0 -2px 0 rgba(168, 120, 15, 0.5);
+    0 8px 20px -3px rgba(246, 201, 21, 0.45),
+    0 3px 6px -1px rgba(246, 201, 21, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
   position: relative;
   overflow: hidden;
@@ -359,51 +355,43 @@
 .btn-skeuo-gold:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow: 
-    0 16px 35px -6px rgba(246, 201, 21, 0.75),
-    0 6px 14px -2px rgba(246, 201, 21, 0.4),
-    inset 0 1px 0 #FFFFFF,
-    inset 0 -2px 0 rgba(168, 120, 15, 0.6);
+    0 14px 28px -4px rgba(246, 201, 21, 0.55),
+    0 5px 10px -1px rgba(246, 201, 21, 0.3),
+    inset 0 1px 0 #FFFFFF;
 }
 .btn-skeuo-gold:active:not(:disabled) {
   transform: translateY(1px);
   box-shadow: 
-    0 4px 10px -2px rgba(246, 201, 21, 0.5),
-    inset 0 2px 4px rgba(168, 120, 15, 0.5);
+    0 3px 8px -1px rgba(246, 201, 21, 0.35),
+    inset 0 2px 4px rgba(168, 120, 15, 0.3);
 }
 
-/* Tactile Skeuomorphic Form Controls */
+/* Tactile Modern Form Controls */
 .input-skeuo {
   background: #FFFFFF;
-  border: 1.5px solid #E6D9A8;
-  border-top: 2px solid #D8C78B;
-  box-shadow: 
-    inset 0 2px 4px rgba(15, 31, 92, 0.06),
-    0 1px 0 rgba(255, 255, 255, 0.85);
+  border: 1.5px solid #CBD5E1;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
   transition: all 0.2s ease;
 }
 .input-skeuo:focus {
-  border-color: #13277A;
+  border-color: #071245;
   box-shadow: 
-    0 0 0 3.5px rgba(246, 201, 21, 0.35),
-    inset 0 1px 2px rgba(15, 31, 92, 0.08);
+    0 0 0 3px rgba(7, 18, 69, 0.15);
   outline: none;
 }
 
-/* Skeuomorphic Medal Badges */
+/* Modern Medal Badges */
 .badge-skeuo-gold {
-  background: linear-gradient(180deg, #FFF6D1 0%, #FBECB0 100%);
-  border: 1px solid #F6C915;
-  box-shadow: 
-    0 2px 6px rgba(168, 120, 15, 0.15),
-    inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  background: #FEF9C3;
+  color: #854D0E;
+  border: 1px solid #FDE047;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
 }
 
 .badge-skeuo-navy {
-  background: linear-gradient(180deg, #13277A 0%, #0B1A5A 100%);
+  background: linear-gradient(180deg, #13277A 0%, #071245 100%);
   border: 1px solid rgba(246, 201, 21, 0.4);
-  box-shadow: 
-    0 4px 12px rgba(7, 18, 69, 0.35),
-    inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  box-shadow: 0 2px 8px rgba(7, 18, 69, 0.2);
 }
 
 /* Custom Scrollbar */
@@ -411,15 +399,15 @@
   width: 10px;
 }
 ::-webkit-scrollbar-track {
-  background: #FDF6DC;
+  background: #F8FAFC;
 }
 ::-webkit-scrollbar-thumb {
-  background: #DFCD8A;
+  background: #CBD5E1;
   border-radius: 5px;
-  border: 2px solid #FDF6DC;
+  border: 2px solid #F8FAFC;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: #C4B16E;
+  background: #94A3B8;
 }
 
 /* Realistic Phone Interactive Micro-Animations */

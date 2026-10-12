@@ -8,12 +8,10 @@ import {
   Sparkles,
   Calendar,
   Users,
-  Award,
   ArrowRight,
   ShieldCheck,
   UtensilsCrossed,
   BookOpen,
-  Star,
   MapPin,
   Laptop
 } from "lucide-react";
@@ -37,11 +35,11 @@ export function ProgramShowcaseDualPane() {
     <section
       id="program-showcase"
       data-screen-label="01.5 Dual Pane Program Showcase"
-      className="w-full relative py-8 sm:py-12 lg:py-14 bg-gradient-to-b from-[#FDF6DC] via-[#FFFDF9] to-[#FAF1D0] border-b border-[#E8DEC0]/80 overflow-hidden"
+      className="w-full relative py-10 sm:py-14 lg:py-16 bg-white border-b border-slate-200/80 overflow-hidden"
     >
-      {/* Ambient Atmospheric Sun & Azure Glows */}
-      <div className="absolute top-10 left-10 w-96 h-96 rounded-full bg-[#F6C915]/15 blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-96 h-96 rounded-full bg-[#13277A]/8 blur-3xl pointer-events-none" />
+      {/* Ambient subtle lighting */}
+      <div className="absolute top-10 left-10 w-96 h-96 rounded-full bg-[#F6C915]/5 blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-96 h-96 rounded-full bg-[#071245]/5 blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -54,11 +52,11 @@ export function ProgramShowcaseDualPane() {
           <div className="lg:col-span-5 order-2 lg:order-1 relative">
             <div className="relative mx-auto max-w-lg lg:max-w-none">
               
-              {/* Decorative Luxury Outer Glow & Angled Halo */}
-              <div className="absolute -inset-3 rounded-[36px] bg-gradient-to-tr from-[#F6C915]/30 via-transparent to-[#13277A]/15 blur-xl -z-10" />
+              {/* Decorative Subtle Outer Glow */}
+              <div className="absolute -inset-3 rounded-[36px] bg-gradient-to-tr from-[#F6C915]/20 via-transparent to-[#071245]/10 blur-xl -z-10" />
 
               {/* Main Image Frame */}
-              <div className="relative rounded-[32px] overflow-hidden border-2 border-white/90 shadow-2xl aspect-[4/3] sm:aspect-[1/1] lg:aspect-[4/5] bg-[#071245] group">
+              <div className="relative rounded-[32px] overflow-hidden border-2 border-slate-100 shadow-xl aspect-[4/3] sm:aspect-[1/1] lg:aspect-[4/5] bg-[#071245] group">
                 <Image
                   src="/images/csnn-showcase.jpg"
                   alt="CSNN Toronto Live Online Nutrition Masterclass Studio"
@@ -76,80 +74,24 @@ export function ProgramShowcaseDualPane() {
                   <span className="w-2.5 h-2.5 rounded-full bg-[#E53935] animate-ping" />
                   <span className="flex items-center gap-1.5">
                     <Laptop className="w-3.5 h-3.5 text-[#F6C915]" />
-                    <span>Live Interactive Studio</span>
+                    <span>Live Instructor Classes</span>
                   </span>
                 </div>
 
                 {/* Top Right Campus Pill */}
-                <div className="absolute top-4 right-4 sm:top-5 sm:right-5 inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#E8DEC0] shadow-md text-[11px] font-black text-[#13277A]">
-                  <MapPin className="w-3.5 h-3.5 text-[#C4880B]" />
+                <div className="absolute top-4 right-4 sm:top-5 sm:right-5 inline-flex items-center gap-1 px-3 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-slate-200 shadow-md text-[11px] font-black text-[#071245]">
+                  <MapPin className="w-3.5 h-3.5 text-[#B87503]" />
                   <span>Toronto, ON</span>
                 </div>
 
                 {/* Bottom Overlay Info Tag */}
-                <div className="absolute bottom-20 left-4 right-4 text-white sm:bottom-24">
+                <div className="absolute bottom-5 sm:bottom-6 left-5 right-5 text-white">
                   <p className="text-xs sm:text-sm font-bold text-[#FEEB9A] uppercase tracking-wider">
-                    Interactive Culinary Science
+                    Holistic Wellness
                   </p>
                   <p className="text-base sm:text-lg font-black leading-tight text-white drop-shadow-sm">
                     Learn Whole-Food Nutrition Live in Your Kitchen
                   </p>
-                </div>
-              </div>
-
-              {/* Floating Luxury Accreditation & Brand Card (Best UI) */}
-              <div className="relative -mt-16 sm:-mt-20 mx-3 sm:mx-6 bg-white/98 backdrop-blur-xl rounded-2xl p-4 sm:p-5 border border-[#E8DEC0] shadow-2xl transition-transform hover:-translate-y-1 duration-300">
-                <div className="flex items-center gap-3.5">
-                  
-                  {/* Official CSNN Emblem */}
-                  <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-2xl overflow-hidden bg-white p-1 border-2 border-[#F6C915] shadow-md shrink-0 flex items-center justify-center">
-                    <Image
-                      src="/assets/logo.jpg"
-                      alt="CSNN Toronto Logo"
-                      fill
-                      sizes="56px"
-                      className="object-contain"
-                    />
-                  </div>
-
-                  {/* Brand Credentials */}
-                  <div className="flex-1 min-w-0">
-                    <div className="flex items-center justify-between gap-1">
-                      <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-[#A8780F]">
-                        CSNN TORONTO CAMPUS
-                      </span>
-                      <span className="text-[10px] font-bold text-[#13277A] bg-[#FAF1D0] px-2 py-0.5 rounded-full border border-[#E8DEC0]">
-                        Est. 1994
-                      </span>
-                    </div>
-                    <h4 className="text-sm sm:text-base font-black text-[#13277A] truncate">
-                      Canada&apos;s Leading Holistic Nutrition School
-                    </h4>
-                    
-                    {/* Star Rating & Verified Graduates */}
-                    <div className="flex items-center gap-2 mt-1">
-                      <div className="flex text-[#F6C915]">
-                        {[...Array(5)].map((_, i) => (
-                          <Star key={i} className="w-3.5 h-3.5 fill-[#F6C915]" />
-                        ))}
-                      </div>
-                      <span className="text-[11px] font-black text-[#071245]">5.0</span>
-                      <span className="text-[11px] text-[#5B5440] font-medium truncate">
-                        (12,000+ Alumni Across Canada)
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Sub-cred strip */}
-                <div className="mt-3 pt-3 border-t border-[#F0E6C5] flex items-center justify-between text-[11px] font-bold text-[#13277A]">
-                  <span className="inline-flex items-center gap-1.5">
-                    <Award className="w-3.5 h-3.5 text-[#C4880B]" />
-                    <span>4 canfitpro CECs Approved</span>
-                  </span>
-                  <span className="text-[#A8780F] font-black">
-                    Zero Prerequisites
-                  </span>
                 </div>
               </div>
 
@@ -165,9 +107,9 @@ export function ProgramShowcaseDualPane() {
             <div className="flex flex-wrap items-center gap-2.5">
               
               {/* Canadian School of Natural Nutrition Toronto */}
-              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-[#E8DEC0] shadow-2xs">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-slate-50 border border-slate-200 shadow-2xs">
                 <span className="w-2 h-2 rounded-full bg-[#F6C915]" />
-                <span className="text-xs sm:text-[13px] font-black text-[#13277A] tracking-tight">
+                <span className="text-xs sm:text-[13px] font-black text-[#071245] tracking-tight">
                   Canadian School of Natural Nutrition Toronto
                 </span>
               </div>
@@ -177,22 +119,22 @@ export function ProgramShowcaseDualPane() {
                 TORONTO
               </span>
 
-              {/* Starts Oct 14, 2026 · 10 Workshops */}
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FEF4CE] border border-[#F6C915] text-[11px] sm:text-xs font-bold text-[#A8780F]">
-                <Calendar className="w-3 h-3 text-[#A8780F]" />
-                <span>Starts <strong>Oct 14, 2026</strong> · 10 Workshops</span>
+              {/* Starts Oct 28, 2026 · 10 Workshops */}
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#FEF9C3] border border-[#FDE047] text-[11px] sm:text-xs font-bold text-[#854D0E]">
+                <Calendar className="w-3 h-3 text-[#854D0E]" />
+                <span>Starts <strong>Oct 28, 2026</strong> · 10 Workshops</span>
               </div>
 
             </div>
 
             {/* Program Name Subtitle */}
-            <div className="flex items-center gap-2 text-sm sm:text-base font-bold text-[#A8780F]">
-              <span className="font-extrabold text-[#13277A]">
+            <div className="flex items-center gap-2 text-sm sm:text-base font-bold text-slate-600">
+              <span className="font-extrabold text-[#071245]">
                 Healthy Eating &amp; Lifestyle Certificate
               </span>
-              <span className="text-[#13277A]/40">•</span>
-              <span className="inline-flex items-center gap-1 text-[#13277A] bg-white px-2 py-0.5 rounded-md border border-[#E8DEC0] text-xs font-black">
-                <Laptop className="w-3 h-3 text-[#13277A]" />
+              <span className="text-slate-300">•</span>
+              <span className="inline-flex items-center gap-1 text-[#071245] bg-slate-100 px-2 py-0.5 rounded-md border border-slate-200 text-xs font-black">
+                <Laptop className="w-3 h-3 text-[#071245]" />
                 Live Online
               </span>
             </div>
@@ -200,73 +142,73 @@ export function ProgramShowcaseDualPane() {
             {/* Big Headline Block: 10 Holistic Nutrition Workshops */}
             <div className="flex flex-col gap-1 sm:gap-2">
               <div className="flex items-baseline gap-3 sm:gap-4 flex-wrap">
-                <span className="font-serif italic font-black text-5xl sm:text-6xl lg:text-7xl text-[#13277A] leading-none tracking-tight">
+                <span className="font-serif italic font-black text-5xl sm:text-6xl lg:text-7xl text-[#071245] leading-none tracking-tight">
                   10
                 </span>
-                <span className="font-serif italic font-black text-3xl sm:text-4xl lg:text-5xl text-[#13277A] leading-tight tracking-tight">
+                <span className="font-serif italic font-black text-3xl sm:text-4xl lg:text-5xl text-[#071245] leading-tight tracking-tight">
                   Holistic Nutrition Workshops
                 </span>
               </div>
 
               {/* Core Promise: Healthy Starts Here */}
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#C4880B] tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#B87503] tracking-tight leading-tight">
                 Healthy Starts Here.
               </h2>
             </div>
 
             {/* Lead Narrative Paragraph */}
-            <p className="text-base sm:text-lg text-[#071245] font-semibold leading-relaxed max-w-2xl">
-              Every meal is a choice that energizes and transforms your vitality. Learn practical whole-food science live online with licensed CSNN faculty.
+            <p className="text-base sm:text-lg text-slate-700 font-medium leading-relaxed max-w-2xl">
+              Every meal is a choice that energizes and transforms your vitality. Learn holistic wellness in simple way live online with Registered Holistic Nutritionist (RHN).
             </p>
 
             {/* Key Value Cards Grid (5 Distinct Benefit Cards) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 pt-2">
               
               {/* Card 1: 21 Live Online Hours */}
-              <div className="bg-white/95 backdrop-blur-xs p-3.5 rounded-2xl border border-[#E8DEC0] shadow-xs hover:border-[#F6C915] hover:shadow-md transition-all group">
+              <div className="bg-slate-50/70 hover:bg-white p-3.5 rounded-2xl border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-[#071245]/20 transition-all group">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#FAF1D0] group-hover:bg-[#F6C915] transition-colors flex items-center justify-center shrink-0">
-                    <Clock className="w-5 h-5 text-[#13277A]" />
+                  <div className="w-10 h-10 rounded-xl bg-white group-hover:bg-[#071245] text-[#071245] group-hover:text-[#F6C915] border border-slate-200/60 shadow-2xs transition-colors flex items-center justify-center shrink-0">
+                    <Clock className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-xs font-black text-[#13277A] block leading-tight">
+                    <span className="text-xs font-black text-[#071245] block leading-tight">
                       21 Live Online Hours
                     </span>
-                    <span className="text-[11px] text-[#5B5440] font-medium leading-tight">
+                    <span className="text-[11px] text-slate-500 font-medium leading-tight">
                       10 interactive sessions
                     </span>
                   </div>
                 </div>
               </div>
 
-              {/* Card 2: Practical Kitchen Habits */}
-              <div className="bg-white/95 backdrop-blur-xs p-3.5 rounded-2xl border border-[#E8DEC0] shadow-xs hover:border-[#F6C915] hover:shadow-md transition-all group">
+              {/* Card 2: Practical Kitchen Hacks */}
+              <div className="bg-slate-50/70 hover:bg-white p-3.5 rounded-2xl border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-[#071245]/20 transition-all group">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#FAF1D0] group-hover:bg-[#F6C915] transition-colors flex items-center justify-center shrink-0">
-                    <UtensilsCrossed className="w-5 h-5 text-[#13277A]" />
+                  <div className="w-10 h-10 rounded-xl bg-white group-hover:bg-[#071245] text-[#071245] group-hover:text-[#F6C915] border border-slate-200/60 shadow-2xs transition-colors flex items-center justify-center shrink-0">
+                    <UtensilsCrossed className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-xs font-black text-[#13277A] block leading-tight">
-                      Practical Kitchen Habits
+                    <span className="text-xs font-black text-[#071245] block leading-tight">
+                      Practical Kitchen Hacks
                     </span>
-                    <span className="text-[11px] text-[#5B5440] font-medium leading-tight">
+                    <span className="text-[11px] text-slate-500 font-medium leading-tight">
                       Real pantry &amp; meal skills
                     </span>
                   </div>
                 </div>
               </div>
 
-              {/* Card 3: Evenings 6:00–8:00 pm EST */}
-              <div className="bg-white/95 backdrop-blur-xs p-3.5 rounded-2xl border border-[#E8DEC0] shadow-xs hover:border-[#F6C915] hover:shadow-md transition-all group">
+              {/* Card 3: Evenings 6:00–8:30 pm EST */}
+              <div className="bg-slate-50/70 hover:bg-white p-3.5 rounded-2xl border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-[#071245]/20 transition-all group">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#FAF1D0] group-hover:bg-[#F6C915] transition-colors flex items-center justify-center shrink-0">
-                    <Calendar className="w-5 h-5 text-[#13277A]" />
+                  <div className="w-10 h-10 rounded-xl bg-white group-hover:bg-[#071245] text-[#071245] group-hover:text-[#F6C915] border border-slate-200/60 shadow-2xs transition-colors flex items-center justify-center shrink-0">
+                    <Calendar className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-xs font-black text-[#13277A] block leading-tight">
-                      Evenings 6:00–8:00 pm EST
+                    <span className="text-xs font-black text-[#071245] block leading-tight">
+                      Evenings 6:00–8:30 pm EST
                     </span>
-                    <span className="text-[11px] text-[#5B5440] font-medium leading-tight">
+                    <span className="text-[11px] text-slate-500 font-medium leading-tight">
                       Balanced for busy schedules
                     </span>
                   </div>
@@ -274,16 +216,16 @@ export function ProgramShowcaseDualPane() {
               </div>
 
               {/* Card 4: 100% Live Interactive Dialogue */}
-              <div className="bg-white/95 backdrop-blur-xs p-3.5 rounded-2xl border border-[#E8DEC0] shadow-xs hover:border-[#F6C915] hover:shadow-md transition-all group sm:col-span-2 lg:col-span-1">
+              <div className="bg-slate-50/70 hover:bg-white p-3.5 rounded-2xl border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-[#071245]/20 transition-all group sm:col-span-2 lg:col-span-1">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#FAF1D0] group-hover:bg-[#F6C915] transition-colors flex items-center justify-center shrink-0">
-                    <Users className="w-5 h-5 text-[#13277A]" />
+                  <div className="w-10 h-10 rounded-xl bg-white group-hover:bg-[#071245] text-[#071245] group-hover:text-[#F6C915] border border-slate-200/60 shadow-2xs transition-colors flex items-center justify-center shrink-0">
+                    <Users className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-xs font-black text-[#13277A] block leading-tight">
+                    <span className="text-xs font-black text-[#071245] block leading-tight">
                       100% Live Interactive Dialogue
                     </span>
-                    <span className="text-[11px] text-[#5B5440] font-medium leading-tight">
+                    <span className="text-[11px] text-slate-500 font-medium leading-tight">
                       Direct Q&amp;A with instructor
                     </span>
                   </div>
@@ -291,16 +233,16 @@ export function ProgramShowcaseDualPane() {
               </div>
 
               {/* Card 5: Zero Prerequisites Required */}
-              <div className="bg-white/95 backdrop-blur-xs p-3.5 rounded-2xl border border-[#E8DEC0] shadow-xs hover:border-[#F6C915] hover:shadow-md transition-all group sm:col-span-2">
+              <div className="bg-slate-50/70 hover:bg-white p-3.5 rounded-2xl border border-slate-200/90 shadow-2xs hover:shadow-md hover:border-[#071245]/20 transition-all group sm:col-span-2">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#FAF1D0] group-hover:bg-[#F6C915] transition-colors flex items-center justify-center shrink-0">
-                    <ShieldCheck className="w-5 h-5 text-[#13277A]" />
+                  <div className="w-10 h-10 rounded-xl bg-white group-hover:bg-[#071245] text-[#071245] group-hover:text-[#F6C915] border border-slate-200/60 shadow-2xs transition-colors flex items-center justify-center shrink-0">
+                    <ShieldCheck className="w-5 h-5" />
                   </div>
                   <div>
-                    <span className="text-xs font-black text-[#13277A] block leading-tight">
+                    <span className="text-xs font-black text-[#071245] block leading-tight">
                       Zero Prerequisites Required
                     </span>
-                    <span className="text-[11px] text-[#5B5440] font-medium leading-tight">
+                    <span className="text-[11px] text-slate-500 font-medium leading-tight">
                       Open to anyone passionate about wellness
                     </span>
                   </div>
@@ -313,23 +255,23 @@ export function ProgramShowcaseDualPane() {
             <div className="flex flex-wrap items-center gap-3.5 pt-3">
               <button
                 onClick={scrollToForm}
-                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#13277A] hover:bg-[#071245] text-white font-black text-sm shadow-md hover:shadow-lg transition-all cursor-pointer group"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-[#071245] hover:bg-[#0B1A5A] text-white font-black text-sm shadow-md hover:shadow-lg transition-all cursor-pointer group"
               >
-                <span>Reserve Seat for October 14</span>
+                <span>Reserve Seat for October 28</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </button>
 
               <button
                 onClick={scrollToCurriculum}
-                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-[#FAF1D0] text-[#13277A] font-extrabold text-sm border border-[#E8DEC0] shadow-xs hover:shadow-sm transition-all cursor-pointer"
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-white hover:bg-slate-50 text-[#071245] font-extrabold text-sm border border-slate-200 shadow-2xs hover:shadow-xs transition-all cursor-pointer"
               >
-                <BookOpen className="w-4 h-4 text-[#C4880B]" />
+                <BookOpen className="w-4 h-4 text-[#B87503]" />
                 <span>View All 10 Workshops</span>
               </button>
             </div>
 
             {/* Institutional Seal Footnote */}
-            <div className="flex items-center gap-2 text-xs text-[#5B5440] pt-1">
+            <div className="flex items-center gap-2 text-xs text-slate-500 pt-1">
               <CheckCircle2 className="w-4 h-4 text-[#1B7A42] shrink-0" />
               <span>Official Certificate awarded upon completion by the Canadian School of Natural Nutrition.</span>
             </div>

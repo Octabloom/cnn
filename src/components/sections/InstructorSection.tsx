@@ -35,8 +35,8 @@ export function InstructorSection() {
       phase: "PHASE 03",
       timeline: "CSNN Diploma",
       title: "Holistic Nutritionist",
-      desc: "Completed CSNN’s flagship Natural Nutrition Diploma Program to earn the licensed R.H.N. clinical designation.",
-      tag: "LICENSED R.H.N.",
+      desc: "Completed CSNN’s flagship Natural Nutrition Diploma Program to earn the registered R.H.N. clinical designation.",
+      tag: "REGISTERED R.H.N.",
       badgeColor: "bg-amber-50 text-[#8A6208] border-amber-300",
       bulletColor: "bg-[#F6C915]",
       circleBg: "from-[#FFE052] to-[#D4A017] text-[#071245]",
@@ -175,7 +175,7 @@ export function InstructorSection() {
               From medical roots to compounding holistic scale.
             </h3>
             <p className="text-xs sm:text-sm text-[#5B5440] font-semibold mt-1">
-              A 5-stage timeline engineered to bridge university nutritional science with everyday kitchen habits.
+              A 5-stage timeline engineered to bridge university nutritional science with everyday kitchen hacks.
             </p>
           </div>
 
