@@ -11,8 +11,10 @@ import {
   BookOpenCheck,
   Users2,
   Check,
-  X,
   Landmark,
+  Compass,
+  FileCheck,
+  BadgeCheck,
 } from "lucide-react";
 
 export function WhyCSNN() {
@@ -23,13 +25,15 @@ export function WhyCSNN() {
       title: "Canada's 1st Holistic School",
       desc: "32 years of clinical academic leadership and recognized excellence.",
       icon: Landmark,
+      badge: "32-Year Legacy",
     },
     {
       metric: "100% Live",
       sublabel: "REAL-TIME",
       title: "Interactive Online Classes",
-      desc: "Live Zoom video classrooms with dedicated real-time discussions & Q&A.",
+      desc: "Live Zoom video classrooms with real-time discussions & direct Q&A.",
       icon: Video,
+      badge: "Zero Recorded Silos",
     },
     {
       metric: "R.H.N.",
@@ -37,6 +41,7 @@ export function WhyCSNN() {
       title: "Registered Instructors",
       desc: "Taught exclusively by practicing Registered Holistic Nutritionists.",
       icon: GraduationCap,
+      badge: "Clinical Clinicians",
     },
     {
       metric: "4 CECs",
@@ -44,40 +49,53 @@ export function WhyCSNN() {
       title: "canfitpro Pre-Approved",
       desc: "Official Certificate of Completion & seamless diploma transfer credit.",
       icon: Award,
+      badge: "canfitpro Approved",
     },
   ];
 
   const institutionalPillars = [
     {
-      badge: "CLINICAL FOUNDATION",
+      badge: "CLINICAL SCIENCE",
+      tag: "BIOCHEMISTRY & GI TRACT",
       title: "Evidence-Informed Holistic Science",
+      subtitle: "Beyond superficial social media trends & dietary fads",
       description:
-        "Unlike superficial online meal-plan tutorials, CSNN curricula bridge cellular biochemistry, digestive physiology, and whole-food therapeutics so you master the true science of how nutrition heals.",
+        "CSNN curricula bridge cellular biochemistry, digestive physiology, and whole-food therapeutics so you master the true science of how nutrition heals from the stomach to the microbiome.",
       icon: BookOpenCheck,
+      stat: "21 Live Hours",
+      statLabel: "Academic Scope",
       points: [
         "Cellular biochemistry & microbiome diversity without marketing dogma",
-        "Scientific literacy to critically evaluate emerging health studies",
+        "Scientific literacy to critically evaluate emerging nutritional studies",
         "Root-cause symptomatology and practical whole-food meal formulation",
       ],
     },
     {
       badge: "LIVE MENTORSHIP",
-      title: "Real Teachers, Small Cohorts, Real Discussion",
+      tag: "REAL-TIME ON ZOOM",
+      title: "Small Cohorts, Real Faculty, Real Discussion",
+      subtitle: "Collaborative learning alongside passionate peers",
       description:
-        "Never study alone in passive pre-recorded video silos. Every CSNN Toronto session is held live with Registered Holistic Nutritionists who actively address your individual questions in real-time.",
+        "Never study alone in passive pre-recorded video libraries. Every CSNN Toronto session is held live with Registered Holistic Nutritionists who actively address your personal dietary questions in real-time.",
       icon: Users2,
+      stat: "Live Q&A",
+      statLabel: "Every Session",
       points: [
-        "Live Q&A and personalized instructor feedback in every session",
-        "Small cohort atmosphere with passionate, supportive peers",
-        "Guided hands-on kitchen experiments and real whole-food pantry audits",
+        "Real-time personalized instructor feedback during every lecture",
+        "Intimate cohort atmosphere with supportive, dedicated classmates",
+        "Hands-on kitchen experiments and real whole-food pantry audits",
       ],
     },
     {
       badge: "ACCREDITED ADVANCEMENT",
+      tag: "RECOGNIZED CREDENTIALS",
       title: "canfitpro CECs & Seamless Diploma Pathway",
+      subtitle: "Official Certificate + transferrable tuition credit",
       description:
-        "Earn 4 Continuing Education Credits (CECs) immediately upon completion, plus full tuition credit applicable toward CSNN’s flagship Natural Nutrition Diploma program.",
+        "Earn 4 Continuing Education Credits (CECs) pre-approved by canfitpro, with full tuition credit applicable towards CSNN’s flagship Natural Nutrition Diploma program.",
       icon: Award,
+      stat: "4 CECs",
+      statLabel: "canfitpro Pre-Approved",
       points: [
         "Official CSNN Certificate of Completion upon finishing",
         "4 pre-approved canfitpro Continuing Education Credits",
@@ -86,11 +104,34 @@ export function WhyCSNN() {
     },
   ];
 
+  const comparisons = [
+    {
+      feature: "Classroom Experience",
+      csnn: "100% Live Video with real-time faculty discussions",
+      other: "Pre-recorded, static video libraries with no interaction",
+    },
+    {
+      feature: "Instructor Credentials",
+      csnn: "Practicing Registered Holistic Nutritionists (R.H.N.)",
+      other: "Anonymous course creators or unverified influencers",
+    },
+    {
+      feature: "Continuing Education",
+      csnn: "Pre-approved for 4 canfitpro CECs + Diploma transfer",
+      other: "Unaccredited certificates with zero transfer value",
+    },
+    {
+      feature: "Academic Heritage",
+      csnn: "32 years of Canadian institutional trust (Est. 1994)",
+      other: "Generic startup platforms without clinical grounding",
+    },
+  ];
+
   return (
     <section
       id="why-csnn"
       data-screen-label="09 Why CSNN"
-      className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-slate-50/60 via-white to-slate-50/40 relative overflow-hidden border-t border-slate-200/80 text-[#071245]"
+      className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-slate-50/70 via-white to-slate-50/40 relative overflow-hidden border-t border-slate-200/80 text-[#071245]"
     >
       {/* Background subtle ambient lighting */}
       <div className="absolute top-1/4 right-0 w-[500px] h-[500px] bg-[#F6C915]/5 rounded-full blur-3xl pointer-events-none" />
@@ -102,7 +143,7 @@ export function WhyCSNN() {
             SECTION HEADER: Trust Badges & Institutional Authority
             ============================================================== */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white text-[#071245] text-[11px] sm:text-xs font-black tracking-widest uppercase mb-3 border border-slate-200 shadow-2xs">
+          <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white text-[#071245] text-[11px] sm:text-xs font-black tracking-widest uppercase mb-3 border border-slate-200/90 shadow-2xs">
             <div className="relative w-4 h-4 rounded-full overflow-hidden bg-white p-0.5 shrink-0 border border-[#F6C915]">
               <Image src="/assets/logo.jpg" alt="CSNN" fill sizes="16px" className="object-contain" />
             </div>
@@ -169,6 +210,13 @@ export function WhyCSNN() {
                     {item.desc}
                   </p>
                 </div>
+
+                <div className="mt-3 pt-2.5 border-t border-slate-100 flex items-center justify-between">
+                  <span className="text-[10px] font-bold text-[#8A5800] bg-amber-50/70 px-2 py-0.5 rounded-md">
+                    {item.badge}
+                  </span>
+                  <CheckCircle2 className="w-3.5 h-3.5 text-[#1B7A42]" />
+                </div>
               </div>
             );
           })}
@@ -183,30 +231,46 @@ export function WhyCSNN() {
             return (
               <div
                 key={idx}
-                className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-slate-200/90 shadow-sm flex flex-col justify-between relative group hover:border-slate-300 transition-colors"
+                className="bg-white rounded-2xl sm:rounded-3xl p-5 sm:p-7 border border-slate-200/90 shadow-sm flex flex-col justify-between relative group hover:border-[#F6C915]/80 hover:shadow-md transition-all"
               >
                 <div>
-                  {/* Top Badge & Icon */}
-                  <div className="flex items-center justify-between gap-2 mb-4">
+                  {/* Top Badge & Metric Pill */}
+                  <div className="flex items-center justify-between gap-2 mb-3">
                     <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-[#B87503] bg-slate-50 px-2.5 py-1 rounded-full border border-slate-200">
                       {pillar.badge}
                     </span>
-                    <div className="w-9 h-9 rounded-xl bg-[#071245] text-[#F6C915] flex items-center justify-center shadow-2xs">
+                    <div className="w-9 h-9 rounded-xl bg-[#071245] text-[#F6C915] flex items-center justify-center shadow-2xs group-hover:scale-105 transition-transform">
                       <Icon className="w-4 h-4" />
                     </div>
                   </div>
 
-                  {/* Title & Description */}
-                  <h3 className="text-base sm:text-lg font-black text-[#071245] leading-snug mb-2">
+                  <span className="text-[10px] font-black uppercase tracking-wider text-slate-400 block mb-1">
+                    {pillar.tag}
+                  </span>
+
+                  {/* Title & Subtitle */}
+                  <h3 className="text-base sm:text-lg font-black text-[#071245] leading-snug mb-1">
                     {pillar.title}
                   </h3>
+                  <p className="text-[11px] font-bold text-[#B87503] mb-2.5">
+                    {pillar.subtitle}
+                  </p>
+
                   <p className="text-xs sm:text-[13px] text-slate-600 font-medium leading-relaxed mb-4">
                     {pillar.description}
                   </p>
                 </div>
 
-                {/* Key Points Checklist */}
+                {/* Key Points Checklist + Stat Highlight */}
                 <div className="space-y-2 pt-4 border-t border-slate-100">
+                  <div className="flex items-center justify-between pb-1.5 text-xs">
+                    <span className="text-[11px] font-black text-slate-500 uppercase tracking-wide">Key Standard</span>
+                    <span className="inline-flex items-center gap-1 font-black text-[#071245] bg-slate-50 px-2 py-0.5 rounded-md border border-slate-200/80 text-[11px]">
+                      <BadgeCheck className="w-3.5 h-3.5 text-[#1B7A42]" />
+                      {pillar.stat}
+                    </span>
+                  </div>
+
                   {pillar.points.map((pt, pIdx) => (
                     <div key={pIdx} className="flex items-start gap-2 text-[11px] sm:text-xs font-bold text-[#071245]">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#1B7A42] shrink-0 mt-0.5" />
@@ -230,7 +294,7 @@ export function WhyCSNN() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
             
             {/* Left: Canadian Heritage Mission (7 cols) */}
-            <div className="lg:col-span-7 space-y-3">
+            <div className="lg:col-span-7 space-y-3.5">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-[#B87503] text-[11px] font-black uppercase tracking-wider border border-slate-200 shadow-2xs">
                 <Sparkles className="w-3.5 h-3.5 text-[#F6C915]" />
                 <span>The CSNN Toronto Distinction</span>
@@ -260,40 +324,23 @@ export function WhyCSNN() {
 
             {/* Right: Quick Advantage Matrix Box (5 cols) */}
             <div className="lg:col-span-5 bg-white rounded-2xl border border-slate-200/90 p-4 sm:p-5 shadow-2xs space-y-3">
-              <div className="text-[11px] font-black uppercase tracking-wider text-slate-400 pb-2 border-b border-slate-100">
-                How CSNN Toronto Compares
+              <div className="text-[11px] font-black uppercase tracking-wider text-slate-400 pb-2 border-b border-slate-100 flex items-center justify-between">
+                <span>How CSNN Toronto Compares</span>
+                <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/50">Verified Standard</span>
               </div>
 
               <div className="space-y-2.5 text-xs">
-                <div className="flex items-start gap-2.5">
-                  <div className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-200 mt-0.5">
-                    <Check className="w-3 h-3 stroke-[3]" />
+                {comparisons.map((c, i) => (
+                  <div key={i} className="flex items-start gap-2.5">
+                    <div className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-200 mt-0.5">
+                      <Check className="w-3 h-3 stroke-[3]" />
+                    </div>
+                    <div>
+                      <span className="font-black text-[#071245]">{c.feature}:</span>{" "}
+                      <span className="text-slate-600 font-medium">{c.csnn}</span>
+                    </div>
                   </div>
-                  <div>
-                    <span className="font-black text-[#071245]">100% Live Video Classrooms:</span>{" "}
-                    <span className="text-slate-600 font-medium">Real-time discussions and Q&amp;A vs. static videos.</span>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-2.5">
-                  <div className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-200 mt-0.5">
-                    <Check className="w-3 h-3 stroke-[3]" />
-                  </div>
-                  <div>
-                    <span className="font-black text-[#071245]">Registered Faculty (R.H.N.):</span>{" "}
-                    <span className="text-slate-600 font-medium">Active clinicians vs. anonymous course creators.</span>
-                  </div>
-                </div>
-
-                <div className="flex items-start gap-2.5">
-                  <div className="w-5 h-5 rounded-full bg-emerald-50 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-200 mt-0.5">
-                    <Check className="w-3 h-3 stroke-[3]" />
-                  </div>
-                  <div>
-                    <span className="font-black text-[#071245]">Academic &amp; CEC Credibility:</span>{" "}
-                    <span className="text-slate-600 font-medium">4 canfitpro CECs + Diploma transfer credit.</span>
-                  </div>
-                </div>
+                ))}
               </div>
             </div>
 

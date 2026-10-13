@@ -6,6 +6,7 @@ import { LearningOutcomes } from "@/components/sections/LearningOutcomes";
 import { WorkshopCurriculum } from "@/components/sections/WorkshopCurriculum";
 import { LearningExperience } from "@/components/sections/LearningExperience";
 import { InstructorBio } from "@/components/sections/InstructorBio";
+import { CertificatePathways } from "@/components/sections/CertificatePathways";
 import { FinalRegistration } from "@/components/sections/FinalRegistration";
 import { TestimonialSection } from "@/components/sections/TestimonialSection";
 import { WhyCSNN } from "@/components/sections/WhyCSNN";
@@ -39,7 +40,10 @@ export default function Home() {
         {/* 04. Instructor Profile (MEET YOUR INSTRUCTOR - placed just below HOW YOU'LL LEARN) */}
         <InstructorBio />
 
-        {/* 05. What You'll Learn (Core Nutrition Foundations - INTERACTIVE CURRICULUM EXPLORER) */}
+        {/* 05. Certificate Recognition Pathways (Choose Your Level of Recognition - CTA placed just above Interactive Curriculum Explorer) */}
+        <CertificatePathways />
+
+        {/* 06. What You'll Learn (Core Nutrition Foundations - INTERACTIVE CURRICULUM EXPLORER) */}
         <LearningOutcomes />
 
         {/* 06. Official Intake 4-Step Registration Wizard (REGISTER IN 30 SECONDS) */}
