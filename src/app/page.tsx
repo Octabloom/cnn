@@ -2,8 +2,6 @@ import React from "react";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Header } from "@/components/layout/Header";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { ProgramShowcaseDualPane } from "@/components/sections/ProgramShowcaseDualPane";
-import { AboutProgram } from "@/components/sections/AboutProgram";
 import { LearningOutcomes } from "@/components/sections/LearningOutcomes";
 import { WorkshopCurriculum } from "@/components/sections/WorkshopCurriculum";
 import { LearningExperience } from "@/components/sections/LearningExperience";
@@ -32,31 +30,25 @@ export default function Home() {
       {/* Main Page Content */}
       <main className="flex-1">
 
-        {/* 01.5 CSNN Toronto Dual-Pane Program Showcase (Just Below Hero) */}
-        <ProgramShowcaseDualPane />
-
-        {/* 02. What is the Certificate (Culinary Masterclass & Outcomes) */}
-        <AboutProgram />
-
-        {/* 03. What You'll Learn (Core Nutrition Foundations - INTERACTIVE CURRICULUM EXPLORER) */}
+        {/* 02. What You'll Learn (Core Nutrition Foundations - INTERACTIVE CURRICULUM EXPLORER) */}
         <LearningOutcomes />
 
-        {/* 04. Ten-Workshop Curriculum (10 HOLISTIC NUTRITION WORKSHOPS - placed directly below Curriculum Explorer) */}
+        {/* 03. Ten-Workshop Curriculum (10 HOLISTIC NUTRITION WORKSHOPS - placed directly below Curriculum Explorer) */}
         <WorkshopCurriculum />
 
-        {/* 05. How You'll Learn (Live Interactive Experience) */}
+        {/* 04. How You'll Learn (Live Interactive Experience) */}
         <LearningExperience />
 
-        {/* 06. Instructor Profile (Rasha Abu Rabi - MEET YOUR INSTRUCTOR) */}
+        {/* 05. Instructor Profile (Rasha Abu Rabi - MEET YOUR INSTRUCTOR) */}
         <InstructorBio />
 
-        {/* 07. Official Intake 4-Step Registration Wizard (REGISTER IN 30 SECONDS) */}
+        {/* 06. Official Intake 4-Step Registration Wizard (REGISTER IN 30 SECONDS) */}
         <FinalRegistration />
 
-        {/* 08. Student Testimonials (AUTHENTIC CSNN TORONTO VOICES) */}
+        {/* 07. Student Testimonials (AUTHENTIC CSNN TORONTO VOICES) */}
         <TestimonialSection />
 
-        {/* 09. Why CSNN Toronto & Career Pathway */}
+        {/* 08. Why CSNN Toronto & Career Pathway */}
         <WhyCSNN />
 
         {/* Pre-Footer Action CTA Card */}

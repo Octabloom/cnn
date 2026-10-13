@@ -112,8 +112,8 @@ export function LearningOutcomes() {
 
   return (
     <section
-      id="curriculum-overview"
-      data-screen-label="03 What you'll learn"
+      id="about"
+      data-screen-label="02 What you'll learn"
       className="py-10 sm:py-14 lg:py-16 bg-white border-b border-slate-200/80 relative overflow-hidden"
     >
       {/* Background ambient lighting */}
