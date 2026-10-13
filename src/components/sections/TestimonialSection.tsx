@@ -1,40 +1,33 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import {
   Star,
   Quote,
   Sparkles,
-  CheckCircle2,
   ShieldCheck,
   ChevronLeft,
   ChevronRight,
   Award,
-  MessageSquare,
   BookOpen,
+  GraduationCap,
   User,
+  ArrowRight,
 } from "lucide-react";
 import {
-  ALL_TESTIMONIALS,
+  DIPLOMA_TESTIMONIALS,
   HELC_TESTIMONIALS,
-  QUICK_STUDENT_REVIEWS,
 } from "@/data/testimonialData";
-import { RealisticPhoneMockup } from "@/components/ui/RealisticPhoneMockup";
 
 export function TestimonialSection() {
-  const [activeCategory, setActiveCategory] = useState<"helc" | "quick">("helc");
-  const [selectedId, setSelectedId] = useState<string>("helc-1");
+  const [activeCategory, setActiveCategory] = useState<"diploma" | "helc">("diploma");
+  const [selectedId, setSelectedId] = useState<string>("dip-1");
 
-  // Get active list based on category
   const activeList =
-    activeCategory === "helc"
-      ? HELC_TESTIMONIALS
-      : QUICK_STUDENT_REVIEWS;
+    activeCategory === "diploma" ? DIPLOMA_TESTIMONIALS : HELC_TESTIMONIALS;
 
-  // Current testimonial
   const currentTestimonial =
-    ALL_TESTIMONIALS.find((item) => item.id === selectedId) || activeList[0];
+    activeList.find((item) => item.id === selectedId) || activeList[0];
 
   const currentIndex = activeList.findIndex((item) => item.id === currentTestimonial.id);
 
@@ -48,303 +41,201 @@ export function TestimonialSection() {
     setSelectedId(activeList[prevIndex].id);
   };
 
-  const handleCategoryChange = (category: "helc" | "quick") => {
+  const handleCategoryChange = (category: "diploma" | "helc") => {
     setActiveCategory(category);
+    if (category === "diploma") setSelectedId(DIPLOMA_TESTIMONIALS[0].id);
     if (category === "helc") setSelectedId(HELC_TESTIMONIALS[0].id);
-    if (category === "quick") setSelectedId(QUICK_STUDENT_REVIEWS[0].id);
   };
 
   return (
     <section
       id="testimonial"
       data-screen-label="08 Testimonial"
-      className="py-10 sm:py-14 lg:py-16 bg-white border-b border-slate-200/80 relative overflow-hidden"
+      className="py-8 sm:py-12 lg:py-14 bg-white border-b border-slate-200/80 relative overflow-hidden"
     >
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-0 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
+      {/* Ambient background lighting */}
+      <div className="absolute top-1/4 left-0 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-0 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
-          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-50 text-slate-700 text-[11px] sm:text-xs font-black tracking-widest uppercase mb-3 border border-slate-200 shadow-2xs backdrop-blur-sm">
+        {/* Section Header - Compact for Single Scroll Visibility */}
+        <div className="text-center max-w-2xl mx-auto mb-4 sm:mb-6">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-50 text-slate-700 text-[11px] sm:text-xs font-black tracking-widest uppercase mb-2 border border-slate-200 shadow-2xs backdrop-blur-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#B87503]" />
             <span>AUTHENTIC CSNN TORONTO VOICES</span>
           </div>
 
-          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#071245] tracking-[-0.03em] leading-tight mb-2 sm:mb-3">
+          <h2 className="text-xl sm:text-3xl lg:text-4xl font-black text-[#071245] tracking-tight leading-tight">
             Real Student Experiences &amp; Transformations
           </h2>
 
-          <p className="text-xs sm:text-base text-slate-600 font-semibold max-w-2xl mx-auto">
-            From live online Healthy Eating &amp; Lifestyle Certificate workshops to practical kitchen confidence — read authentic student feedback on their experiences with CSNN Toronto.
+          <p className="mt-1 text-xs sm:text-sm text-slate-600 font-medium">
+            Authentic reflections from CSNN Toronto students and graduates.
           </p>
 
-          {/* Category Filter Pills */}
-          <div className="flex flex-wrap items-center justify-center gap-2 mt-6">
+          {/* 2 Institutional Category Filter Tabs */}
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-3.5 sm:mt-4">
+            <button
+              type="button"
+              onClick={() => handleCategoryChange("diploma")}
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-black transition-all border cursor-pointer ${
+                activeCategory === "diploma"
+                  ? "bg-[#071245] text-white border-[#071245] shadow-sm scale-[1.02]"
+                  : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-white"
+              }`}
+            >
+              <GraduationCap className={`w-4 h-4 ${activeCategory === "diploma" ? "text-[#F6C915]" : "text-[#071245]"}`} />
+              <span>Testimonials Diploma program</span>
+              <span className={`px-2 py-0.5 rounded-md text-[10px] font-black ${activeCategory === "diploma" ? "bg-white/20 text-white" : "bg-slate-200 text-slate-700"}`}>
+                {DIPLOMA_TESTIMONIALS.length}
+              </span>
+            </button>
+
             <button
               type="button"
               onClick={() => handleCategoryChange("helc")}
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-black transition-all shadow-2xs border ${
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-black transition-all border cursor-pointer ${
                 activeCategory === "helc"
                   ? "bg-[#071245] text-white border-[#071245] shadow-sm scale-[1.02]"
                   : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-white"
               }`}
             >
-              <BookOpen className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${activeCategory === "helc" ? "text-amber-300" : "text-[#071245]"}`} />
-              <span>Healthy Eating &amp; Lifestyle (HELC)</span>
-              <span className={`px-1.5 py-0.2 rounded-md text-[10px] font-black ${activeCategory === "helc" ? "bg-white/20 text-white" : "bg-slate-200 text-slate-700"}`}>
+              <BookOpen className={`w-4 h-4 ${activeCategory === "helc" ? "text-[#F6C915]" : "text-[#071245]"}`} />
+              <span>Healthy Eating &amp; Certificate Testimonials</span>
+              <span className={`px-2 py-0.5 rounded-md text-[10px] font-black ${activeCategory === "helc" ? "bg-white/20 text-white" : "bg-slate-200 text-slate-700"}`}>
                 {HELC_TESTIMONIALS.length}
-              </span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => handleCategoryChange("quick")}
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-black transition-all shadow-2xs border ${
-                activeCategory === "quick"
-                  ? "bg-[#071245] text-white border-[#071245] shadow-sm scale-[1.02]"
-                  : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-white"
-              }`}
-            >
-              <MessageSquare className={`w-3.5 h-3.5 sm:w-4 sm:h-4 ${activeCategory === "quick" ? "text-amber-300" : "text-[#071245]"}`} />
-              <span>Student Reflections</span>
-              <span className={`px-1.5 py-0.2 rounded-md text-[10px] font-black ${activeCategory === "quick" ? "bg-white/20 text-white" : "bg-slate-200 text-slate-700"}`}>
-                {QUICK_STUDENT_REVIEWS.length}
               </span>
             </button>
           </div>
         </div>
 
-        {/* ==============================================================
-            DUAL PANE SHOWCASE:
-            Left: Interactive Editorial Review Spotlight Card
-            Right: Realistic Smartphone Mockup Feed
-            ============================================================== */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        {/* Single Scroll Visibility: Compact Editorial Testimonial Card */}
+        <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-4 sm:p-6 lg:p-7 shadow-[0_10px_35px_-10px_rgba(7,18,69,0.07)] relative">
           
-          {/* ------------------------------------------------------------
-              LEFT PANE (7 cols): Editorial Spotlight Card
-              ------------------------------------------------------------ */}
-          <div className="lg:col-span-7 flex flex-col gap-5">
-            
-            {/* Main Interactive Card */}
-            <div className="rounded-[28px] sm:rounded-[36px] bg-white border border-slate-200/90 p-5 sm:p-8 lg:p-10 shadow-[0_20px_50px_-15px_rgba(7,18,69,0.08)] relative overflow-hidden">
-              
-              {/* Top Accent Line */}
-              <div className="absolute inset-x-8 sm:inset-x-12 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#F6C915]/70 to-transparent" />
-
-              {/* Card Header: Rating & Verified Seal */}
-              <div className="flex items-center justify-between flex-wrap gap-2.5 pb-4 border-b border-slate-100">
-                <div className="flex items-center gap-1.5 text-[#F6C915]">
-                  {[...Array(currentTestimonial.rating)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 sm:w-5 sm:h-5 fill-[#F6C915] drop-shadow-xs"
-                    />
-                  ))}
-                  <span className="ml-1.5 sm:ml-2 text-xs sm:text-sm font-black text-[#071245]">
-                    5.0 / 5.0 Star Verified
-                  </span>
-                </div>
-
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#071245] text-[#F6C915] text-[10.5px] sm:text-xs font-black shadow-xs">
-                  <ShieldCheck className="w-3.5 h-3.5" />
-                  <span>{currentTestimonial.badge}</span>
-                </div>
-              </div>
-
-              {/* Headline if available */}
-              {currentTestimonial.headline && (
-                <div className="pt-4">
-                  <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-[#B87503] block mb-1">
-                    Spotlight Insight:
-                  </span>
-                  <h3 className="text-lg sm:text-2xl font-black text-[#071245] tracking-tight leading-snug">
-                    {currentTestimonial.headline}
-                  </h3>
-                </div>
-              )}
-
-              {/* Main Pull Quote Text */}
-              <div className="relative pt-3 pb-2 pl-2">
-                <Quote className="w-10 h-10 sm:w-12 sm:h-12 text-[#F6C915]/20 absolute -top-1 -left-2 -z-0" />
-                <p className="text-sm sm:text-base lg:text-[17px] text-slate-800 font-medium leading-relaxed relative z-10 italic">
-                  &ldquo;{currentTestimonial.quote}&rdquo;
-                </p>
-              </div>
-
-              {/* Highlight Pill if present */}
-              {currentTestimonial.highlightChip && (
-                <div className="mt-2 mb-4 inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs text-xs font-black text-[#071245]">
-                  <Award className="w-3.5 h-3.5 text-[#B87503]" />
-                  <span>Core Takeaway: {currentTestimonial.highlightChip}</span>
-                </div>
-              )}
-
-              {/* Student Bio Row + Controls */}
-              <div className="flex items-center justify-between flex-wrap gap-4 pt-4 border-t border-slate-100">
-                
-                {/* Author Info with Male / Female Profile Portrait */}
-                <div className="flex items-center gap-3.5">
-                  <div className="relative shrink-0">
-                    {currentTestimonial.image ? (
-                      <Image
-                        src={currentTestimonial.image}
-                        alt={currentTestimonial.name}
-                        width={60}
-                        height={60}
-                        className="w-13 h-13 sm:w-15 sm:h-15 rounded-full object-cover border-2 border-white shadow-md ring-2 ring-slate-200"
-                      />
-                    ) : (
-                      <div className="w-13 h-13 sm:w-15 sm:h-15 rounded-full bg-slate-100 border border-slate-200 flex items-center justify-center text-[#071245] shadow-xs">
-                        <User className="w-6 h-6 sm:w-7 sm:h-7 text-[#071245]" />
-                      </div>
-                    )}
-                    <div className="absolute -bottom-0.5 -right-0.5 w-4.5 h-4.5 sm:w-5 sm:h-5 rounded-full bg-emerald-600 border-2 border-white flex items-center justify-center shadow-xs">
-                      <CheckCircle2 className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-white" />
-                    </div>
-                  </div>
-                  <div>
-                    <h4 className="font-black text-base sm:text-lg text-[#071245] leading-tight flex items-center gap-2">
-                      <span>{currentTestimonial.name}</span>
-                      <span className="text-[10px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded-full border border-emerald-200/50">
-                        Verified Student
-                      </span>
-                    </h4>
-                    <p className="text-xs sm:text-[13px] text-[#B87503] font-bold mt-0.5">
-                      {currentTestimonial.role}
-                    </p>
-                    <p className="text-[10px] sm:text-[11px] text-slate-500 font-semibold">
-                      {currentTestimonial.program} · CSNN Toronto
-                    </p>
-                  </div>
-                </div>
-
-                {/* Next / Previous Controls */}
-                <div className="flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={handlePrev}
-                    aria-label="Previous Testimonial"
-                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-white border border-slate-200 shadow-2xs hover:bg-slate-50 flex items-center justify-center text-[#071245] transition-colors"
-                  >
-                    <ChevronLeft className="w-5 h-5" />
-                  </button>
-
-                  <span className="text-xs font-black text-[#071245] px-1">
-                    {currentIndex + 1} / {activeList.length}
-                  </span>
-
-                  <button
-                    type="button"
-                    onClick={handleNext}
-                    aria-label="Next Testimonial"
-                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-[#071245] text-[#F6C915] shadow-xs hover:bg-[#03091F] flex items-center justify-center transition-colors"
-                  >
-                    <ChevronRight className="w-5 h-5" />
-                  </button>
-                </div>
-
-              </div>
-
-            </div>
-
-            {/* Quick-Jump Student Pills in this Category with Male/Female Mini Avatars */}
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-[11px] font-black uppercase text-slate-500 tracking-wider shrink-0">
-                Browse Reviews:
-              </span>
-              {activeList.map((item) => (
-                <button
-                  key={item.id}
-                  type="button"
-                  onClick={() => setSelectedId(item.id)}
-                  className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-bold transition-all border ${
-                    selectedId === item.id
-                      ? "bg-[#071245] text-white border-[#071245] font-black shadow-xs scale-102"
-                      : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-white hover:border-slate-300"
-                  }`}
-                >
-                  {item.image ? (
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      width={20}
-                      height={20}
-                      className="w-5 h-5 rounded-full object-cover border border-white shrink-0"
-                    />
-                  ) : (
-                    <User className={`w-3.5 h-3.5 ${selectedId === item.id ? "text-[#F6C915]" : "text-slate-400"}`} />
-                  )}
-                  <span>{item.name}: {item.shortLabel || item.name}</span>
-                </button>
+          {/* Top Bar: Rating, Verified Seal, and Prev/Next Navigation */}
+          <div className="flex items-center justify-between flex-wrap gap-2.5 pb-3 border-b border-slate-100">
+            <div className="flex items-center gap-1.5 text-[#F6C915]">
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-[#F6C915] drop-shadow-2xs"
+                />
               ))}
+              <span className="ml-1 text-xs font-black text-[#071245]">
+                5.0 Star Verified Feedback
+              </span>
             </div>
 
-            {/* Trust Proof Metrics Strip */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 pt-2 text-center">
-              <div className="p-2.5 rounded-xl bg-slate-50/80 border border-slate-200 shadow-2xs">
-                <span className="text-base sm:text-lg font-black text-[#071245] block leading-tight">
-                  98%
-                </span>
-                <span className="text-[10px] sm:text-[11px] font-bold text-slate-600">
-                  Student Satisfaction
-                </span>
-              </div>
-              <div className="p-2.5 rounded-xl bg-slate-50/80 border border-slate-200 shadow-2xs">
-                <span className="text-base sm:text-lg font-black text-[#071245] block leading-tight">
-                  30+ Yrs
-                </span>
-                <span className="text-[10px] sm:text-[11px] font-bold text-slate-600">
-                  Toronto Pioneer (1994)
-                </span>
-              </div>
-              <div className="p-2.5 rounded-xl bg-slate-50/80 border border-slate-200 shadow-2xs">
-                <span className="text-base sm:text-lg font-black text-[#071245] block leading-tight">
-                  100%
-                </span>
-                <span className="text-[10px] sm:text-[11px] font-bold text-slate-600">
-                  Live Online Interactive
-                </span>
-              </div>
-              <div className="p-2.5 rounded-xl bg-slate-50/80 border border-slate-200 shadow-2xs">
-                <span className="text-base sm:text-lg font-black text-[#071245] block leading-tight">
-                  4 CECs
-                </span>
-                <span className="text-[10px] sm:text-[11px] font-bold text-slate-600">
-                  canfitpro Approved
-                </span>
+            <div className="flex items-center gap-2">
+              <span className="text-[11px] font-bold text-slate-500">
+                {currentIndex + 1} of {activeList.length}
+              </span>
+              <div className="flex items-center gap-1">
+                <button
+                  type="button"
+                  onClick={handlePrev}
+                  aria-label="Previous Testimonial"
+                  className="w-8 h-8 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 flex items-center justify-center text-[#071245] transition-colors cursor-pointer"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={handleNext}
+                  aria-label="Next Testimonial"
+                  className="w-8 h-8 rounded-lg bg-[#071245] hover:bg-[#03091F] text-[#F6C915] flex items-center justify-center transition-colors cursor-pointer"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
               </div>
             </div>
-
           </div>
 
-          {/* ------------------------------------------------------------
-              RIGHT PANE (5 cols): Realistic Smartphone Structure Mockup
-              ------------------------------------------------------------ */}
-          <div className="lg:col-span-5 flex flex-col items-center justify-center">
-            
-            {/* Header label above phone */}
-            <div className="mb-2 text-center">
-              <span className="text-[11px] sm:text-xs font-black uppercase tracking-wider text-[#071245] inline-flex items-center gap-1.5 bg-slate-50 px-3 py-1 rounded-full border border-slate-200 shadow-2xs">
-                <Sparkles className="w-3.5 h-3.5 text-[#B87503]" />
-                Live Student Community Hub
-              </span>
+          {/* Testimonial Content Box */}
+          <div className="py-3 sm:py-4">
+            {currentTestimonial.headline && (
+              <h3 className="text-sm sm:text-base lg:text-lg font-black text-[#071245] mb-2 leading-snug">
+                {currentTestimonial.headline}
+              </h3>
+            )}
+
+            <div className="relative pl-1">
+              <Quote className="w-7 h-7 sm:w-9 sm:h-9 text-[#F6C915]/25 absolute -top-1 -left-1 -z-0" />
+              <p className="text-xs sm:text-sm lg:text-[15px] text-slate-700 font-medium leading-relaxed relative z-10 italic">
+                &ldquo;{currentTestimonial.quote}&rdquo;
+              </p>
             </div>
 
-            {/* Smartphone Real-Like Mockup */}
-            <RealisticPhoneMockup
-              selectedId={selectedId}
-              onSelectTestimonial={(id) => setSelectedId(id)}
-            />
+            {currentTestimonial.highlightChip && (
+              <div className="mt-3 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg bg-amber-50 border border-amber-200/60 text-[10.5px] font-black text-[#854D0E]">
+                <Award className="w-3 h-3 text-[#B87503]" />
+                <span>{currentTestimonial.highlightChip}</span>
+              </div>
+            )}
+          </div>
 
-            {/* Micro Helper Note below phone */}
-            <p className="text-[11px] text-slate-500 font-bold mt-2 text-center">
-              👆 Tap any review inside the phone or use the categories above to explore authentic student feedback.
-            </p>
+          {/* Student Profile Row: Strictly Black Profile Icon & Verified Name */}
+          <div className="pt-3 border-t border-slate-100 flex items-center justify-between flex-wrap gap-3">
+            <div className="flex items-center gap-3">
+              {/* Solid Black Profile Avatar Icon (No dummy images, only black profile icon) */}
+              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black text-white flex items-center justify-center shrink-0 border border-slate-800 shadow-sm">
+                <User className="w-5 h-5 text-white" />
+              </div>
 
+              <div>
+                <h4 className="font-black text-xs sm:text-sm text-[#071245] leading-tight flex items-center gap-1.5">
+                  <span>{currentTestimonial.name}</span>
+                  <span className="text-[9.5px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded-full border border-emerald-200/50">
+                    Verified
+                  </span>
+                </h4>
+                <p className="text-[11px] text-[#B87503] font-bold mt-0.5">
+                  {currentTestimonial.role}
+                </p>
+                <p className="text-[10px] text-slate-500 font-semibold">
+                  {currentTestimonial.program} · CSNN Toronto
+                </p>
+              </div>
+            </div>
+
+            <a
+              href="#register"
+              className="btn-skeuo-gold inline-flex items-center gap-1.5 px-4 h-8.5 rounded-full text-[11px] font-black shadow-2xs hover:scale-105 transition-transform"
+            >
+              <span>Join next cohort</span>
+              <ArrowRight className="w-3 h-3 stroke-[3]" />
+            </a>
+          </div>
+
+          {/* Quick-Jump Student Pills in this category */}
+          <div className="mt-3.5 pt-3 border-t border-slate-100">
+            <span className="text-[10px] font-black uppercase text-slate-400 tracking-wider block mb-1.5">
+              Select review:
+            </span>
+            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-thin">
+              {activeList.map((item, index) => {
+                const isSelected = item.id === currentTestimonial.id;
+                return (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => setSelectedId(item.id)}
+                    className={`shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all border cursor-pointer ${
+                      isSelected
+                        ? "bg-[#071245] text-white border-[#071245] font-black shadow-2xs"
+                        : "bg-slate-50 text-slate-600 border-slate-200 hover:bg-white"
+                    }`}
+                  >
+                    {/* Mini black profile dot */}
+                    <span className="w-3.5 h-3.5 rounded-full bg-black text-white flex items-center justify-center text-[8px]">
+                      <User className="w-2.5 h-2.5 text-white" />
+                    </span>
+                    <span>{item.name}</span>
+                  </button>
+                );
+              })}
+            </div>
           </div>
 
         </div>

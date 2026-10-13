@@ -5,11 +5,10 @@ import { HeroSection } from "@/components/sections/HeroSection";
 import { ProgramShowcaseDualPane } from "@/components/sections/ProgramShowcaseDualPane";
 import { AboutProgram } from "@/components/sections/AboutProgram";
 import { LearningOutcomes } from "@/components/sections/LearningOutcomes";
-import { LearningExperience } from "@/components/sections/LearningExperience";
 import { WorkshopCurriculum } from "@/components/sections/WorkshopCurriculum";
+import { LearningExperience } from "@/components/sections/LearningExperience";
 import { InstructorBio } from "@/components/sections/InstructorBio";
 import { FinalRegistration } from "@/components/sections/FinalRegistration";
-import { AcademicBlueprint } from "@/components/sections/AcademicBlueprint";
 import { TestimonialSection } from "@/components/sections/TestimonialSection";
 import { WhyCSNN } from "@/components/sections/WhyCSNN";
 import { PreFooterCTA } from "@/components/sections/PreFooterCTA";
@@ -42,11 +41,11 @@ export default function Home() {
         {/* 03. What You'll Learn (Core Nutrition Foundations - INTERACTIVE CURRICULUM EXPLORER) */}
         <LearningOutcomes />
 
-        {/* 04. How You'll Learn (Live Interactive Experience) */}
-        <LearningExperience />
-
-        {/* 05. Ten-Workshop Curriculum & Certificate Levels */}
+        {/* 04. Ten-Workshop Curriculum (10 HOLISTIC NUTRITION WORKSHOPS - placed directly below Curriculum Explorer) */}
         <WorkshopCurriculum />
+
+        {/* 05. How You'll Learn (Live Interactive Experience) */}
+        <LearningExperience />
 
         {/* 06. Instructor Profile (Rasha Abu Rabi - MEET YOUR INSTRUCTOR) */}
         <InstructorBio />
@@ -54,10 +53,7 @@ export default function Home() {
         {/* 07. Official Intake 4-Step Registration Wizard (REGISTER IN 30 SECONDS) */}
         <FinalRegistration />
 
-        {/* 08. Academic & Clinical Blueprint (5-Stage Snake Flow Timeline - ACADEMIC & CLINICAL BLUEPRINT) */}
-        <AcademicBlueprint />
-
-        {/* 09. Student Testimonial & Video (Shiva) */}
+        {/* 08. Student Testimonials (AUTHENTIC CSNN TORONTO VOICES) */}
         <TestimonialSection />
 
         {/* 09. Why CSNN Toronto & Career Pathway */}
@@ -70,7 +66,7 @@ export default function Home() {
       {/* Global Institutional Footer */}
       <Footer />
 
-      {/* Floating Bottom Registration Action */}
+      {/* Floating Bottom Registration Action with Dismiss Cross */}
       <StickyRegistrationBar />
     </div>
   );
