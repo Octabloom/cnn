@@ -13,7 +13,7 @@ export function FinalRegistration() {
       {/* Background ambient lighting */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-4xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-5xl mx-auto px-3 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header - Streamlined for Single Scroll Visibility */}
         <div className="text-center mb-3 sm:mb-5">
