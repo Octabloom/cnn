@@ -80,9 +80,9 @@ export function TestimonialSection() {
             <button
               type="button"
               onClick={() => handleCategoryChange("diploma")}
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-black transition-all border cursor-pointer ${
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-black transition-colors border cursor-pointer ${
                 activeCategory === "diploma"
-                  ? "bg-[#071245] text-white border-[#071245] shadow-sm scale-[1.02]"
+                  ? "bg-[#071245] text-white border-[#071245] shadow-sm ring-2 ring-[#071245]/20"
                   : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-white"
               }`}
             >
@@ -96,9 +96,9 @@ export function TestimonialSection() {
             <button
               type="button"
               onClick={() => handleCategoryChange("helc")}
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-black transition-all border cursor-pointer ${
+              className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-black transition-colors border cursor-pointer ${
                 activeCategory === "helc"
-                  ? "bg-[#071245] text-white border-[#071245] shadow-sm scale-[1.02]"
+                  ? "bg-[#071245] text-white border-[#071245] shadow-sm ring-2 ring-[#071245]/20"
                   : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-white"
               }`}
             >
@@ -112,138 +112,149 @@ export function TestimonialSection() {
         </div>
 
         {/* Dual-Pane Layout: Left Spotlight Card + Right Realistic Smartphone Structure Mockup */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
           
           {/* ==============================================================
-              LEFT PANE (7 cols): Editorial Review Spotlight Card
+              LEFT PANE (7 cols): Editorial Review Spotlight Card (Zero Layout Shift)
               ============================================================== */}
           <div className="lg:col-span-7 flex flex-col gap-4">
             
-            <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-5 sm:p-7 shadow-[0_15px_40px_-10px_rgba(7,18,69,0.08)] relative">
+            <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-5 sm:p-7 shadow-[0_15px_40px_-10px_rgba(7,18,69,0.08)] relative min-h-[500px] sm:min-h-[520px] flex flex-col justify-between">
               
               {/* Top Accent Line */}
               <div className="absolute inset-x-8 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#F6C915]/70 to-transparent" />
 
-              {/* Top Bar: Rating, Verified Seal, and Prev/Next Navigation */}
-              <div className="flex items-center justify-between flex-wrap gap-2.5 pb-3 border-b border-slate-100">
-                <div className="flex items-center gap-1.5 text-[#F6C915]">
-                  {[...Array(5)].map((_, i) => (
-                    <Star
-                      key={i}
-                      className="w-4 h-4 fill-[#F6C915] drop-shadow-2xs"
-                    />
-                  ))}
-                  <span className="ml-1 text-xs font-black text-[#071245]">
-                    5.0 Star Verified
-                  </span>
-                </div>
-
-                <div className="flex items-center gap-2">
-                  <span className="text-[11px] font-bold text-slate-500">
-                    {currentIndex + 1} of {activeList.length}
-                  </span>
-                  <div className="flex items-center gap-1">
-                    <button
-                      type="button"
-                      onClick={handlePrev}
-                      aria-label="Previous Testimonial"
-                      className="w-8 h-8 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 flex items-center justify-center text-[#071245] transition-colors cursor-pointer"
-                    >
-                      <ChevronLeft className="w-4 h-4" />
-                    </button>
-                    <button
-                      type="button"
-                      onClick={handleNext}
-                      aria-label="Next Testimonial"
-                      className="w-8 h-8 rounded-lg bg-[#071245] hover:bg-[#03091F] text-[#F6C915] flex items-center justify-center transition-colors cursor-pointer"
-                    >
-                      <ChevronRight className="w-4 h-4" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-
-              {/* Testimonial Headline & Quote */}
-              <div className="py-3 sm:py-4">
-                {currentTestimonial.headline && (
-                  <h3 className="text-base sm:text-xl font-black text-[#071245] mb-2 leading-snug">
-                    {currentTestimonial.headline}
-                  </h3>
-                )}
-
-                <div className="relative pl-1">
-                  <Quote className="w-8 h-8 text-[#F6C915]/25 absolute -top-1 -left-1 -z-0" />
-                  <p className="text-xs sm:text-sm lg:text-[15px] text-slate-700 font-medium leading-relaxed relative z-10 italic">
-                    &ldquo;{currentTestimonial.quote}&rdquo;
-                  </p>
-                </div>
-
-                {currentTestimonial.highlightChip && (
-                  <div className="mt-3 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg bg-amber-50 border border-amber-200/60 text-[11px] font-black text-[#854D0E]">
-                    <Award className="w-3.5 h-3.5 text-[#B87503]" />
-                    <span>{currentTestimonial.highlightChip}</span>
-                  </div>
-                )}
-              </div>
-
-              {/* Student Profile Row: Solid Black Profile Avatar Icon (No dummy images) */}
-              <div className="pt-3 border-t border-slate-100 flex items-center justify-between flex-wrap gap-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black text-white flex items-center justify-center shrink-0 border border-slate-800 shadow-sm">
-                    <User className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+              <div>
+                {/* Top Bar: Rating, Verified Seal, and Prev/Next Navigation */}
+                <div className="flex items-center justify-between flex-wrap gap-2.5 pb-3 border-b border-slate-100">
+                  <div className="flex items-center gap-1.5 text-[#F6C915]">
+                    {[...Array(5)].map((_, i) => (
+                      <Star
+                        key={i}
+                        className="w-4 h-4 fill-[#F6C915] drop-shadow-2xs"
+                      />
+                    ))}
+                    <span className="ml-1 text-xs font-black text-[#071245]">
+                      5.0 Star Verified
+                    </span>
                   </div>
 
-                  <div>
-                    <h4 className="font-black text-xs sm:text-sm text-[#071245] leading-tight flex items-center gap-1.5">
-                      <span>{currentTestimonial.name}</span>
-                      <span className="text-[9.5px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded-full border border-emerald-200/50">
-                        Verified
-                      </span>
-                    </h4>
-                    <p className="text-[11px] text-[#B87503] font-bold mt-0.5">
-                      {currentTestimonial.role}
-                    </p>
-                    <p className="text-[10px] text-slate-500 font-semibold">
-                      {currentTestimonial.program} · CSNN Toronto
-                    </p>
-                  </div>
-                </div>
-
-                <a
-                  href="#register"
-                  className="btn-skeuo-gold inline-flex items-center gap-1.5 px-4 h-9 rounded-full text-xs font-black shadow-2xs hover:scale-105 transition-transform"
-                >
-                  <span>Reserve your seat</span>
-                  <ArrowRight className="w-3.5 h-3.5 stroke-[3]" />
-                </a>
-              </div>
-
-              {/* Quick-Jump Student Pills in this category */}
-              <div className="mt-3.5 pt-3 border-t border-slate-100">
-                <span className="text-[10px] font-black uppercase text-slate-400 tracking-wider block mb-1.5">
-                  Browse Reviews in this Category:
-                </span>
-                <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-thin">
-                  {activeList.map((item) => {
-                    const isSelected = item.id === currentTestimonial.id;
-                    return (
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-bold text-slate-500">
+                      {currentIndex + 1} of {activeList.length}
+                    </span>
+                    <div className="flex items-center gap-1">
                       <button
-                        key={item.id}
                         type="button"
-                        onClick={() => setSelectedId(item.id)}
-                        className={`shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all border cursor-pointer ${
-                          isSelected
-                            ? "bg-[#071245] text-white border-[#071245] font-black shadow-2xs"
-                            : "bg-slate-50 text-slate-600 border-slate-200 hover:bg-white"
-                        }`}
+                        onClick={handlePrev}
+                        aria-label="Previous Testimonial"
+                        className="w-8 h-8 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 flex items-center justify-center text-[#071245] transition-colors cursor-pointer"
                       >
-                        <span className="w-3.5 h-3.5 rounded-full bg-black text-white flex items-center justify-center text-[8px]">
-                          <User className="w-2.5 h-2.5 text-white" />
-                        </span>
-                        <span>{item.name}</span>
+                        <ChevronLeft className="w-4 h-4" />
                       </button>
-                    );
-                  })}
+                      <button
+                        type="button"
+                        onClick={handleNext}
+                        aria-label="Next Testimonial"
+                        className="w-8 h-8 rounded-lg bg-[#071245] hover:bg-[#03091F] text-[#F6C915] flex items-center justify-center transition-colors cursor-pointer"
+                      >
+                        <ChevronRight className="w-4 h-4" />
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Testimonial Headline & Quote with locked min-heights */}
+                <div className="py-2.5 sm:py-3.5 flex flex-col justify-start">
+                  <div className="min-h-[44px] sm:min-h-[50px] flex items-center mb-1">
+                    <h3 className="text-base sm:text-lg lg:text-xl font-black text-[#071245] leading-snug">
+                      {currentTestimonial.headline || "Transformative Natural Nutrition Experience"}
+                    </h3>
+                  </div>
+
+                  <div className="relative pl-1 min-h-[140px] sm:min-h-[155px]">
+                    <Quote className="w-8 h-8 text-[#F6C915]/20 absolute -top-1 -left-1 -z-0 pointer-events-none" />
+                    <p className="text-xs sm:text-sm lg:text-[14px] text-slate-700 font-medium leading-relaxed relative z-10 italic line-clamp-6 sm:line-clamp-7">
+                      &ldquo;{currentTestimonial.quote}&rdquo;
+                    </p>
+                  </div>
+
+                  <div className="min-h-[26px] mt-2 flex items-center">
+                    {currentTestimonial.highlightChip ? (
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg bg-amber-50 border border-amber-200/60 text-[11px] font-black text-[#854D0E]">
+                        <Award className="w-3.5 h-3.5 text-[#B87503]" />
+                        <span>{currentTestimonial.highlightChip}</span>
+                      </div>
+                    ) : (
+                      <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg bg-slate-50 border border-slate-200/60 text-[11px] font-black text-slate-600">
+                        <Award className="w-3.5 h-3.5 text-slate-400" />
+                        <span>Verified Student Feedback</span>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                {/* Student Profile Row: Solid Black Profile Avatar Icon (No dummy images) */}
+                <div className="pt-3 border-t border-slate-100 flex items-center justify-between flex-wrap gap-3">
+                  <div className="flex items-center gap-3">
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black text-white flex items-center justify-center shrink-0 border border-slate-800 shadow-sm">
+                      <User className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                    </div>
+
+                    <div>
+                      <h4 className="font-black text-xs sm:text-sm text-[#071245] leading-tight flex items-center gap-1.5">
+                        <span>{currentTestimonial.name}</span>
+                        <span className="text-[9.5px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded-full border border-emerald-200/50">
+                          Verified
+                        </span>
+                      </h4>
+                      <p className="text-[11px] text-[#B87503] font-bold mt-0.5">
+                        {currentTestimonial.role}
+                      </p>
+                      <p className="text-[10px] text-slate-500 font-semibold">
+                        {currentTestimonial.program} · CSNN Toronto
+                      </p>
+                    </div>
+                  </div>
+
+                  <a
+                    href="#register"
+                    className="btn-skeuo-gold inline-flex items-center gap-1.5 px-4 h-9 rounded-full text-xs font-black shadow-2xs hover:scale-105 transition-transform"
+                  >
+                    <span>Reserve your seat</span>
+                    <ArrowRight className="w-3.5 h-3.5 stroke-[3]" />
+                  </a>
+                </div>
+
+                {/* Quick-Jump Student Pills in this category */}
+                <div className="mt-3.5 pt-3 border-t border-slate-100">
+                  <span className="text-[10px] font-black uppercase text-slate-400 tracking-wider block mb-1.5">
+                    Browse Reviews in this Category:
+                  </span>
+                  <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-thin">
+                    {activeList.map((item) => {
+                      const isSelected = item.id === currentTestimonial.id;
+                      return (
+                        <button
+                          key={item.id}
+                          type="button"
+                          onClick={() => setSelectedId(item.id)}
+                          className={`shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all border cursor-pointer ${
+                            isSelected
+                              ? "bg-[#071245] text-white border-[#071245] font-black shadow-2xs"
+                              : "bg-slate-50 text-slate-600 border-slate-200 hover:bg-white"
+                          }`}
+                        >
+                          <span className="w-3.5 h-3.5 rounded-full bg-black text-white flex items-center justify-center text-[8px]">
+                            <User className="w-2.5 h-2.5 text-white" />
+                          </span>
+                          <span>{item.name}</span>
+                        </button>
+                      );
+                    })}
+                  </div>
                 </div>
               </div>
 

@@ -148,9 +148,9 @@ export function LearningOutcomes() {
                 key={pillar.id}
                 type="button"
                 onClick={() => setActivePillarId(pillar.id)}
-                className={`p-2.5 sm:p-4 rounded-xl sm:rounded-2xl text-left transition-all duration-300 flex flex-col justify-between border cursor-pointer ${
+                className={`p-2.5 sm:p-4 rounded-xl sm:rounded-2xl text-left transition-[background-color,border-color,box-shadow] duration-200 flex flex-col justify-between border cursor-pointer min-h-[88px] sm:min-h-[105px] ${
                   isActive
-                    ? "bg-white text-[#071245] border-[#071245] shadow-md ring-2 ring-[#071245]/15 -translate-y-0.5"
+                    ? "bg-white text-[#071245] border-[#071245] shadow-md ring-2 ring-[#071245]/15"
                     : "bg-slate-50/80 hover:bg-white text-slate-700 border-slate-200/90 hover:border-slate-300 shadow-2xs"
                 }`}
               >
@@ -184,19 +184,19 @@ export function LearningOutcomes() {
           })}
         </div>
 
-        {/* Active Domain Detailed Showcase Card */}
-        <div className="rounded-[22px] sm:rounded-[36px] bg-slate-50/80 border border-slate-200/90 p-4 sm:p-8 lg:p-12 shadow-sm relative overflow-hidden transition-all duration-500">
+        {/* Active Domain Detailed Showcase Card - Zero Layout Shift */}
+        <div className="rounded-[22px] sm:rounded-[36px] bg-slate-50/80 border border-slate-200/90 p-4 sm:p-8 lg:p-10 shadow-sm relative overflow-hidden">
           
           {/* Top Gold Accent */}
           <div className="absolute inset-x-8 sm:inset-x-12 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#F6C915] to-transparent pointer-events-none" />
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 lg:gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 lg:gap-12 items-start">
             
             {/* Left Column: Curriculum Breakdown & Before/After (7 cols) */}
-            <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-6">
+            <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-5 min-h-[460px] sm:min-h-[490px] justify-between">
               
               {/* Header Badge */}
-              <div className="flex items-center gap-2 flex-wrap">
+              <div className="flex items-center gap-2 flex-wrap min-h-[28px]">
                 <span className="px-2.5 py-1 rounded-full bg-[#071245] text-[#F6C915] text-[11px] sm:text-xs font-black flex items-center gap-1.5 shadow-2xs">
                   <ActiveIcon className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
                   <span>PILLAR {activePillar.number} · {activePillar.category}</span>
@@ -206,12 +206,14 @@ export function LearningOutcomes() {
                 </span>
               </div>
 
-              {/* Title */}
+              {/* Title & Workshop Tags with locked min-heights */}
               <div>
-                <h3 className="text-xl sm:text-3xl lg:text-4xl font-black text-[#071245] tracking-tight leading-tight">
-                  {activePillar.title}
-                </h3>
-                <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-2">
+                <div className="min-h-[32px] sm:min-h-[38px] flex items-center">
+                  <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-[#071245] tracking-tight leading-tight">
+                    {activePillar.title}
+                  </h3>
+                </div>
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-2 min-h-[28px] sm:min-h-[32px] items-center">
                   {activePillar.workshops.map((ws, i) => (
                     <span
                       key={i}
@@ -224,11 +226,11 @@ export function LearningOutcomes() {
                 </div>
               </div>
 
-              {/* Before vs After Transformation Matrix */}
+              {/* Before vs After Transformation Matrix with locked equal heights */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3.5">
                 {/* Before */}
-                <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-red-50/80 border border-red-200 shadow-2xs">
-                  <div className="flex items-center gap-1.5 text-[11px] sm:text-xs font-black text-[#B91C1C] mb-1">
+                <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-red-50/80 border border-red-200 shadow-2xs min-h-[105px] sm:min-h-[115px] flex flex-col justify-start">
+                  <div className="flex items-center gap-1.5 text-[11px] sm:text-xs font-black text-[#B91C1C] mb-1 shrink-0">
                     <XCircle className="w-3.5 h-3.5 text-[#B91C1C] shrink-0" />
                     <span>Before This Module:</span>
                   </div>
@@ -238,8 +240,8 @@ export function LearningOutcomes() {
                 </div>
 
                 {/* After HELC */}
-                <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-emerald-50/80 border border-emerald-200 shadow-2xs">
-                  <div className="flex items-center gap-1.5 text-[11px] sm:text-xs font-black text-[#15803D] mb-1">
+                <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-emerald-50/80 border border-emerald-200 shadow-2xs min-h-[105px] sm:min-h-[115px] flex flex-col justify-start">
+                  <div className="flex items-center gap-1.5 text-[11px] sm:text-xs font-black text-[#15803D] mb-1 shrink-0">
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#15803D] shrink-0" />
                     <span>After HELC Mastery:</span>
                   </div>
@@ -249,23 +251,23 @@ export function LearningOutcomes() {
                 </div>
               </div>
 
-              {/* Key Practical Skills Learned */}
-              <div className="space-y-1.5 sm:space-y-2">
+              {/* Key Practical Skills Learned with locked min-height */}
+              <div className="space-y-1 sm:space-y-1.5">
                 <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-slate-500 block">
                   Core Skills You Gain:
                 </span>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2 min-h-[58px] sm:min-h-[64px]">
                   {activePillar.keySkills.map((skill, idx) => (
                     <div key={idx} className="flex items-start gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-bold text-[#071245]">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#1B7A42] shrink-0 mt-0.5" />
-                      <span>{skill}</span>
+                      <span className="leading-tight">{skill}</span>
                     </div>
                   ))}
                 </div>
               </div>
 
-              {/* In Your Kitchen Tonight Action Box */}
-              <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-slate-200 shadow-2xs flex items-start gap-2.5 sm:gap-3">
+              {/* In Your Kitchen Tonight Action Box with locked min-height */}
+              <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-slate-200 shadow-2xs flex items-start gap-2.5 sm:gap-3 min-h-[66px] sm:min-h-[72px]">
                 <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-[#071245] text-[#F6C915] flex items-center justify-center shrink-0 shadow-2xs">
                   <ChefHat className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F6C915]" />
                 </div>
