@@ -43,6 +43,8 @@ export function RegistrationWizard() {
   // Validation Errors
   const [stepErrors, setStepErrors] = useState<Record<string, string>>({});
 
+  const [celebrationPops, setCelebrationPops] = useState<number>(0);
+
   const stepsList = [
     { num: 1, id: "profile", label: "Profile", subtitle: "About You", icon: User },
     { num: 2, id: "goals", label: "Goals", subtitle: "Your Aspirations", icon: Target },
@@ -122,29 +124,94 @@ export function RegistrationWizard() {
 
   if (isSubmitted) {
     return (
-      <div className="bg-white rounded-2xl sm:rounded-3xl shadow-xl border border-slate-200 overflow-hidden relative p-6 sm:p-10 text-center flex flex-col items-center gap-3 sm:gap-4 animate-in fade-in zoom-in-95 duration-400">
-        <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-gradient-to-b from-[#22C55E] to-[#15803D] flex items-center justify-center shadow-lg border-4 border-white animate-bounce-subtle">
-          <Check className="w-8 h-8 sm:w-10 sm:h-10 text-white stroke-[3]" />
+      <div className="bg-white rounded-2xl sm:rounded-3xl shadow-[0_25px_60px_-15px_rgba(7,18,69,0.14)] border border-slate-200 overflow-hidden relative p-6 sm:p-10 text-center flex flex-col items-center gap-4 sm:gap-5 animate-in fade-in zoom-in-95 duration-400">
+        
+        {/* Floating Celebration Particles */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          <div className="absolute top-6 left-1/4 w-2 h-2 rounded-full bg-[#F6C915] animate-ping opacity-60" />
+          <div className="absolute top-10 right-1/4 w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse opacity-75" />
+          <div className="absolute bottom-8 left-1/3 w-2 h-2 rounded-full bg-blue-400 animate-pulse opacity-50" />
+          <div className="absolute bottom-12 right-1/3 w-1.5 h-1.5 rounded-full bg-[#FFE46B] animate-ping opacity-70" />
         </div>
 
-        <div>
-          <span className="text-[10px] sm:text-xs font-black uppercase tracking-wider text-emerald-700 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200 shadow-2xs">
-            Intake Successfully Submitted
-          </span>
-          <h3 className="text-xl sm:text-3xl font-black text-[#071245] mt-2">
-            Welcome to CSNN Toronto, {firstName}!
+        {/* 3D SKEUOMORPHIC GLASS EMERALD CHECKMARK ICON (NO WHITE BORDER/LINE, PURE 3D GLASS REFRACTION & GENTLE BOUNCE) */}
+        <div className="relative pt-2 pb-1 select-none">
+          <div
+            onClick={() => setCelebrationPops((prev) => prev + 1)}
+            title="Click for celebration sparkle!"
+            className="relative flex items-center justify-center animate-smooth-bounce cursor-pointer group"
+          >
+            {/* Soft Ambient Radial Emerald Glow */}
+            <div className="absolute -inset-4 rounded-full bg-emerald-500/35 blur-xl pointer-events-none group-hover:bg-emerald-500/50 transition-colors" />
+
+            {/* 3D Glassmorphic Tactile Emerald Sphere (NO WHITE BORDER / LINE) */}
+            <div
+              className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-[#34D399] via-[#059669] to-[#064E3B] flex items-center justify-center relative transition-all duration-300 group-hover:scale-110 group-active:scale-95 shadow-[0_20px_45px_-8px_rgba(5,150,105,0.7),0_8px_18px_rgba(0,0,0,0.22),inset_0_3px_5px_rgba(255,255,255,0.75),inset_0_-7px_14px_rgba(4,70,50,0.85)] border-0 ring-0 outline-none"
+            >
+              {/* Top Specular Curved Glass Glare Arc (Simulates Glass Dome Reflection) */}
+              <div className="absolute top-1.5 inset-x-3.5 h-6 rounded-full bg-gradient-to-b from-white/70 via-white/20 to-transparent pointer-events-none" />
+
+              {/* Bottom Subtle Caustic Rim Reflection */}
+              <div className="absolute bottom-1.5 inset-x-5 h-2.5 rounded-full bg-gradient-to-t from-emerald-300/40 to-transparent pointer-events-none" />
+
+              {/* Internal Glassmorphic Check Icon with Drop Shadow */}
+              <Check className="w-10 h-10 sm:w-12 sm:h-12 text-white stroke-[3.5] drop-shadow-[0_2px_4px_rgba(0,0,0,0.45)] relative z-10 group-hover:scale-110 transition-transform duration-200" />
+            </div>
+
+            {/* Interactive Celebration Feedback Floating Badge on Click */}
+            {celebrationPops > 0 && (
+              <span className="absolute -top-3 px-2 py-0.5 rounded-full bg-[#F6C915] text-[#071245] font-black text-[10px] shadow-md animate-in zoom-in-50 fade-in duration-200 pointer-events-none">
+                Verified ✨ +{celebrationPops}
+              </span>
+            )}
+          </div>
+        </div>
+
+        {/* Status Pill & Welcome Heading */}
+        <div className="space-y-1.5 relative z-10">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-[11px] sm:text-xs font-black border border-emerald-200/90 shadow-2xs">
+            <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+            <span>INTAKE SUCCESSFULLY RECORDED</span>
+          </div>
+
+          <h3 className="text-xl sm:text-3xl font-black text-[#071245] tracking-tight">
+            Welcome to CSNN Toronto, {firstName || "Nova"}!
           </h3>
-          <p className="text-xs sm:text-base text-slate-600 font-medium max-w-lg mx-auto mt-1">
-            Your seat for the Healthy Eating &amp; Lifestyle Certificate (October 28) has been provisionally reserved. An admissions advisor will connect with you via {reachMethod || "your contact method"}.
+
+          <p className="text-xs sm:text-base text-slate-600 font-medium max-w-lg mx-auto leading-relaxed">
+            Your provisional seat for the <strong className="text-[#071245] font-black">Healthy Eating &amp; Lifestyle Certificate</strong> (Starts October 28) has been secured. An admissions advisor will connect with you via <strong className="text-[#071245] font-black">{reachMethod || "Text"}</strong> to confirm your schedule.
           </p>
         </div>
 
-        <div className="flex flex-col sm:flex-row items-center gap-2.5 pt-2">
+        {/* Priority Confirmation Ticket Summary Card */}
+        <div className="w-full max-w-lg bg-gradient-to-br from-slate-50 to-blue-50/40 rounded-2xl border border-slate-200/90 p-3.5 sm:p-4 text-left shadow-2xs relative z-10">
+          <div className="grid grid-cols-2 gap-2.5 text-xs">
+            <div className="p-2 rounded-xl bg-white border border-slate-100 shadow-2xs">
+              <span className="text-[10px] uppercase font-black tracking-wider text-slate-400 block">Certificate</span>
+              <span className="font-black text-[#071245] text-[11.5px] truncate block">Healthy Eating &amp; Lifestyle</span>
+            </div>
+            <div className="p-2 rounded-xl bg-white border border-slate-100 shadow-2xs">
+              <span className="text-[10px] uppercase font-black tracking-wider text-slate-400 block">Intake Date</span>
+              <span className="font-black text-[#071245] text-[11.5px] block">Oct 28 (Live Online)</span>
+            </div>
+            <div className="p-2 rounded-xl bg-white border border-slate-100 shadow-2xs">
+              <span className="text-[10px] uppercase font-black tracking-wider text-slate-400 block">Contact Preference</span>
+              <span className="font-black text-[#071245] text-[11.5px] truncate block">{reachMethod || "Text"} · {phone || email || "Provided"}</span>
+            </div>
+            <div className="p-2 rounded-xl bg-white border border-slate-100 shadow-2xs">
+              <span className="text-[10px] uppercase font-black tracking-wider text-slate-400 block">Tuition Paid Today</span>
+              <span className="font-black text-emerald-600 text-[11.5px] block">$0.00 (Zero Deposit)</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Action Controls */}
+        <div className="flex flex-col sm:flex-row items-center gap-3 pt-1 relative z-10">
           <a
             href={`tel:${PROGRAM_INFO.phoneRaw}`}
-            className="inline-flex items-center gap-1.5 px-5 h-10 rounded-full bg-slate-50 border border-slate-200 text-[#071245] font-black text-xs hover:bg-slate-100 transition-colors shadow-2xs hover:scale-105"
+            className="inline-flex items-center gap-2 px-5 h-10 rounded-full bg-[#071245] text-white font-black text-xs hover:bg-[#0E2063] transition-all shadow-md hover:scale-105 active:scale-95"
           >
-            <Phone className="w-3.5 h-3.5 text-[#B87503]" />
+            <Phone className="w-3.5 h-3.5 text-[#F6C915]" />
             <span>Questions now? Call {PROGRAM_INFO.phone}</span>
           </a>
 
@@ -154,7 +221,7 @@ export function RegistrationWizard() {
               setIsSubmitted(false);
               setCurrentStep(1);
             }}
-            className="text-xs font-black text-[#B87503] hover:underline cursor-pointer py-1 px-3"
+            className="text-xs font-black text-[#B87503] hover:underline cursor-pointer py-1.5 px-3 transition-colors"
           >
             ← Register Another Student
           </button>
@@ -167,15 +234,15 @@ export function RegistrationWizard() {
     <div className="bg-white rounded-2xl sm:rounded-3xl shadow-[0_20px_60px_-15px_rgba(7,18,69,0.12)] border border-slate-200/90 overflow-hidden relative">
       
       {/* Dual-Pane Layout: Left Vertical Stepper + Right Interactive Form Area */}
-      <div className="grid grid-cols-1 md:grid-cols-12 min-h-[490px]">
+      <div className="grid grid-cols-1 md:grid-cols-12 min-h-[500px]">
         
         {/* ==============================================================
-            LEFT SIDEBAR (Clean Segmented Vertical Stepper - NO LINE OVERLAPPING)
+            LEFT SIDEBAR: Continuous Unbroken Stepper (Desktop Vertical + Mobile Horizontal)
             ============================================================== */}
         <div className="md:col-span-4 lg:col-span-3 bg-[#071245] text-white p-4 sm:p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-white/10 relative overflow-hidden">
           
           {/* Ambient Lighting Background */}
-          <div className="absolute top-0 right-0 w-44 h-44 bg-[#F6C915]/10 rounded-full blur-2xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-48 h-48 bg-[#F6C915]/10 rounded-full blur-2xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-36 h-36 bg-blue-500/10 rounded-full blur-2xl pointer-events-none" />
 
           {/* Top Progress Block */}
@@ -198,20 +265,38 @@ export function RegistrationWizard() {
             </div>
           </div>
 
-          {/* Stepper Items: Fully Segmented Vertical Nodes on Desktop (Zero Overlap Line) */}
-          <div className="my-3 sm:my-auto py-2 sm:py-3 relative z-10">
-            <div className="grid grid-cols-4 md:grid-cols-1 gap-1.5 md:gap-0">
-              {stepsList.map((step, idx) => {
-                const isCurrent = currentStep === step.num;
-                const isCompleted = currentStep > step.num;
-                const isLast = idx === stepsList.length - 1;
+          {/* Stepper Rail: CONTINUOUS UNBROKEN TIMELINE (ZERO OVERLAP THROUGH NUMBERS) */}
+          <div className="my-3 sm:my-auto py-2 sm:py-4 relative z-10">
+            
+            {/* ==========================================================
+                DESKTOP VERTICAL STEPPER WITH UNBROKEN CONNECTING SEGMENTS
+                ========================================================== */}
+            <div className="hidden md:flex flex-col relative">
+              {/* Continuous Background Rail Track from Node 1 Center to Node 4 Center */}
+              <div
+                aria-hidden="true"
+                className="absolute left-[20px] top-[20px] bottom-[20px] w-[2.5px] -translate-x-1/2 bg-white/20 z-0 pointer-events-none rounded-full"
+              />
 
-                return (
-                  <div key={step.num} className="flex flex-col md:w-full">
-                    
-                    {/* Step Row Item */}
+              {/* Continuous Active Gradient Illuminated Fill */}
+              <div
+                aria-hidden="true"
+                className="absolute left-[20px] top-[20px] w-[2.5px] -translate-x-1/2 bg-gradient-to-b from-[#22C55E] via-[#F6C915] to-[#FFE676] z-0 pointer-events-none rounded-full transition-all duration-500 ease-out shadow-[0_0_10px_rgba(246,201,21,0.7)]"
+                style={{
+                  height: `${((currentStep - 1) / (stepsList.length - 1)) * 100}%`,
+                  maxHeight: "calc(100% - 40px)",
+                }}
+              />
+
+              <div className="space-y-4 relative z-10">
+                {stepsList.map((step) => {
+                  const isCurrent = currentStep === step.num;
+                  const isCompleted = currentStep > step.num;
+
+                  return (
                     <button
                       type="button"
+                      key={step.num}
                       onClick={() => {
                         if (isCompleted) {
                           setCurrentStep(step.num);
@@ -219,26 +304,26 @@ export function RegistrationWizard() {
                         }
                       }}
                       disabled={!isCompleted && !isCurrent}
-                      className={`flex flex-col md:flex-row items-center md:items-center text-center md:text-left gap-1.5 md:gap-3.5 transition-all p-1 md:p-2 rounded-xl group ${
+                      className={`w-full flex items-center text-left gap-3.5 transition-all p-1 rounded-xl group relative z-10 ${
                         isCompleted
                           ? "cursor-pointer hover:bg-white/10 active:scale-95"
                           : isCurrent
                           ? "cursor-default"
-                          : "cursor-not-allowed opacity-45"
+                          : "cursor-not-allowed opacity-50"
                       }`}
                     >
-                      {/* Opaque Solid Node Circle (Guarantees zero overlap through numbers) */}
+                      {/* 100% Solid Opaque Circle Node (Covers line underneath with zero overlap on number) */}
                       <div
-                        className={`w-7 h-7 sm:w-8 sm:h-8 rounded-xl flex items-center justify-center font-black text-xs shrink-0 transition-all duration-300 relative shadow-sm ${
+                        className={`w-9 h-9 rounded-xl flex items-center justify-center font-black text-xs shrink-0 transition-all duration-300 relative z-10 shadow-md ${
                           isCurrent
-                            ? "bg-gradient-to-b from-[#FFE46B] to-[#DEAB07] text-[#071245] shadow-[0_0_15px_rgba(246,201,21,0.5)] ring-4 ring-[#F6C915]/25 scale-110"
+                            ? "bg-gradient-to-b from-[#FFE46B] to-[#DEAB07] text-[#071245] shadow-[0_0_16px_rgba(246,201,21,0.65)] ring-4 ring-[#F6C915]/30 scale-105"
                             : isCompleted
-                            ? "bg-emerald-600 text-white group-hover:scale-105 shadow-md"
-                            : "bg-[#0A1856] text-slate-300 border-2 border-white/20 shadow-inner"
+                            ? "bg-gradient-to-b from-[#22C55E] to-[#15803D] text-white shadow-md ring-2 ring-emerald-400/35 group-hover:scale-105"
+                            : "bg-[#071245] text-slate-300 border-2 border-slate-600/80 shadow-inner"
                         }`}
                       >
                         {isCompleted ? (
-                          <Check className="w-4 h-4 stroke-[3] animate-in zoom-in-75 duration-200" />
+                          <Check className="w-4 h-4 stroke-[3.5] animate-in zoom-in-75 duration-200" />
                         ) : (
                           <span className="font-extrabold">{step.num}</span>
                         )}
@@ -247,7 +332,7 @@ export function RegistrationWizard() {
                       {/* Step Labels */}
                       <div className="flex flex-col overflow-hidden">
                         <span
-                          className={`text-[11px] sm:text-xs font-black tracking-wide leading-tight transition-colors ${
+                          className={`text-xs font-black tracking-wide leading-tight transition-colors ${
                             isCurrent
                               ? "text-[#F6C915]"
                               : isCompleted
@@ -257,29 +342,90 @@ export function RegistrationWizard() {
                         >
                           {step.num}. {step.label}
                         </span>
-                        <span className="hidden md:inline text-[9.5px] text-white/50 font-medium leading-tight mt-0.5">
+                        <span className="text-[10px] text-white/50 font-medium leading-tight mt-0.5">
                           {step.subtitle}
                         </span>
                       </div>
                     </button>
-
-                    {/* Dedicated Segmented Connector Line (Between Circles Only — NEVER CUTS THROUGH NUMBERS) */}
-                    {!isLast && (
-                      <div className="hidden md:flex items-center pl-[18px] py-0.5">
-                        <div
-                          className={`w-[2px] h-4 sm:h-5 rounded-full transition-all duration-300 ${
-                            currentStep > step.num
-                              ? "bg-gradient-to-b from-emerald-500 to-[#F6C915]"
-                              : "bg-white/15"
-                          }`}
-                        />
-                      </div>
-                    )}
-
-                  </div>
-                );
-              })}
+                  );
+                })}
+              </div>
             </div>
+
+            {/* ==========================================================
+                MOBILE HORIZONTAL STEPPER WITH UNBROKEN CONNECTING TRACK
+                ========================================================== */}
+            <div className="md:hidden relative py-1">
+              {/* Continuous Horizontal Background Rail Track */}
+              <div
+                aria-hidden="true"
+                className="absolute left-[14px] right-[14px] top-[18px] h-[2px] -translate-y-1/2 bg-white/20 z-0 pointer-events-none rounded-full"
+              />
+
+              {/* Continuous Horizontal Active Fill */}
+              <div
+                aria-hidden="true"
+                className="absolute left-[14px] top-[18px] h-[2px] -translate-y-1/2 bg-gradient-to-r from-[#22C55E] via-[#F6C915] to-[#FFE676] z-0 pointer-events-none rounded-full transition-all duration-400 ease-out shadow-[0_0_8px_rgba(246,201,21,0.7)]"
+                style={{
+                  width: `${((currentStep - 1) / (stepsList.length - 1)) * 100}%`,
+                  maxWidth: "calc(100% - 28px)",
+                }}
+              />
+
+              <div className="grid grid-cols-4 gap-1 relative z-10">
+                {stepsList.map((step) => {
+                  const isCurrent = currentStep === step.num;
+                  const isCompleted = currentStep > step.num;
+
+                  return (
+                    <button
+                      type="button"
+                      key={step.num}
+                      onClick={() => {
+                        if (isCompleted) {
+                          setCurrentStep(step.num);
+                          setStepErrors({});
+                        }
+                      }}
+                      disabled={!isCompleted && !isCurrent}
+                      className={`flex flex-col items-center text-center gap-1 p-1 rounded-lg transition-all ${
+                        isCompleted
+                          ? "cursor-pointer active:scale-95"
+                          : isCurrent
+                          ? "cursor-default"
+                          : "cursor-not-allowed opacity-50"
+                      }`}
+                    >
+                      {/* Opaque Badge on Mobile */}
+                      <div
+                        className={`w-7 h-7 rounded-lg flex items-center justify-center font-black text-xs shrink-0 transition-all relative z-10 shadow-sm ${
+                          isCurrent
+                            ? "bg-gradient-to-b from-[#FFE46B] to-[#DEAB07] text-[#071245] ring-2 ring-[#F6C915]/40 scale-105"
+                            : isCompleted
+                            ? "bg-gradient-to-b from-[#22C55E] to-[#15803D] text-white"
+                            : "bg-[#071245] text-slate-300 border border-slate-600"
+                        }`}
+                      >
+                        {isCompleted ? (
+                          <Check className="w-3.5 h-3.5 stroke-[3]" />
+                        ) : (
+                          <span>{step.num}</span>
+                        )}
+                      </div>
+
+                      <span
+                        className={`text-[10px] font-black tracking-tight leading-tight truncate ${
+                          isCurrent ? "text-[#F6C915]" : isCompleted ? "text-white" : "text-white/60"
+                        }`}
+                      >
+                        {step.label}
+                      </span>
+                    </button>
+                  );
+                })}
+              </div>
+            </div>
+
           </div>
 
           {/* Bottom Security Guarantee */}
@@ -300,7 +446,7 @@ export function RegistrationWizard() {
             
             {/* STEP 1: PROFILE / ABOUT YOU */}
             {currentStep === 1 && (
-              <div className="space-y-3 sm:space-y-4">
+              <div className="space-y-3.5 sm:space-y-4">
                 <div>
                   <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-100 text-[#071245] text-[10px] font-black uppercase tracking-wider mb-1">
                     <span>Step 1 of 4 · Profile</span>
@@ -333,16 +479,16 @@ export function RegistrationWizard() {
                           isLast ? "sm:col-span-2" : ""
                         } ${
                           isSelected
-                            ? "bg-[#071245] border-[#071245] text-white shadow-md ring-2 ring-[#071245]/20 scale-[1.01]"
-                            : "bg-white hover:bg-slate-50 border-slate-200 hover:border-[#071245]/40 shadow-2xs hover:shadow-xs text-slate-700 hover:-translate-y-0.5"
+                            ? "bg-gradient-to-br from-[#071245] via-[#0E2063] to-[#071245] border-2 border-[#F6C915] text-white shadow-[0_10px_28px_rgba(7,18,69,0.28),0_0_18px_rgba(246,201,21,0.22)] ring-2 ring-[#F6C915]/30 scale-[1.015]"
+                            : "bg-white hover:bg-slate-50 border border-slate-200 hover:border-[#071245]/50 shadow-2xs hover:shadow-md text-slate-700 hover:-translate-y-0.5"
                         }`}
                       >
                         <div className="flex items-center gap-3">
                           <span
-                            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center font-black text-xs shrink-0 transition-transform ${
+                            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center font-black text-xs shrink-0 transition-all ${
                               isSelected
-                                ? "bg-white text-[#071245] shadow-xs scale-105"
-                                : "bg-slate-100 text-[#071245] border border-slate-200 group-hover:bg-slate-200"
+                                ? "bg-gradient-to-b from-[#FFE46B] to-[#DEAB07] text-[#071245] shadow-xs scale-105"
+                                : "bg-slate-100 text-[#071245] border border-slate-200 group-hover:bg-[#071245]/10"
                             }`}
                           >
                             {opt.num}
@@ -351,20 +497,20 @@ export function RegistrationWizard() {
                             <h4 className={`text-xs sm:text-[13.5px] font-black leading-tight ${isSelected ? "text-white" : "text-[#071245]"}`}>
                               {opt.title}
                             </h4>
-                            <p className={`text-[10.5px] sm:text-[11.5px] mt-0.5 font-medium ${isSelected ? "text-blue-100" : "text-slate-500"}`}>
+                            <p className={`text-[10.5px] sm:text-[11.5px] mt-0.5 font-medium ${isSelected ? "text-amber-100" : "text-slate-500"}`}>
                               {opt.subtitle}
                             </p>
                           </div>
                         </div>
                         
                         <span
-                          className={`w-5 h-5 rounded-full border-2 flex items-center justify-center shrink-0 ml-2 transition-all ${
+                          className={`w-5.5 h-5.5 rounded-full border-2 flex items-center justify-center shrink-0 ml-2 transition-all ${
                             isSelected
-                              ? "border-white bg-white text-[#071245] shadow-sm"
-                              : "border-slate-300 bg-white group-hover:border-slate-400"
+                              ? "border-[#F6C915] bg-[#F6C915] text-[#071245] shadow-sm scale-110"
+                              : "border-slate-300 bg-slate-50 group-hover:border-slate-400"
                           }`}
                         >
-                          {isSelected && <Check className="w-3 h-3 stroke-[3] animate-in zoom-in-75 duration-200" />}
+                          {isSelected && <Check className="w-3.5 h-3.5 stroke-[3.5] animate-in zoom-in-75 duration-200" />}
                         </span>
                       </button>
                     );
@@ -679,7 +825,7 @@ export function RegistrationWizard() {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Email"
-                      className={`w-full h-9 px-3 rounded-xl bg-white border border-slate-200 text-xs font-bold text-[#071245] focus:border-[#071245] focus:ring-1 focus:ring-[#071245] shadow-2xs ${
+                      className={`w-full h-9 px-3 rounded-xl bg-white border border-slate-200 text-xs font-bold text-[#071245] focus:border-[#071245] shadow-2xs ${
                         stepErrors.email ? "border-[#D62B2B]" : ""
                       }`}
                     />
@@ -693,7 +839,7 @@ export function RegistrationWizard() {
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
                       placeholder="Phone"
-                      className={`w-full h-9 px-3 rounded-xl bg-white border border-slate-200 text-xs font-bold text-[#071245] focus:border-[#071245] focus:ring-1 focus:ring-[#071245] shadow-2xs ${
+                      className={`w-full h-9 px-3 rounded-xl bg-white border border-slate-200 text-xs font-bold text-[#071245] focus:border-[#071245] shadow-2xs ${
                         stepErrors.phone ? "border-[#D62B2B]" : ""
                       }`}
                     />
@@ -707,7 +853,7 @@ export function RegistrationWizard() {
                       value={city}
                       onChange={(e) => setCity(e.target.value)}
                       placeholder="City"
-                      className={`w-full h-9 px-3 rounded-xl bg-white border border-slate-200 text-xs font-bold text-[#071245] focus:border-[#071245] focus:ring-1 focus:ring-[#071245] shadow-2xs ${
+                      className={`w-full h-9 px-3 rounded-xl bg-white border border-slate-200 text-xs font-bold text-[#071245] focus:border-[#071245] shadow-2xs ${
                         stepErrors.city ? "border-[#D62B2B]" : ""
                       }`}
                     />
