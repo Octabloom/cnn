@@ -119,25 +119,25 @@ export function TestimonialSection() {
               ============================================================== */}
           <div className="lg:col-span-7 flex flex-col h-full">
             
-            <div className="bg-gradient-to-b from-white via-[#FCFDFE] to-[#F8FAFC] rounded-2xl sm:rounded-3xl border border-slate-200/90 p-5 sm:p-7 shadow-[inset_0_2px_0_#FFFFFF,inset_0_-2px_0_rgba(15,23,42,0.03),0_15px_40px_-10px_rgba(7,18,69,0.08)] relative min-h-[520px] lg:h-[642px] flex flex-col justify-between">
+            <div className="bg-gradient-to-b from-white via-[#FCFDFE] to-[#F8FAFC] rounded-xl sm:rounded-3xl border border-slate-200/90 p-3.5 sm:p-7 shadow-[inset_0_2px_0_#FFFFFF,inset_0_-2px_0_rgba(15,23,42,0.03),0_10px_35px_-10px_rgba(7,18,69,0.08)] relative min-h-[410px] lg:h-[642px] flex flex-col justify-between">
               
               <div>
                 {/* Top Bar: Rating, Verified Seal, and Prev/Next Navigation */}
-                <div className="flex items-center justify-between flex-wrap gap-2.5 pb-3 border-b border-slate-100">
+                <div className="flex items-center justify-between flex-wrap gap-2 pb-2.5 sm:pb-3 border-b border-slate-100">
                   <div className="flex items-center gap-1.5 text-[#F6C915]">
                     {[...Array(5)].map((_, i) => (
                       <Star
                         key={i}
-                        className="w-4 h-4 fill-[#F6C915] drop-shadow-2xs"
+                        className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-[#F6C915] drop-shadow-2xs"
                       />
                     ))}
-                    <span className="ml-1 text-xs font-black text-[#071245]">
+                    <span className="ml-1 text-[11px] sm:text-xs font-black text-[#071245]">
                       5.0 Star Verified
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-2">
-                    <span className="text-[11px] font-bold text-slate-500">
+                  <div className="flex items-center gap-1.5 sm:gap-2">
+                    <span className="text-[10px] sm:text-[11px] font-bold text-slate-500">
                       {currentIndex + 1} of {activeList.length}
                     </span>
                     <div className="flex items-center gap-1">
@@ -145,46 +145,46 @@ export function TestimonialSection() {
                         type="button"
                         onClick={handlePrev}
                         aria-label="Previous Testimonial"
-                        className="w-8 h-8 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 flex items-center justify-center text-[#071245] transition-colors cursor-pointer"
+                        className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 flex items-center justify-center text-[#071245] transition-colors cursor-pointer"
                       >
-                        <ChevronLeft className="w-4 h-4" />
+                        <ChevronLeft className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       </button>
                       <button
                         type="button"
                         onClick={handleNext}
                         aria-label="Next Testimonial"
-                        className="w-8 h-8 rounded-lg bg-[#071245] hover:bg-[#03091F] text-[#F6C915] flex items-center justify-center transition-colors cursor-pointer"
+                        className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg bg-[#071245] hover:bg-[#03091F] text-[#F6C915] flex items-center justify-center transition-colors cursor-pointer"
                       >
-                        <ChevronRight className="w-4 h-4" />
+                        <ChevronRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                       </button>
                     </div>
                   </div>
                 </div>
 
                 {/* Testimonial Headline & Quote with locked min-heights */}
-                <div className="py-3 sm:py-4 flex flex-col justify-start">
-                  <div className="min-h-[44px] sm:min-h-[50px] flex items-center mb-1.5">
-                    <h3 className="text-base sm:text-lg lg:text-xl font-black text-[#071245] leading-snug">
+                <div className="py-2.5 sm:py-4 flex flex-col justify-start">
+                  <div className="min-h-[34px] sm:min-h-[50px] flex items-center mb-1">
+                    <h3 className="text-sm sm:text-lg lg:text-xl font-black text-[#071245] leading-snug">
                       {currentTestimonial.headline || "Transformative Natural Nutrition Experience"}
                     </h3>
                   </div>
 
-                  <div className="relative pl-1 min-h-[160px] sm:min-h-[175px]">
-                    <Quote className="w-8 h-8 text-[#F6C915]/20 absolute -top-1 -left-1 -z-0 pointer-events-none" />
-                    <p className="text-xs sm:text-sm lg:text-[14.5px] text-slate-700 font-medium leading-relaxed relative z-10 italic line-clamp-6 sm:line-clamp-7">
+                  <div className="relative pl-1 min-h-[125px] sm:min-h-[175px]">
+                    <Quote className="w-6 h-6 sm:w-8 sm:h-8 text-[#F6C915]/20 absolute -top-1 -left-1 -z-0 pointer-events-none" />
+                    <p className="text-[11px] sm:text-sm lg:text-[14.5px] text-slate-700 font-medium leading-normal sm:leading-relaxed relative z-10 italic line-clamp-5 sm:line-clamp-7">
                       &ldquo;{currentTestimonial.quote}&rdquo;
                     </p>
                   </div>
 
-                  <div className="min-h-[28px] mt-2.5 flex items-center">
+                  <div className="min-h-[24px] sm:min-h-[28px] mt-1.5 sm:mt-2.5 flex items-center">
                     {currentTestimonial.highlightChip ? (
-                      <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg bg-amber-50 border border-amber-200/60 text-[11px] font-black text-[#854D0E]">
-                        <Award className="w-3.5 h-3.5 text-[#B87503]" />
+                      <div className="inline-flex items-center gap-1.5 px-2 sm:px-2.5 py-0.5 rounded-lg bg-amber-50 border border-amber-200/60 text-[10px] sm:text-[11px] font-black text-[#854D0E]">
+                        <Award className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#B87503]" />
                         <span>{currentTestimonial.highlightChip}</span>
                       </div>
                     ) : (
-                      <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg bg-slate-50 border border-slate-200/60 text-[11px] font-black text-slate-600">
-                        <Award className="w-3.5 h-3.5 text-slate-400" />
+                      <div className="inline-flex items-center gap-1.5 px-2 sm:px-2.5 py-0.5 rounded-lg bg-slate-50 border border-slate-200/60 text-[10px] sm:text-[11px] font-black text-slate-600">
+                        <Award className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-slate-400" />
                         <span>Verified Student Feedback</span>
                       </div>
                     )}

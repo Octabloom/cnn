@@ -66,41 +66,41 @@ export function LearningExperience() {
           </p>
         </div>
 
-        {/* 4 Clean, Scannable Skeuomorphic Feature Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-10">
+        {/* 4 Clean, Scannable Skeuomorphic Feature Cards - Compact Mobile */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-6 mb-6 sm:mb-10">
           {steps.map((item) => {
             const Icon = item.icon;
             return (
               <div
                 key={item.num}
-                className="rounded-[20px] sm:rounded-[24px] bg-gradient-to-b from-white via-[#FCFDFE] to-[#F1F5F9] border border-slate-200/90 hover:border-slate-300 p-4 sm:p-6 shadow-[inset_0_2px_0_#FFFFFF,inset_0_-1.5px_0_rgba(15,23,42,0.04),0_1px_3px_rgba(0,0,0,0.03),0_10px_24px_-4px_rgba(7,18,69,0.07)] hover:shadow-[inset_0_2px_0_#FFFFFF,inset_0_-1.5px_0_rgba(15,23,42,0.04),0_20px_36px_-6px_rgba(7,18,69,0.12)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1.5"
+                className="rounded-xl sm:rounded-[24px] bg-gradient-to-b from-white via-[#FCFDFE] to-[#F1F5F9] border border-slate-200/90 hover:border-slate-300 p-3 sm:p-6 shadow-[inset_0_2px_0_#FFFFFF,inset_0_-1.5px_0_rgba(15,23,42,0.04),0_1px_3px_rgba(0,0,0,0.03),0_8px_20px_-4px_rgba(7,18,69,0.06)] hover:shadow-[inset_0_2px_0_#FFFFFF,inset_0_-1.5px_0_rgba(15,23,42,0.04),0_20px_36px_-6px_rgba(7,18,69,0.12)] transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 sm:hover:-translate-y-1.5"
               >
                 <div>
                   {/* Top Icon & Step Number */}
-                  <div className="flex items-center justify-between gap-2 mb-3 sm:mb-4">
-                    <div className="p-[1.5px] rounded-xl sm:rounded-2xl bg-gradient-to-b from-[#FFEAA0] via-[#F6C915] to-[#B87503] shadow-[0_2px_6px_rgba(184,117,3,0.3),inset_0_1px_0_#FFFFFF] group-hover:scale-105 transition-transform">
-                      <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-[10px] sm:rounded-[14px] bg-gradient-to-b from-[#0F236B] to-[#040924] text-[#F6C915] flex items-center justify-center shadow-[inset_0_1.5px_1px_rgba(255,255,255,0.45),inset_0_-1.5px_1px_rgba(0,0,0,0.7)]">
-                        <Icon className="w-5 h-5 text-[#F6C915] drop-shadow-2xs" />
+                  <div className="flex items-center justify-between gap-2 mb-2 sm:mb-4">
+                    <div className="p-[1.5px] rounded-lg sm:rounded-2xl bg-gradient-to-b from-[#FFEAA0] via-[#F6C915] to-[#B87503] shadow-xs group-hover:scale-105 transition-transform">
+                      <div className="w-8 h-8 sm:w-11 sm:h-11 rounded-[7px] sm:rounded-[14px] bg-gradient-to-b from-[#0F236B] to-[#040924] text-[#F6C915] flex items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.45)]">
+                        <Icon className="w-4 h-4 sm:w-5 sm:h-5 text-[#F6C915] drop-shadow-2xs" />
                       </div>
                     </div>
-                    <span className="text-[10px] sm:text-xs font-black text-[#854D0E] bg-[#FEF9C3] px-2.5 py-0.5 sm:py-1 rounded-full border border-[#FDE047] shadow-[inset_0_1px_2px_rgba(0,0,0,0.05),0_1px_0_#FFFFFF]">
+                    <span className="text-[9px] sm:text-xs font-black text-[#854D0E] bg-[#FEF9C3] px-2 py-0.5 sm:py-1 rounded-full border border-[#FDE047] shadow-[inset_0_1px_2px_rgba(0,0,0,0.05),0_1px_0_#FFFFFF]">
                       {item.badge}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-base sm:text-xl font-black text-[#071245] leading-snug mb-1.5 sm:mb-2 group-hover:text-[#B87503] transition-colors">
+                  <h3 className="text-sm sm:text-xl font-black text-[#071245] leading-snug mb-1 sm:mb-2 group-hover:text-[#B87503] transition-colors">
                     {item.title}
                   </h3>
 
                   {/* Concise Description */}
-                  <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed mb-3 sm:mb-4">
+                  <p className="text-[11px] sm:text-sm text-slate-600 font-medium leading-normal sm:leading-relaxed mb-2.5 sm:mb-4">
                     {item.desc}
                   </p>
                 </div>
 
                 {/* Bottom Clear Takeaway */}
-                <div className="pt-3 border-t border-slate-200/80 flex items-start gap-2 text-xs font-bold text-[#071245]">
+                <div className="pt-2 sm:pt-3 border-t border-slate-200/80 flex items-start gap-1.5 sm:gap-2 text-[10.5px] sm:text-xs font-bold text-[#071245]">
                   <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#1B7A42] shrink-0 mt-0.5" />
                   <span>{item.takeaway}</span>
                 </div>
@@ -109,8 +109,8 @@ export function LearningExperience() {
           })}
         </div>
 
-        {/* Clean, Simple Summary Ribbon */}
-        <div className="rounded-xl sm:rounded-2xl bg-gradient-to-b from-white via-[#FCFDFE] to-[#F8FAFC] border border-slate-200/90 p-3.5 sm:p-5 shadow-[inset_0_1.5px_0_#FFFFFF,0_4px_12px_rgba(0,0,0,0.04)] flex flex-col sm:flex-row items-center justify-between gap-3 sm:gap-4">
+        {/* Clean, Simple Summary Ribbon - Compact Mobile */}
+        <div className="rounded-xl sm:rounded-2xl bg-gradient-to-b from-white via-[#FCFDFE] to-[#F8FAFC] border border-slate-200/90 p-2.5 sm:p-5 shadow-[inset_0_1.5px_0_#FFFFFF,0_4px_12px_rgba(0,0,0,0.04)] flex flex-col sm:flex-row items-center justify-between gap-2.5 sm:gap-4">
           <div className="flex flex-wrap items-center justify-center sm:justify-start gap-3 sm:gap-6 text-xs sm:text-sm font-bold text-[#071245]">
             <div className="flex items-center gap-1.5 sm:gap-2">
               <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#B87503]" />

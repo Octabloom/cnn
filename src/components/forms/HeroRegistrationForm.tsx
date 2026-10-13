@@ -125,27 +125,27 @@ export function HeroRegistrationForm() {
   }
 
   return (
-    <div className="bg-white/90 sm:bg-white/92 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-5 sm:p-6 lg:p-7 border border-white shadow-[0_20px_50px_-10px_rgba(7,18,69,0.18)] relative transition-all text-left">
+    <div className="bg-white/90 sm:bg-white/92 backdrop-blur-xl rounded-xl sm:rounded-3xl p-3.5 sm:p-6 lg:p-7 border border-white shadow-[inset_0_1.5px_0_#FFFFFF,0_15px_40px_-10px_rgba(7,18,69,0.18)] relative transition-all text-left">
       {/* Sleek, Modern Form Header */}
-      <div className="flex items-center justify-between gap-2 mb-2.5">
-        <span className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-emerald-800 bg-emerald-50 px-3 py-1 rounded-full border border-emerald-200/80 shadow-2xs">
-          <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" />
+      <div className="flex items-center justify-between gap-1.5 mb-2 sm:mb-2.5">
+        <span className="inline-flex items-center gap-1.5 text-[10.5px] sm:text-xs font-black uppercase tracking-wider text-emerald-800 bg-emerald-50 px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full border border-emerald-200/80 shadow-2xs">
+          <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-emerald-700" />
           <span>Free Seat Hold</span>
         </span>
-        <span className="text-[10px] sm:text-xs font-black px-3 py-1 rounded-full text-[#8A6208] bg-amber-50 border border-amber-200/80 flex items-center gap-1.5 shadow-2xs">
+        <span className="text-[9.5px] sm:text-xs font-black px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[#8A6208] bg-amber-50 border border-amber-200/80 flex items-center gap-1.5 shadow-2xs">
           <span className="w-1.5 h-1.5 rounded-full bg-[#DEAB07] animate-pulse" />
           <span>Limited Seats · Oct 28</span>
         </span>
       </div>
 
-      <h3 className="text-xl sm:text-2xl font-black text-[#071245] leading-tight mb-1">
+      <h3 className="text-base sm:text-2xl font-black text-[#071245] leading-tight mb-0.5 sm:mb-1">
         Reserve your seat for October 28
       </h3>
-      <p className="text-xs sm:text-[13px] text-slate-600 font-semibold mb-3">
+      <p className="text-[11px] sm:text-[13px] text-slate-600 font-semibold mb-2.5 sm:mb-3">
         No payment required today. An advisor will discuss your goals.
       </p>
 
-      <form onSubmit={handleSubmit} className="space-y-3">
+      <form onSubmit={handleSubmit} className="space-y-2.5 sm:space-y-3">
         {/* Motivation Dropdown */}
         <div>
           <label htmlFor="hero-motivation" className="block text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-[#071245] mb-1">

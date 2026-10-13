@@ -9,55 +9,55 @@ export function PreFooterCTA() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Luxury Skeuomorphic Card */}
-        <div className="rounded-[24px] sm:rounded-[36px] bg-gradient-to-b from-white via-[#FCFDFE] to-[#F8FAFC] border border-slate-200/90 p-6 sm:p-10 lg:p-14 text-[#071245] shadow-[inset_0_2px_0_#FFFFFF,inset_0_-2px_0_rgba(15,23,42,0.03),0_20px_50px_-10px_rgba(7,18,69,0.08)] relative overflow-hidden">
+        {/* Luxury Skeuomorphic Card - Compact Mobile */}
+        <div className="rounded-2xl sm:rounded-[36px] bg-gradient-to-b from-white via-[#FCFDFE] to-[#F8FAFC] border border-slate-200/90 p-4 sm:p-10 lg:p-14 text-[#071245] shadow-[inset_0_2px_0_#FFFFFF,inset_0_-2px_0_rgba(15,23,42,0.03),0_12px_40px_-10px_rgba(7,18,69,0.08)] relative overflow-hidden">
           
           <div className="text-center max-w-3xl mx-auto relative z-10">
             {/* Centered Eyebrow Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white text-slate-700 text-[11px] sm:text-xs font-black tracking-widest uppercase mb-3 sm:mb-4 border border-slate-200 shadow-[inset_0_1px_0_#FFFFFF,0_1px_2px_rgba(0,0,0,0.04)] backdrop-blur-md">
-              <Sparkles className="w-3.5 h-3.5 text-[#B87503]" />
+            <div className="inline-flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-0.5 sm:py-1 rounded-full bg-white text-slate-700 text-[10px] sm:text-xs font-black tracking-widest uppercase mb-2.5 sm:mb-4 border border-slate-200 shadow-[inset_0_1px_0_#FFFFFF,0_1px_2px_rgba(0,0,0,0.04)] backdrop-blur-md">
+              <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#B87503]" />
               <span>LIMITED INTAKE · OCTOBER 28, 2026</span>
             </div>
 
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#071245] tracking-[-0.03em] leading-tight mb-2 sm:mb-3">
+            <h2 className="text-xl sm:text-4xl lg:text-5xl font-black text-[#071245] tracking-[-0.03em] leading-tight mb-2 sm:mb-3">
               Ready to transform your health from the kitchen out?
             </h2>
 
-            <p className="text-xs sm:text-base text-slate-600 max-w-2xl mx-auto font-medium leading-relaxed mb-5 sm:mb-7">
+            <p className="text-[11px] sm:text-base text-slate-600 max-w-2xl mx-auto font-medium leading-normal sm:leading-relaxed mb-4 sm:mb-7">
               Join certified lead nutritionist Rasha Abu Rabi, MSc., R.H.N. for 10 live online workshops. Earn your certificate and 4 canfitpro CECs.
             </p>
 
             {/* Schedule Highlights Strip */}
-            <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3.5 mb-6 sm:mb-8 text-[11px] sm:text-xs font-black text-[#071245]">
-              <div className="flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs">
-                <Calendar className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#B87503]" />
+            <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-3.5 mb-4 sm:mb-8 text-[10px] sm:text-xs font-black text-[#071245]">
+              <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl bg-slate-50 border border-slate-200 shadow-2xs">
+                <Calendar className="w-3 h-3 sm:w-4 sm:h-4 text-[#B87503]" />
                 <span>Starts {PROGRAM_INFO.startDate}</span>
               </div>
-              <div className="flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs">
-                <Clock className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#B87503]" />
+              <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl bg-slate-50 border border-slate-200 shadow-2xs">
+                <Clock className="w-3 h-3 sm:w-4 sm:h-4 text-[#B87503]" />
                 <span>{PROGRAM_INFO.scheduleTime}</span>
               </div>
-              <div className="flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 rounded-xl bg-slate-50 border border-slate-200 shadow-2xs">
-                <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#B87503]" />
+              <div className="flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3 py-1 sm:py-1.5 rounded-lg sm:rounded-xl bg-slate-50 border border-slate-200 shadow-2xs">
+                <Award className="w-3 h-3 sm:w-4 sm:h-4 text-[#B87503]" />
                 <span>4 canfitpro CECs Approved</span>
               </div>
             </div>
 
             {/* Dual CTAs */}
-            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-3.5 mb-6 sm:mb-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 sm:gap-3.5 mb-4 sm:mb-8">
               <a
                 href="#register"
-                className="btn-skeuo-gold animate-shimmer w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-9 h-12 sm:h-13 rounded-full text-xs sm:text-base font-black tracking-wide shadow-md"
+                className="btn-skeuo-gold animate-shimmer w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-9 h-11 sm:h-13 rounded-full text-xs sm:text-base font-black tracking-wide shadow-md"
               >
                 <span>Reserve your seat now</span>
-                <ArrowRight className="w-4 h-4 text-[#071245] stroke-[3]" />
+                <ArrowRight className="w-3.5 h-3.5 text-[#071245] stroke-[3]" />
               </a>
 
               <a
                 href={`tel:${PROGRAM_INFO.phoneRaw}`}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-7 h-12 sm:h-13 rounded-full bg-white hover:bg-slate-50 border border-slate-200 text-[#071245] text-xs sm:text-sm font-black transition-all shadow-2xs hover:scale-105"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-7 h-11 sm:h-13 rounded-full bg-white hover:bg-slate-50 border border-slate-200 text-[#071245] text-xs sm:text-sm font-black transition-all shadow-2xs hover:scale-105"
               >
-                <Phone className="w-3.5 h-3.5 text-[#B87503]" />
+                <Phone className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#B87503]" />
                 <span>Questions? Call {PROGRAM_INFO.phone}</span>
               </a>
             </div>

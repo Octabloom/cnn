@@ -292,15 +292,15 @@ export function RegistrationWizard() {
   }
 
   return (
-    <div className="bg-white rounded-2xl sm:rounded-3xl shadow-[0_20px_60px_-15px_rgba(7,18,69,0.12)] border border-slate-200/90 overflow-hidden relative">
+    <div className="bg-white rounded-xl sm:rounded-3xl shadow-[0_15px_50px_-15px_rgba(7,18,69,0.12)] border border-slate-200/90 overflow-hidden relative">
       
       {/* Dual-Pane Layout: Left Vertical Stepper + Right Interactive Form Area */}
-      <div className="grid grid-cols-1 md:grid-cols-12 min-h-[500px]">
+      <div className="grid grid-cols-1 md:grid-cols-12 min-h-[460px] sm:min-h-[500px]">
         
         {/* ==============================================================
             LEFT SIDEBAR: Discrete Unbroken Stepper (Lines strictly BETWEEN nodes)
             ============================================================== */}
-        <div className="md:col-span-4 lg:col-span-3 bg-[#071245] text-white p-4 sm:p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-white/10 relative overflow-hidden">
+        <div className="md:col-span-4 lg:col-span-3 bg-[#071245] text-white p-3 sm:p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-white/10 relative overflow-hidden">
           
           {/* Ambient Lighting Background */}
           <div className="absolute top-0 right-0 w-48 h-48 bg-[#F6C915]/10 rounded-full blur-2xl pointer-events-none" />
@@ -495,14 +495,14 @@ export function RegistrationWizard() {
         {/* ==============================================================
             RIGHT CONTENT AREA (Step Form Options & Interactive Controls)
             ============================================================== */}
-        <div className="md:col-span-8 lg:col-span-9 p-4 sm:p-6 lg:p-7 flex flex-col justify-between bg-white relative">
+        <div className="md:col-span-8 lg:col-span-9 p-3.5 sm:p-6 lg:p-7 flex flex-col justify-between bg-white relative">
           
           {/* Animated Step Body Container */}
           <div key={currentStep} className="animate-in fade-in slide-in-from-right-3 duration-300">
             
             {/* STEP 1: PROFILE / ABOUT YOU */}
             {currentStep === 1 && (
-              <div className="space-y-3.5 sm:space-y-4">
+              <div className="space-y-3 sm:space-y-4">
                 <div>
                   <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-slate-100 text-[#071245] text-[10px] font-black uppercase tracking-wider mb-1">
                     <span>Step 1 of 4 · Profile</span>
@@ -516,7 +516,7 @@ export function RegistrationWizard() {
                 </div>
 
                 {/* Highly Interactive Motivation Option Cards */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
                   {MOTIVATION_OPTIONS.map((opt, idx) => {
                     const isSelected = motivation === opt.id;
                     const isLast = idx === MOTIVATION_OPTIONS.length - 1;
@@ -531,7 +531,7 @@ export function RegistrationWizard() {
                             setStepErrors((prev) => ({ ...prev, motivation: "" }));
                           }
                         }}
-                        className={`p-3 sm:p-3.5 rounded-xl border text-left cursor-pointer transition-all duration-200 flex items-center justify-between group active:scale-[0.99] ${
+                        className={`p-2.5 sm:p-3.5 rounded-xl border text-left cursor-pointer transition-all duration-200 flex items-center justify-between group active:scale-[0.99] ${
                           isLast ? "sm:col-span-2" : ""
                         } ${
                           isSelected
