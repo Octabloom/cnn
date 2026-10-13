@@ -28,7 +28,7 @@ export function Header() {
           {/* Bigger CSNN Toronto Logo */}
           <div className="relative w-12 h-12 sm:w-16 sm:h-16 lg:w-20 lg:h-20 shrink-0 transition-transform group-hover:scale-105 duration-300">
             <Image
-              src="/assets/logo.jpg"
+              src="/graphics/logo.jpg"
               alt="CSNN Toronto - Canadian School of Natural Nutrition"
               fill
               sizes="(max-width: 640px) 48px, (max-width: 1024px) 64px, 80px"

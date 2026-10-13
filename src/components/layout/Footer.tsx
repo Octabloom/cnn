@@ -20,7 +20,7 @@ export function Footer() {
             <div className="flex items-center gap-3.5">
               <div className="relative w-13 h-13 rounded-full overflow-hidden bg-white p-1 border-2 border-[#F6C915] shadow-lg">
                 <Image
-                  src="/assets/logo.jpg"
+                  src="/graphics/logo.jpg"
                   alt="CSNN Toronto Logo"
                   fill
                   sizes="48px"

@@ -42,7 +42,7 @@ export function InstructorBio() {
           <div className="lg:col-span-4 flex flex-col items-center">
             <div className="relative w-full max-w-[150px] sm:max-w-[280px] aspect-[4/5] rounded-xl sm:rounded-[28px] overflow-hidden shadow-[0_8px_20px_-4px_rgba(7,18,69,0.2),inset_0_1px_1px_rgba(255,255,255,0.8)] border-3 sm:border-4 border-white bg-[#071245] group">
               <Image
-                src="/assets/rasha-portrait.jpg"
+                src="/graphics/Meet Your Instructor.jpg"
                 alt="Rasha Abu Rabi, Lead Instructor at CSNN Toronto"
                 fill
                 className="object-cover object-top group-hover:scale-105 transition-transform duration-700"

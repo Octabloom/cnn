@@ -38,7 +38,7 @@ export function AboutProgram() {
             <div className="relative w-full max-w-[320px] sm:max-w-[420px] aspect-[4/4.5] sm:aspect-[4/5] rounded-[24px] sm:rounded-[32px] overflow-hidden shadow-xl border-2 border-slate-200 group bg-[#071245]">
               {/* Premium Image */}
               <Image
-                src="/images/nutrition-masterclass.jpg"
+                src="/graphics/About Program (Masterclass).jpg"
                 alt="Holistic nutrition culinary masterclass fresh whole foods"
                 fill
                 sizes="(max-width: 1024px) 100vw, 420px"

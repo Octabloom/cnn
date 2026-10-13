@@ -110,7 +110,7 @@ export function InstructorSection() {
           <div className="lg:col-span-4 flex flex-col items-center">
             <div className="relative w-full max-w-[280px] aspect-[4/5] rounded-[28px] overflow-hidden shadow-xl border-4 border-white bg-[#071245] group">
               <Image
-                src="/assets/rasha-portrait.jpg"
+                src="/graphics/Meet Your Instructor.jpg"
                 alt="Rasha Abu Rabi, Lead Instructor at CSNN Toronto"
                 fill
                 className="object-cover object-top group-hover:scale-105 transition-transform duration-700"

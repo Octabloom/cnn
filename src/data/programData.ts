@@ -74,7 +74,7 @@ export const WORKSHOPS: Workshop[] = [
     title: "Proper Digestion & Gut Health",
     description: "Understand the GI tract, gut bacteria, microbiome diversity, and the power of fermented foods.",
     highlight: "Microbiome & Fermented Foods",
-    image: "/images/ws-01-gut.jpg",
+    image: "/graphics/Curriculum & WS 01 (Gut Health).jpg",
   },
   {
     id: 2,
@@ -82,7 +82,7 @@ export const WORKSHOPS: Workshop[] = [
     title: "Good Carbs vs. Bad Carbs",
     description: "Uncover the truth about sugars, grains, fiber, and how to identify hidden carbs.",
     highlight: "Fiber & Hidden Sugars",
-    image: "/images/ws-02-carbs.jpg",
+    image: "/graphics/Curriculum & WS 02 (Carbs).jpg",
   },
   {
     id: 3,
@@ -90,7 +90,7 @@ export const WORKSHOPS: Workshop[] = [
     title: "All About Protein",
     description: "Learn about plant vs. animal proteins, protein needs, and quality sources.",
     highlight: "Plant vs Animal Quality",
-    image: "/images/ws-03-protein.jpg",
+    image: "/graphics/Curriculum WS 03 (Protein).jpg",
   },
   {
     id: 4,
@@ -98,7 +98,7 @@ export const WORKSHOPS: Workshop[] = [
     title: "Demystifying Fats",
     description: "Decode the good, the bad, and the essential role of fats in your health.",
     highlight: "Essential Fatty Acids",
-    image: "/images/ws-04-fats.jpg",
+    image: "/graphics/Curriculum WS 04 (Fats).jpg",
   },
   {
     id: 5,
@@ -106,7 +106,7 @@ export const WORKSHOPS: Workshop[] = [
     title: "Vitamins & Minerals Essentials",
     description: "Discover the functions of key nutrients and where to find them in whole foods.",
     highlight: "Micronutrient Sources",
-    image: "/images/ws-05-vitamins.jpg",
+    image: "/graphics/Curriculum WS 05 (Vitamins)_.jpg",
   },
   {
     id: 6,
@@ -114,7 +114,7 @@ export const WORKSHOPS: Workshop[] = [
     title: "Detox What?",
     description: "Explore natural detoxification methods, liver supporting foods, and gentle cleansing tips.",
     highlight: "Liver Support & Cleansing",
-    image: "/images/ws-06-detox.jpg",
+    image: "/graphics/Curriculum WS 06 (Detox).jpg",
   },
   {
     id: 7,
@@ -122,7 +122,7 @@ export const WORKSHOPS: Workshop[] = [
     title: "Phytonutrients & Eating the Rainbow",
     description: "Learn why different colours on your plate matter, and how they protect your body.",
     highlight: "Color Diversity & Defense",
-    image: "/images/ws-07-rainbow.jpg",
+    image: "/graphics/Curriculum WS 07 (Phytonutrients).jpg",
   },
   {
     id: 8,
@@ -130,7 +130,7 @@ export const WORKSHOPS: Workshop[] = [
     title: "Immunity with Whole Foods",
     description: "Support your immune system through anti-inflammatory foods and nutrient-rich choices.",
     highlight: "Anti-Inflammatory Choices",
-    image: "/images/ws-08-immunity.jpg",
+    image: "/graphics/Curriculum & WS 08 (Immunity).jpg",
   },
   {
     id: 9,
@@ -138,7 +138,7 @@ export const WORKSHOPS: Workshop[] = [
     title: "Whole Foods Kitchen 101",
     description: "From pantry prep to budget meals, cookware tips, and clean eating. Simplify your kitchen.",
     highlight: "Pantry Prep & Budget Cooking",
-    image: "/images/ws-09-kitchen.jpg",
+    image: "/graphics/Curriculum & WS 09 (Kitchen 101).jpg",
   },
   {
     id: 10,
@@ -146,7 +146,7 @@ export const WORKSHOPS: Workshop[] = [
     title: "Stress & Mindset",
     description: "Understand how stress impacts the body and how positive mindset habits improve wellness.",
     highlight: "Mindset & Body Balance",
-    image: "/images/ws-10-mindset.jpg",
+    image: "/graphics/Curriculum WS 10 (Mindset).jpg",
   },
 ];
 

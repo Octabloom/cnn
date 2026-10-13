@@ -143,7 +143,7 @@ export function WhyCSNN() {
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
           <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-white text-[#071245] text-[11px] sm:text-xs font-black tracking-widest uppercase mb-3 border border-slate-200/90 shadow-[inset_0_1px_0_#FFFFFF,0_2px_4px_rgba(0,0,0,0.04)]">
             <div className="relative w-4 h-4 rounded-full overflow-hidden bg-white p-0.5 shrink-0 border border-[#F6C915]">
-              <Image src="/assets/logo.jpg" alt="CSNN" fill sizes="16px" className="object-contain" />
+              <Image src="/graphics/logo.jpg" alt="CSNN" fill sizes="16px" className="object-contain" />
             </div>
             <span>WHY CSNN TORONTO · 32 YEARS OF EXCELLENCE</span>
             <span className="w-1.5 h-1.5 rounded-full bg-[#F6C915] animate-pulse" />

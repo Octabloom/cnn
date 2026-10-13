@@ -57,7 +57,7 @@ export function ProgramShowcaseDualPane() {
               {/* Main Image Frame */}
               <div className="relative rounded-[32px] overflow-hidden border-2 border-slate-100 shadow-xl aspect-[4/3] sm:aspect-[1/1] lg:aspect-[4/5] bg-[#071245] group">
                 <Image
-                  src="/images/csnn-showcase.jpg"
+                  src="/graphics/Program Showcase Dual-Pane.jpg"
                   alt="CSNN Toronto Live Online Nutrition Masterclass Studio"
                   fill
                   sizes="(max-width: 1024px) 100vw, 45vw"
