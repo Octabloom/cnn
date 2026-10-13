@@ -427,29 +427,51 @@
 .animate-audio-bar-1 { animation: audioBarWave 0.9s ease-in-out infinite; }
 .animate-audio-bar-2 { animation: audioBarWave 0.7s ease-in-out infinite 0.15s; }
 .animate-audio-bar-3 { animation: audioBarWave 1.1s ease-in-out infinite 0.3s; }
-.animate-audio-bar-4 { animation: audioBarWave 0.8s ease-in-out infinite 0.1s; }
-
-/* Smooth Gentle Bouncing Checkmark Icon */
-@keyframes smoothBounce {
+/* Real 3D Shiny Ball Bouncing Animation with Squash, Stretch & Floor Shadow */
+@keyframes realBallBounce {
   0%, 100% {
-    transform: translateY(0);
+    transform: translateY(0) scale(1.06, 0.94);
+    animation-timing-function: cubic-bezier(0.2, 0.7, 0.3, 1);
   }
-  26% {
-    transform: translateY(-9px);
+  45% {
+    transform: translateY(-24px) scale(0.95, 1.05);
+    animation-timing-function: cubic-bezier(0.7, 0, 0.8, 0.3);
   }
-  46% {
-    transform: translateY(0);
+  82% {
+    transform: translateY(0) scale(1.02, 0.98);
   }
-  60% {
-    transform: translateY(-2.5px);
-  }
-  72% {
-    transform: translateY(0);
+  90% {
+    transform: translateY(-5px) scale(0.98, 1.02);
   }
 }
 
-.animate-smooth-bounce {
-  animation: smoothBounce 2.3s ease-in-out infinite;
+.animate-real-ball-bounce {
+  animation: realBallBounce 1.7s infinite;
+  transform-origin: bottom center;
+}
+
+@keyframes ballShadowPulse {
+  0%, 100% {
+    transform: scale(1.1);
+    opacity: 0.65;
+  }
+  45% {
+    transform: scale(0.5);
+    opacity: 0.18;
+  }
+  82% {
+    transform: scale(1.03);
+    opacity: 0.6;
+  }
+  90% {
+    transform: scale(0.85);
+    opacity: 0.35;
+  }
+}
+
+.animate-ball-shadow {
+  animation: ballShadowPulse 1.7s infinite;
+  transform-origin: center center;
 }
 
 /* Reduced Motion */

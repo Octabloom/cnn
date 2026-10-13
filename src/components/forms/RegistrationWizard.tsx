@@ -134,28 +134,29 @@ export function RegistrationWizard() {
           <div className="absolute bottom-12 right-1/3 w-1.5 h-1.5 rounded-full bg-[#FFE46B] animate-ping opacity-70" />
         </div>
 
-        {/* 3D SKEUOMORPHIC GLASS EMERALD CHECKMARK ICON (NO WHITE BORDER/LINE, PURE 3D GLASS REFRACTION & GENTLE BOUNCE) */}
-        <div className="relative pt-2 pb-1 select-none">
+        {/* REAL SHINY 3D SPHERE CHECKMARK ICON (NO FLAT LINES, TRUE SPHERICAL 3D HIGHLIGHT + REALISTIC BOUNCING + GROUND SHADOW) */}
+        <div className="relative pt-3 pb-2 select-none flex flex-col items-center">
           <div
             onClick={() => setCelebrationPops((prev) => prev + 1)}
             title="Click for celebration sparkle!"
-            className="relative flex items-center justify-center animate-smooth-bounce cursor-pointer group"
+            className="relative flex items-center justify-center animate-real-ball-bounce cursor-pointer group"
           >
-            {/* Soft Ambient Radial Emerald Glow */}
-            <div className="absolute -inset-4 rounded-full bg-emerald-500/35 blur-xl pointer-events-none group-hover:bg-emerald-500/50 transition-colors" />
+            {/* Soft Ambient Radial Glow Halo */}
+            <div className="absolute -inset-3 rounded-full bg-emerald-500/30 blur-xl pointer-events-none group-hover:bg-emerald-500/45 transition-colors" />
 
-            {/* 3D Glassmorphic Tactile Emerald Sphere (NO WHITE BORDER / LINE) */}
+            {/* True 3D Shiny Sphere */}
             <div
-              className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-gradient-to-br from-[#34D399] via-[#059669] to-[#064E3B] flex items-center justify-center relative transition-all duration-300 group-hover:scale-110 group-active:scale-95 shadow-[0_20px_45px_-8px_rgba(5,150,105,0.7),0_8px_18px_rgba(0,0,0,0.22),inset_0_3px_5px_rgba(255,255,255,0.75),inset_0_-7px_14px_rgba(4,70,50,0.85)] border-0 ring-0 outline-none"
+              className="w-20 h-20 sm:w-24 sm:h-24 rounded-full flex items-center justify-center relative transition-transform duration-300 group-hover:scale-105 group-active:scale-95 shadow-[0_20px_40px_-6px_rgba(22,163,74,0.6),inset_-8px_-10px_20px_rgba(3,44,22,0.9),inset_3px_3px_8px_rgba(255,255,255,0.7)]"
+              style={{
+                background: "radial-gradient(circle at 35% 28%, #86EFAC 0%, #22C55E 30%, #16A34A 58%, #15803D 78%, #064E3B 92%, #022C1A 100%)",
+              }}
             >
-              {/* Top Specular Curved Glass Glare Arc (Simulates Glass Dome Reflection) */}
-              <div className="absolute top-1.5 inset-x-3.5 h-6 rounded-full bg-gradient-to-b from-white/70 via-white/20 to-transparent pointer-events-none" />
+              {/* Natural Circular Specular Spotlight Dot (Pure 3D sphere glint, NOT a flat line) */}
+              <div className="absolute top-3 left-4 sm:top-3.5 sm:left-5 w-4 h-3 sm:w-5 sm:h-3.5 rounded-[100%] bg-white/85 blur-[0.6px] -rotate-15 pointer-events-none" />
+              <div className="absolute top-2.5 left-3.5 sm:top-3 sm:left-4.5 w-2 h-1.5 rounded-full bg-white blur-[0.3px] pointer-events-none" />
 
-              {/* Bottom Subtle Caustic Rim Reflection */}
-              <div className="absolute bottom-1.5 inset-x-5 h-2.5 rounded-full bg-gradient-to-t from-emerald-300/40 to-transparent pointer-events-none" />
-
-              {/* Internal Glassmorphic Check Icon with Drop Shadow */}
-              <Check className="w-10 h-10 sm:w-12 sm:h-12 text-white stroke-[3.5] drop-shadow-[0_2px_4px_rgba(0,0,0,0.45)] relative z-10 group-hover:scale-110 transition-transform duration-200" />
+              {/* Internal 3D Check Icon with Soft Embossed Drop Shadow */}
+              <Check className="w-10 h-10 sm:w-12 sm:h-12 text-white stroke-[3.5] drop-shadow-[0_2px_4px_rgba(0,0,0,0.55)] relative z-10 transition-transform duration-200 group-hover:scale-110" />
             </div>
 
             {/* Interactive Celebration Feedback Floating Badge on Click */}
@@ -165,6 +166,9 @@ export function RegistrationWizard() {
               </span>
             )}
           </div>
+
+          {/* Synchronized Realistic Ground Floor Shadow underneath the ball */}
+          <div className="w-14 sm:w-16 h-2.5 rounded-[100%] bg-emerald-950/35 blur-[2.5px] animate-ball-shadow pointer-events-none -mt-1" />
         </div>
 
         {/* Status Pill & Welcome Heading */}
@@ -237,7 +241,7 @@ export function RegistrationWizard() {
       <div className="grid grid-cols-1 md:grid-cols-12 min-h-[500px]">
         
         {/* ==============================================================
-            LEFT SIDEBAR: Continuous Unbroken Stepper (Desktop Vertical + Mobile Horizontal)
+            LEFT SIDEBAR: Discrete Unbroken Stepper (Lines strictly BETWEEN nodes)
             ============================================================== */}
         <div className="md:col-span-4 lg:col-span-3 bg-[#071245] text-white p-4 sm:p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-white/10 relative overflow-hidden">
           
@@ -265,38 +269,22 @@ export function RegistrationWizard() {
             </div>
           </div>
 
-          {/* Stepper Rail: CONTINUOUS UNBROKEN TIMELINE (ZERO OVERLAP THROUGH NUMBERS) */}
+          {/* Stepper Rail: LINES ARE STRICTLY BETWEEN NODES (ZERO OVERLAP ON NUMBERS) */}
           <div className="my-3 sm:my-auto py-2 sm:py-4 relative z-10">
             
             {/* ==========================================================
-                DESKTOP VERTICAL STEPPER WITH UNBROKEN CONNECTING SEGMENTS
+                DESKTOP VERTICAL STEPPER: LINES BETWEEN NODES ONLY
                 ========================================================== */}
-            <div className="hidden md:flex flex-col relative">
-              {/* Continuous Background Rail Track from Node 1 Center to Node 4 Center */}
-              <div
-                aria-hidden="true"
-                className="absolute left-[20px] top-[20px] bottom-[20px] w-[2.5px] -translate-x-1/2 bg-white/20 z-0 pointer-events-none rounded-full"
-              />
+            <div className="hidden md:flex flex-col">
+              {stepsList.map((step, idx) => {
+                const isCurrent = currentStep === step.num;
+                const isCompleted = currentStep > step.num;
+                const isLast = idx === stepsList.length - 1;
 
-              {/* Continuous Active Gradient Illuminated Fill */}
-              <div
-                aria-hidden="true"
-                className="absolute left-[20px] top-[20px] w-[2.5px] -translate-x-1/2 bg-gradient-to-b from-[#22C55E] via-[#F6C915] to-[#FFE676] z-0 pointer-events-none rounded-full transition-all duration-500 ease-out shadow-[0_0_10px_rgba(246,201,21,0.7)]"
-                style={{
-                  height: `${((currentStep - 1) / (stepsList.length - 1)) * 100}%`,
-                  maxHeight: "calc(100% - 40px)",
-                }}
-              />
-
-              <div className="space-y-4 relative z-10">
-                {stepsList.map((step) => {
-                  const isCurrent = currentStep === step.num;
-                  const isCompleted = currentStep > step.num;
-
-                  return (
+                return (
+                  <div key={step.num} className="flex flex-col">
                     <button
                       type="button"
-                      key={step.num}
                       onClick={() => {
                         if (isCompleted) {
                           setCurrentStep(step.num);
@@ -304,7 +292,7 @@ export function RegistrationWizard() {
                         }
                       }}
                       disabled={!isCompleted && !isCurrent}
-                      className={`w-full flex items-center text-left gap-3.5 transition-all p-1 rounded-xl group relative z-10 ${
+                      className={`w-full flex items-center text-left gap-3.5 transition-all p-1 rounded-xl group ${
                         isCompleted
                           ? "cursor-pointer hover:bg-white/10 active:scale-95"
                           : isCurrent
@@ -312,9 +300,9 @@ export function RegistrationWizard() {
                           : "cursor-not-allowed opacity-50"
                       }`}
                     >
-                      {/* 100% Solid Opaque Circle Node (Covers line underneath with zero overlap on number) */}
+                      {/* Step Circle Badge */}
                       <div
-                        className={`w-9 h-9 rounded-xl flex items-center justify-center font-black text-xs shrink-0 transition-all duration-300 relative z-10 shadow-md ${
+                        className={`w-9 h-9 rounded-xl flex items-center justify-center font-black text-xs shrink-0 transition-all duration-300 shadow-md ${
                           isCurrent
                             ? "bg-gradient-to-b from-[#FFE46B] to-[#DEAB07] text-[#071245] shadow-[0_0_16px_rgba(246,201,21,0.65)] ring-4 ring-[#F6C915]/30 scale-105"
                             : isCompleted
@@ -347,37 +335,35 @@ export function RegistrationWizard() {
                         </span>
                       </div>
                     </button>
-                  );
-                })}
-              </div>
+
+                    {/* Dedicated Vertical Connector Line: Situated STRICTLY between nodes. ZERO line in circle or over numbers! */}
+                    {!isLast && (
+                      <div className="h-6 flex items-center pl-[22px] pointer-events-none my-0.5">
+                        <div
+                          className={`w-[2.5px] -translate-x-1/2 h-full rounded-full transition-all duration-400 ${
+                            isCompleted
+                              ? "bg-gradient-to-b from-[#22C55E] to-[#F6C915] shadow-[0_0_8px_rgba(246,201,21,0.6)]"
+                              : "bg-white/20"
+                          }`}
+                        />
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
 
             {/* ==========================================================
-                MOBILE HORIZONTAL STEPPER WITH UNBROKEN CONNECTING TRACK
+                MOBILE HORIZONTAL STEPPER: LINES BETWEEN NODES ONLY
                 ========================================================== */}
-            <div className="md:hidden relative py-1">
-              {/* Continuous Horizontal Background Rail Track */}
-              <div
-                aria-hidden="true"
-                className="absolute left-[14px] right-[14px] top-[18px] h-[2px] -translate-y-1/2 bg-white/20 z-0 pointer-events-none rounded-full"
-              />
+            <div className="md:hidden flex items-center justify-between py-1">
+              {stepsList.map((step, idx) => {
+                const isCurrent = currentStep === step.num;
+                const isCompleted = currentStep > step.num;
+                const isLast = idx === stepsList.length - 1;
 
-              {/* Continuous Horizontal Active Fill */}
-              <div
-                aria-hidden="true"
-                className="absolute left-[14px] top-[18px] h-[2px] -translate-y-1/2 bg-gradient-to-r from-[#22C55E] via-[#F6C915] to-[#FFE676] z-0 pointer-events-none rounded-full transition-all duration-400 ease-out shadow-[0_0_8px_rgba(246,201,21,0.7)]"
-                style={{
-                  width: `${((currentStep - 1) / (stepsList.length - 1)) * 100}%`,
-                  maxWidth: "calc(100% - 28px)",
-                }}
-              />
-
-              <div className="grid grid-cols-4 gap-1 relative z-10">
-                {stepsList.map((step) => {
-                  const isCurrent = currentStep === step.num;
-                  const isCompleted = currentStep > step.num;
-
-                  return (
+                return (
+                  <React.Fragment key={step.num}>
                     <button
                       type="button"
                       key={step.num}
@@ -398,7 +384,7 @@ export function RegistrationWizard() {
                     >
                       {/* Opaque Badge on Mobile */}
                       <div
-                        className={`w-7 h-7 rounded-lg flex items-center justify-center font-black text-xs shrink-0 transition-all relative z-10 shadow-sm ${
+                        className={`w-7 h-7 rounded-lg flex items-center justify-center font-black text-xs shrink-0 transition-all shadow-sm ${
                           isCurrent
                             ? "bg-gradient-to-b from-[#FFE46B] to-[#DEAB07] text-[#071245] ring-2 ring-[#F6C915]/40 scale-105"
                             : isCompleted
@@ -421,9 +407,22 @@ export function RegistrationWizard() {
                         {step.label}
                       </span>
                     </button>
-                  );
-                })}
-              </div>
+
+                    {/* Horizontal Connector Line between steps (zero overlap on nodes) */}
+                    {!isLast && (
+                      <div className="flex-1 h-[2px] mx-1 rounded-full overflow-hidden self-center mb-4">
+                        <div
+                          className={`w-full h-full transition-all duration-400 ${
+                            isCompleted
+                              ? "bg-gradient-to-r from-[#22C55E] to-[#F6C915]"
+                              : "bg-white/20"
+                          }`}
+                        />
+                      </div>
+                    )}
+                  </React.Fragment>
+                );
+              })}
             </div>
 
           </div>
