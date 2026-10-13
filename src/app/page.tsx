@@ -2,7 +2,6 @@ import React from "react";
 import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Header } from "@/components/layout/Header";
 import { HeroSection } from "@/components/sections/HeroSection";
-import { LearningOutcomes } from "@/components/sections/LearningOutcomes";
 import { WorkshopCurriculum } from "@/components/sections/WorkshopCurriculum";
 import { LearningExperience } from "@/components/sections/LearningExperience";
 import { InstructorBio } from "@/components/sections/InstructorBio";
@@ -40,11 +39,8 @@ export default function Home() {
         {/* 04. Instructor Profile (MEET YOUR INSTRUCTOR - placed just below HOW YOU'LL LEARN) */}
         <InstructorBio />
 
-        {/* 05. Certificate Recognition Pathways (Choose Your Level of Recognition - CTA placed just above Interactive Curriculum Explorer) */}
+        {/* 05. Certificate Recognition Pathways (Choose Your Level of Recognition) */}
         <CertificatePathways />
-
-        {/* 06. What You'll Learn (Core Nutrition Foundations - INTERACTIVE CURRICULUM EXPLORER) */}
-        <LearningOutcomes />
 
         {/* 06. Official Intake 4-Step Registration Wizard (REGISTER IN 30 SECONDS) */}
         <FinalRegistration />
