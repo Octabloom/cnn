@@ -148,7 +148,7 @@ export function LearningOutcomes() {
                 key={pillar.id}
                 type="button"
                 onClick={() => setActivePillarId(pillar.id)}
-                className={`p-2.5 sm:p-4 rounded-xl sm:rounded-2xl text-left transition-[background-color,border-color,box-shadow] duration-200 flex flex-col justify-between border cursor-pointer min-h-[88px] sm:min-h-[105px] ${
+                className={`p-2.5 sm:p-4 rounded-xl sm:rounded-2xl text-left transition-[background-color,border-color,box-shadow] duration-200 flex flex-col justify-between border cursor-pointer min-h-[96px] sm:min-h-[110px] h-full ${
                   isActive
                     ? "bg-white text-[#071245] border-[#071245] shadow-md ring-2 ring-[#071245]/15"
                     : "bg-slate-50/80 hover:bg-white text-slate-700 border-slate-200/90 hover:border-slate-300 shadow-2xs"
@@ -156,8 +156,10 @@ export function LearningOutcomes() {
               >
                 <div className="flex items-center justify-between gap-1.5 mb-1.5 sm:mb-2">
                   <div
-                    className={`w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center transition-colors ${
-                      isActive ? "bg-[#071245] text-[#F6C915]" : "bg-white text-[#071245] border border-slate-200 shadow-2xs"
+                    className={`w-7 h-7 sm:w-9 sm:h-9 rounded-lg sm:rounded-xl flex items-center justify-center border transition-colors ${
+                      isActive
+                        ? "bg-[#071245] text-[#F6C915] border-[#071245]"
+                        : "bg-white text-[#071245] border-slate-200 shadow-2xs"
                     }`}
                   >
                     <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
@@ -185,7 +187,7 @@ export function LearningOutcomes() {
         </div>
 
         {/* Active Domain Detailed Showcase Card - Zero Layout Shift */}
-        <div className="rounded-[22px] sm:rounded-[36px] bg-slate-50/80 border border-slate-200/90 p-4 sm:p-8 lg:p-10 shadow-sm relative overflow-hidden">
+        <div className="rounded-[22px] sm:rounded-[36px] bg-slate-50/80 border border-slate-200/90 p-4 sm:p-8 lg:p-10 shadow-sm relative overflow-hidden min-h-[580px] lg:min-h-[620px]">
           
           {/* Top Gold Accent */}
           <div className="absolute inset-x-8 sm:inset-x-12 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#F6C915] to-transparent pointer-events-none" />
@@ -193,7 +195,7 @@ export function LearningOutcomes() {
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 sm:gap-8 lg:gap-12 items-start">
             
             {/* Left Column: Curriculum Breakdown & Before/After (7 cols) */}
-            <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-5 min-h-[460px] sm:min-h-[490px] justify-between">
+            <div className="lg:col-span-7 flex flex-col gap-4 sm:gap-5 min-h-[510px] sm:min-h-[540px] justify-between">
               
               {/* Header Badge */}
               <div className="flex items-center gap-2 flex-wrap min-h-[28px]">
@@ -206,14 +208,14 @@ export function LearningOutcomes() {
                 </span>
               </div>
 
-              {/* Title & Workshop Tags with locked min-heights */}
+              {/* Title & Workshop Tags with locked height to prevent wrapping jump */}
               <div>
                 <div className="min-h-[32px] sm:min-h-[38px] flex items-center">
                   <h3 className="text-xl sm:text-2xl lg:text-3xl font-black text-[#071245] tracking-tight leading-tight">
                     {activePillar.title}
                   </h3>
                 </div>
-                <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-2 min-h-[28px] sm:min-h-[32px] items-center">
+                <div className="flex flex-wrap gap-1.5 sm:gap-2 mt-2 h-[58px] sm:h-[64px] items-start content-start overflow-hidden">
                   {activePillar.workshops.map((ws, i) => (
                     <span
                       key={i}
@@ -229,8 +231,8 @@ export function LearningOutcomes() {
               {/* Before vs After Transformation Matrix with locked equal heights */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3.5">
                 {/* Before */}
-                <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-red-50/80 border border-red-200 shadow-2xs min-h-[105px] sm:min-h-[115px] flex flex-col justify-start">
-                  <div className="flex items-center gap-1.5 text-[11px] sm:text-xs font-black text-[#B91C1C] mb-1 shrink-0">
+                <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-red-50/80 border border-red-200 shadow-2xs min-h-[125px] sm:min-h-[135px] flex flex-col justify-start">
+                  <div className="flex items-center gap-1.5 text-[11px] sm:text-xs font-black text-[#B91C1C] mb-1.5 shrink-0">
                     <XCircle className="w-3.5 h-3.5 text-[#B91C1C] shrink-0" />
                     <span>Before This Module:</span>
                   </div>
@@ -240,8 +242,8 @@ export function LearningOutcomes() {
                 </div>
 
                 {/* After HELC */}
-                <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-emerald-50/80 border border-emerald-200 shadow-2xs min-h-[105px] sm:min-h-[115px] flex flex-col justify-start">
-                  <div className="flex items-center gap-1.5 text-[11px] sm:text-xs font-black text-[#15803D] mb-1 shrink-0">
+                <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-emerald-50/80 border border-emerald-200 shadow-2xs min-h-[125px] sm:min-h-[135px] flex flex-col justify-start">
+                  <div className="flex items-center gap-1.5 text-[11px] sm:text-xs font-black text-[#15803D] mb-1.5 shrink-0">
                     <CheckCircle2 className="w-3.5 h-3.5 text-[#15803D] shrink-0" />
                     <span>After HELC Mastery:</span>
                   </div>
@@ -256,7 +258,7 @@ export function LearningOutcomes() {
                 <span className="text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-slate-500 block">
                   Core Skills You Gain:
                 </span>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2 min-h-[58px] sm:min-h-[64px]">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 sm:gap-2 min-h-[64px] sm:min-h-[72px]">
                   {activePillar.keySkills.map((skill, idx) => (
                     <div key={idx} className="flex items-start gap-1.5 sm:gap-2 text-[11px] sm:text-xs font-bold text-[#071245]">
                       <CheckCircle2 className="w-3.5 h-3.5 text-[#1B7A42] shrink-0 mt-0.5" />
@@ -267,7 +269,7 @@ export function LearningOutcomes() {
               </div>
 
               {/* In Your Kitchen Tonight Action Box with locked min-height */}
-              <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-slate-200 shadow-2xs flex items-start gap-2.5 sm:gap-3 min-h-[66px] sm:min-h-[72px]">
+              <div className="p-3 sm:p-4 rounded-xl sm:rounded-2xl bg-white border border-slate-200 shadow-2xs flex items-start gap-2.5 sm:gap-3 min-h-[68px] sm:min-h-[74px]">
                 <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-lg sm:rounded-xl bg-[#071245] text-[#F6C915] flex items-center justify-center shrink-0 shadow-2xs">
                   <ChefHat className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#F6C915]" />
                 </div>
@@ -284,8 +286,8 @@ export function LearningOutcomes() {
             </div>
 
             {/* Right Column: Visual Showcase & Outcome Snapshot (5 cols) */}
-            <div className="lg:col-span-5 flex flex-col items-center">
-              <div className="w-full relative h-48 sm:h-72 lg:h-80 rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border-2 border-white group">
+            <div className="lg:col-span-5 flex flex-col items-center justify-between min-h-[510px] sm:min-h-[540px]">
+              <div className="w-full relative flex-1 min-h-[300px] sm:min-h-[380px] rounded-2xl sm:rounded-3xl overflow-hidden shadow-md border-2 border-white group">
                 <Image
                   src={activePillar.image}
                   alt={activePillar.title}
@@ -308,7 +310,7 @@ export function LearningOutcomes() {
               </div>
 
               {/* Enrollment Trigger */}
-              <div className="w-full mt-3 sm:mt-4 flex items-center justify-between gap-2 p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white border border-slate-200 shadow-2xs">
+              <div className="w-full mt-3 sm:mt-4 flex items-center justify-between gap-2 p-2.5 sm:p-3.5 rounded-xl sm:rounded-2xl bg-white border border-slate-200 shadow-2xs shrink-0">
                 <div className="flex items-center gap-1.5 sm:gap-2">
                   <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#B87503]" />
                   <span className="text-[11px] sm:text-xs font-black text-[#071245]">4 canfitpro CECs Approved</span>
@@ -318,7 +320,7 @@ export function LearningOutcomes() {
                   className="inline-flex items-center gap-1 text-[11px] sm:text-xs font-black text-[#B87503] hover:text-[#071245] transition-colors"
                 >
                   <span>Register for Oct 28</span>
-                  <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5" />
+                  <ArrowRight className="w-3.5 h-3.5 sm:w-3.5 sm:h-3.5" />
                 </a>
               </div>
             </div>

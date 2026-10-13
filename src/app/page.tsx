@@ -33,14 +33,14 @@ export default function Home() {
         {/* 02. Ten-Workshop Curriculum (10 HOLISTIC NUTRITION WORKSHOPS - placed directly below hero) */}
         <WorkshopCurriculum />
 
-        {/* 03. What You'll Learn (Core Nutrition Foundations - INTERACTIVE CURRICULUM EXPLORER) */}
-        <LearningOutcomes />
-
-        {/* 04. How You'll Learn (Live Interactive Experience) */}
+        {/* 03. How You'll Learn (HOW YOU'LL LEARN - placed directly down 10 workshops) */}
         <LearningExperience />
 
-        {/* 05. Instructor Profile (Rasha Abu Rabi - MEET YOUR INSTRUCTOR) */}
+        {/* 04. Instructor Profile (MEET YOUR INSTRUCTOR - placed just below HOW YOU'LL LEARN) */}
         <InstructorBio />
+
+        {/* 05. What You'll Learn (Core Nutrition Foundations - INTERACTIVE CURRICULUM EXPLORER) */}
+        <LearningOutcomes />
 
         {/* 06. Official Intake 4-Step Registration Wizard (REGISTER IN 30 SECONDS) */}
         <FinalRegistration />
