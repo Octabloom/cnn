@@ -112,14 +112,14 @@ export function TestimonialSection() {
         </div>
 
         {/* Dual-Pane Layout: Left Spotlight Card + Right Realistic Smartphone Structure Mockup */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-8 items-start">
           
           {/* ==============================================================
-              LEFT PANE (7 cols): Editorial Review Spotlight Card (Zero Layout Shift)
+              LEFT PANE (7 cols): Editorial Review Spotlight Card (Pixel-Perfect Aligned)
               ============================================================== */}
-          <div className="lg:col-span-7 flex flex-col gap-4">
+          <div className="lg:col-span-7 flex flex-col h-full">
             
-            <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-5 sm:p-7 shadow-[0_15px_40px_-10px_rgba(7,18,69,0.08)] relative min-h-[500px] sm:min-h-[520px] flex flex-col justify-between">
+            <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-5 sm:p-7 shadow-[0_15px_40px_-10px_rgba(7,18,69,0.08)] relative min-h-[520px] lg:h-[642px] flex flex-col justify-between">
               
               {/* Top Accent Line */}
               <div className="absolute inset-x-8 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#F6C915]/70 to-transparent" />
@@ -165,21 +165,21 @@ export function TestimonialSection() {
                 </div>
 
                 {/* Testimonial Headline & Quote with locked min-heights */}
-                <div className="py-2.5 sm:py-3.5 flex flex-col justify-start">
-                  <div className="min-h-[44px] sm:min-h-[50px] flex items-center mb-1">
+                <div className="py-3 sm:py-4 flex flex-col justify-start">
+                  <div className="min-h-[44px] sm:min-h-[50px] flex items-center mb-1.5">
                     <h3 className="text-base sm:text-lg lg:text-xl font-black text-[#071245] leading-snug">
                       {currentTestimonial.headline || "Transformative Natural Nutrition Experience"}
                     </h3>
                   </div>
 
-                  <div className="relative pl-1 min-h-[140px] sm:min-h-[155px]">
+                  <div className="relative pl-1 min-h-[160px] sm:min-h-[175px]">
                     <Quote className="w-8 h-8 text-[#F6C915]/20 absolute -top-1 -left-1 -z-0 pointer-events-none" />
-                    <p className="text-xs sm:text-sm lg:text-[14px] text-slate-700 font-medium leading-relaxed relative z-10 italic line-clamp-6 sm:line-clamp-7">
+                    <p className="text-xs sm:text-sm lg:text-[14.5px] text-slate-700 font-medium leading-relaxed relative z-10 italic line-clamp-6 sm:line-clamp-7">
                       &ldquo;{currentTestimonial.quote}&rdquo;
                     </p>
                   </div>
 
-                  <div className="min-h-[26px] mt-2 flex items-center">
+                  <div className="min-h-[28px] mt-2.5 flex items-center">
                     {currentTestimonial.highlightChip ? (
                       <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg bg-amber-50 border border-amber-200/60 text-[11px] font-black text-[#854D0E]">
                         <Award className="w-3.5 h-3.5 text-[#B87503]" />
@@ -230,9 +230,14 @@ export function TestimonialSection() {
 
                 {/* Quick-Jump Student Pills in this category */}
                 <div className="mt-3.5 pt-3 border-t border-slate-100">
-                  <span className="text-[10px] font-black uppercase text-slate-400 tracking-wider block mb-1.5">
-                    Browse Reviews in this Category:
-                  </span>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-[10px] font-black uppercase text-slate-400 tracking-wider block">
+                      Browse Reviews in this Category:
+                    </span>
+                    <span className="text-[10px] font-bold text-slate-400">
+                      {activeList.length} reviews
+                    </span>
+                  </div>
                   <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-thin">
                     {activeList.map((item) => {
                       const isSelected = item.id === currentTestimonial.id;
@@ -263,28 +268,15 @@ export function TestimonialSection() {
           </div>
 
           {/* ==============================================================
-              RIGHT PANE (5 cols): Realistic Smartphone Structure Mockup
+              RIGHT PANE (5 cols): Realistic Smartphone Structure Mockup (Aligned)
               ============================================================== */}
-          <div className="lg:col-span-5 flex flex-col items-center justify-center">
+          <div className="lg:col-span-5 flex flex-col items-center justify-start">
             
-            {/* Header label above phone */}
-            <div className="mb-2 text-center">
-              <span className="text-[11px] sm:text-xs font-black uppercase tracking-wider text-[#071245] inline-flex items-center gap-1.5 bg-slate-50 px-3 py-1 rounded-full border border-slate-200 shadow-2xs">
-                <Sparkles className="w-3.5 h-3.5 text-[#B87503]" />
-                Live Student Community Hub
-              </span>
-            </div>
-
             {/* Smartphone Real-Like Mockup */}
             <RealisticPhoneMockup
               selectedId={selectedId}
               onSelectTestimonial={(id) => setSelectedId(id)}
             />
-
-            {/* Micro Helper Note below phone */}
-            <p className="text-[11px] text-slate-500 font-bold mt-2 text-center">
-              👆 Tap any review inside the phone to spotlight student feedback.
-            </p>
 
           </div>
 

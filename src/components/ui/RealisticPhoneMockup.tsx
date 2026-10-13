@@ -59,7 +59,7 @@ export function RealisticPhoneMockup({
   };
 
   return (
-    <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[370px] select-none py-3">
+    <div className="relative mx-auto w-full max-w-[340px] sm:max-w-[370px] select-none pt-0 pb-3">
       
       {/* 1. Realistic Ambient Device Ground Shadow (Simulates physical phone on desk) */}
       <div className="absolute inset-x-6 -bottom-3 h-12 bg-slate-950/45 rounded-[100%] blur-2xl pointer-events-none" />
