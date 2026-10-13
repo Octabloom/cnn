@@ -12,10 +12,7 @@ import {
   Sparkles,
   Award,
   User,
-  Play,
-  Pause,
   ArrowRight,
-  Volume2,
 } from "lucide-react";
 import {
   ALL_TESTIMONIALS,
@@ -34,7 +31,6 @@ export function RealisticPhoneMockup({
   onSelectTestimonial,
 }: RealisticPhoneMockupProps) {
   const [likedList, setLikedList] = useState<Record<string, boolean>>({});
-  const [isPlayingAudio, setIsPlayingAudio] = useState<string | null>(null);
 
   // Find active testimonial
   const current =
@@ -60,11 +56,6 @@ export function RealisticPhoneMockup({
   const handleLike = (id: string, e: React.MouseEvent) => {
     e.stopPropagation();
     setLikedList((prev) => ({ ...prev, [id]: !prev[id] }));
-  };
-
-  const toggleAudio = (id: string, e: React.MouseEvent) => {
-    e.stopPropagation();
-    setIsPlayingAudio((prev) => (prev === id ? null : id));
   };
 
   return (
@@ -104,7 +95,7 @@ export function RealisticPhoneMockup({
             <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-bl from-white/[0.08] to-transparent pointer-events-none z-40" />
 
             {/* ==============================================================
-                TOP STATUS BAR & APPLE DYNAMIC ISLAND
+                TOP STATUS BAR & APPLE DYNAMIC ISLAND (Clean & Minimal)
                 ============================================================== */}
             <div className="bg-[#071245] px-6 pt-3 pb-2.5 flex items-center justify-between text-white shrink-0 relative z-30 shadow-xs">
               
@@ -112,23 +103,15 @@ export function RealisticPhoneMockup({
               <span className="text-[12.5px] font-bold tracking-tight pl-1 font-mono">9:41</span>
               
               {/* Precision Apple Dynamic Island */}
-              <div className="absolute left-1/2 -translate-x-1/2 top-2.5 w-[112px] h-[28px] rounded-full bg-black flex items-center justify-between px-2.5 shadow-[0_2px_8px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.2)]">
-                
+              <div className="absolute left-1/2 -translate-x-1/2 top-2.5 w-[105px] h-[26px] rounded-full bg-black flex items-center justify-between px-3 shadow-[0_2px_8px_rgba(0,0,0,0.9),inset_0_1px_1px_rgba(255,255,255,0.2)]">
                 {/* Camera Lens with Multi-Coating Optical Reflection */}
-                <div className="relative w-3.5 h-3.5 rounded-full bg-[#05070D] ring-1 ring-[#161F33] flex items-center justify-center">
+                <div className="relative w-3 h-3 rounded-full bg-[#05070D] ring-1 ring-[#161F33] flex items-center justify-center">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#1E3A8A] blur-[0.2px]" />
-                  <span className="absolute top-0.5 left-0.5 w-1 h-1 rounded-full bg-white/70" />
+                  <span className="absolute top-0.5 left-0.5 w-0.5 h-0.5 rounded-full bg-white/70" />
                 </div>
                 
-                {/* Live Microphone Status & Audio Wave Activity */}
-                <div className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <div className="flex items-center gap-0.5 h-2.5">
-                    <span className="w-0.5 h-2 bg-emerald-400 rounded-full animate-audio-bar-1" />
-                    <span className="w-0.5 h-3 bg-emerald-400 rounded-full animate-audio-bar-2" />
-                    <span className="w-0.5 h-1.5 bg-emerald-400 rounded-full animate-audio-bar-3" />
-                  </div>
-                </div>
+                {/* FaceID / Ambient Sensor Dot */}
+                <span className="w-2 h-2 rounded-full bg-[#111624] border border-white/10" />
               </div>
 
               {/* Status Bar Icons: Cellular Bars + 5G + Wi-Fi + Real Battery Capsule */}
@@ -190,7 +173,7 @@ export function RealisticPhoneMockup({
             </div>
 
             {/* ==============================================================
-                REVIEW CARDS FEED (Scrollable, Native iOS App Feel)
+                REVIEW CARDS FEED (Clean, Simple & Attractive)
                 ============================================================== */}
             <div className="flex-1 overflow-y-auto px-3 py-3 space-y-3 relative z-10">
               
@@ -200,14 +183,13 @@ export function RealisticPhoneMockup({
                   <span>Verified Graduate Reviews</span>
                 </div>
                 <span className="text-[9px] font-bold text-slate-500 bg-slate-200/60 px-2 py-0.5 rounded-full">
-                  Tap to spotlight
+                  Tap card to view
                 </span>
               </div>
 
               {activeList.map((item: TestimonialItem) => {
                 const isSelected = item.id === current.id;
                 const liked = likedList[item.id];
-                const isAudioPlaying = isPlayingAudio === item.id;
 
                 return (
                   <div
@@ -219,70 +201,52 @@ export function RealisticPhoneMockup({
                         : "bg-white/95 border-slate-200 shadow-2xs hover:bg-white hover:border-slate-300"
                     }`}
                   >
-                    {/* Header: Student Profile Avatar & Star Rating */}
-                    <div className="flex items-center justify-between gap-2 mb-2">
+                    {/* Top Row: Student Profile Avatar, Name, Role & 5 Stars */}
+                    <div className="flex items-start justify-between gap-2 mb-2.5">
                       <div className="flex items-center gap-2.5">
-                        <div className="w-8 h-8 rounded-full bg-[#071245] text-white flex items-center justify-center shrink-0 border border-slate-700 shadow-sm relative">
+                        <div className="w-8 h-8 rounded-full bg-[#071245] text-white flex items-center justify-center shrink-0 border border-slate-700 shadow-xs relative">
                           <User className="w-4 h-4 text-white" />
-                          <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 rounded-full bg-emerald-500 border border-white flex items-center justify-center">
-                            <CheckCircle2 className="w-2.5 h-2.5 text-white stroke-[3]" />
+                          <span className="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-emerald-500 border border-white flex items-center justify-center">
+                            <CheckCircle2 className="w-2 h-2 text-white stroke-[3]" />
                           </span>
                         </div>
                         <div>
-                          <div className="text-[11.5px] font-black text-[#071245] leading-tight flex items-center gap-1">
-                            <span>{item.name}</span>
-                          </div>
-                          <div className="text-[9.5px] font-bold text-[#B87503] leading-tight mt-0.5">
+                          <h5 className="text-[12px] font-black text-[#071245] leading-tight">
+                            {item.name}
+                          </h5>
+                          <p className="text-[9.5px] font-bold text-[#B87503] leading-tight mt-0.5">
                             {item.role}
-                          </div>
+                          </p>
                         </div>
                       </div>
 
-                      <div className="flex items-center text-[#F6C915]">
+                      {/* 5 Shiny Gold Stars */}
+                      <div className="flex items-center text-[#F6C915] shrink-0 pt-0.5">
                         {[...Array(5)].map((_, i) => (
                           <Star key={i} className="w-2.5 h-2.5 fill-[#F6C915]" />
                         ))}
                       </div>
                     </div>
 
-                    {/* Quote Text */}
+                    {/* Testimonial Quote */}
                     <p className="text-[11px] text-slate-700 font-medium leading-relaxed italic line-clamp-3">
                       &ldquo;{item.quote}&rdquo;
                     </p>
 
-                    {/* Interactive Audio Voice Note Snippet */}
-                    <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between gap-2">
-                      <button
-                        type="button"
-                        onClick={(e) => toggleAudio(item.id, e)}
-                        className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[9px] font-black transition-all cursor-pointer ${
-                          isAudioPlaying
-                            ? "bg-[#071245] text-white shadow-2xs"
-                            : "bg-slate-100 text-slate-700 hover:bg-slate-200"
-                        }`}
-                      >
-                        {isAudioPlaying ? (
-                          <Pause className="w-2.5 h-2.5 text-[#F6C915]" />
-                        ) : (
-                          <Play className="w-2.5 h-2.5 text-[#071245] fill-[#071245]" />
-                        )}
-                        <span>{isAudioPlaying ? "Playing quote..." : "Voice note (0:38)"}</span>
-                        {isAudioPlaying && (
-                          <div className="flex items-center gap-0.5 h-2 ml-1">
-                            <span className="w-0.5 h-2 bg-[#F6C915] rounded-full animate-audio-bar-1" />
-                            <span className="w-0.5 h-2.5 bg-[#F6C915] rounded-full animate-audio-bar-2" />
-                            <span className="w-0.5 h-1.5 bg-[#F6C915] rounded-full animate-audio-bar-3" />
-                          </div>
-                        )}
-                      </button>
+                    {/* Bottom Row: Program Pill Badge & Helpful Heart Like */}
+                    <div className="mt-2.5 pt-2 border-t border-slate-100 flex items-center justify-between">
+                      <span className="inline-flex items-center gap-1 text-[9px] font-bold text-slate-600 bg-slate-50 border border-slate-200/80 px-2 py-0.5 rounded-md truncate max-w-[200px]">
+                        <ShieldCheck className="w-2.5 h-2.5 text-emerald-600 shrink-0" />
+                        <span className="truncate">{item.program}</span>
+                      </span>
 
                       <button
                         type="button"
                         onClick={(e) => handleLike(item.id, e)}
-                        className="flex items-center gap-1 text-[9.5px] font-bold text-slate-500 hover:text-red-500 transition-colors cursor-pointer"
+                        className="inline-flex items-center gap-1 text-[9.5px] font-bold text-slate-500 hover:text-red-500 transition-colors cursor-pointer pl-2 shrink-0 group/like"
                       >
                         <Heart
-                          className={`w-3.5 h-3.5 ${
+                          className={`w-3.5 h-3.5 transition-transform group-hover/like:scale-110 ${
                             liked
                               ? "text-red-500 fill-red-500 animate-heart-pop"
                               : "text-slate-400"
@@ -290,10 +254,6 @@ export function RealisticPhoneMockup({
                         />
                         <span>{liked ? "Liked!" : "Helpful"}</span>
                       </button>
-                    </div>
-
-                    <div className="mt-1 text-[8.5px] text-slate-400 font-semibold truncate">
-                      {item.program}
                     </div>
                   </div>
                 );
