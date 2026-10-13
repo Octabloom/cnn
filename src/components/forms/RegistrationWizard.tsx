@@ -134,12 +134,69 @@ export function RegistrationWizard() {
           <div className="absolute bottom-12 right-1/3 w-1.5 h-1.5 rounded-full bg-[#FFE46B] animate-ping opacity-70" />
         </div>
 
+        {/* Scoped Keyframes for Guaranteed 3D Bouncing Animation & Floor Shadow */}
+        <style>{`
+          @keyframes realBallBounceActive {
+            0%, 100% {
+              transform: translateY(0);
+              animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+            }
+            30% {
+              transform: translateY(-30px);
+              animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+            }
+            55% {
+              transform: translateY(0);
+              animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+            }
+            72% {
+              transform: translateY(-11px);
+              animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+            }
+            86% {
+              transform: translateY(0);
+            }
+          }
+          @keyframes ballShadowPulseActive {
+            0%, 100% {
+              transform: scale(1);
+              opacity: 0.65;
+            }
+            30% {
+              transform: scale(0.4);
+              opacity: 0.15;
+            }
+            55% {
+              transform: scale(1);
+              opacity: 0.65;
+            }
+            72% {
+              transform: scale(0.7);
+              opacity: 0.35;
+            }
+            86% {
+              transform: scale(1);
+              opacity: 0.65;
+            }
+          }
+          .bouncing-ball-active {
+            animation: realBallBounceActive 1.35s infinite !important;
+            transform-origin: bottom center !important;
+            will-change: transform !important;
+          }
+          .bouncing-shadow-active {
+            animation: ballShadowPulseActive 1.35s infinite !important;
+            transform-origin: center center !important;
+            will-change: transform, opacity !important;
+          }
+        `}</style>
+
         {/* REAL SHINY 3D SPHERE CHECKMARK ICON (NO FLAT LINES, TRUE SPHERICAL 3D HIGHLIGHT + REALISTIC BOUNCING + GROUND SHADOW) */}
-        <div className="relative pt-3 pb-2 select-none flex flex-col items-center">
+        <div className="relative pt-4 pb-2 select-none flex flex-col items-center">
           <div
             onClick={() => setCelebrationPops((prev) => prev + 1)}
             title="Click for celebration sparkle!"
-            className="relative flex items-center justify-center animate-real-ball-bounce cursor-pointer group"
+            className="bouncing-ball-active relative flex items-center justify-center cursor-pointer group"
           >
             {/* Soft Ambient Radial Glow Halo */}
             <div className="absolute -inset-3 rounded-full bg-emerald-500/30 blur-xl pointer-events-none group-hover:bg-emerald-500/45 transition-colors" />
@@ -168,7 +225,7 @@ export function RegistrationWizard() {
           </div>
 
           {/* Synchronized Realistic Ground Floor Shadow underneath the ball */}
-          <div className="w-14 sm:w-16 h-2.5 rounded-[100%] bg-emerald-950/35 blur-[2.5px] animate-ball-shadow pointer-events-none -mt-1" />
+          <div className="bouncing-shadow-active w-14 sm:w-16 h-2.5 rounded-[100%] bg-emerald-950/35 blur-[2.5px] pointer-events-none -mt-1" />
         </div>
 
         {/* Status Pill & Welcome Heading */}
