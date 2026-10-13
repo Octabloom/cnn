@@ -101,20 +101,20 @@ export function HeroRegistrationForm() {
           }
         `}</style>
 
-        {/* Real 3D Shiny Sphere Checkmark Icon with Realistic Bouncing Animation & Ground Shadow */}
-        <div className="flex items-center gap-3.5 pb-2.5 border-b border-slate-200/80 pt-3">
-          <div className="relative shrink-0 flex flex-col items-center select-none">
+        {/* Real 3D Shiny Sphere Checkmark Icon with Realistic Bouncing Animation & Ground Shadow - Centered */}
+        <div className="flex flex-col items-center text-center pb-2.5 border-b border-slate-200/80 pt-3">
+          <div className="relative shrink-0 flex flex-col items-center select-none mb-2">
             <div
               className="bouncing-ball-hero relative flex items-center justify-center cursor-pointer group"
               onClick={() => setCelebrationPops((prev) => prev + 1)}
               title="Click for celebration sparkle!"
             >
               {/* Soft Ambient Radial Glow */}
-              <div className="absolute -inset-2.5 rounded-full bg-emerald-500/30 blur-lg pointer-events-none group-hover:bg-emerald-500/45 transition-colors" />
+              <div className="absolute -inset-3 rounded-full bg-emerald-500/30 blur-lg pointer-events-none group-hover:bg-emerald-500/45 transition-colors" />
 
               {/* True 3D Shiny Sphere */}
               <div
-                className="w-13 h-13 sm:w-15 sm:h-15 rounded-full flex items-center justify-center relative transition-transform duration-300 group-hover:scale-105 group-active:scale-95 shadow-[0_12px_25px_-4px_rgba(22,163,74,0.65),inset_-5px_-7px_14px_rgba(3,44,22,0.9),inset_2.5px_2.5px_6px_rgba(255,255,255,0.7)]"
+                className="w-14 h-14 sm:w-16 sm:h-16 rounded-full flex items-center justify-center relative transition-transform duration-300 group-hover:scale-105 group-active:scale-95 shadow-[0_14px_30px_-5px_rgba(22,163,74,0.65),inset_-6px_-8px_16px_rgba(3,44,22,0.9),inset_2.5px_2.5px_6px_rgba(255,255,255,0.7)]"
                 style={{
                   background:
                     "radial-gradient(circle at 35% 28%, #86EFAC 0%, #22C55E 30%, #16A34A 58%, #15803D 78%, #064E3B 92%, #022C1A 100%)",
@@ -125,7 +125,7 @@ export function HeroRegistrationForm() {
                 <div className="absolute top-1.5 left-2 sm:top-2 sm:left-2.5 w-1.5 h-1 rounded-full bg-white blur-[0.2px] pointer-events-none" />
 
                 {/* Internal 3D Check Icon with Soft Embossed Drop Shadow */}
-                <Check className="w-6.5 h-6.5 sm:w-7.5 sm:h-7.5 text-white stroke-[3.5] drop-shadow-[0_2px_4px_rgba(0,0,0,0.55)] relative z-10 transition-transform duration-200 group-hover:scale-110" />
+                <Check className="w-7 h-7 sm:w-8 sm:h-8 text-white stroke-[3.5] drop-shadow-[0_2px_4px_rgba(0,0,0,0.55)] relative z-10 transition-transform duration-200 group-hover:scale-110" />
               </div>
 
               {/* Interactive Celebration Feedback Floating Badge on Click */}
@@ -137,10 +137,10 @@ export function HeroRegistrationForm() {
             </div>
 
             {/* Synchronized Realistic Ground Floor Shadow underneath the ball */}
-            <div className="bouncing-shadow-hero w-9 sm:w-11 h-2 rounded-[100%] bg-emerald-950/40 blur-[2px] pointer-events-none -mt-0.5" />
+            <div className="bouncing-shadow-hero w-10 sm:w-12 h-2 rounded-[100%] bg-emerald-950/40 blur-[2px] pointer-events-none -mt-0.5" />
           </div>
 
-          <div className="flex-1">
+          <div>
             <h3 className="text-base sm:text-lg font-black text-[#071245] leading-tight">
               Congratulations{fullName ? `, ${fullName}` : ""}!
             </h3>
