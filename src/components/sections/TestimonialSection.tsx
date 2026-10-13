@@ -18,6 +18,7 @@ import {
   DIPLOMA_TESTIMONIALS,
   HELC_TESTIMONIALS,
 } from "@/data/testimonialData";
+import { RealisticPhoneMockup } from "@/components/ui/RealisticPhoneMockup";
 
 export function TestimonialSection() {
   const [activeCategory, setActiveCategory] = useState<"diploma" | "helc">("diploma");
@@ -54,28 +55,28 @@ export function TestimonialSection() {
       className="py-8 sm:py-12 lg:py-14 bg-white border-b border-slate-200/80 relative overflow-hidden"
     >
       {/* Ambient background lighting */}
-      <div className="absolute top-1/4 left-0 w-80 h-80 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-0 w-80 h-80 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/4 left-0 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-0 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Section Header - Compact for Single Scroll Visibility */}
-        <div className="text-center max-w-2xl mx-auto mb-4 sm:mb-6">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-50 text-slate-700 text-[11px] sm:text-xs font-black tracking-widest uppercase mb-2 border border-slate-200 shadow-2xs backdrop-blur-sm">
             <Sparkles className="w-3.5 h-3.5 text-[#B87503]" />
             <span>AUTHENTIC CSNN TORONTO VOICES</span>
           </div>
 
-          <h2 className="text-xl sm:text-3xl lg:text-4xl font-black text-[#071245] tracking-tight leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#071245] tracking-tight leading-tight">
             Real Student Experiences &amp; Transformations
           </h2>
 
-          <p className="mt-1 text-xs sm:text-sm text-slate-600 font-medium">
+          <p className="mt-1.5 text-xs sm:text-sm lg:text-base text-slate-600 font-medium">
             Authentic reflections from CSNN Toronto students and graduates.
           </p>
 
           {/* 2 Institutional Category Filter Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3 mt-3.5 sm:mt-4">
+          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mt-4">
             <button
               type="button"
               onClick={() => handleCategoryChange("diploma")}
@@ -110,132 +111,170 @@ export function TestimonialSection() {
           </div>
         </div>
 
-        {/* Single Scroll Visibility: Compact Editorial Testimonial Card */}
-        <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-4 sm:p-6 lg:p-7 shadow-[0_10px_35px_-10px_rgba(7,18,69,0.07)] relative">
+        {/* Dual-Pane Layout: Left Spotlight Card + Right Realistic Smartphone Structure Mockup */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
           
-          {/* Top Bar: Rating, Verified Seal, and Prev/Next Navigation */}
-          <div className="flex items-center justify-between flex-wrap gap-2.5 pb-3 border-b border-slate-100">
-            <div className="flex items-center gap-1.5 text-[#F6C915]">
-              {[...Array(5)].map((_, i) => (
-                <Star
-                  key={i}
-                  className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-[#F6C915] drop-shadow-2xs"
-                />
-              ))}
-              <span className="ml-1 text-xs font-black text-[#071245]">
-                5.0 Star Verified Feedback
-              </span>
-            </div>
+          {/* ==============================================================
+              LEFT PANE (7 cols): Editorial Review Spotlight Card
+              ============================================================== */}
+          <div className="lg:col-span-7 flex flex-col gap-4">
+            
+            <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-5 sm:p-7 shadow-[0_15px_40px_-10px_rgba(7,18,69,0.08)] relative">
+              
+              {/* Top Accent Line */}
+              <div className="absolute inset-x-8 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#F6C915]/70 to-transparent" />
 
-            <div className="flex items-center gap-2">
-              <span className="text-[11px] font-bold text-slate-500">
-                {currentIndex + 1} of {activeList.length}
-              </span>
-              <div className="flex items-center gap-1">
-                <button
-                  type="button"
-                  onClick={handlePrev}
-                  aria-label="Previous Testimonial"
-                  className="w-8 h-8 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 flex items-center justify-center text-[#071245] transition-colors cursor-pointer"
-                >
-                  <ChevronLeft className="w-4 h-4" />
-                </button>
-                <button
-                  type="button"
-                  onClick={handleNext}
-                  aria-label="Next Testimonial"
-                  className="w-8 h-8 rounded-lg bg-[#071245] hover:bg-[#03091F] text-[#F6C915] flex items-center justify-center transition-colors cursor-pointer"
-                >
-                  <ChevronRight className="w-4 h-4" />
-                </button>
-              </div>
-            </div>
-          </div>
-
-          {/* Testimonial Content Box */}
-          <div className="py-3 sm:py-4">
-            {currentTestimonial.headline && (
-              <h3 className="text-sm sm:text-base lg:text-lg font-black text-[#071245] mb-2 leading-snug">
-                {currentTestimonial.headline}
-              </h3>
-            )}
-
-            <div className="relative pl-1">
-              <Quote className="w-7 h-7 sm:w-9 sm:h-9 text-[#F6C915]/25 absolute -top-1 -left-1 -z-0" />
-              <p className="text-xs sm:text-sm lg:text-[15px] text-slate-700 font-medium leading-relaxed relative z-10 italic">
-                &ldquo;{currentTestimonial.quote}&rdquo;
-              </p>
-            </div>
-
-            {currentTestimonial.highlightChip && (
-              <div className="mt-3 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg bg-amber-50 border border-amber-200/60 text-[10.5px] font-black text-[#854D0E]">
-                <Award className="w-3 h-3 text-[#B87503]" />
-                <span>{currentTestimonial.highlightChip}</span>
-              </div>
-            )}
-          </div>
-
-          {/* Student Profile Row: Strictly Black Profile Icon & Verified Name */}
-          <div className="pt-3 border-t border-slate-100 flex items-center justify-between flex-wrap gap-3">
-            <div className="flex items-center gap-3">
-              {/* Solid Black Profile Avatar Icon (No dummy images, only black profile icon) */}
-              <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-black text-white flex items-center justify-center shrink-0 border border-slate-800 shadow-sm">
-                <User className="w-5 h-5 text-white" />
-              </div>
-
-              <div>
-                <h4 className="font-black text-xs sm:text-sm text-[#071245] leading-tight flex items-center gap-1.5">
-                  <span>{currentTestimonial.name}</span>
-                  <span className="text-[9.5px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded-full border border-emerald-200/50">
-                    Verified
+              {/* Top Bar: Rating, Verified Seal, and Prev/Next Navigation */}
+              <div className="flex items-center justify-between flex-wrap gap-2.5 pb-3 border-b border-slate-100">
+                <div className="flex items-center gap-1.5 text-[#F6C915]">
+                  {[...Array(5)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-4 h-4 fill-[#F6C915] drop-shadow-2xs"
+                    />
+                  ))}
+                  <span className="ml-1 text-xs font-black text-[#071245]">
+                    5.0 Star Verified
                   </span>
-                </h4>
-                <p className="text-[11px] text-[#B87503] font-bold mt-0.5">
-                  {currentTestimonial.role}
-                </p>
-                <p className="text-[10px] text-slate-500 font-semibold">
-                  {currentTestimonial.program} · CSNN Toronto
-                </p>
+                </div>
+
+                <div className="flex items-center gap-2">
+                  <span className="text-[11px] font-bold text-slate-500">
+                    {currentIndex + 1} of {activeList.length}
+                  </span>
+                  <div className="flex items-center gap-1">
+                    <button
+                      type="button"
+                      onClick={handlePrev}
+                      aria-label="Previous Testimonial"
+                      className="w-8 h-8 rounded-lg bg-slate-50 hover:bg-slate-100 border border-slate-200 flex items-center justify-center text-[#071245] transition-colors cursor-pointer"
+                    >
+                      <ChevronLeft className="w-4 h-4" />
+                    </button>
+                    <button
+                      type="button"
+                      onClick={handleNext}
+                      aria-label="Next Testimonial"
+                      className="w-8 h-8 rounded-lg bg-[#071245] hover:bg-[#03091F] text-[#F6C915] flex items-center justify-center transition-colors cursor-pointer"
+                    >
+                      <ChevronRight className="w-4 h-4" />
+                    </button>
+                  </div>
+                </div>
               </div>
+
+              {/* Testimonial Headline & Quote */}
+              <div className="py-3 sm:py-4">
+                {currentTestimonial.headline && (
+                  <h3 className="text-base sm:text-xl font-black text-[#071245] mb-2 leading-snug">
+                    {currentTestimonial.headline}
+                  </h3>
+                )}
+
+                <div className="relative pl-1">
+                  <Quote className="w-8 h-8 text-[#F6C915]/25 absolute -top-1 -left-1 -z-0" />
+                  <p className="text-xs sm:text-sm lg:text-[15px] text-slate-700 font-medium leading-relaxed relative z-10 italic">
+                    &ldquo;{currentTestimonial.quote}&rdquo;
+                  </p>
+                </div>
+
+                {currentTestimonial.highlightChip && (
+                  <div className="mt-3 inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-lg bg-amber-50 border border-amber-200/60 text-[11px] font-black text-[#854D0E]">
+                    <Award className="w-3.5 h-3.5 text-[#B87503]" />
+                    <span>{currentTestimonial.highlightChip}</span>
+                  </div>
+                )}
+              </div>
+
+              {/* Student Profile Row: Solid Black Profile Avatar Icon (No dummy images) */}
+              <div className="pt-3 border-t border-slate-100 flex items-center justify-between flex-wrap gap-3">
+                <div className="flex items-center gap-3">
+                  <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-full bg-black text-white flex items-center justify-center shrink-0 border border-slate-800 shadow-sm">
+                    <User className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
+                  </div>
+
+                  <div>
+                    <h4 className="font-black text-xs sm:text-sm text-[#071245] leading-tight flex items-center gap-1.5">
+                      <span>{currentTestimonial.name}</span>
+                      <span className="text-[9.5px] font-bold text-emerald-700 bg-emerald-50 px-1.5 py-0.2 rounded-full border border-emerald-200/50">
+                        Verified
+                      </span>
+                    </h4>
+                    <p className="text-[11px] text-[#B87503] font-bold mt-0.5">
+                      {currentTestimonial.role}
+                    </p>
+                    <p className="text-[10px] text-slate-500 font-semibold">
+                      {currentTestimonial.program} · CSNN Toronto
+                    </p>
+                  </div>
+                </div>
+
+                <a
+                  href="#register"
+                  className="btn-skeuo-gold inline-flex items-center gap-1.5 px-4 h-9 rounded-full text-xs font-black shadow-2xs hover:scale-105 transition-transform"
+                >
+                  <span>Reserve your seat</span>
+                  <ArrowRight className="w-3.5 h-3.5 stroke-[3]" />
+                </a>
+              </div>
+
+              {/* Quick-Jump Student Pills in this category */}
+              <div className="mt-3.5 pt-3 border-t border-slate-100">
+                <span className="text-[10px] font-black uppercase text-slate-400 tracking-wider block mb-1.5">
+                  Browse Reviews in this Category:
+                </span>
+                <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-thin">
+                  {activeList.map((item) => {
+                    const isSelected = item.id === currentTestimonial.id;
+                    return (
+                      <button
+                        key={item.id}
+                        type="button"
+                        onClick={() => setSelectedId(item.id)}
+                        className={`shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all border cursor-pointer ${
+                          isSelected
+                            ? "bg-[#071245] text-white border-[#071245] font-black shadow-2xs"
+                            : "bg-slate-50 text-slate-600 border-slate-200 hover:bg-white"
+                        }`}
+                      >
+                        <span className="w-3.5 h-3.5 rounded-full bg-black text-white flex items-center justify-center text-[8px]">
+                          <User className="w-2.5 h-2.5 text-white" />
+                        </span>
+                        <span>{item.name}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+              </div>
+
             </div>
 
-            <a
-              href="#register"
-              className="btn-skeuo-gold inline-flex items-center gap-1.5 px-4 h-8.5 rounded-full text-[11px] font-black shadow-2xs hover:scale-105 transition-transform"
-            >
-              <span>Join next cohort</span>
-              <ArrowRight className="w-3 h-3 stroke-[3]" />
-            </a>
           </div>
 
-          {/* Quick-Jump Student Pills in this category */}
-          <div className="mt-3.5 pt-3 border-t border-slate-100">
-            <span className="text-[10px] font-black uppercase text-slate-400 tracking-wider block mb-1.5">
-              Select review:
-            </span>
-            <div className="flex items-center gap-1.5 overflow-x-auto pb-1 scrollbar-thin">
-              {activeList.map((item, index) => {
-                const isSelected = item.id === currentTestimonial.id;
-                return (
-                  <button
-                    key={item.id}
-                    type="button"
-                    onClick={() => setSelectedId(item.id)}
-                    className={`shrink-0 inline-flex items-center gap-1.5 px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all border cursor-pointer ${
-                      isSelected
-                        ? "bg-[#071245] text-white border-[#071245] font-black shadow-2xs"
-                        : "bg-slate-50 text-slate-600 border-slate-200 hover:bg-white"
-                    }`}
-                  >
-                    {/* Mini black profile dot */}
-                    <span className="w-3.5 h-3.5 rounded-full bg-black text-white flex items-center justify-center text-[8px]">
-                      <User className="w-2.5 h-2.5 text-white" />
-                    </span>
-                    <span>{item.name}</span>
-                  </button>
-                );
-              })}
+          {/* ==============================================================
+              RIGHT PANE (5 cols): Realistic Smartphone Structure Mockup
+              ============================================================== */}
+          <div className="lg:col-span-5 flex flex-col items-center justify-center">
+            
+            {/* Header label above phone */}
+            <div className="mb-2 text-center">
+              <span className="text-[11px] sm:text-xs font-black uppercase tracking-wider text-[#071245] inline-flex items-center gap-1.5 bg-slate-50 px-3 py-1 rounded-full border border-slate-200 shadow-2xs">
+                <Sparkles className="w-3.5 h-3.5 text-[#B87503]" />
+                Live Student Community Hub
+              </span>
             </div>
+
+            {/* Smartphone Real-Like Mockup */}
+            <RealisticPhoneMockup
+              selectedId={selectedId}
+              onSelectTestimonial={(id) => setSelectedId(id)}
+            />
+
+            {/* Micro Helper Note below phone */}
+            <p className="text-[11px] text-slate-500 font-bold mt-2 text-center">
+              👆 Tap any review inside the phone to spotlight student feedback.
+            </p>
+
           </div>
 
         </div>
