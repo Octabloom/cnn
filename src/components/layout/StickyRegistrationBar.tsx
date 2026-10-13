@@ -6,6 +6,7 @@ import { PROGRAM_INFO } from "@/data/programData";
 
 export function StickyRegistrationBar() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
   const [isDismissed, setIsDismissed] = useState(false);
 
   useEffect(() => {
@@ -26,19 +27,40 @@ export function StickyRegistrationBar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleDismiss = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsDismissed(true);
+    }, 400);
+  };
+
   if (!isVisible || isDismissed) return null;
 
   return (
     <div
       role="complementary"
       aria-label="Floating registration dock"
-      className="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.5rem)] sm:w-[calc(100%-2.5rem)] max-w-5xl transition-all duration-500 animate-in slide-in-from-bottom-8 fade-in select-none"
+      className={`fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.5rem)] sm:w-[calc(100%-2.5rem)] max-w-5xl select-none transition-all duration-400 ease-[cubic-bezier(0.16,1,0.3,1)] ${
+        isClosing
+          ? "opacity-0 translate-y-16 scale-90 pointer-events-none"
+          : "opacity-100 translate-y-0 scale-100 animate-in slide-in-from-bottom-8 duration-500"
+      }`}
     >
-      {/* Outer Floating Skewmorphic Capsule */}
-      <div className="relative rounded-full bg-gradient-to-r from-[#061036]/95 via-[#0C2068]/95 to-[#061036]/95 backdrop-blur-2xl px-3 sm:px-5 py-2 sm:py-2.5 border-2 border-[#F6C915] shadow-[0_15px_45px_rgba(4,10,36,0.65),0_0_30px_rgba(246,201,21,0.3),inset_0_1px_1px_rgba(255,255,255,0.45)] flex items-center justify-between gap-2 sm:gap-3 group">
+      {/* Outer Floating Skeuomorphic Capsule */}
+      <div className="relative rounded-full bg-gradient-to-r from-[#061036]/98 via-[#0D226B]/98 to-[#061036]/98 backdrop-blur-2xl px-3.5 sm:px-6 py-2 sm:py-2.5 border-2 border-[#F6C915] shadow-[0_15px_45px_rgba(4,10,36,0.65),0_0_30px_rgba(246,201,21,0.35),inset_0_1px_1px_rgba(255,255,255,0.45)] flex items-center justify-between gap-2 sm:gap-3 group">
         
         {/* Continuous Top Specular Light Beam */}
-        <div className="absolute inset-x-12 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#FFE875] to-transparent pointer-events-none opacity-80" />
+        <div className="absolute inset-x-12 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#FFE875] to-transparent pointer-events-none opacity-90" />
+
+        {/* Floating Cross Button Just Above in the Right Corner */}
+        <button
+          type="button"
+          onClick={handleDismiss}
+          aria-label="Close floating registration bar"
+          className="absolute -top-3 -right-2 sm:-top-3.5 sm:-right-2.5 z-30 w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-[#071245] hover:bg-[#0E257E] text-white flex items-center justify-center border-2 border-[#F6C915] shadow-[0_4px_14px_rgba(0,0,0,0.5),0_0_10px_rgba(246,201,21,0.4)] hover:scale-115 active:scale-90 transition-all cursor-pointer group/close"
+        >
+          <X className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[3] text-[#F6C915] group-hover/close:rotate-90 transition-transform duration-250" />
+        </button>
 
         {/* Left Section: Live Intake Badge & Program Title */}
         <div className="flex items-center gap-2 sm:gap-3 text-white text-xs sm:text-sm overflow-hidden">
@@ -68,8 +90,8 @@ export function StickyRegistrationBar() {
           </span>
         </div>
 
-        {/* Right Section: Interactive Phone Link & 3D Gold CTA Button + Dismiss Cross */}
-        <div className="flex items-center gap-1.5 sm:gap-2.5 shrink-0 ml-auto">
+        {/* Right Section: Interactive Phone Link & 3D Gold CTA Button */}
+        <div className="flex items-center gap-2 sm:gap-3 shrink-0 ml-auto pr-1 sm:pr-2">
           {/* Phone Dial with Ringing Animation on Hover */}
           <a
             href={`tel:${PROGRAM_INFO.phoneRaw}`}
@@ -90,17 +112,8 @@ export function StickyRegistrationBar() {
             <span>Reserve your seat</span>
             <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[3] group-hover/btn:translate-x-1 transition-transform" />
           </a>
-
-          {/* Close / Dismiss Cross (X) Button */}
-          <button
-            type="button"
-            onClick={() => setIsDismissed(true)}
-            aria-label="Dismiss floating registration bar"
-            className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-white/10 hover:bg-white/25 text-white/80 hover:text-white flex items-center justify-center border border-white/25 transition-all hover:scale-110 active:scale-95 cursor-pointer ml-1"
-          >
-            <X className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[2.5]" />
-          </button>
         </div>
+
       </div>
     </div>
   );
