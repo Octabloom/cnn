@@ -30,11 +30,11 @@ export default function Home() {
       {/* Main Page Content */}
       <main className="flex-1">
 
-        {/* 02. What You'll Learn (Core Nutrition Foundations - INTERACTIVE CURRICULUM EXPLORER) */}
-        <LearningOutcomes />
-
-        {/* 03. Ten-Workshop Curriculum (10 HOLISTIC NUTRITION WORKSHOPS - placed directly below Curriculum Explorer) */}
+        {/* 02. Ten-Workshop Curriculum (10 HOLISTIC NUTRITION WORKSHOPS - placed directly below hero) */}
         <WorkshopCurriculum />
+
+        {/* 03. What You'll Learn (Core Nutrition Foundations - INTERACTIVE CURRICULUM EXPLORER) */}
+        <LearningOutcomes />
 
         {/* 04. How You'll Learn (Live Interactive Experience) */}
         <LearningExperience />

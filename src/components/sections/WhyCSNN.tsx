@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { CheckCircle2, Sparkles, ArrowRight, ShieldCheck, GraduationCap } from "lucide-react";
+import { Sparkles, ArrowRight, ShieldCheck, GraduationCap } from "lucide-react";
 
 export function WhyCSNN() {
   const proofPoints = [
@@ -10,269 +10,88 @@ export function WhyCSNN() {
     { value: "100% Live", label: "Interactive Online", desc: "Real discussions & Q&A" },
   ];
 
-  const pathwaySteps = [
-    {
-      step: "01",
-      badge: "YOU ARE HERE",
-      title: "Healthy Eating & Lifestyle Certificate",
-      desc: "10 live interactive workshops (21 hours). Gain everyday kitchen confidence and whole-food nutrition clarity.",
-      features: [
-        "10 Live Interactive Evening Workshops (21 Hours)",
-        "Everyday Kitchen Hacks & Practical Food Swaps",
-        "4 canfitpro Continuing Education Credits (CECs)",
-      ],
-      current: true,
-      timeframe: "Starts Oct 28, 2026",
-    },
-    {
-      step: "02",
-      badge: "OPTIONAL ADVANCEMENT",
-      title: "Natural Nutrition Diploma Program",
-      desc: "Comprehensive accredited clinical curriculum to earn the Registered Holistic Nutritionist (R.H.N.) designation.",
-      features: [
-        "CSNN Flagship Comprehensive Diploma",
-        "Clinical Anatomy, Biochemistry & Pathology",
-        "Registered R.H.N. Professional Designation",
-      ],
-      current: false,
-      timeframe: "Flexible Full-Time / Part-Time",
-    },
-    {
-      step: "03",
-      badge: "CAREER DESTINATION",
-      title: "Professional Holistic Practice",
-      desc: "Launch private clinical consultations, wellness workshops, corporate consulting, or healthy culinary coaching.",
-      features: [
-        "Private 1-on-1 Nutritional Client Consultations",
-        "Integrative Clinic & Wellness Practice",
-        "Corporate Wellness Seminars & Food Authorship",
-      ],
-      current: false,
-      timeframe: "Lifelong Clinical Leadership",
-    },
-  ];
-
   return (
     <section
       id="why-csnn"
       data-screen-label="09 Why CSNN"
-      className="py-10 sm:py-16 bg-gradient-to-b from-[#071245] via-[#0B1A5A] to-[#050D32] text-white relative overflow-hidden border-y border-white/10 shadow-2xl"
+      className="py-12 sm:py-16 bg-gradient-to-b from-slate-50/70 via-white to-slate-50/40 relative overflow-hidden border-t border-slate-200/80 text-[#071245]"
     >
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#1E389B]/20 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-10 w-96 h-96 bg-[#F6C915]/10 rounded-full blur-2xl pointer-events-none" />
+      {/* Background subtle ambient lighting */}
+      <div className="absolute top-1/4 right-0 w-96 h-96 bg-[#F6C915]/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-0 left-10 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
-        {/* Compact Header & Trust Strip */}
-        <div className="text-center max-w-3xl mx-auto mb-5 sm:mb-6 pb-4 sm:pb-5 border-b border-white/10">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-[#F6C915] text-[10px] sm:text-[11px] font-black tracking-widest uppercase mb-2 border border-[#F6C915]/40 shadow-xs backdrop-blur-md">
+        {/* Compact Clean Header & Trust Strip */}
+        <div className="text-center max-w-3xl mx-auto mb-6 sm:mb-8 pb-5 border-b border-slate-200/80">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white text-[#071245] text-[10px] sm:text-[11px] font-black tracking-widest uppercase mb-2.5 border border-slate-200 shadow-2xs">
             <div className="relative w-3.5 h-3.5 rounded-full overflow-hidden bg-white p-0.5 shrink-0 border border-[#F6C915]">
               <Image src="/assets/logo.jpg" alt="CSNN" fill sizes="14px" className="object-contain" />
             </div>
             <span>WHY CSNN TORONTO</span>
           </div>
 
-          <h2 className="text-xl sm:text-3xl font-black text-white tracking-[-0.03em] leading-tight">
+          <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#071245] tracking-[-0.03em] leading-tight">
             Canada’s pioneer in holistic nutrition education since 1994
           </h2>
 
-          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-4 mt-2 text-[11px] sm:text-xs text-white/80">
+          <div className="flex flex-wrap items-center justify-center gap-2 sm:gap-3.5 mt-3 text-xs sm:text-sm text-slate-600 font-medium">
             <span>Teaching the Medicine of the Future™ · Live online with registered faculty</span>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/15 text-[10px] sm:text-[11px] font-bold text-white/90">
-              <ShieldCheck className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#F6C915]" />
-              <span>30+ Years Heritage</span>
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50/90 border border-amber-200/90 text-xs font-bold text-[#8A5800] shadow-2xs">
+              <ShieldCheck className="w-3.5 h-3.5 text-[#B87503]" />
+              <span>32 years</span>
             </div>
-            <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-white/10 border border-white/15 text-[10px] sm:text-[11px] font-bold text-white/90">
-              <GraduationCap className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#F6C915]" />
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 text-xs font-bold text-slate-700 shadow-2xs">
+              <GraduationCap className="w-3.5 h-3.5 text-[#071245]" />
               <span>Accredited Faculty</span>
             </div>
           </div>
         </div>
 
-        {/* 4 Proof Metric Strip - Refined High-End Bar */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2 sm:gap-3 mb-6 sm:mb-8">
+        {/* 4 Proof Metric Cards - Clean, Light & Highly Attractive */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 max-w-5xl mx-auto">
           {proofPoints.map((item) => (
             <div
               key={item.label}
-              className="glass-card-dark py-2.5 px-3 sm:py-3 sm:px-3.5 rounded-xl sm:rounded-2xl flex flex-col items-center text-center border border-white/10 hover:border-[#F6C915]/60 hover:shadow-[0_8px_25px_rgba(246,201,21,0.12)] transition-all duration-300 relative overflow-hidden group"
+              className="bg-white py-4 px-3 sm:py-5 sm:px-4 rounded-2xl flex flex-col items-center text-center border border-slate-200/90 hover:border-[#F6C915] shadow-xs hover:shadow-md hover:-translate-y-1 transition-all duration-300 relative overflow-hidden group"
             >
-              <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#F6C915]/30 to-transparent group-hover:via-[#F6C915] transition-all" />
-              <span className="text-lg sm:text-2xl lg:text-3xl font-black text-[#F6C915] leading-none mb-1 group-hover:scale-105 transition-transform">
+              {/* Top Gold Accent Line */}
+              <div className="absolute inset-x-0 top-0 h-[2.5px] bg-gradient-to-r from-transparent via-[#F6C915] to-transparent opacity-80 group-hover:opacity-100 transition-opacity" />
+              
+              <span className="text-2xl sm:text-3xl lg:text-4xl font-black text-[#071245] group-hover:text-[#B87503] transition-colors leading-none mb-1">
                 {item.value}
               </span>
-              <span className="text-[11px] sm:text-[13px] font-black text-white leading-tight">
+              <span className="text-xs sm:text-[13px] font-black text-[#071245] leading-tight">
                 {item.label}
               </span>
-              <span className="text-[9px] sm:text-[11px] text-white/60 mt-0.5 font-medium leading-tight">
+              <span className="text-[10px] sm:text-xs text-slate-500 mt-1 font-medium leading-tight">
                 {item.desc}
               </span>
             </div>
           ))}
         </div>
 
-        {/* Structured Educational Pathway: Non-Overlapping Interconnected Stepper Rail */}
-        <div className="pt-5 sm:pt-6 border-t border-white/10 relative">
-          
-          {/* Header Row */}
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2.5 sm:gap-3 mb-5 sm:mb-6">
-            <div>
-              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 sm:px-3 sm:py-1 rounded-full bg-[#F6C915]/15 text-[#F6C915] text-[9px] sm:text-[10px] font-black tracking-widest uppercase mb-1 border border-[#F6C915]/30 shadow-xs">
-                <Sparkles className="w-3 h-3 text-[#F6C915]" />
-                <span>STRUCTURED EDUCATIONAL PATHWAY</span>
+        {/* Institutional Heritage Callout (Simple, Clean & Attractive without Steps Cards) */}
+        <div className="bg-gradient-to-br from-slate-50 via-white to-amber-50/30 rounded-2xl sm:rounded-3xl border border-slate-200/90 p-5 sm:p-7 shadow-xs relative overflow-hidden max-w-4xl mx-auto mt-6 sm:mt-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+            <div className="space-y-1 max-w-2xl">
+              <div className="inline-flex items-center gap-1.5 text-xs font-black uppercase tracking-wider text-[#B87503]">
+                <Sparkles className="w-3.5 h-3.5 text-[#B87503]" />
+                <span>Canada’s Gold Standard in Natural Nutrition</span>
               </div>
-              <h3 className="text-lg sm:text-2xl font-black text-white tracking-tight">
-                From Kitchen Foundation to Registered Excellence
-              </h3>
-              <p className="text-[11px] sm:text-xs text-white/70 mt-0.5 max-w-xl">
-                A sequential educational journey from home cooking clarity to accredited clinical nutrition leadership.
+              <p className="text-xs sm:text-sm text-slate-600 font-medium leading-relaxed">
+                Founded in 1994, CSNN is Canada’s first and leading school dedicated exclusively to holistic nutrition education. Our Healthy Eating &amp; Lifestyle Certificate (HELC) offers a practical, science-informed foundation taught live online by Registered Holistic Nutritionists.
               </p>
             </div>
 
             <a
               href="#register"
-              className="inline-flex items-center gap-1.5 text-xs font-black text-[#F6C915] hover:text-white transition-colors pb-1 shrink-0 group"
+              className="btn-skeuo-gold shrink-0 h-10 px-5 rounded-full text-xs font-black text-[#071245] inline-flex items-center gap-2 shadow-sm hover:scale-105 active:scale-95 transition-all whitespace-nowrap"
             >
-              <span>Begin with Step 01 today</span>
-              <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
+              <span>Reserve Your Seat</span>
+              <ArrowRight className="w-3.5 h-3.5 stroke-[3] text-[#071245]" />
             </a>
           </div>
-
-          {/* 3 Interconnected Milestone Columns (Visually Connected with Flowing Animation) */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 lg:gap-8 relative">
-            {pathwaySteps.map((s, idx) => (
-              <React.Fragment key={s.step}>
-                <div
-                  className={`flex flex-col rounded-xl sm:rounded-2xl p-4 sm:p-5 lg:p-6 transition-all duration-300 relative group overflow-visible ${
-                    s.current
-                      ? "bg-gradient-to-b from-[#F6C915]/[0.12] via-white/[0.05] to-transparent border-2 border-[#F6C915] shadow-[0_8px_35px_rgba(246,201,21,0.22)] ring-1 ring-[#F6C915]/50"
-                      : "bg-white/[0.03] border border-white/15 hover:border-[#F6C915]/50 hover:bg-white/[0.06] shadow-lg"
-                  }`}
-                >
-                  {/* TOP ROW: Waypoint Node & Single Unbroken Energy Conduit Line */}
-                  <div className="flex items-center mb-4 relative">
-                    
-                    {/* Glowing Waypoint Node */}
-                    <div
-                      className={`w-11 h-11 rounded-xl flex items-center justify-center font-black text-sm shrink-0 transition-all duration-300 group-hover:scale-105 z-10 ${
-                        s.current
-                          ? "bg-gradient-to-b from-[#FFE566] via-[#F6C915] to-[#D4A017] text-[#071245] shadow-[0_0_25px_rgba(246,201,21,0.65),inset_0_1px_1px_#FFF] ring-4 ring-[#F6C915]/30"
-                          : "bg-[#0E2068] text-white/90 border border-white/20 shadow-md group-hover:border-[#F6C915]/50 group-hover:text-white"
-                      }`}
-                    >
-                      {s.current ? (
-                        <span className="relative flex items-center justify-center">
-                          <span className="animate-ping absolute h-6 w-6 rounded-full bg-[#F6C915] opacity-50" />
-                          <span>{s.step}</span>
-                        </span>
-                      ) : (
-                        <span>{s.step}</span>
-                      )}
-                    </div>
-
-                    {/* ONLY ONE CONTINUOUS UNBROKEN CONDUIT LINE: Connects seamlessly to next step */}
-                    {idx < 2 ? (
-                      <div className="hidden md:flex flex-1 items-center ml-3 relative">
-                        {/* Single continuous unbroken track spanning across card edge and gap directly to next node */}
-                        <div className="w-[calc(100%+1.5rem)] lg:w-[calc(100%+2.25rem)] h-[3px] bg-gradient-to-r from-[#F6C915] via-[#F6C915]/90 to-[#F6C915]/75 rounded-full relative overflow-hidden shadow-[0_0_10px_rgba(246,201,21,0.6)]">
-                          {/* Smooth Continuous Flowing Energy Laser */}
-                          <div
-                            className="absolute inset-y-0 w-2/5 bg-gradient-to-r from-transparent via-white to-transparent blur-[0.5px] animate-smooth-beam"
-                            style={idx === 1 ? { animationDelay: "1.1s" } : undefined}
-                          />
-                        </div>
-                        {/* Clean Directional Arrow Pointing to Next Step */}
-                        <span className="text-xs font-black text-[#F6C915] absolute -right-6 lg:-right-9 top-1/2 -translate-y-1/2 drop-shadow-[0_0_6px_#F6C915]">
-                          ›
-                        </span>
-                      </div>
-                    ) : (
-                      /* Destination Goal Indicator */
-                      <div className="hidden md:flex items-center ml-3 px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-400/30 text-[10px] font-black uppercase tracking-wider text-emerald-300 shadow-[0_0_12px_rgba(16,185,129,0.2)]">
-                        <span>CAREER GOAL</span>
-                      </div>
-                    )}
-
-                  </div>
-
-                  {/* BADGES & TIMEFRAME: Situated cleanly BELOW the top rail row */}
-                  <div className="flex flex-wrap items-center gap-1.5 mb-2.5">
-                    <span
-                      className={`text-[9px] font-black uppercase tracking-wider px-2.5 py-0.5 rounded-full ${
-                        s.current
-                          ? "bg-[#F6C915] text-[#071245] shadow-sm font-black"
-                          : "bg-white/10 text-white/80 border border-white/15"
-                      }`}
-                    >
-                      {s.badge}
-                    </span>
-                    
-                    <span
-                      className={`text-[10px] font-bold ${
-                        s.current ? "text-[#F6C915] font-black flex items-center gap-1" : "text-white/60"
-                      }`}
-                    >
-                      {s.current && <span className="w-1.5 h-1.5 rounded-full bg-[#F6C915] animate-ping" />}
-                      {s.timeframe}
-                    </span>
-                  </div>
-
-                  {/* Step Title */}
-                  <h4
-                    className={`text-base sm:text-[17px] font-black leading-snug mb-1.5 transition-colors ${
-                      s.current ? "text-white group-hover:text-[#F6C915]" : "text-white/95 group-hover:text-white"
-                    }`}
-                  >
-                    {s.title}
-                  </h4>
-
-                  {/* Description */}
-                  <p className="text-xs text-white/70 leading-relaxed font-normal mb-3.5">
-                    {s.desc}
-                  </p>
-
-                  {/* Deliverables Checklist */}
-                  <div className="space-y-1.5 mt-auto pt-3 border-t border-white/10 text-[11px]">
-                    {s.features.map((feat, fIdx) => (
-                      <div key={fIdx} className="flex items-start gap-2 text-white/85 font-medium leading-tight">
-                        <CheckCircle2
-                          className={`w-3.5 h-3.5 shrink-0 mt-0.5 ${
-                            s.current ? "text-[#F6C915]" : "text-white/40"
-                          }`}
-                        />
-                        <span>{feat}</span>
-                      </div>
-                    ))}
-                  </div>
-
-                </div>
-
-                {/* Mobile Flowing Vertical Connector: Single clean line */}
-                {idx < 2 && (
-                  <div className="md:hidden flex flex-col items-center justify-center my-1 relative z-20">
-                    <div className="w-[2.5px] h-6 bg-[#F6C915] relative overflow-hidden rounded-full shadow-[0_0_8px_#F6C915]">
-                      <div className="absolute inset-0 bg-white blur-[0.5px] animate-pulse" />
-                    </div>
-                    <span className="text-[#F6C915] text-xs font-black -mt-0.5">↓</span>
-                  </div>
-                )}
-              </React.Fragment>
-            ))}
-          </div>
-
-          {/* Footnote Notice - Compact & Clean */}
-          <div className="mt-6 pt-3.5 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2 text-[10px] sm:text-[11px] text-white/50">
-            <p>
-              *The Healthy Eating &amp; Lifestyle Certificate (HELC) is a standalone program offering 4 canfitpro CECs. To earn the full clinical R.H.N. designation, graduates may seamlessly transition to the Natural Nutrition Diploma Program.
-            </p>
-            <a
-              href="#register"
-              className="text-[#F6C915] hover:underline font-bold whitespace-nowrap shrink-0"
-            >
-              Reserve Step 01 Seat →
-            </a>
-          </div>
-
         </div>
 
       </div>
