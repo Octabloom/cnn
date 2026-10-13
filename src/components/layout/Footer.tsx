@@ -9,10 +9,7 @@ export function Footer() {
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
 
   return (
-    <footer className="bg-gradient-to-b from-[#071245] to-[#03091F] text-white pt-10 sm:pt-12 pb-24 lg:pb-14 border-t-4 border-[#F6C915] relative z-20 shadow-2xl">
-      {/* Top golden ambient glow sweep */}
-      <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#FFE685] to-transparent" />
-
+    <footer className="bg-gradient-to-b from-[#071245] to-[#03091F] text-white pt-10 sm:pt-12 pb-24 lg:pb-14 border-t border-slate-700/80 shadow-[inset_0_1.5px_0_rgba(255,255,255,0.15)] relative z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Main Footer Grid */}

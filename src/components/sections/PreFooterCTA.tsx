@@ -9,15 +9,12 @@ export function PreFooterCTA() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] bg-blue-500/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Luxury Modern Card */}
-        <div className="rounded-[24px] sm:rounded-[36px] bg-white border border-slate-200/90 p-6 sm:p-10 lg:p-14 text-[#071245] shadow-[0_20px_50px_-10px_rgba(7,18,69,0.08)] relative overflow-hidden">
-          
-          {/* Subtle Top Gold Highlight */}
-          <div className="absolute inset-x-8 sm:inset-x-10 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#F6C915]/60 to-transparent pointer-events-none" />
+        {/* Luxury Skeuomorphic Card */}
+        <div className="rounded-[24px] sm:rounded-[36px] bg-gradient-to-b from-white via-[#FCFDFE] to-[#F8FAFC] border border-slate-200/90 p-6 sm:p-10 lg:p-14 text-[#071245] shadow-[inset_0_2px_0_#FFFFFF,inset_0_-2px_0_rgba(15,23,42,0.03),0_20px_50px_-10px_rgba(7,18,69,0.08)] relative overflow-hidden">
           
           <div className="text-center max-w-3xl mx-auto relative z-10">
             {/* Centered Eyebrow Badge */}
-            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-slate-50 text-slate-700 text-[11px] sm:text-xs font-black tracking-widest uppercase mb-3 sm:mb-4 border border-slate-200 shadow-2xs backdrop-blur-md">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-white text-slate-700 text-[11px] sm:text-xs font-black tracking-widest uppercase mb-3 sm:mb-4 border border-slate-200 shadow-[inset_0_1px_0_#FFFFFF,0_1px_2px_rgba(0,0,0,0.04)] backdrop-blur-md">
               <Sparkles className="w-3.5 h-3.5 text-[#B87503]" />
               <span>LIMITED INTAKE · OCTOBER 28, 2026</span>
             </div>

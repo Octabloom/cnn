@@ -49,8 +49,8 @@ export function StickyRegistrationBar() {
       {/* Outer Floating Skeuomorphic Capsule */}
       <div className="relative rounded-full bg-gradient-to-r from-[#061036]/98 via-[#0D226B]/98 to-[#061036]/98 backdrop-blur-2xl px-3.5 sm:px-6 py-2 sm:py-2.5 border-2 border-[#F6C915] shadow-[0_15px_45px_rgba(4,10,36,0.65),0_0_30px_rgba(246,201,21,0.35),inset_0_1px_1px_rgba(255,255,255,0.45)] flex items-center justify-between gap-2 sm:gap-3 group">
         
-        {/* Continuous Top Specular Light Beam */}
-        <div className="absolute inset-x-12 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#FFE875] to-transparent pointer-events-none opacity-90" />
+        {/* Continuous Top Specular Light Glint */}
+        <div className="absolute inset-x-12 top-0 h-[1.5px] bg-gradient-to-r from-transparent via-white/50 to-transparent pointer-events-none" />
 
         {/* Floating Cross Button Just Above in the Right Corner */}
         <button

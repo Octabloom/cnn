@@ -36,11 +36,11 @@ export function InstructorBio() {
           </p>
         </div>
 
-        {/* Instructor Profile Card */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center p-5 sm:p-8 lg:p-10 rounded-[22px] sm:rounded-[32px] bg-white border border-slate-200/90 shadow-sm">
+        {/* Instructor Skeuomorphic Profile Plaque */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 lg:gap-12 items-center p-5 sm:p-8 lg:p-10 rounded-[22px] sm:rounded-[32px] bg-gradient-to-b from-white via-[#FCFDFE] to-[#F8FAFC] border border-slate-200/90 shadow-[inset_0_2px_0_#FFFFFF,inset_0_-2px_0_rgba(15,23,42,0.03),0_15px_40px_-10px_rgba(7,18,69,0.08)]">
           {/* Portrait (4 cols) */}
           <div className="lg:col-span-4 flex flex-col items-center">
-            <div className="relative w-full max-w-[210px] sm:max-w-[280px] aspect-[4/5] rounded-2xl sm:rounded-[28px] overflow-hidden shadow-lg border-2 border-slate-100 bg-[#071245] group">
+            <div className="relative w-full max-w-[210px] sm:max-w-[280px] aspect-[4/5] rounded-2xl sm:rounded-[28px] overflow-hidden shadow-[0_12px_28px_-6px_rgba(7,18,69,0.25),inset_0_1px_1px_rgba(255,255,255,0.8)] border-4 border-white bg-[#071245] group">
               <Image
                 src="/assets/rasha-portrait.jpg"
                 alt="Rasha Abu Rabi, Lead Instructor at CSNN Toronto"
@@ -65,7 +65,7 @@ export function InstructorBio() {
 
           {/* Bio & Credentials (8 cols) */}
           <div className="lg:col-span-8 flex flex-col gap-3.5 sm:gap-4">
-            <div className="inline-flex items-center gap-1.5 px-3 py-0.5 sm:py-1 rounded-full bg-[#071245] text-[#F6C915] text-[11px] sm:text-xs font-black w-fit shadow-2xs">
+            <div className="inline-flex items-center gap-1.5 px-3 py-0.5 sm:py-1 rounded-full bg-[#071245] text-[#F6C915] text-[11px] sm:text-xs font-black w-fit shadow-[inset_0_1px_0_rgba(255,255,255,0.2),0_2px_4px_rgba(0,0,0,0.15)]">
               <Sparkles className="w-3 h-3" />
               <span>Evidence-Informed Practical Guidance</span>
             </div>
@@ -83,7 +83,7 @@ export function InstructorBio() {
               {INSTRUCTOR.credentials.map((cred) => (
                 <div
                   key={cred}
-                  className="p-2 sm:p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-center text-[10px] sm:text-[11px] font-black text-[#071245] shadow-2xs flex items-center justify-center hover:bg-slate-100 transition-colors"
+                  className="p-2 sm:p-2.5 rounded-xl bg-gradient-to-b from-white to-[#F1F5F9] border border-slate-200/90 text-center text-[10px] sm:text-[11px] font-black text-[#071245] shadow-[inset_0_1px_0_#FFFFFF,0_1px_2px_rgba(0,0,0,0.04)] flex items-center justify-center hover:bg-white hover:-translate-y-0.5 transition-all"
                 >
                   {cred}
                 </div>

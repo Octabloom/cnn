@@ -11,17 +11,14 @@ export function CertificatePathways() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Certificate Options Breakdown: 2 Prestigious Skeuomorphic Diploma Cards */}
-        <div className="p-5 sm:p-10 lg:p-12 rounded-[24px] sm:rounded-[36px] bg-gradient-to-b from-[#09154C] via-[#071245] to-[#040A28] text-white border border-[#F6C915]/60 shadow-[inset_0_2px_0_rgba(255,255,255,0.2),inset_0_-2px_0_rgba(0,0,0,0.6),0_25px_60px_-15px_rgba(7,18,69,0.5)] relative overflow-hidden">
+        <div className="p-5 sm:p-10 lg:p-12 rounded-[24px] sm:rounded-[36px] bg-gradient-to-b from-[#09154C] via-[#071245] to-[#040A28] text-white border border-white/15 shadow-[inset_0_2px_0_rgba(255,255,255,0.25),inset_0_-2px_0_rgba(0,0,0,0.6),0_25px_60px_-15px_rgba(7,18,69,0.5)] relative overflow-hidden">
           
           {/* Ambient Gold Radial Corner Glows */}
-          <div className="absolute top-0 right-0 w-96 h-96 bg-[#F6C915]/15 rounded-full blur-3xl pointer-events-none" />
+          <div className="absolute top-0 right-0 w-96 h-96 bg-[#F6C915]/10 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 w-80 h-80 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
-          
-          {/* Specular Top Edge Line */}
-          <div className="absolute inset-x-10 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#F6C915] to-transparent pointer-events-none" />
 
           <div className="max-w-3xl mb-6 sm:mb-10 relative z-10">
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-[#F6C915] border border-[#F6C915]/30 text-[11px] sm:text-xs font-black uppercase tracking-widest shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] mb-2">
+            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-[#F6C915] border border-white/15 text-[11px] sm:text-xs font-black uppercase tracking-widest shadow-[inset_0_1px_0_rgba(255,255,255,0.2)] mb-2">
               <Sparkles className="w-3.5 h-3.5" />
               <span>Certificate Pathways</span>
             </div>
@@ -68,7 +65,7 @@ export function CertificatePathways() {
             </div>
 
             {/* Certificate 2: Achievement (24K Gold Crown Skeuomorphic Plaque) */}
-            <div className="p-5 sm:p-8 rounded-[22px] sm:rounded-[30px] bg-gradient-to-br from-[#1C389E]/60 via-[#0C1B58]/90 to-[#040924] border-2 border-[#F6C915] shadow-[inset_0_2px_0_rgba(255,255,255,0.35),inset_0_-2px_0_rgba(0,0,0,0.7),0_0_40px_rgba(246,201,21,0.25),0_15px_35px_rgba(0,0,0,0.45)] flex flex-col justify-between relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
+            <div className="p-5 sm:p-8 rounded-[22px] sm:rounded-[30px] bg-gradient-to-br from-[#1C389E]/60 via-[#0C1B58]/90 to-[#040924] border border-white/25 shadow-[inset_0_2px_0_rgba(255,255,255,0.35),inset_0_-2px_0_rgba(0,0,0,0.7),0_15px_35px_rgba(0,0,0,0.45)] flex flex-col justify-between relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
               
               {/* CEC Badge with 3D Specular Gold Foil */}
               <div className="absolute top-3.5 right-3.5 text-[9px] sm:text-[10px] font-black uppercase tracking-wider bg-gradient-to-b from-[#FFEAA0] via-[#F6C915] to-[#B87503] text-[#071245] px-3 py-1 rounded-full shadow-[inset_0_1px_0_#FFFFFF,0_2px_8px_rgba(0,0,0,0.3)]">

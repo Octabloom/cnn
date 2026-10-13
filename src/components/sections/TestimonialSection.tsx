@@ -119,11 +119,8 @@ export function TestimonialSection() {
               ============================================================== */}
           <div className="lg:col-span-7 flex flex-col h-full">
             
-            <div className="bg-white rounded-2xl sm:rounded-3xl border border-slate-200/90 p-5 sm:p-7 shadow-[0_15px_40px_-10px_rgba(7,18,69,0.08)] relative min-h-[520px] lg:h-[642px] flex flex-col justify-between">
+            <div className="bg-gradient-to-b from-white via-[#FCFDFE] to-[#F8FAFC] rounded-2xl sm:rounded-3xl border border-slate-200/90 p-5 sm:p-7 shadow-[inset_0_2px_0_#FFFFFF,inset_0_-2px_0_rgba(15,23,42,0.03),0_15px_40px_-10px_rgba(7,18,69,0.08)] relative min-h-[520px] lg:h-[642px] flex flex-col justify-between">
               
-              {/* Top Accent Line */}
-              <div className="absolute inset-x-8 top-0 h-[2px] bg-gradient-to-r from-transparent via-[#F6C915]/70 to-transparent" />
-
               <div>
                 {/* Top Bar: Rating, Verified Seal, and Prev/Next Navigation */}
                 <div className="flex items-center justify-between flex-wrap gap-2.5 pb-3 border-b border-slate-100">

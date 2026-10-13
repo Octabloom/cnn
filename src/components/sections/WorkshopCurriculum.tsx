@@ -53,11 +53,11 @@ export function WorkshopCurriculum() {
           {displayedWorkshops.map((ws) => (
             <div
               key={ws.id}
-              className="bg-white p-4 sm:p-6 rounded-[22px] sm:rounded-[28px] hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group border border-slate-200/90 hover:border-slate-300 relative overflow-hidden shadow-2xs hover:shadow-md"
+              className="bg-gradient-to-b from-white via-[#FCFDFE] to-[#F1F5F9] p-4 sm:p-6 rounded-[22px] sm:rounded-[28px] hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group border border-slate-200/90 hover:border-slate-300 relative overflow-hidden shadow-[inset_0_2px_0_#FFFFFF,inset_0_-1.5px_0_rgba(15,23,42,0.04),0_1px_3px_rgba(0,0,0,0.03),0_10px_25px_-5px_rgba(7,18,69,0.07)] hover:shadow-[inset_0_2px_0_#FFFFFF,inset_0_-1.5px_0_rgba(15,23,42,0.04),0_20px_36px_-6px_rgba(7,18,69,0.12)]"
             >
               <div>
                 {/* Workshop Photo with Gradient Overlay & Badges */}
-                <div className="relative h-40 sm:h-56 w-full rounded-xl sm:rounded-2xl overflow-hidden mb-4 sm:mb-5 border border-slate-200 shadow-inner bg-slate-100">
+                <div className="relative h-40 sm:h-56 w-full rounded-xl sm:rounded-2xl overflow-hidden mb-4 sm:mb-5 border border-slate-200 shadow-[inset_0_2px_4px_rgba(0,0,0,0.08)] bg-slate-100">
                   <Image
                     src={ws.image}
                     alt={ws.title}
@@ -70,11 +70,11 @@ export function WorkshopCurriculum() {
 
                   {/* Top Badges */}
                   <div className="absolute top-2.5 sm:top-3.5 left-2.5 sm:left-3.5 right-2.5 sm:right-3.5 flex items-center justify-between">
-                    <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#071245] text-[#F6C915] font-black text-xs flex items-center justify-center shrink-0 shadow-md border border-[#F6C915]/40">
+                    <span className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-b from-[#0F236B] to-[#040924] text-[#F6C915] font-black text-xs flex items-center justify-center shrink-0 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_2px_6px_rgba(0,0,0,0.25)] border border-[#F6C915]/50">
                       {ws.number}
                     </span>
                     {ws.highlight && (
-                      <span className="text-[10px] sm:text-[11px] font-black text-[#071245] bg-white/95 backdrop-blur-md px-2.5 sm:px-3.5 py-0.5 sm:py-1 rounded-full shadow-md border border-slate-200">
+                      <span className="text-[10px] sm:text-[11px] font-black text-[#071245] bg-white/95 backdrop-blur-md px-2.5 sm:px-3.5 py-0.5 sm:py-1 rounded-full shadow-[inset_0_1px_0_#FFFFFF,0_2px_6px_rgba(0,0,0,0.12)] border border-slate-200">
                         {ws.highlight}
                       </span>
                     )}
