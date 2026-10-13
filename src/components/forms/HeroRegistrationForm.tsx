@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { MOTIVATION_OPTIONS } from "@/data/programData";
+import { MOTIVATION_OPTIONS, PROGRAM_INFO } from "@/data/programData";
 import { isValidEmail, isValidPhone, isValidName } from "@/lib/validation";
-import { ShieldCheck, AlertCircle, ChevronDown, ArrowRight, Lock, Check } from "lucide-react";
+import { ShieldCheck, AlertCircle, ChevronDown, ArrowRight, Lock, Check, Phone, RotateCcw } from "lucide-react";
 
 export function HeroRegistrationForm() {
   const [selectedMotivation, setSelectedMotivation] = useState<string>("");
@@ -13,6 +13,7 @@ export function HeroRegistrationForm() {
   const [errors, setErrors] = useState<{ motivation?: string; fullName?: string; email?: string; phone?: string }>({});
   const [attemptedSubmit, setAttemptedSubmit] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [celebrationPops, setCelebrationPops] = useState(0);
 
   const validate = () => {
     const newErrors: { motivation?: string; fullName?: string; email?: string; phone?: string } = {};
@@ -42,18 +43,104 @@ export function HeroRegistrationForm() {
 
   if (isSubmitted) {
     return (
-      <div className="bg-white/20 backdrop-blur-xs rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-white/60 shadow-none relative text-left flex flex-col gap-3.5 animate-in fade-in zoom-in-95 duration-300">
-        {/* Simple & Clean Smooth Bouncing Checkmark Icon */}
-        <div className="flex items-center gap-3.5 pb-2.5 border-b border-white/40">
-          <div className="relative shrink-0">
-            <div className="animate-smooth-bounce relative flex items-center justify-center select-none">
-              <div className="w-12 h-12 rounded-full bg-gradient-to-b from-[#22C55E] to-[#15803D] flex items-center justify-center relative shadow-none border-2 border-white">
-                <Check className="w-6 h-6 text-white stroke-[3.5] relative z-10" />
+      <div className="bg-white/95 sm:bg-white/95 backdrop-blur-xl rounded-2xl sm:rounded-3xl p-5 sm:p-6 border border-white shadow-[inset_0_1.5px_0_#FFFFFF,0_15px_40px_-10px_rgba(7,18,69,0.18)] relative text-left flex flex-col gap-3.5 animate-in fade-in zoom-in-95 duration-300">
+        {/* Scoped Keyframes for Guaranteed 3D Bouncing Animation & Floor Shadow */}
+        <style>{`
+          @keyframes realBallBounceHero {
+            0%, 100% {
+              transform: translateY(0);
+              animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+            }
+            30% {
+              transform: translateY(-20px);
+              animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+            }
+            55% {
+              transform: translateY(0);
+              animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+            }
+            72% {
+              transform: translateY(-8px);
+              animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+            }
+            86% {
+              transform: translateY(0);
+            }
+          }
+          @keyframes ballShadowPulseHero {
+            0%, 100% {
+              transform: scale(1);
+              opacity: 0.65;
+            }
+            30% {
+              transform: scale(0.45);
+              opacity: 0.15;
+            }
+            55% {
+              transform: scale(1);
+              opacity: 0.65;
+            }
+            72% {
+              transform: scale(0.75);
+              opacity: 0.35;
+            }
+            86% {
+              transform: scale(1);
+              opacity: 0.65;
+            }
+          }
+          .bouncing-ball-hero {
+            animation: realBallBounceHero 1.35s infinite !important;
+            transform-origin: bottom center !important;
+            will-change: transform !important;
+          }
+          .bouncing-shadow-hero {
+            animation: ballShadowPulseHero 1.35s infinite !important;
+            transform-origin: center center !important;
+            will-change: transform, opacity !important;
+          }
+        `}</style>
+
+        {/* Real 3D Shiny Sphere Checkmark Icon with Realistic Bouncing Animation & Ground Shadow */}
+        <div className="flex items-center gap-3.5 pb-2.5 border-b border-slate-200/80 pt-3">
+          <div className="relative shrink-0 flex flex-col items-center select-none">
+            <div
+              className="bouncing-ball-hero relative flex items-center justify-center cursor-pointer group"
+              onClick={() => setCelebrationPops((prev) => prev + 1)}
+              title="Click for celebration sparkle!"
+            >
+              {/* Soft Ambient Radial Glow */}
+              <div className="absolute -inset-2.5 rounded-full bg-emerald-500/30 blur-lg pointer-events-none group-hover:bg-emerald-500/45 transition-colors" />
+
+              {/* True 3D Shiny Sphere */}
+              <div
+                className="w-13 h-13 sm:w-15 sm:h-15 rounded-full flex items-center justify-center relative transition-transform duration-300 group-hover:scale-105 group-active:scale-95 shadow-[0_12px_25px_-4px_rgba(22,163,74,0.65),inset_-5px_-7px_14px_rgba(3,44,22,0.9),inset_2.5px_2.5px_6px_rgba(255,255,255,0.7)]"
+                style={{
+                  background:
+                    "radial-gradient(circle at 35% 28%, #86EFAC 0%, #22C55E 30%, #16A34A 58%, #15803D 78%, #064E3B 92%, #022C1A 100%)",
+                }}
+              >
+                {/* Specular Spotlight Glint Dots (Pure 3D sphere glint, NO flat lines) */}
+                <div className="absolute top-2 left-2.5 sm:top-2.5 sm:left-3 w-3 h-2 sm:w-3.5 sm:h-2.5 rounded-[100%] bg-white/90 blur-[0.4px] -rotate-15 pointer-events-none" />
+                <div className="absolute top-1.5 left-2 sm:top-2 sm:left-2.5 w-1.5 h-1 rounded-full bg-white blur-[0.2px] pointer-events-none" />
+
+                {/* Internal 3D Check Icon with Soft Embossed Drop Shadow */}
+                <Check className="w-6.5 h-6.5 sm:w-7.5 sm:h-7.5 text-white stroke-[3.5] drop-shadow-[0_2px_4px_rgba(0,0,0,0.55)] relative z-10 transition-transform duration-200 group-hover:scale-110" />
               </div>
+
+              {/* Interactive Celebration Feedback Floating Badge on Click */}
+              {celebrationPops > 0 && (
+                <span className="absolute -top-3 px-2 py-0.5 rounded-full bg-[#F6C915] text-[#071245] font-black text-[9px] shadow-md animate-in zoom-in-50 fade-in duration-200 pointer-events-none whitespace-nowrap">
+                  Verified ✨ +{celebrationPops}
+                </span>
+              )}
             </div>
+
+            {/* Synchronized Realistic Ground Floor Shadow underneath the ball */}
+            <div className="bouncing-shadow-hero w-9 sm:w-11 h-2 rounded-[100%] bg-emerald-950/40 blur-[2px] pointer-events-none -mt-0.5" />
           </div>
 
-          <div>
+          <div className="flex-1">
             <h3 className="text-base sm:text-lg font-black text-[#071245] leading-tight">
               Congratulations{fullName ? `, ${fullName}` : ""}!
             </h3>
@@ -64,21 +151,21 @@ export function HeroRegistrationForm() {
         </div>
 
         {/* Summary Card */}
-        <div className="bg-white/20 backdrop-blur-xs rounded-2xl p-3.5 border border-white/40 space-y-2 text-xs shadow-none">
-          <div className="flex justify-between items-center text-[11px] pb-1.5 border-b border-white/30">
-            <span className="text-[#071245]/80 font-bold">Program:</span>
+        <div className="bg-slate-50 rounded-2xl p-3.5 border border-slate-200/80 space-y-2 text-xs shadow-2xs">
+          <div className="flex justify-between items-center text-[11px] pb-1.5 border-b border-slate-200/60">
+            <span className="text-slate-500 font-bold">Program:</span>
             <span className="text-[#071245] font-black">Healthy Eating &amp; Lifestyle</span>
           </div>
-          <div className="flex justify-between items-center text-[11px] pb-1.5 border-b border-white/30">
-            <span className="text-[#071245]/80 font-bold">Intake Date:</span>
+          <div className="flex justify-between items-center text-[11px] pb-1.5 border-b border-slate-200/60">
+            <span className="text-slate-500 font-bold">Intake Date:</span>
             <span className="text-[#071245] font-black">Oct 28, 2026 · 6:00 pm EST</span>
           </div>
-          <div className="flex justify-between items-center text-[11px] pb-1.5 border-b border-white/30">
-            <span className="text-[#071245]/80 font-bold">Confirmation Email:</span>
-            <span className="text-[#071245] font-black">{email}</span>
+          <div className="flex justify-between items-center text-[11px] pb-1.5 border-b border-slate-200/60">
+            <span className="text-slate-500 font-bold">Confirmation Email:</span>
+            <span className="text-[#071245] font-black truncate max-w-[190px]">{email}</span>
           </div>
           <div className="flex justify-between items-center text-[11px]">
-            <span className="text-[#071245]/80 font-bold">Advisor Phone:</span>
+            <span className="text-slate-500 font-bold">Advisor Phone:</span>
             <span className="text-[#071245] font-black">{phone}</span>
           </div>
         </div>
@@ -104,21 +191,33 @@ export function HeroRegistrationForm() {
           </div>
         </div>
 
-        {/* Edit Button */}
-        <div className="pt-1 flex items-center justify-between border-t border-white/40">
-          <span className="text-[10px] font-extrabold text-[#1B7A42]">
-            ✓ Status: Priority Hold Active
-          </span>
-          <button
-            type="button"
-            onClick={() => {
-              setIsSubmitted(false);
-              setAttemptedSubmit(false);
-            }}
-            className="text-[11px] font-black text-[#071245] hover:underline cursor-pointer"
+        {/* Action Button & Status Bar */}
+        <div className="pt-1 space-y-2 border-t border-slate-200/80">
+          <a
+            href={`tel:${PROGRAM_INFO.phoneRaw}`}
+            className="btn-skeuo-gold animate-shimmer w-full h-10 sm:h-11 rounded-xl text-[#071245] font-black text-xs sm:text-sm tracking-wide flex items-center justify-center gap-2 shadow-md hover:brightness-105 active:scale-[0.99] transition-all border-2 border-[#FFF8B8]"
           >
-            ← Edit Details
-          </button>
+            <Phone className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#071245]" />
+            <span>Questions now? Call {PROGRAM_INFO.phone}</span>
+          </a>
+
+          <div className="flex items-center justify-between text-xs pt-0.5">
+            <span className="text-[10px] font-extrabold text-[#1B7A42] flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#1B7A42] animate-pulse" />
+              <span>Status: Priority Hold Active</span>
+            </span>
+            <button
+              type="button"
+              onClick={() => {
+                setIsSubmitted(false);
+                setAttemptedSubmit(false);
+              }}
+              className="inline-flex items-center gap-1 text-[11px] font-black text-[#071245] hover:underline cursor-pointer"
+            >
+              <RotateCcw className="w-3 h-3 text-[#071245]" />
+              <span>Edit Details</span>
+            </button>
+          </div>
         </div>
       </div>
     );
