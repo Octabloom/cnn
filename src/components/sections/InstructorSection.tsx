@@ -157,6 +157,20 @@ export function InstructorSection() {
                 </div>
               ))}
             </div>
+
+            {/* CTA Button Row */}
+            <div className="pt-2 sm:pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-4">
+              <a
+                href="#register"
+                className="btn-skeuo-gold animate-shimmer inline-flex items-center justify-center gap-2 px-5 sm:px-7 h-10 sm:h-11 rounded-full text-xs sm:text-sm font-black text-[#071245] shadow-md hover:scale-105 active:scale-95 transition-all"
+              >
+                <span>Learn with Rasha · Reserve Your Seat</span>
+                <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[3]" />
+              </a>
+              <span className="text-[10px] sm:text-xs font-bold text-slate-500 text-center sm:text-left">
+                Live Interactive Zoom Classes · 21 Hours
+              </span>
+            </div>
           </div>
         </div>
 
