@@ -75,7 +75,7 @@ export function InstructorBio() {
             </h3>
 
             <p className="text-[11px] sm:text-sm text-slate-600 leading-normal sm:leading-relaxed font-medium">
-              Rasha combines medical roots, rigorous public health research, and holistic clinical nutrition to empower you with tools you can use in your kitchen right away. Her focus spans digestive wellness, microbiome balance, and lifestyle harmony.
+              Rasha combines medical roots, rigorous public health research, and holistic nutrition to empower you with tools you can use in your kitchen right away. Her focus spans digestive wellness, microbiome balance, and lifestyle harmony.
             </p>
 
             {/* Credential Badges Row */}

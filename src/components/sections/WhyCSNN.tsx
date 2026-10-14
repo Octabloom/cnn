@@ -7,8 +7,6 @@ import {
   GraduationCap,
   Award,
   Video,
-  CheckCircle2,
-  BookOpenCheck,
   Users2,
   Check,
   Landmark,
@@ -21,7 +19,7 @@ export function WhyCSNN() {
       metric: "1994",
       sublabel: "ESTABLISHED",
       title: "Canada's 1st Holistic School",
-      desc: "32 years of clinical academic leadership and recognized excellence.",
+      desc: "32 years of academic leadership and recognized excellence.",
       icon: Landmark,
       badge: "32-Year Legacy",
     },
@@ -39,7 +37,7 @@ export function WhyCSNN() {
       title: "Registered Instructors",
       desc: "Taught exclusively by practicing Registered Holistic Nutritionists.",
       icon: GraduationCap,
-      badge: "Clinical Clinicians",
+      badge: "Certified R.H.N.s",
     },
     {
       metric: "4 CECs",
@@ -52,22 +50,6 @@ export function WhyCSNN() {
   ];
 
   const institutionalPillars = [
-    {
-      badge: "CLINICAL SCIENCE",
-      tag: "BIOCHEMISTRY & GI TRACT",
-      title: "Evidence-Informed Holistic Science",
-      subtitle: "Beyond superficial social media trends & dietary fads",
-      description:
-        "CSNN curricula bridge cellular biochemistry, digestive physiology, and whole-food therapeutics so you master the true science of how nutrition heals from the stomach to the microbiome.",
-      icon: BookOpenCheck,
-      stat: "21 Live Hours",
-      statLabel: "Academic Scope",
-      points: [
-        "Cellular biochemistry & microbiome diversity without marketing dogma",
-        "Scientific literacy to critically evaluate emerging nutritional studies",
-        "Root-cause symptomatology and practical whole-food meal formulation",
-      ],
-    },
     {
       badge: "LIVE MENTORSHIP",
       tag: "REAL-TIME ON ZOOM",
@@ -209,9 +191,9 @@ export function WhyCSNN() {
         </div>
 
         {/* ==============================================================
-            3 CURATED INSTITUTIONAL PILLARS (3D Skeuomorphic Feature Cards - Compact Mobile)
+            2 CURATED INSTITUTIONAL PILLARS (3D Skeuomorphic Feature Cards - Compact Mobile)
             ============================================================== */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-6 mb-6 sm:mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-6 mb-6 sm:mb-14">
           {institutionalPillars.map((pillar, idx) => {
             const Icon = pillar.icon;
             return (
