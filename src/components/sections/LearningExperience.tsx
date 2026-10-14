@@ -6,34 +6,34 @@ export function LearningExperience() {
   const steps = [
     {
       num: "01",
-      badge: "LIVE INTERACTION",
-      title: "Live with Your Instructor",
-      desc: "Ask Rasha questions live in every session. Real interactive discussions, never boring pre-recorded videos.",
-      takeaway: "Real-time Q&A in every single workshop",
+      badge: "LIVE LEARNING",
+      title: "Learn Directly from Your Instructor",
+      desc: "Use every live session to ask Rasha questions, voice your ideas, and participate in rich dialogues.",
+      takeaway: "Live Q&A and interactive discussions in all workshops",
       icon: Video,
     },
     {
       num: "02",
-      badge: "SUPPORTIVE COHORT",
-      title: "Learn with Fellow Students",
-      desc: "Discuss meals, swap healthy recipes, and build lasting wellness habits alongside an inspiring peer community.",
-      takeaway: "Collaborative discussions & recipe sharing",
+      badge: "COMMUNITY LEARNING",
+      title: "Grow and Learn Together",
+      desc: "Meet fellow learners, share healthy recipes, discuss food choices, and brainstorm ways to develop healthier daily habits.",
+      takeaway: "Peer discussions, exchange of recipes, shared learning",
       icon: Users,
     },
     {
       num: "03",
       badge: "100% ONLINE",
-      title: "Join from Anywhere in the World",
-      desc: "Toronto, across Canada, or worldwide. Evening classes (6:00–8:30 pm EST) fit easily into your normal workday routine.",
-      takeaway: "Learn comfortably from home with zero commute",
+      title: "Learn from Wherever You Are",
+      desc: "Attend from Toronto, anywhere in Canada, or around the world. Evening sessions from 6:00–8:30 pm EST make it easier to fit learning around your daily routine.",
+      takeaway: "Convenient online classes with no commute",
       icon: Globe,
     },
     {
       num: "04",
-      badge: "PRACTICAL SKILLS",
-      title: "Use It in Your Kitchen Tonight",
-      desc: "Decode food labels, organize your pantry, and prepare delicious whole-food meals for your family the very next day.",
-      takeaway: "Real grocery shopping & cooking confidence",
+      badge: "PRACTICAL NUTRITION",
+      title: "Put Your Knowledge into Practice",
+      desc: "Read food labels, plan your purchases, stock your kitchen, and cook healthy whole-food meals for your family.",
+      takeaway: "Practical skills for smarter shopping and everyday cooking",
       icon: ChefHat,
     },
   ];
@@ -58,11 +58,11 @@ export function LearningExperience() {
           </div>
 
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#071245] tracking-[-0.03em] leading-tight mb-2 sm:mb-3">
-            Simple, Live, and Built for Real Life
+            Simple, Interactive, and Designed for Everyday Life
           </h2>
 
           <p className="text-xs sm:text-base text-slate-600 font-medium max-w-2xl mx-auto">
-            10 interactive evening workshops designed for deep understanding, personal attention, and immediate everyday habits.
+            Attend 10 evening workshops in person, with expert guidance, personal attention, and everyday nutrition skills.
           </p>
         </div>
 

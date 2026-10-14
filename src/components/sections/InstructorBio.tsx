@@ -24,7 +24,7 @@ export function InstructorBio() {
           </div>
 
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#071245] tracking-[-0.03em] leading-[1.05]">
-            Rasha Abu Rabi, BSc., MSc., R.H.N.
+            Meet Rasha Abu Rabi, BSc., MSc., R.H.N.
           </h2>
 
           <p className="mt-2.5 text-base sm:text-xl font-black text-[#B87503]">
@@ -32,7 +32,7 @@ export function InstructorBio() {
           </p>
 
           <p className="mt-1.5 text-xs sm:text-base text-slate-600 font-medium max-w-xl mx-auto">
-            Scientist, public health specialist, and certified CSNN nutritionist guiding you through 10 interactive live workshops.
+            Learn holistic nutrition with Rasha, a scientist, a specialist in public health, and also a certified CSNN nutritionist, in 10 interactive live online workshops.
           </p>
         </div>
 

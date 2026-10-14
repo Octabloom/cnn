@@ -23,10 +23,10 @@ export function CertificatePathways() {
               <span>Certificate Pathways</span>
             </div>
             <h3 className="text-lg sm:text-3xl lg:text-4xl font-black text-white tracking-tight drop-shadow-[0_2px_4px_rgba(0,0,0,0.4)] leading-tight">
-              Choose Your Level of Recognition
+              Get Recognised for Your Learning
             </h3>
             <p className="text-xs sm:text-base text-white/85 mt-1 sm:mt-2 font-medium leading-relaxed">
-              Every student who participates earns formal recognition. Fitness professionals can also complete the short test for continuing education credits.
+              All students receive formal recognition for their participation. A brief exam is available to fitness professionals that will allow them to earn continuing education credits.
             </p>
           </div>
 
@@ -47,12 +47,12 @@ export function CertificatePathways() {
                     <h4 className="text-sm sm:text-xl lg:text-2xl font-black text-white tracking-tight drop-shadow-xs leading-tight">
                       Certificate of Attendance
                     </h4>
-                    <span className="text-[10px] sm:text-xs text-[#FBECB0] font-bold block mt-0.5">Standard Pathway</span>
+                    <span className="text-[10px] sm:text-xs text-[#FBECB0] font-bold block mt-0.5">Your Learning Recognition</span>
                   </div>
                 </div>
 
                 <p className="text-[11px] sm:text-sm text-white/80 leading-normal sm:leading-relaxed mb-3 sm:mb-5 font-normal">
-                  Awarded upon completing all 10 workshops. Ideal for personal health, family nutrition planning, and lifestyle enrichment.
+                  Get a certificate when completing all 10 workshops and build practical knowledge to help support healthier habits at home and in daily life.
                 </p>
               </div>
 
@@ -68,7 +68,7 @@ export function CertificatePathways() {
             <div className="p-3.5 sm:p-7 rounded-xl sm:rounded-[28px] bg-gradient-to-br from-[#1C389E]/60 via-[#0C1B58]/90 to-[#040924] border border-white/25 shadow-[inset_0_2px_0_rgba(255,255,255,0.35),inset_0_-2px_0_rgba(0,0,0,0.7),0_15px_35px_rgba(0,0,0,0.45)] flex flex-col justify-between relative overflow-hidden group hover:-translate-y-1 transition-all duration-300">
               
               <div>
-                {/* Header Row with Icon, Title, and Responsive Badge that NEVER overlaps */}
+                {/* Header Row with Icon, Title, and Responsive Badge */}
                 <div className="flex items-start justify-between gap-2 mb-2.5 sm:mb-4">
                   <div className="flex items-center gap-2.5 sm:gap-3.5 min-w-0">
                     {/* 3D Gold Medal Plaque */}
@@ -83,7 +83,7 @@ export function CertificatePathways() {
                         Certificate of Achievement
                       </h4>
                       <div className="flex items-center gap-2 mt-0.5 flex-wrap">
-                        <span className="text-[10px] sm:text-xs text-white/90 font-bold">Professional Upgrade</span>
+                        <span className="text-[10px] sm:text-xs text-white/90 font-bold">Advance Your Professional Learning</span>
                         <span className="text-[8.5px] sm:text-[10px] font-black uppercase tracking-wider bg-gradient-to-b from-[#FFEAA0] via-[#F6C915] to-[#B87503] text-[#071245] px-2 py-0.5 rounded-full shadow-[inset_0_1px_0_#FFFFFF,0_1px_3px_rgba(0,0,0,0.3)] shrink-0">
                           4 canfitpro CECs
                         </span>
@@ -93,7 +93,7 @@ export function CertificatePathways() {
                 </div>
 
                 <p className="text-[11px] sm:text-sm text-white/90 leading-normal sm:leading-relaxed mb-3 sm:mb-5 font-normal">
-                  All 10 workshops + a short multiple-choice assessment (75%+ passing score). Approved by canfitpro for 4 Continuing Education Credits.
+                  Expand learning by attending all 10 workshops and achieving a passing grade on a multiple-choice exam of 75%.
                 </p>
               </div>
 
@@ -101,7 +101,7 @@ export function CertificatePathways() {
                 <div className="w-3.5 h-3.5 sm:w-4 sm:h-4 rounded-full bg-gradient-to-b from-[#FFEAA0] to-[#DEAB07] text-[#071245] flex items-center justify-center shadow-[inset_0_1px_0_#FFFFFF,0_2px_4px_rgba(0,0,0,0.3)] shrink-0">
                   <Check className="w-2 h-2 sm:w-2.5 sm:h-2.5 stroke-[3]" />
                 </div>
-                <span>All 10 workshops + short test (75%+)</span>
+                <span>Complete all 10 workshops + pass the assessment (75%+)</span>
               </div>
             </div>
 

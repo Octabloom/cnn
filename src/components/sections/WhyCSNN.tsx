@@ -102,27 +102,12 @@ export function WhyCSNN() {
     },
   ];
 
-  const comparisons = [
-    {
-      feature: "Classroom Experience",
-      csnn: "100% Live Video with real-time faculty discussions",
-      other: "Pre-recorded, static video libraries with no interaction",
-    },
-    {
-      feature: "Instructor Credentials",
-      csnn: "Practicing Registered Holistic Nutritionists (R.H.N.)",
-      other: "Anonymous course creators or unverified influencers",
-    },
-    {
-      feature: "Continuing Education",
-      csnn: "Pre-approved for 4 canfitpro CECs + Diploma transfer",
-      other: "Unaccredited certificates with zero transfer value",
-    },
-    {
-      feature: "Academic Heritage",
-      csnn: "32 years of Canadian institutional trust (Est. 1994)",
-      other: "Generic startup platforms without clinical grounding",
-    },
+  const trustedHighlights = [
+    "Learn through 100% live online classes and real-time discussions.",
+    "Get guidance from practicing Registered Holistic Nutritionists (R.H.N.s).",
+    "Earn 4 pre-approved Canfitpro CECs.",
+    "Research transfer options for diplomas.",
+    "Study at an established Canadian institution since 1994.",
   ];
 
   return (
@@ -150,11 +135,11 @@ export function WhyCSNN() {
           </div>
 
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#071245] tracking-[-0.03em] leading-tight mb-3">
-            Canada’s Gold Standard in Natural Nutrition Education
+            Building a Legacy in Holistic Nutrition Since 1994
           </h2>
 
           <p className="text-xs sm:text-base text-slate-600 font-medium max-w-2xl mx-auto mb-4">
-            Founded in 1994, CSNN is Canada’s first and largest institution dedicated exclusively to holistic nutrition. Explore the clinical standards, faculty excellence, and student community that set us apart.
+            Explore CSNN’s long-standing commitment to holistic nutrition education, with knowledgeable instructors, comprehensive learning, and a community that supports your wellness journey.
           </p>
 
           {/* Quick Credibility Pill Row */}
@@ -305,11 +290,11 @@ export function WhyCSNN() {
               </div>
 
               <h3 className="text-lg sm:text-3xl font-black text-[#071245] tracking-tight leading-tight">
-                Teaching the Medicine of the Future™ Since 1994
+                A Trusted Name in Holistic Nutrition Education Since 1994
               </h3>
 
               <p className="text-[11px] sm:text-sm text-slate-600 font-medium leading-normal sm:leading-relaxed">
-                While short automated online courses provide pre-recorded videos without instructor guidance, CSNN Toronto provides live academic mentorship with practicing Registered Holistic Nutritionists. You gain clinical scientific depth, direct live feedback, and a respected credential recognized across Canada.
+                CSNN Toronto makes nutrition education come alive with live academic mentorship from Registered Holistic Nutritionists. You can ask questions, get direct feedback, build your scientific knowledge, and gain a respected credential recognized by every province in Canada, rather than just watching pre-recorded videos.
               </p>
 
               <div className="pt-1 sm:pt-2 flex flex-wrap items-center gap-2 sm:gap-3">
@@ -328,23 +313,20 @@ export function WhyCSNN() {
 
             {/* Right: Quick Advantage Matrix Box (5 cols) - 3D Inset Debossed Plaque */}
             <div className="lg:col-span-5 bg-gradient-to-b from-white to-[#F8FAFC] rounded-xl sm:rounded-2xl border border-slate-200/90 p-3 sm:p-6 shadow-[inset_0_2px_4px_rgba(15,23,42,0.05),0_1px_0_#FFFFFF] space-y-2 sm:space-y-3">
-              <div className="text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-slate-400 pb-1.5 sm:pb-2 border-b border-slate-200/70 flex items-center justify-between">
-                <span>How CSNN Toronto Compares</span>
+              <div className="text-[10px] sm:text-[11px] font-black uppercase tracking-wider text-slate-500 pb-1.5 sm:pb-2 border-b border-slate-200/70 flex items-center justify-between">
+                <span>The CSNN Toronto Standard</span>
                 <span className="text-[9.5px] sm:text-[10px] font-bold text-emerald-700 bg-gradient-to-b from-emerald-50 to-emerald-100/70 px-2 py-0.5 rounded-full border border-emerald-300/60 shadow-[inset_0_1px_1px_rgba(0,0,0,0.04),0_1px_0_#FFFFFF]">
-                  Verified Standard
+                  5 Core Pillars
                 </span>
               </div>
 
-              <div className="space-y-2 sm:space-y-3 text-[11px] sm:text-xs">
-                {comparisons.map((c, i) => (
+              <div className="space-y-2 sm:space-y-2.5 text-[11px] sm:text-xs">
+                {trustedHighlights.map((pt, i) => (
                   <div key={i} className="flex items-start gap-2 sm:gap-2.5">
-                    <div className="w-4 h-4 sm:w-5 sm:h-5 rounded-full bg-gradient-to-b from-emerald-400 to-emerald-600 text-white flex items-center justify-center shrink-0 mt-0.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),0_2px_5px_rgba(16,185,129,0.35)]">
-                      <Check className="w-2.5 h-2.5 sm:w-3 sm:h-3 stroke-[3]" />
+                    <div className="w-5 h-5 rounded-full bg-gradient-to-b from-[#0F236B] to-[#040924] text-[#F6C915] text-[10px] font-black flex items-center justify-center shrink-0 mt-0.5 shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_2px_4px_rgba(7,18,69,0.2)] border border-[#F6C915]/40">
+                      {i + 1}
                     </div>
-                    <div>
-                      <span className="font-black text-[#071245]">{c.feature}:</span>{" "}
-                      <span className="text-slate-600 font-medium">{c.csnn}</span>
-                    </div>
+                    <span className="font-bold text-[#071245] leading-snug">{pt}</span>
                   </div>
                 ))}
               </div>

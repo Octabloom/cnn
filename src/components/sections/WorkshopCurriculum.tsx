@@ -28,11 +28,10 @@ export function WorkshopCurriculum() {
             <span>10 HOLISTIC NUTRITION WORKSHOPS</span>
           </div>
           <h2 className="text-2xl sm:text-4xl lg:text-5xl font-black text-[#071245] tracking-[-0.03em] leading-[1.05]">
-            Healthy starts here
+            Your Journey to Better Health Starts Here
           </h2>
           <p className="mt-2.5 text-xs sm:text-base text-slate-600 font-medium max-w-2xl mx-auto">
-            A comprehensive curriculum designed to take you step-by-step through the core
-            principles of natural nutrition, from cellular fuel to daily kitchen routines.
+            Learn the core principles of natural nutrition step by step, from understanding how nutrients support your body at the cellular level to applying healthy habits in your everyday kitchen.
           </p>
 
           {/* Centered Schedule Badges */}

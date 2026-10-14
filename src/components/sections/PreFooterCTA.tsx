@@ -20,11 +20,11 @@ export function PreFooterCTA() {
             </div>
 
             <h2 className="text-xl sm:text-4xl lg:text-5xl font-black text-[#071245] tracking-[-0.03em] leading-tight mb-2 sm:mb-3">
-              Ready to transform your health from the kitchen out?
+              Turn Nutrition Knowledge into Everyday Wellness
             </h2>
 
             <p className="text-[11px] sm:text-base text-slate-600 max-w-2xl mx-auto font-medium leading-normal sm:leading-relaxed mb-4 sm:mb-7">
-              Join certified lead nutritionist Rasha Abu Rabi, MSc., R.H.N. for 10 live online workshops. Earn your certificate and 4 canfitpro CECs.
+              Join certified lead nutritionist Rasha Abu Rabi, MSc., R.H.N., for 10 interactive online workshops. Build your nutrition knowledge, earn your certificate, and receive 4 CanFitPro CECs.
             </p>
 
             {/* Schedule Highlights Strip */}

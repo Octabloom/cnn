@@ -66,14 +66,14 @@ export function HeroSection() {
 
               {/* Sunshine Golden Headline */}
               <h1 className="text-2xl sm:text-3xl lg:text-[34px] xl:text-[38px] font-black text-[#B87503] sm:text-[#C4880B] tracking-tight leading-snug mt-1 mb-1">
-                Healthy Starts Here.
+                Better Nutrition Begins with Understanding
               </h1>
 
               {/* Lead Paragraph Card: Elegant Frosted Backing for 100% Legibility */}
               <div className="relative rounded-2xl bg-white/80 sm:bg-white/85 backdrop-blur-md border border-white/90 p-4 sm:p-5 max-w-xl z-20 shadow-[0_8px_30px_rgba(7,18,69,0.06)]">
                 <div className="absolute left-0 top-3 bottom-3 w-1.5 bg-gradient-to-b from-[#F6C915] to-[#DEAB07] rounded-r-full" />
                 <p className="pl-3 text-xs sm:text-sm lg:text-[15px] text-[#071245] font-bold leading-relaxed">
-                  Every meal is a choice that energizes and transforms your vitality. Learn holistic wellness in simple way live online with Registered Holistic Nutritionist (RHN).
+                  Discover the value of nourishing your body with informed food choices. Attend live online workshops with a Registered Holistic Nutritionist (R.H.N.) to develop nutrition knowledge and practice wellness strategies.
                 </p>
               </div>
 
