@@ -99,61 +99,6 @@ export const DIPLOMA_TESTIMONIALS: TestimonialItem[] = [
       "My experience at CSNN Toronto was nothing short of transformative! I felt like a sponge while I was in class – soaking up all the information I could. I loved the perspectives of all my teachers who had unique backgrounds and interests in various fields of nutrition. While I enrolled mainly for the nutrition and food component of the program, I found myself absolutely loving the lifestyle component and the emphasis on mind-body-spirit connection. I truly feel that I gained so much during my time at CSNN Toronto. I graduated with the confidence to start my own nutritional consulting business, Clarity Wellness, and have regularly implemented my learnings from class to consultations with my clients. I recommend CSNN Toronto to anyone who is looking to deepen their connection to themselves and to their health and wellness through holistic living and nutrition!",
     highlightChip: "Clarity Wellness Business Founder",
   },
-  {
-    id: "dip-9",
-    category: "diploma",
-    name: "Student 1",
-    role: "Graduating Student",
-    program: "Natural Nutrition Diploma Program",
-    headline: "Can't believe I am about to graduate!",
-    quote:
-      "What a journey I went through. It felt more like a roller coaster ride. Thank you so much for all your support throughout the journey. Can't believe I am about to graduate! I have learned so much from CSNN Toronto.",
-    highlightChip: "Graduating Student Experience",
-  },
-  {
-    id: "dip-10",
-    category: "diploma",
-    name: "Student 2",
-    role: "Diploma Student",
-    program: "Natural Nutrition Diploma Program",
-    headline: "Taking you to real life experience",
-    quote:
-      "I like the efforts and preparations some instructors have put for the classes. you can see that they are not just giving a lecture but they are taking you to real life experience.",
-    highlightChip: "Real-Life Instructor Experience",
-  },
-  {
-    id: "dip-11",
-    category: "diploma",
-    name: "Student 3",
-    role: "Diploma Student",
-    program: "Natural Nutrition Diploma Program",
-    headline: "Body and mind component makes it truly holistic",
-    quote:
-      "I really liked the body and mind component which I feel makes it truly holistic. I also learned a lot through the practicums.",
-    highlightChip: "Mind-Body Practicums",
-  },
-  {
-    id: "dip-12",
-    category: "diploma",
-    name: "Student 4",
-    role: "Diploma Student",
-    program: "Natural Nutrition Diploma Program",
-    headline: "Easy communication with coordinator & awesome teachers",
-    quote:
-      "The easy communication with the program coordinator, the teachers are awesome, and readable textbooks/readings are well written.",
-    highlightChip: "Supportive Faculty & Readings",
-  },
-  {
-    id: "dip-13",
-    category: "diploma",
-    name: "Student 5",
-    role: "Diploma Student",
-    program: "Natural Nutrition Diploma Program",
-    headline: "Enjoyed all course content across health and wellness",
-    quote:
-      "Enjoyed all course content that was taught and how it covered many different areas of health and wellness.",
-    highlightChip: "Comprehensive Holistic Scope",
-  },
 ];
 
 // Category 2: Healthy Eating & Certificate Testimonials
