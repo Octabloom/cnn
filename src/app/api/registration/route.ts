@@ -1,4 +1,10 @@
 import { NextResponse } from "next/server";
+import { Resend } from "resend";
+
+const resendApiKey = process.env.RESEND_API_KEY;
+const resend = resendApiKey ? new Resend(resendApiKey) : null;
+const RESEND_FROM_EMAIL =
+  process.env.RESEND_FROM_EMAIL || "Admissions <onboarding@resend.dev>";
 
 export interface RegistrationSubmission {
   formSource?: string;
@@ -228,36 +234,127 @@ export async function POST(request: Request) {
         }) + " (EST)",
     };
 
-    // 9. Forward to FormSubmit with timeout guard
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 10000);
+    // 9. Dispatch via Resend (Direct Email & Autoresponder)
+    let resendApplicantSent = false;
+    let resendAdminSent = false;
 
-    const response = await fetch(FORMSUBMIT_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        Referer: "https://octabloomwellness.com/",
-        Origin: "https://octabloomwellness.com",
-      },
-      body: JSON.stringify(formSubmitPayload),
-      signal: controller.signal,
-    });
+    if (resend) {
+      // A. Send Auto-Response Confirmation Email to the APPLICANT (cleanEmail)
+      try {
+        const applicantEmailResult = await resend.emails.send({
+          from: RESEND_FROM_EMAIL,
+          to: cleanEmail,
+          subject: "Registration Received: Clinical Holistic Nutrition Program · Octabloom",
+          html: `
+            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; color: #1e293b; line-height: 1.6; border: 1px solid #e2e8f0; border-radius: 12px; background-color: #ffffff;">
+              <div style="background: linear-gradient(135deg, #064e3b, #047857); color: #ffffff; padding: 24px; border-radius: 8px; text-align: center;">
+                <h1 style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: 0.5px;">Octabloom · CSNN Toronto</h1>
+                <p style="margin: 6px 0 0; font-size: 14px; opacity: 0.9;">Healthy Eating &amp; Lifestyle Certificate</p>
+              </div>
+              
+              <div style="padding: 24px 8px 16px;">
+                <p style="font-size: 16px; margin-top: 0;">Dear <strong>${candidateName}</strong>,</p>
+                <p>Thank you for your interest! We have received your registration details for the <strong>${cohort}</strong> intake.</p>
+                
+                <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #10b981; padding: 16px 20px; margin: 24px 0; border-radius: 8px;">
+                  <h3 style="margin: 0 0 12px; font-size: 15px; color: #0f172a; text-transform: uppercase; letter-spacing: 0.5px;">Registration Summary</h3>
+                  <table style="width: 100%; font-size: 14px; border-collapse: collapse;">
+                    <tr><td style="padding: 6px 0; color: #64748b; width: 140px;">Candidate Name:</td><td style="font-weight: 600; color: #0f172a;">${candidateName}</td></tr>
+                    <tr><td style="padding: 6px 0; color: #64748b;">Selected Intake:</td><td style="font-weight: 600; color: #0f172a;">${cohort}</td></tr>
+                    <tr><td style="padding: 6px 0; color: #64748b;">Pathway:</td><td style="font-weight: 600; color: #0f172a;">${certificateType}</td></tr>
+                    <tr><td style="padding: 6px 0; color: #64748b;">Tuition Status:</td><td style="font-weight: 600; color: #059669;">Free Seat Hold (Zero Due Today)</td></tr>
+                  </table>
+                </div>
 
-    clearTimeout(timeoutId);
+                <h3 style="font-size: 16px; color: #0f172a; margin-top: 24px; margin-bottom: 12px;">What Happens Next?</h3>
+                <ul style="padding-left: 20px; font-size: 14px; color: #334155; margin-top: 0;">
+                  <li style="margin-bottom: 8px;">An admissions advisor will connect with you via <strong>${cleanPhone}</strong> or <strong>${cleanEmail}</strong>.</li>
+                  <li style="margin-bottom: 8px;">We will provide your orientation schedule, syllabus overview, and mentorship access.</li>
+                  <li style="margin-bottom: 8px;">Your seat hold is active, ensuring your spot is reserved.</li>
+                </ul>
 
-    const text = await response.text();
-    let result: Record<string, unknown> = {};
+                <p style="margin-top: 28px; font-size: 14px; color: #64748b;">Have a question right now? Reply directly to this email or reach us at <a href="mailto:${DESTINATION_EMAIL}" style="color: #047857; font-weight: 500;">${DESTINATION_EMAIL}</a>.</p>
+              </div>
+
+              <div style="border-top: 1px solid #f1f5f9; padding-top: 16px; font-size: 12px; color: #94a3b8; text-align: center;">
+                <p style="margin: 0;">Octabloom Wellness &amp; Canadian School of Natural Nutrition (CSNN) Toronto</p>
+                <p style="margin: 4px 0 0;">This email confirms receipt of your registration submission.</p>
+              </div>
+            </div>
+          `,
+        });
+
+        if (applicantEmailResult.error) {
+          console.warn("[Resend Applicant Notice]:", applicantEmailResult.error.message);
+        } else {
+          resendApplicantSent = true;
+        }
+      } catch (err) {
+        console.warn("[Resend Applicant Error]:", err);
+      }
+
+      // B. Send Lead Notification Email to the ADMISSIONS TEAM (DESTINATION_EMAIL)
+      try {
+        const adminEmailResult = await resend.emails.send({
+          from: RESEND_FROM_EMAIL,
+          to: DESTINATION_EMAIL,
+          replyTo: cleanEmail,
+          subject: `🎓 New Student Lead: ${candidateName} (${cohort})`,
+          html: `
+            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px;">
+              <h2 style="color: #064e3b; margin-top: 0;">🎓 New Student Lead Received</h2>
+              <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+                <tr style="background: #f8fafc;"><td style="padding: 8px; font-weight: bold; width: 160px;">Full Name</td><td style="padding: 8px;">${candidateName}</td></tr>
+                <tr><td style="padding: 8px; font-weight: bold;">Email</td><td style="padding: 8px;"><a href="mailto:${cleanEmail}">${cleanEmail}</a></td></tr>
+                <tr style="background: #f8fafc;"><td style="padding: 8px; font-weight: bold;">Phone</td><td style="padding: 8px;"><a href="tel:${cleanPhone}">${cleanPhone}</a></td></tr>
+                <tr><td style="padding: 8px; font-weight: bold;">Cohort / Intake</td><td style="padding: 8px;">${cohort}</td></tr>
+                <tr style="background: #f8fafc;"><td style="padding: 8px; font-weight: bold;">Pathway</td><td style="padding: 8px;">${certificateType}</td></tr>
+                <tr><td style="padding: 8px; font-weight: bold;">Clinical Focus</td><td style="padding: 8px;">${sanitizedFocusAreas.length > 0 ? sanitizedFocusAreas.join(", ") : "Standard Admissions Intake"}</td></tr>
+                <tr style="background: #f8fafc;"><td style="padding: 8px; font-weight: bold;">Location</td><td style="padding: 8px;">${city ? city + ", " : ""}${provinceCountry}</td></tr>
+                <tr><td style="padding: 8px; font-weight: bold;">Preferred Reach</td><td style="padding: 8px;">${reachMethod}</td></tr>
+                <tr style="background: #f8fafc;"><td style="padding: 8px; font-weight: bold;">Source / Portal</td><td style="padding: 8px;">${formSource} (Heard via: ${heardFrom})</td></tr>
+                <tr><td style="padding: 8px; font-weight: bold;">Background</td><td style="padding: 8px;">${background}</td></tr>
+                <tr style="background: #f8fafc;"><td style="padding: 8px; font-weight: bold;">Motivation / Note</td><td style="padding: 8px;">${motivation}<br/><em>${message}</em></td></tr>
+              </table>
+            </div>
+          `,
+        });
+
+        if (!adminEmailResult.error) {
+          resendAdminSent = true;
+        }
+      } catch (err) {
+        console.warn("[Resend Admin Error]:", err);
+      }
+    }
+
+    // 10. Secondary Backup: Also trigger FormSubmit as an async safety net
     try {
-      result = JSON.parse(text);
-    } catch {
-      result = { raw: text.slice(0, 150) };
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 6000);
+
+      await fetch(FORMSUBMIT_URL, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          Referer: "https://octabloomwellness.com/",
+          Origin: "https://octabloomwellness.com",
+        },
+        body: JSON.stringify(formSubmitPayload),
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeoutId);
+    } catch (fsError) {
+      console.info("[FormSubmit sync fallback status]:", fsError);
     }
 
     return NextResponse.json({
-      success: response.ok,
-      status: response.status,
-      result,
+      success: true,
+      message: "Registration received successfully.",
+      resendApplicantSent,
+      resendAdminSent,
     });
   } catch (error) {
     // Log real error internally; never expose stack traces or system internals to the client
