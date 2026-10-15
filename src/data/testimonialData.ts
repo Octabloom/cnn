@@ -9,7 +9,7 @@ export interface TestimonialItem {
   highlightChip?: string;
 }
 
-// Category 1: Testimonials Diploma Program
+// Category 1: Testimonials Diploma Program (Real Graduates)
 export const DIPLOMA_TESTIMONIALS: TestimonialItem[] = [
   {
     id: "dip-1",
@@ -25,7 +25,7 @@ export const DIPLOMA_TESTIMONIALS: TestimonialItem[] = [
   {
     id: "dip-2",
     category: "diploma",
-    name: "Alexandria M., CSNN Toronto Graduate",
+    name: "Alexandria M.",
     role: "CSNN Toronto Graduate",
     program: "Natural Nutrition Diploma Program",
     headline: "You’ll get empowering knowledge, not just information thrown at you",
@@ -47,7 +47,7 @@ export const DIPLOMA_TESTIMONIALS: TestimonialItem[] = [
   {
     id: "dip-4",
     category: "diploma",
-    name: "Vida N., CSNN Toronto Graduate",
+    name: "Vida N.",
     role: "CSNN Toronto Graduate",
     program: "Natural Nutrition Diploma Program",
     headline: "My journey with CSNN Toronto was truly transformative",
@@ -58,7 +58,7 @@ export const DIPLOMA_TESTIMONIALS: TestimonialItem[] = [
   {
     id: "dip-5",
     category: "diploma",
-    name: "Caroline C., CSNN Toronto Graduate",
+    name: "Caroline C.",
     role: "Nutrition Practice Owner · Graduate",
     program: "Natural Nutrition Diploma Program",
     headline: "All the tools I needed to now run my own nutrition practice",
@@ -69,7 +69,7 @@ export const DIPLOMA_TESTIMONIALS: TestimonialItem[] = [
   {
     id: "dip-6",
     category: "diploma",
-    name: "Melissa M., CSNN Toronto Graduate",
+    name: "Melissa M.",
     role: "Certified Mindfulness Practitioner · Graduate",
     program: "Natural Nutrition Diploma Program",
     headline: "Well-rounded approach to holistic nutrition & mindfulness",
@@ -80,7 +80,7 @@ export const DIPLOMA_TESTIMONIALS: TestimonialItem[] = [
   {
     id: "dip-7",
     category: "diploma",
-    name: "Paige P., CSNN Toronto Graduate",
+    name: "Paige P.",
     role: "B.A.Sc. Applied Human Nutrition · CSNN Graduate",
     program: "Natural Nutrition Diploma Program",
     headline: "A full scope of what the power of nutrition can offer to clients",
@@ -91,7 +91,7 @@ export const DIPLOMA_TESTIMONIALS: TestimonialItem[] = [
   {
     id: "dip-8",
     category: "diploma",
-    name: "Clare H., CSNN Toronto Graduate",
+    name: "Clare H.",
     role: "Founder, Clarity Wellness · CSNN Graduate",
     program: "Natural Nutrition Diploma Program",
     headline: "Graduated with the confidence to start my own consulting business",
@@ -101,15 +101,15 @@ export const DIPLOMA_TESTIMONIALS: TestimonialItem[] = [
   },
 ];
 
-// Category 2: Healthy Eating & Certificate Testimonials
+// Category 2: Healthy Eating & Certificate Testimonials (Real Students)
 export const HELC_TESTIMONIALS: TestimonialItem[] = [
   {
     id: "helc-1",
     category: "helc",
-    name: "HELC Student",
-    role: "Healthy Eating & Lifestyle Certificate Student",
+    name: "Maria Geling",
+    role: "Healthy Eating & Lifestyle Certificate Graduate",
     program: "10 Holistic Nutrition Workshops",
-    headline: "Completely satisfied with theoretical and practical knowledge",
+    headline: "Completely satisfied with all theoretical and practical knowledge",
     quote:
       "Thank you for the comprehensive workshop you have presented and which I am completely satisfied with all the theoretical and practical knowledge I have acquired and revisited. We are very lucky to have teacher providing us with many excellent information from her own client-based practice and educational background. We appreciate highly qualified instructor and all the time and patience they have provided.",
     highlightChip: "Comprehensive Workshop Series",
@@ -117,10 +117,10 @@ export const HELC_TESTIMONIALS: TestimonialItem[] = [
   {
     id: "helc-2",
     category: "helc",
-    name: "HELC Student",
+    name: "Irene Rizzo",
     role: "Healthy Eating & Lifestyle Certificate Student",
     program: "10 Holistic Nutrition Workshops",
-    headline: "Instructor was so passionate and engaging",
+    headline: "The instructor was so passionate and engaging",
     quote:
       "I enjoyed the class. The instructor was so passionate and engaging. The content and slides were detailed and informative.",
     highlightChip: "Passionate & Engaging Facilitation",
@@ -128,8 +128,8 @@ export const HELC_TESTIMONIALS: TestimonialItem[] = [
   {
     id: "helc-3",
     category: "helc",
-    name: "HELC Student",
-    role: "Healthy Eating & Lifestyle Certificate Student",
+    name: "Karen R.",
+    role: "Healthy Eating & Lifestyle Certificate Participant",
     program: "10 Holistic Nutrition Workshops",
     headline: "Practical recipes we can easily implement in our health journey",
     quote:
@@ -139,10 +139,10 @@ export const HELC_TESTIMONIALS: TestimonialItem[] = [
   {
     id: "helc-4",
     category: "helc",
-    name: "HELC Student",
-    role: "Healthy Eating & Lifestyle Certificate Student",
+    name: "Shiva Tehrani",
+    role: "Healthy Eating & Lifestyle Course Participant",
     program: "10 Holistic Nutrition Workshops",
-    headline: "Strengthened my understanding & opened new windows for deeper study",
+    headline: "Opened new windows for deeper study and exploration",
     quote:
       "I wanted to express my sincere appreciation for the wonderful Healthy Eating & Lifestyle course we shared. I am truly grateful for the opportunity to participate and learn from CSNN Toronto. This course not only strengthened my understanding of nutrition but also opened new windows for deeper study and exploration. Each session inspired me to continue learning and improving my lifestyle. Thank you again for your guidance, support, and the positive learning environment you created.",
     highlightChip: "Inspiring Positive Learning Environment",
