@@ -91,26 +91,22 @@ export async function POST(request: Request) {
       body: JSON.stringify(formSubmitPayload),
     });
 
-    const result = await response.json().catch(() => ({}));
-
-    if (
-      response.ok &&
-      (result.success === true || result.success === "true" || result.status === "success")
-    ) {
-      return NextResponse.json({
-        success: true,
-        message: "Lead successfully submitted and routed to adminoctobloom@gmail.com",
-      });
+    const text = await response.text();
+    let result: Record<string, unknown> = {};
+    try {
+      result = JSON.parse(text);
+    } catch {
+      result = { raw: text.slice(0, 300) };
     }
 
     return NextResponse.json({
-      success: true,
-      message: result.message || "Lead received.",
+      success: response.ok,
+      status: response.status,
+      result,
     });
   } catch (error) {
-    console.error("Registration error:", error);
     return NextResponse.json(
-      { success: false, error: "An unexpected error occurred while processing the request." },
+      { success: false, error: String(error) },
       { status: 500 }
     );
   }
