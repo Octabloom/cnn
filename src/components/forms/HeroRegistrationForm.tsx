@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { MOTIVATION_OPTIONS, PROGRAM_INFO } from "@/data/programData";
 import { isValidEmail, isValidPhone, isValidName } from "@/lib/validation";
 import { submitLeadToAdmin } from "@/lib/leadSubmission";
-import { ShieldCheck, AlertCircle, ChevronDown, ArrowRight, Lock, Check, Phone, RotateCcw, Loader2 } from "lucide-react";
+import { ShieldCheck, AlertCircle, ChevronDown, ArrowRight, Check, Phone, RotateCcw, Loader2 } from "lucide-react";
 
 export function HeroRegistrationForm() {
   const [selectedMotivation, setSelectedMotivation] = useState<string>("");
@@ -362,12 +362,6 @@ export function HeroRegistrationForm() {
               )}
             </div>
           </div>
-        </div>
-
-        {/* Official Privacy Guarantee */}
-        <div className="flex items-center gap-2 p-2.5 rounded-xl bg-slate-50 border border-slate-200 text-slate-700 text-[11px] font-bold shadow-2xs">
-          <Lock className="w-3.5 h-3.5 text-[#1B7A42] shrink-0" />
-          <span>Official CSNN Admissions Portal · 256-Bit SSL Encrypted</span>
         </div>
 
         {/* High-Converting Radiant Action Button */}

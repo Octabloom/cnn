@@ -70,7 +70,6 @@ export function RegistrationWizard() {
     if (!isValidName(lastName)) errs.lastName = "Last name is required.";
     if (!isValidEmail(email)) errs.email = "Please provide a valid email.";
     if (!isValidPhone(phone)) errs.phone = "Please provide a valid phone number.";
-    if (!isValidName(city)) errs.city = "City is required.";
     if (!consentAgreed) errs.consent = "You must agree to contact terms.";
     setStepErrors(errs);
     return Object.keys(errs).length === 0;
@@ -847,7 +846,7 @@ export function RegistrationWizard() {
                   </p>
                 </div>
 
-                <div className="grid grid-cols-2 sm:grid-cols-3 gap-2 sm:gap-2.5">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-2.5">
                   <div>
                     <label htmlFor="wizard-fname" className="block text-[10.5px] font-black text-[#071245] mb-0.5">First name *</label>
                     <input
@@ -876,7 +875,7 @@ export function RegistrationWizard() {
                     />
                   </div>
 
-                  <div className="col-span-2 sm:col-span-1">
+                  <div>
                     <label htmlFor="wizard-email" className="block text-[10.5px] font-black text-[#071245] mb-0.5">Email address *</label>
                     <input
                       id="wizard-email"
@@ -902,34 +901,6 @@ export function RegistrationWizard() {
                         stepErrors.phone ? "border-[#D62B2B]" : ""
                       }`}
                     />
-                  </div>
-
-                  <div>
-                    <label htmlFor="wizard-city" className="block text-[10.5px] font-black text-[#071245] mb-0.5">City *</label>
-                    <input
-                      id="wizard-city"
-                      type="text"
-                      value={city}
-                      onChange={(e) => setCity(e.target.value)}
-                      placeholder="City"
-                      className={`w-full h-9 px-3 rounded-xl bg-white border border-slate-200 text-xs font-bold text-[#071245] focus:border-[#071245] shadow-2xs ${
-                        stepErrors.city ? "border-[#D62B2B]" : ""
-                      }`}
-                    />
-                  </div>
-
-                  <div>
-                    <label htmlFor="wizard-province" className="block text-[10.5px] font-black text-[#071245] mb-0.5">Province *</label>
-                    <select
-                      id="wizard-province"
-                      value={provinceCountry}
-                      onChange={(e) => setProvinceCountry(e.target.value)}
-                      className="w-full h-9 px-2.5 rounded-xl bg-white border border-slate-200 text-xs font-bold text-[#071245] shadow-2xs"
-                    >
-                      <option value="Ontario">Ontario</option>
-                      <option value="Other province">Other province</option>
-                      <option value="Outside Canada">Outside Canada</option>
-                    </select>
                   </div>
                 </div>
 
@@ -1014,8 +985,6 @@ export function RegistrationWizard() {
                       certificateType,
                       background,
                       readyOctober14: readyOct14,
-                      provinceCountry,
-                      city,
                       reachMethod,
                       heardFrom,
                       message,
