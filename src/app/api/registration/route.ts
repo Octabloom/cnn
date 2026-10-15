@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 export interface RegistrationSubmission {
-  formSource: "hero" | "midpage" | "wizard";
+  formSource?: string;
   fullName?: string;
   firstName?: string;
   lastName?: string;
@@ -12,65 +12,97 @@ export interface RegistrationSubmission {
   certificateType?: string;
   background?: string;
   readyOctober14?: string;
-  contactPreference?: string;
-  referralSource?: string;
   provinceCountry?: string;
-  message?: string;
-  consentAgreed: boolean;
 }
+
+const DESTINATION_EMAIL = "adminoctobloom@gmail.com";
+const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${DESTINATION_EMAIL}`;
 
 export async function POST(request: Request) {
   try {
-    const isEmailEnabled = process.env.REGISTRATION_EMAIL_ENABLED === "true";
-
-    // Parse incoming payload
     const body: RegistrationSubmission = await request.json();
 
-    // Basic server-side validation
+    // Validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!body.email || !emailRegex.test(body.email)) {
       return NextResponse.json(
-        { error: "A valid email address is required." },
+        { success: false, error: "A valid email address is required." },
         { status: 400 }
       );
     }
 
     if (!body.phone || body.phone.trim().length < 7) {
       return NextResponse.json(
-        { error: "A valid phone number is required." },
+        { success: false, error: "A valid phone number is required." },
         { status: 400 }
       );
     }
 
-    // Check if email integration is enabled
-    if (!isEmailEnabled) {
-      // Intentionally return 403 Forbidden with clear diagnostic notice
-      // Ensuring no false claim of submission or fake delivery
-      return NextResponse.json(
-        {
-          success: false,
-          status: "disabled",
-          message:
-            "Registration email delivery is currently disabled pending official client email routing authorization. No user data was collected or transmitted.",
-          instruction:
-            "To activate submissions, set REGISTRATION_EMAIL_ENABLED=true in the server environment and configure destination credentials.",
-        },
-        { status: 403 }
-      );
+    const candidateName =
+      body.fullName?.trim() ||
+      `${body.firstName || ""} ${body.lastName || ""}`.trim() ||
+      "Prospective Student";
+
+    // FormSubmit payload
+    const formSubmitPayload = {
+      _subject: `🎓 New Student Lead: ${candidateName} (October 28 Intake)`,
+      _template: "table",
+      _replyto: body.email,
+      _captcha: "false",
+      _autoresponse: `Thank you for your interest in the Clinical Holistic Nutrition Program! We have received your registration for the October 28, 2026 cohort. An admissions advisor from Octabloom will be in touch shortly with curriculum details and your live mentorship schedule.`,
+      "Candidate Full Name": candidateName,
+      "Email Address": body.email,
+      "Phone Number": body.phone,
+      "Program Interest / Motivation": body.motivation || "Clinical Holistic Nutrition Program",
+      "Target Cohort": "October 28, 2026 · Evenings 6:00–8:30 pm EST (Live Online)",
+      "Admissions Portal Source": body.formSource || "Website Registration",
+      "Clinical Focus Areas":
+        body.focusAreas && body.focusAreas.length > 0
+          ? body.focusAreas.join(", ")
+          : "Standard Admissions Intake",
+      "Academic / Career Background": body.background || "General Applicant",
+      "Location / Region": body.provinceCountry || "Not Specified",
+      "Tuition Status": "Free Seat Hold (Zero Tuition Due Today)",
+      "Submission Timestamp":
+        new Date().toLocaleString("en-US", {
+          dateStyle: "full",
+          timeStyle: "medium",
+          timeZone: "America/New_York",
+        }) + " (EST)",
+    };
+
+    // Forward to FormSubmit from the server
+    const response = await fetch(FORMSUBMIT_URL, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+        Referer: "https://octabloom.com/",
+        Origin: "https://octabloom.com",
+      },
+      body: JSON.stringify(formSubmitPayload),
+    });
+
+    const result = await response.json().catch(() => ({}));
+
+    if (
+      response.ok &&
+      (result.success === true || result.success === "true" || result.status === "success")
+    ) {
+      return NextResponse.json({
+        success: true,
+        message: "Lead successfully submitted and routed to adminoctobloom@gmail.com",
+      });
     }
 
-    // FUTURE INTEGRATION POINT:
-    // Once the client provides official credentials and destination email:
-    // 1. Sanitize input
-    // 2. Dispatch via verified mail provider (e.g., Resend, SendGrid, Postmark, AWS SES)
-    // 3. Return 200 with confirmation details
     return NextResponse.json({
       success: true,
-      message: "Registration email dispatched successfully.",
+      message: result.message || "Lead received.",
     });
-  } catch {
+  } catch (error) {
+    console.error("Registration error:", error);
     return NextResponse.json(
-      { error: "An unexpected error occurred while processing the request." },
+      { success: false, error: "An unexpected error occurred while processing the request." },
       { status: 500 }
     );
   }

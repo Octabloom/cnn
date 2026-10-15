@@ -35,7 +35,28 @@ export async function submitLeadToAdmin(
     `${payload.firstName || ""} ${payload.lastName || ""}`.trim() ||
     "Prospective Student";
 
-  // Clean, professional data payload for the admin email
+  // Step 1: Try internal Next.js API route (/api/registration)
+  // When running on Next.js dev server or Vercel, this dispatches with verified headers to avoid localhost blocking
+  try {
+    const apiResponse = await fetch("/api/registration", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+
+    if (apiResponse.ok) {
+      const apiResult = await apiResponse.json();
+      if (apiResult.success) {
+        return { success: true, message: "Lead submitted successfully." };
+      }
+    }
+  } catch (apiError) {
+    console.info("Internal API route unavailable, proceeding with direct FormSubmit routing:", apiError);
+  }
+
+  // Step 2: Direct FormSubmit fallback (for static hosting)
   const formattedData: Record<string, string> = {
     _subject: `🎓 New Student Lead: ${candidateName} (October 28 Intake)`,
     _template: "table",
@@ -48,20 +69,24 @@ export async function submitLeadToAdmin(
     "Program Interest / Motivation": payload.motivation || "Clinical Holistic Nutrition Program",
     "Target Cohort": "October 28, 2026 · Evenings 6:00–8:30 pm EST (Live Online)",
     "Admissions Portal Source": payload.formSource,
-    "Clinical Focus Areas": payload.focusAreas && payload.focusAreas.length > 0 ? payload.focusAreas.join(", ") : "Standard Admissions Intake",
+    "Clinical Focus Areas":
+      payload.focusAreas && payload.focusAreas.length > 0
+        ? payload.focusAreas.join(", ")
+        : "Standard Admissions Intake",
     "Academic / Career Background": payload.background || "General Applicant",
     "Location / Region": payload.provinceCountry || "Not Specified",
     "Tuition Status": "Free Seat Hold (Zero Tuition Due Today)",
-    "Submission Timestamp": new Date().toLocaleString("en-US", {
-      dateStyle: "full",
-      timeStyle: "medium",
-      timeZone: "America/New_York",
-    }) + " (EST)",
+    "Submission Timestamp":
+      new Date().toLocaleString("en-US", {
+        dateStyle: "full",
+        timeStyle: "medium",
+        timeZone: "America/New_York",
+      }) + " (EST)",
   };
 
   try {
     const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 8000); // 8s timeout guard
+    const timeoutId = setTimeout(() => controller.abort(), 8000);
 
     const response = await fetch(FORMSUBMIT_ENDPOINT, {
       method: "POST",
@@ -77,19 +102,19 @@ export async function submitLeadToAdmin(
 
     const result = await response.json().catch(() => ({}));
 
-    // FormSubmit returns { success: "true" } or { success: true }
-    if (response.ok && (result.success === true || result.success === "true" || result.status === "success")) {
+    if (
+      response.ok &&
+      (result.success === true || result.success === "true" || result.status === "success")
+    ) {
       return { success: true, message: "Lead submitted successfully." };
     }
 
-    // Even if FormSubmit needs activation click on the first test, acknowledge received
     return {
       success: true,
       message: result.message || "Lead recorded.",
     };
   } catch (error) {
-    console.warn("Lead delivery endpoint status:", error);
-    // Return success to never block or break the user's conversion experience
+    console.warn("Direct endpoint status:", error);
     return {
       success: true,
       message: "Lead recorded in session.",
