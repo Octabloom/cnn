@@ -3,7 +3,8 @@
 import React, { useState } from "react";
 import { MOTIVATION_OPTIONS, PROGRAM_INFO } from "@/data/programData";
 import { isValidEmail, isValidPhone, isValidName } from "@/lib/validation";
-import { ShieldCheck, AlertCircle, ChevronDown, ArrowRight, Lock, Check, Phone, RotateCcw } from "lucide-react";
+import { submitLeadToAdmin } from "@/lib/leadSubmission";
+import { ShieldCheck, AlertCircle, ChevronDown, ArrowRight, Lock, Check, Phone, RotateCcw, Loader2 } from "lucide-react";
 
 export function HeroRegistrationForm() {
   const [selectedMotivation, setSelectedMotivation] = useState<string>("");
@@ -12,6 +13,7 @@ export function HeroRegistrationForm() {
   const [phone, setPhone] = useState("");
   const [errors, setErrors] = useState<{ motivation?: string; fullName?: string; email?: string; phone?: string }>({});
   const [attemptedSubmit, setAttemptedSubmit] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [celebrationPops, setCelebrationPops] = useState(0);
 
@@ -33,10 +35,19 @@ export function HeroRegistrationForm() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setAttemptedSubmit(true);
     if (validate()) {
+      setIsSubmitting(true);
+      await submitLeadToAdmin({
+        formSource: "Hero Fast Registration",
+        fullName,
+        email,
+        phone,
+        motivation: selectedMotivation,
+      });
+      setIsSubmitting(false);
       setIsSubmitted(true);
     }
   };
@@ -363,10 +374,20 @@ export function HeroRegistrationForm() {
         <div className="pt-1">
           <button
             type="submit"
-            className="btn-skeuo-gold w-full h-11.5 sm:h-12.5 rounded-xl sm:rounded-2xl text-[#071245] font-black text-sm sm:text-base tracking-wide flex items-center justify-center gap-2.5 shadow-md hover:brightness-105 active:scale-[0.99] transition-all cursor-pointer border-2 border-[#FFF8B8] group"
+            disabled={isSubmitting}
+            className="btn-skeuo-gold w-full h-11.5 sm:h-12.5 rounded-xl sm:rounded-2xl text-[#071245] font-black text-sm sm:text-base tracking-wide flex items-center justify-center gap-2.5 shadow-md hover:brightness-105 active:scale-[0.99] transition-all cursor-pointer border-2 border-[#FFF8B8] group disabled:opacity-75 disabled:cursor-wait"
           >
-            <span>Hold My Free Seat Now</span>
-            <ArrowRight className="w-4.5 h-4.5 text-[#071245] group-hover:translate-x-1 transition-transform" />
+            {isSubmitting ? (
+              <>
+                <Loader2 className="w-5 h-5 text-[#071245] animate-spin" />
+                <span>Holding Your Seat...</span>
+              </>
+            ) : (
+              <>
+                <span>Hold My Free Seat Now</span>
+                <ArrowRight className="w-4.5 h-4.5 text-[#071245] group-hover:translate-x-1 transition-transform" />
+              </>
+            )}
           </button>
 
           {/* Trust Guarantees */}

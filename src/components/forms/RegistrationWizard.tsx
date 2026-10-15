@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { MOTIVATION_OPTIONS, PROGRAM_INFO } from "@/data/programData";
 import { isValidEmail, isValidPhone, isValidName } from "@/lib/validation";
+import { submitLeadToAdmin } from "@/lib/leadSubmission";
 import {
   Check,
   ArrowRight,
@@ -15,10 +16,12 @@ import {
   Calendar,
   Send,
   Lock,
+  Loader2,
 } from "lucide-react";
 
 export function RegistrationWizard() {
   const [currentStep, setCurrentStep] = useState<number>(1);
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
   // Form State
@@ -995,15 +998,41 @@ export function RegistrationWizard() {
             ) : (
               <button
                 type="button"
-                onClick={() => {
-                  if (validateStep4()) {
+                disabled={isSubmitting}
+                onClick={async () => {
+                  if (validateStep4() && !isSubmitting) {
+                    setIsSubmitting(true);
+                    await submitLeadToAdmin({
+                      formSource: "Full 4-Step Admissions Wizard",
+                      firstName,
+                      lastName,
+                      fullName: `${firstName} ${lastName}`.trim(),
+                      email,
+                      phone,
+                      motivation,
+                      focusAreas,
+                      certificateType,
+                      background,
+                      readyOctober14: readyOct14,
+                      provinceCountry: `${city ? city + ", " : ""}${provinceCountry}`,
+                    });
+                    setIsSubmitting(false);
                     setIsSubmitted(true);
                   }
                 }}
-                className="btn-skeuo-gold animate-shimmer inline-flex items-center gap-2 px-6 sm:px-8 h-9 sm:h-10 rounded-full text-[#071245] text-xs font-black cursor-pointer shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all border-2 border-[#FFF8B8] ml-auto"
+                className="btn-skeuo-gold animate-shimmer inline-flex items-center gap-2 px-6 sm:px-8 h-9 sm:h-10 rounded-full text-[#071245] text-xs font-black cursor-pointer shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all border-2 border-[#FFF8B8] ml-auto disabled:opacity-75 disabled:cursor-wait"
               >
-                <ShieldCheck className="w-4 h-4 text-[#071245]" />
-                <span>Complete Free Registration</span>
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 text-[#071245] animate-spin" />
+                    <span>Confirming Registration...</span>
+                  </>
+                ) : (
+                  <>
+                    <ShieldCheck className="w-4 h-4 text-[#071245]" />
+                    <span>Complete Free Registration</span>
+                  </>
+                )}
               </button>
             )}
           </div>

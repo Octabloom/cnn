@@ -3,7 +3,8 @@
 import React, { useState } from "react";
 import { MOTIVATION_OPTIONS } from "@/data/programData";
 import { isValidEmail, isValidPhone, isValidName } from "@/lib/validation";
-import { ShieldCheck, AlertCircle, ArrowRight, Sparkles, Check } from "lucide-react";
+import { submitLeadToAdmin } from "@/lib/leadSubmission";
+import { ShieldCheck, AlertCircle, ArrowRight, Sparkles, Check, Loader2, RotateCcw } from "lucide-react";
 
 export function RegistrationTeaser() {
   const [selectedOpt, setSelectedOpt] = useState<string>("health-energy");
@@ -12,6 +13,8 @@ export function RegistrationTeaser() {
   const [phone, setPhone] = useState("");
   const [errors, setErrors] = useState<{ fullName?: string; email?: string; phone?: string }>({});
   const [attempted, setAttempted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
 
   const validate = () => {
     const errs: { fullName?: string; email?: string; phone?: string } = {};
@@ -28,10 +31,22 @@ export function RegistrationTeaser() {
     return Object.keys(errs).length === 0;
   };
 
-  const handleRegister = (e: React.FormEvent) => {
+  const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     setAttempted(true);
-    validate();
+    if (validate()) {
+      setIsSubmitting(true);
+      const matchedOpt = MOTIVATION_OPTIONS.find((o) => o.id === selectedOpt);
+      await submitLeadToAdmin({
+        formSource: "Mid-Page Pathway Form",
+        fullName,
+        email,
+        phone,
+        motivation: matchedOpt?.title || selectedOpt,
+      });
+      setIsSubmitting(false);
+      setIsSubmitted(true);
+    }
   };
 
   return (
@@ -112,100 +127,165 @@ export function RegistrationTeaser() {
 
         {/* Compact Form Container with Frosted Glassmorphism */}
         <div className="max-w-4xl mx-auto glass-card-dark rounded-[36px] p-7 sm:p-12 shadow-2xl border-2 border-white/20">
-          <form onSubmit={handleRegister} className="space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div>
-                <label htmlFor="sec-name" className="sr-only">Full Name</label>
-                <input
-                  id="sec-name"
-                  type="text"
-                  value={fullName}
-                  onChange={(e) => {
-                    setFullName(e.target.value);
-                    if (attempted) validate();
-                  }}
-                  placeholder="Full name"
-                  className={`w-full h-14 px-5 rounded-2xl bg-white text-[#0F1F5C] placeholder:text-[#9A9172] text-sm font-bold border-2 focus:outline-none transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)] ${
-                    errors.fullName ? "border-[#D62B2B]" : "border-transparent focus:border-[#F6C915]"
-                  }`}
-                />
-                {errors.fullName && (
-                  <p className="mt-1 text-xs text-[#FBECB0] flex items-center gap-1 font-bold">
-                    <AlertCircle className="w-3.5 h-3.5 text-[#D62B2B]" />
-                    {errors.fullName}
-                  </p>
-                )}
+          {isSubmitted ? (
+            <div className="text-center py-6 px-4 flex flex-col items-center gap-5 animate-in fade-in zoom-in-95 duration-400">
+              <div className="w-16 h-16 rounded-full bg-gradient-to-tr from-[#1B7A42] to-[#25A25A] flex items-center justify-center text-white shadow-xl shadow-[#1B7A42]/40 border-2 border-white/40">
+                <Check className="w-9 h-9 stroke-[3]" />
               </div>
 
               <div>
-                <label htmlFor="sec-email" className="sr-only">Email Address</label>
-                <input
-                  id="sec-email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                    if (attempted) validate();
-                  }}
-                  placeholder="Email"
-                  className={`w-full h-14 px-5 rounded-2xl bg-white text-[#0F1F5C] placeholder:text-[#9A9172] text-sm font-bold border-2 focus:outline-none transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)] ${
-                    errors.email ? "border-[#D62B2B]" : "border-transparent focus:border-[#F6C915]"
-                  }`}
-                />
-                {errors.email && (
-                  <p className="mt-1 text-xs text-[#FBECB0] flex items-center gap-1 font-bold">
-                    <AlertCircle className="w-3.5 h-3.5 text-[#D62B2B]" />
-                    {errors.email}
-                  </p>
-                )}
+                <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-[#1B7A42]/30 text-[#86efac] text-xs font-black tracking-wider uppercase mb-2 border border-[#1B7A42]/50">
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                  <span>SEAT HOLD CONFIRMED · ZERO TUITION DUE TODAY</span>
+                </div>
+                <h3 className="text-2xl sm:text-3xl font-black text-white tracking-tight">
+                  Congratulations, {fullName.split(" ")[0] || "Candidate"}!
+                </h3>
+                <p className="mt-2 text-sm sm:text-base text-white/80 max-w-xl mx-auto font-medium">
+                  Your seat for the <strong className="text-[#F6C915]">October 28, 2026</strong> intake has been reserved. Admissions notice has been dispatched to admissions and your confirmation has been routed.
+                </p>
               </div>
 
-              <div>
-                <label htmlFor="sec-phone" className="sr-only">Phone Number</label>
-                <input
-                  id="sec-phone"
-                  type="tel"
-                  value={phone}
-                  onChange={(e) => {
-                    setPhone(e.target.value);
-                    if (attempted) validate();
-                  }}
-                  placeholder="Phone"
-                  className={`w-full h-14 px-5 rounded-2xl bg-white text-[#0F1F5C] placeholder:text-[#9A9172] text-sm font-bold border-2 focus:outline-none transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)] ${
-                    errors.phone ? "border-[#D62B2B]" : "border-transparent focus:border-[#F6C915]"
-                  }`}
-                />
-                {errors.phone && (
-                  <p className="mt-1 text-xs text-[#FBECB0] flex items-center gap-1 font-bold">
-                    <AlertCircle className="w-3.5 h-3.5 text-[#D62B2B]" />
-                    {errors.phone}
-                  </p>
-                )}
+              <div className="w-full max-w-md bg-white/10 rounded-2xl p-4 border border-white/15 text-left text-xs space-y-1.5 text-white/90">
+                <div className="flex justify-between">
+                  <span className="text-white/60">Candidate:</span>
+                  <span className="font-bold text-white">{fullName}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-white/60">Email:</span>
+                  <span className="font-bold text-white">{email}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-white/60">Phone:</span>
+                  <span className="font-bold text-white">{phone}</span>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-white/60">Admissions Desk:</span>
+                  <span className="font-bold text-[#F6C915]">adminoctobloom@gmail.com</span>
+                </div>
               </div>
-            </div>
 
-            {/* Official Privacy Guarantee */}
-            <div className="bg-white/10 rounded-2xl p-4 border border-[#F6C915]/30 text-white/90 text-xs flex items-start gap-3 backdrop-blur-md">
-              <ShieldCheck className="w-5 h-5 text-[#F6C915] shrink-0 mt-0.5" />
-              <div>
-                <strong className="text-[#F6C915]">Official Admissions Guarantee:</strong> Real-time seat hold for the October 28, 2026 intake. Zero upfront tuition required today.
-              </div>
-            </div>
-
-            {/* Action Bar */}
-            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
-              <p className="text-xs text-white/70 font-semibold">
-                Starts October 28, 2026 · Evenings 6:00–8:30 pm EST · Live Online
-              </p>
               <button
-                type="submit"
-                className="btn-skeuo-gold animate-shimmer w-full sm:w-auto h-14 px-9 rounded-full text-[#071245] font-black text-sm flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0.5 transition-all"
+                type="button"
+                onClick={() => {
+                  setIsSubmitted(false);
+                  setAttempted(false);
+                  setFullName("");
+                  setEmail("");
+                  setPhone("");
+                }}
+                className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/15 hover:bg-white/25 text-white text-xs font-bold transition-all cursor-pointer border border-white/20 mt-2"
               >
-                <span>Hold My Seat for Oct 28</span>
-                <ArrowRight className="w-4 h-4 text-[#071245]" />
+                <RotateCcw className="w-3.5 h-3.5" />
+                <span>Register Another Seat</span>
               </button>
             </div>
-          </form>
+          ) : (
+            <form onSubmit={handleRegister} className="space-y-6">
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div>
+                  <label htmlFor="sec-name" className="sr-only">Full Name</label>
+                  <input
+                    id="sec-name"
+                    type="text"
+                    value={fullName}
+                    onChange={(e) => {
+                      setFullName(e.target.value);
+                      if (attempted) validate();
+                    }}
+                    placeholder="Full name"
+                    className={`w-full h-14 px-5 rounded-2xl bg-white text-[#0F1F5C] placeholder:text-[#9A9172] text-sm font-bold border-2 focus:outline-none transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)] ${
+                      errors.fullName ? "border-[#D62B2B]" : "border-transparent focus:border-[#F6C915]"
+                    }`}
+                  />
+                  {errors.fullName && (
+                    <p className="mt-1 text-xs text-[#FBECB0] flex items-center gap-1 font-bold">
+                      <AlertCircle className="w-3.5 h-3.5 text-[#D62B2B]" />
+                      {errors.fullName}
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <label htmlFor="sec-email" className="sr-only">Email Address</label>
+                  <input
+                    id="sec-email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      if (attempted) validate();
+                    }}
+                    placeholder="Email"
+                    className={`w-full h-14 px-5 rounded-2xl bg-white text-[#0F1F5C] placeholder:text-[#9A9172] text-sm font-bold border-2 focus:outline-none transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)] ${
+                      errors.email ? "border-[#D62B2B]" : "border-transparent focus:border-[#F6C915]"
+                    }`}
+                  />
+                  {errors.email && (
+                    <p className="mt-1 text-xs text-[#FBECB0] flex items-center gap-1 font-bold">
+                      <AlertCircle className="w-3.5 h-3.5 text-[#D62B2B]" />
+                      {errors.email}
+                    </p>
+                  )}
+                </div>
+
+                <div>
+                  <label htmlFor="sec-phone" className="sr-only">Phone Number</label>
+                  <input
+                    id="sec-phone"
+                    type="tel"
+                    value={phone}
+                    onChange={(e) => {
+                      setPhone(e.target.value);
+                      if (attempted) validate();
+                    }}
+                    placeholder="Phone"
+                    className={`w-full h-14 px-5 rounded-2xl bg-white text-[#0F1F5C] placeholder:text-[#9A9172] text-sm font-bold border-2 focus:outline-none transition-all shadow-[inset_0_2px_4px_rgba(0,0,0,0.06)] ${
+                      errors.phone ? "border-[#D62B2B]" : "border-transparent focus:border-[#F6C915]"
+                    }`}
+                  />
+                  {errors.phone && (
+                    <p className="mt-1 text-xs text-[#FBECB0] flex items-center gap-1 font-bold">
+                      <AlertCircle className="w-3.5 h-3.5 text-[#D62B2B]" />
+                      {errors.phone}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              {/* Official Privacy Guarantee */}
+              <div className="bg-white/10 rounded-2xl p-4 border border-[#F6C915]/30 text-white/90 text-xs flex items-start gap-3 backdrop-blur-md">
+                <ShieldCheck className="w-5 h-5 text-[#F6C915] shrink-0 mt-0.5" />
+                <div>
+                  <strong className="text-[#F6C915]">Official Admissions Guarantee:</strong> Real-time seat hold for the October 28, 2026 intake. Zero upfront tuition required today.
+                </div>
+              </div>
+
+              {/* Action Bar */}
+              <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-2">
+                <p className="text-xs text-white/70 font-semibold">
+                  Starts October 28, 2026 · Evenings 6:00–8:30 pm EST · Live Online
+                </p>
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="btn-skeuo-gold animate-shimmer w-full sm:w-auto h-14 px-9 rounded-full text-[#071245] font-black text-sm flex items-center justify-center gap-2 cursor-pointer shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:translate-y-0.5 transition-all disabled:opacity-75 disabled:cursor-wait"
+                >
+                  {isSubmitting ? (
+                    <>
+                      <Loader2 className="w-4.5 h-4.5 text-[#071245] animate-spin" />
+                      <span>Holding Seat...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Hold My Seat for Oct 28</span>
+                      <ArrowRight className="w-4 h-4 text-[#071245]" />
+                    </>
+                  )}
+                </button>
+              </div>
+            </form>
+          )}
         </div>
 
       </div>
