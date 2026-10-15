@@ -16,6 +16,10 @@ export interface LeadSubmissionPayload {
   background?: string;
   readyOctober14?: string;
   provinceCountry?: string;
+  city?: string;
+  reachMethod?: string;
+  heardFrom?: string;
+  message?: string;
 }
 
 export interface SubmissionResponse {
@@ -67,14 +71,18 @@ export async function submitLeadToAdmin(
     "Email Address": payload.email,
     "Phone Number": payload.phone,
     "Program Interest / Motivation": payload.motivation || "Clinical Holistic Nutrition Program",
-    "Target Cohort": "October 28, 2026 · Evenings 6:00–8:30 pm EST (Live Online)",
+    "Target Cohort / Intake": payload.readyOctober14 || "October 28, 2026 · Evenings 6:00–8:30 pm EST (Live Online)",
     "Admissions Portal Source": payload.formSource,
     "Clinical Focus Areas":
       payload.focusAreas && payload.focusAreas.length > 0
         ? payload.focusAreas.join(", ")
         : "Standard Admissions Intake",
     "Academic / Career Background": payload.background || "General Applicant",
-    "Location / Region": payload.provinceCountry || "Not Specified",
+    "Certificate Pathway": payload.certificateType || "Comprehensive Certificate",
+    "City & Region": `${payload.city ? payload.city + ", " : ""}${payload.provinceCountry || "Not Specified"}`,
+    "Best Way to Reach": payload.reachMethod || "Any",
+    "How Heard About Us": payload.heardFrom || "Online",
+    "Candidate Note / Question": payload.message || "None provided",
     "Tuition Status": "Free Seat Hold (Zero Tuition Due Today)",
     "Submission Timestamp":
       new Date().toLocaleString("en-US", {

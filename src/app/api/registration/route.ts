@@ -13,6 +13,10 @@ export interface RegistrationSubmission {
   background?: string;
   readyOctober14?: string;
   provinceCountry?: string;
+  city?: string;
+  reachMethod?: string;
+  heardFrom?: string;
+  message?: string;
 }
 
 const DESTINATION_EMAIL = "adminoctobloom@gmail.com";
@@ -43,8 +47,8 @@ export async function POST(request: Request) {
       `${body.firstName || ""} ${body.lastName || ""}`.trim() ||
       "Prospective Student";
 
-    // FormSubmit payload
-    const formSubmitPayload = {
+    // FormSubmit payload with all candidate input fields
+    const formSubmitPayload: Record<string, string> = {
       _subject: `🎓 New Student Lead: ${candidateName} (October 28 Intake)`,
       _template: "table",
       _replyto: body.email,
@@ -54,14 +58,18 @@ export async function POST(request: Request) {
       "Email Address": body.email,
       "Phone Number": body.phone,
       "Program Interest / Motivation": body.motivation || "Clinical Holistic Nutrition Program",
-      "Target Cohort": "October 28, 2026 · Evenings 6:00–8:30 pm EST (Live Online)",
+      "Target Cohort / Intake": body.readyOctober14 || "October 28, 2026 · Evenings 6:00–8:30 pm EST (Live Online)",
       "Admissions Portal Source": body.formSource || "Website Registration",
       "Clinical Focus Areas":
         body.focusAreas && body.focusAreas.length > 0
           ? body.focusAreas.join(", ")
           : "Standard Admissions Intake",
       "Academic / Career Background": body.background || "General Applicant",
-      "Location / Region": body.provinceCountry || "Not Specified",
+      "Certificate Pathway": body.certificateType || "Comprehensive Certificate",
+      "City & Region": `${body.city ? body.city + ", " : ""}${body.provinceCountry || "Not Specified"}`,
+      "Best Way to Reach": body.reachMethod || "Any (Phone/Email/Text)",
+      "How Heard About Us": body.heardFrom || "Online",
+      "Candidate Note / Question": body.message || "None provided",
       "Tuition Status": "Free Seat Hold (Zero Tuition Due Today)",
       "Submission Timestamp":
         new Date().toLocaleString("en-US", {

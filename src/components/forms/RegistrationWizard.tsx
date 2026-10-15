@@ -1014,7 +1014,11 @@ export function RegistrationWizard() {
                       certificateType,
                       background,
                       readyOctober14: readyOct14,
-                      provinceCountry: `${city ? city + ", " : ""}${provinceCountry}`,
+                      provinceCountry,
+                      city,
+                      reachMethod,
+                      heardFrom,
+                      message,
                     });
                     setIsSubmitting(false);
                     setIsSubmitted(true);
