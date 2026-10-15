@@ -2,9 +2,10 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   /* config options here */
-  output: process.env.NEXT_EXPORT === "true" ? "export" : undefined,
+  cacheComponents: true,
+  partialPrefetching: true,
   images: {
-    unoptimized: true,
+    qualities: [75, 100],
   },
   turbopack: {
     rules: {
