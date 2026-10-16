@@ -34,11 +34,10 @@ export function RealisticPhoneMockup({
 
   // Find active testimonial
   const current =
-    ALL_TESTIMONIALS.find((item) => item.id === selectedId) || DIPLOMA_TESTIMONIALS[0];
+    HELC_TESTIMONIALS.find((item) => item.id === selectedId) || HELC_TESTIMONIALS[0];
 
   // Active category list
-  const activeList: TestimonialItem[] =
-    current.category === "diploma" ? DIPLOMA_TESTIMONIALS : HELC_TESTIMONIALS;
+  const activeList: TestimonialItem[] = HELC_TESTIMONIALS;
 
   const currentIndex = activeList.findIndex((item) => item.id === current.id);
   const activeIndex = currentIndex >= 0 ? currentIndex : 0;

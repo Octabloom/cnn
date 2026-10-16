@@ -271,12 +271,11 @@ export async function POST(request: Request) {
 
                       <!-- Hero Banner -->
                       <tr>
-                        <td style="background: linear-gradient(135deg, #064e3b 0%, #047857 100%); padding: 32px 28px; text-align: center; color: #ffffff;">
-                          <div style="display: inline-block; background-color: rgba(255, 255, 255, 0.18); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 9999px; padding: 5px 16px; font-size: 12px; font-weight: 600; color: #ffffff; margin-bottom: 14px; letter-spacing: 0.3px;">
+                        <td style="background: linear-gradient(135deg, #064e3b 0%, #047857 100%); padding: 36px 28px 32px; text-align: center; color: #ffffff;">
+                          <div style="display: inline-block; background-color: rgba(255, 255, 255, 0.18); border: 1px solid rgba(255, 255, 255, 0.35); border-radius: 9999px; padding: 5px 16px; font-size: 12px; font-weight: 700; color: #ffffff; margin-bottom: 12px; letter-spacing: 0.4px;">
                             ✓ Free Seat Hold Reserved · Zero Due Today
                           </div>
-                          <h1 style="margin: 0; font-size: 23px; font-weight: 800; line-height: 1.35; letter-spacing: -0.3px;">Healthy Eating &amp; Lifestyle Certificate</h1>
-                          <p style="margin: 10px 0 0; font-size: 14px; opacity: 0.92; line-height: 1.5;">Clinical Holistic Nutrition &amp; Natural Healing Curriculum</p>
+                          <h1 style="margin: 0; font-size: 24px; font-weight: 800; line-height: 1.3; letter-spacing: -0.3px;">Healthy Eating &amp; Lifestyle Certificate</h1>
                         </td>
                       </tr>
 

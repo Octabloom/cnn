@@ -21,11 +21,9 @@ import {
 import { RealisticPhoneMockup } from "@/components/ui/RealisticPhoneMockup";
 
 export function TestimonialSection() {
-  const [activeCategory, setActiveCategory] = useState<"diploma" | "helc">("diploma");
-  const [selectedId, setSelectedId] = useState<string>("dip-1");
+  const [selectedId, setSelectedId] = useState<string>(HELC_TESTIMONIALS[0].id);
 
-  const activeList =
-    activeCategory === "diploma" ? DIPLOMA_TESTIMONIALS : HELC_TESTIMONIALS;
+  const activeList = HELC_TESTIMONIALS;
 
   const currentTestimonial =
     activeList.find((item) => item.id === selectedId) || activeList[0];
@@ -40,12 +38,6 @@ export function TestimonialSection() {
   const handlePrev = () => {
     const prevIndex = (currentIndex - 1 + activeList.length) % activeList.length;
     setSelectedId(activeList[prevIndex].id);
-  };
-
-  const handleCategoryChange = (category: "diploma" | "helc") => {
-    setActiveCategory(category);
-    if (category === "diploma") setSelectedId(DIPLOMA_TESTIMONIALS[0].id);
-    if (category === "helc") setSelectedId(HELC_TESTIMONIALS[0].id);
   };
 
   return (
@@ -72,42 +64,18 @@ export function TestimonialSection() {
           </h2>
 
           <p className="mt-1.5 text-xs sm:text-sm lg:text-base text-slate-600 font-medium">
-            Authentic reflections from CSNN Toronto students and graduates.
+            Authentic reflections from CSNN Toronto Healthy Eating &amp; Lifestyle Certificate graduates.
           </p>
 
-          {/* 2 Institutional Category Filter Tabs */}
-          <div className="flex flex-wrap items-center justify-center gap-2.5 sm:gap-3 mt-4">
-            <button
-              type="button"
-              onClick={() => handleCategoryChange("diploma")}
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-black transition-colors border cursor-pointer ${
-                activeCategory === "diploma"
-                  ? "bg-[#071245] text-white border-[#071245] shadow-sm ring-2 ring-[#071245]/20"
-                  : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-white"
-              }`}
-            >
-              <GraduationCap className={`w-4 h-4 ${activeCategory === "diploma" ? "text-[#F6C915]" : "text-[#071245]"}`} />
-              <span>Testimonials Diploma program</span>
-              <span className={`px-2 py-0.5 rounded-md text-[10px] font-black ${activeCategory === "diploma" ? "bg-white/20 text-white" : "bg-slate-200 text-slate-700"}`}>
-                {DIPLOMA_TESTIMONIALS.length}
-              </span>
-            </button>
-
-            <button
-              type="button"
-              onClick={() => handleCategoryChange("helc")}
-              className={`inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-black transition-colors border cursor-pointer ${
-                activeCategory === "helc"
-                  ? "bg-[#071245] text-white border-[#071245] shadow-sm ring-2 ring-[#071245]/20"
-                  : "bg-slate-50 text-slate-700 border-slate-200 hover:bg-white"
-              }`}
-            >
-              <BookOpen className={`w-4 h-4 ${activeCategory === "helc" ? "text-[#F6C915]" : "text-[#071245]"}`} />
-              <span>Healthy Eating &amp; Certificate Testimonials</span>
-              <span className={`px-2 py-0.5 rounded-md text-[10px] font-black ${activeCategory === "helc" ? "bg-white/20 text-white" : "bg-slate-200 text-slate-700"}`}>
+          {/* Institutional Category Badge */}
+          <div className="flex items-center justify-center mt-4">
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs sm:text-sm font-black bg-[#071245] text-white border border-[#071245] shadow-sm">
+              <BookOpen className="w-4 h-4 text-[#F6C915]" />
+              <span>Healthy Eating &amp; Lifestyle Certificate Testimonials</span>
+              <span className="px-2 py-0.5 rounded-md text-[10px] font-black bg-white/20 text-white">
                 {HELC_TESTIMONIALS.length}
               </span>
-            </button>
+            </div>
           </div>
         </div>
 
