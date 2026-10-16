@@ -282,15 +282,26 @@ export async function POST(request: Request) {
                       <!-- Main Body -->
                       <tr>
                         <td style="padding: 32px 28px 24px; color: #1e293b;">
-                          <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">
+                          <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px; color: #0f172a;">
                             Dear <strong>${candidateName}</strong>,
                           </p>
-                          <p style="font-size: 15px; line-height: 1.65; color: #334155; margin: 0 0 24px;">
-                            Thank you for registering! We have successfully reserved your seat for the <strong>${cohort}</strong> cohort. You have taken an exciting first step toward clinical empowerment, gut health mastery, and holistic lifestyle coaching.
+                          <p style="font-size: 15px; line-height: 1.7; color: #334155; margin: 0 0 16px;">
+                            Thank you for your interest in Healthy Eating &amp; Lifestyle certificate. We are glad that you want to transform your life and lives of people around you. This is a life changing program with practical applications which can be practised everyday.
+                          </p>
+
+                          <!-- Call Notice Pill -->
+                          <div style="background-color: #ecfdf5; border-left: 4px solid #059669; border-radius: 8px; padding: 14px 18px; margin: 20px 0;">
+                            <p style="margin: 0; font-size: 14px; font-weight: 700; color: #064e3b; line-height: 1.6;">
+                              📞 Our program advisor will call you in 24 hours to discuss further.
+                            </p>
+                          </div>
+
+                          <p style="font-size: 15px; line-height: 1.7; color: #334155; margin: 0 0 24px;">
+                            We are looking forward to having you as a part of our wonderful <strong>CSNN TORONTO</strong> community!
                           </p>
 
                           <!-- Registration Summary Card -->
-                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; margin-bottom: 28px; border-left: 4px solid #10b981; overflow: hidden;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; margin-bottom: 24px; border-left: 4px solid #10b981; overflow: hidden;">
                             <tr>
                               <td style="padding: 18px 20px;">
                                 <p style="margin: 0 0 14px; font-size: 13px; font-weight: 700; color: #0f172a; text-transform: uppercase; letter-spacing: 0.6px;">
@@ -330,46 +341,36 @@ export async function POST(request: Request) {
                             </tr>
                           </table>
 
-                          <!-- Next Steps (Clean & Professional, no contact medium requested) -->
-                          <div style="margin-bottom: 28px;">
-                            <h3 style="font-size: 16px; font-weight: 700; color: #0f172a; margin: 0 0 16px; letter-spacing: -0.2px;">
-                              🎯 What Happens Next?
+                          <!-- Signature & Admissions Contact Block -->
+                          <div style="background-color: #ffffff; border: 1px solid #e2e8f0; border-radius: 12px; padding: 20px 22px; margin-top: 24px; box-shadow: 0 2px 8px rgba(0,0,0,0.03);">
+                            <p style="margin: 0 0 4px; font-size: 11px; font-weight: 800; color: #047857; text-transform: uppercase; letter-spacing: 1px;">
+                              Ready to get started?
+                            </p>
+                            <h3 style="margin: 0 0 14px; font-size: 16px; font-weight: 800; color: #0f172a; text-transform: uppercase; letter-spacing: 0.5px;">
+                              CONTACT ADMISSIONS
                             </h3>
-                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-size: 14px; line-height: 1.6; color: #334155;">
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-size: 14px; line-height: 1.8; color: #334155;">
                               <tr>
-                                <td style="padding-bottom: 14px; vertical-align: top; width: 28px;">
-                                  <span style="display: inline-block; background-color: #ecfdf5; color: #047857; width: 22px; height: 22px; border-radius: 50%; text-align: center; line-height: 22px; font-weight: 700; font-size: 12px;">1</span>
-                                </td>
-                                <td style="padding-bottom: 14px; padding-left: 8px;">
-                                  <strong style="color: #0f172a;">Admissions Onboarding Review</strong><br/>
-                                  Our admissions team is reviewing your registration and preparing your welcome package.
-                                </td>
+                                <td style="width: 75px; font-weight: 700; color: #64748b;">Phone:</td>
+                                <td><a href="tel:647-224-3772" style="color: #047857; font-weight: 700; text-decoration: none;">647-224-3772</a></td>
                               </tr>
                               <tr>
-                                <td style="padding-bottom: 14px; vertical-align: top;">
-                                  <span style="display: inline-block; background-color: #ecfdf5; color: #047857; width: 22px; height: 22px; border-radius: 50%; text-align: center; line-height: 22px; font-weight: 700; font-size: 12px;">2</span>
-                                </td>
-                                <td style="padding-bottom: 14px; padding-left: 8px;">
-                                  <strong style="color: #0f172a;">Syllabus &amp; Orientation Schedule</strong><br/>
-                                  You will receive the complete 10-module curriculum breakdown, reading materials, and live workshop times.
-                                </td>
+                                <td style="font-weight: 700; color: #64748b;">Email:</td>
+                                <td><a href="mailto:torontoinfo@csnn.ca" style="color: #047857; font-weight: 700; text-decoration: none;">torontoinfo@csnn.ca</a></td>
                               </tr>
                               <tr>
-                                <td style="vertical-align: top;">
-                                  <span style="display: inline-block; background-color: #ecfdf5; color: #047857; width: 22px; height: 22px; border-radius: 50%; text-align: center; line-height: 22px; font-weight: 700; font-size: 12px;">3</span>
-                                </td>
-                                <td style="padding-left: 8px;">
-                                  <strong style="color: #0f172a;">Student Portal &amp; Live Mentorship</strong><br/>
-                                  You will be provided with direct instructor access, interactive Q&amp;A sessions, and practicum guidelines.
-                                </td>
+                                <td style="font-weight: 700; color: #64748b;">Website:</td>
+                                <td><a href="https://csnn.ca/toronto/helc/" target="_blank" style="color: #047857; font-weight: 700; text-decoration: underline;">https://csnn.ca/toronto/helc/</a></td>
                               </tr>
                             </table>
-                          </div>
-
-                          <!-- Help & Direct Reply Box -->
-                          <div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 16px 20px; font-size: 13px; line-height: 1.6; color: #166534;">
-                            <strong style="display: block; margin-bottom: 4px; font-size: 14px;">💬 Have questions before orientation?</strong>
-                            Simply reply directly to this email or reach us anytime at <a href="mailto:${DESTINATION_EMAIL}" style="color: #047857; font-weight: 600; text-decoration: underline;">${DESTINATION_EMAIL}</a>. We are here to support your holistic nutrition journey!
+                            <div style="margin-top: 16px; padding-top: 14px; border-top: 1px solid #f1f5f9;">
+                              <p style="margin: 0; font-size: 13px; font-weight: 800; color: #071245; letter-spacing: 0.3px;">
+                                Canadian School of Natural Nutrition
+                              </p>
+                              <p style="margin: 2px 0 0; font-size: 12px; font-weight: 700; color: #047857; text-transform: uppercase; letter-spacing: 0.8px;">
+                                TORONTO
+                              </p>
+                            </div>
                           </div>
                         </td>
                       </tr>
