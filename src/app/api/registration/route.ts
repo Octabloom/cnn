@@ -4,7 +4,7 @@ import { Resend } from "resend";
 const resendApiKey = process.env.RESEND_API_KEY;
 const resend = resendApiKey ? new Resend(resendApiKey) : null;
 const RESEND_FROM_EMAIL =
-  process.env.RESEND_FROM_EMAIL || "Admissions <onboarding@resend.dev>";
+  process.env.RESEND_FROM_EMAIL || "Admin <admin@octobloomwellness.com>";
 
 export interface RegistrationSubmission {
   formSource?: string;
@@ -244,43 +244,158 @@ export async function POST(request: Request) {
         const applicantEmailResult = await resend.emails.send({
           from: RESEND_FROM_EMAIL,
           to: cleanEmail,
-          subject: "Registration Received: Clinical Holistic Nutrition Program · Octabloom",
+          replyTo: DESTINATION_EMAIL,
+          subject: "Registration Confirmed: Healthy Eating & Lifestyle Certificate · CSNN Toronto",
           html: `
-            <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; color: #1e293b; line-height: 1.6; border: 1px solid #e2e8f0; border-radius: 12px; background-color: #ffffff;">
-              <div style="background: linear-gradient(135deg, #064e3b, #047857); color: #ffffff; padding: 24px; border-radius: 8px; text-align: center;">
-                <h1 style="margin: 0; font-size: 22px; font-weight: 700; letter-spacing: 0.5px;">Octabloom · CSNN Toronto</h1>
-                <p style="margin: 6px 0 0; font-size: 14px; opacity: 0.9;">Healthy Eating &amp; Lifestyle Certificate</p>
-              </div>
-              
-              <div style="padding: 24px 8px 16px;">
-                <p style="font-size: 16px; margin-top: 0;">Dear <strong>${candidateName}</strong>,</p>
-                <p>Thank you for your interest! We have received your registration details for the <strong>${cohort}</strong> intake.</p>
-                
-                <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #10b981; padding: 16px 20px; margin: 24px 0; border-radius: 8px;">
-                  <h3 style="margin: 0 0 12px; font-size: 15px; color: #0f172a; text-transform: uppercase; letter-spacing: 0.5px;">Registration Summary</h3>
-                  <table style="width: 100%; font-size: 14px; border-collapse: collapse;">
-                    <tr><td style="padding: 6px 0; color: #64748b; width: 140px;">Candidate Name:</td><td style="font-weight: 600; color: #0f172a;">${candidateName}</td></tr>
-                    <tr><td style="padding: 6px 0; color: #64748b;">Selected Intake:</td><td style="font-weight: 600; color: #0f172a;">${cohort}</td></tr>
-                    <tr><td style="padding: 6px 0; color: #64748b;">Pathway:</td><td style="font-weight: 600; color: #0f172a;">${certificateType}</td></tr>
-                    <tr><td style="padding: 6px 0; color: #64748b;">Tuition Status:</td><td style="font-weight: 600; color: #059669;">Free Seat Hold (Zero Due Today)</td></tr>
-                  </table>
-                </div>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+              <meta charset="utf-8" />
+              <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+              <title>Registration Confirmed</title>
+            </head>
+            <body style="margin: 0; padding: 0; background-color: #f1f5f9; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color: #f1f5f9; padding: 32px 12px;">
+                <tr>
+                  <td align="center">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width: 600px; background-color: #ffffff; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); border: 1px solid #e2e8f0;">
+                      
+                      <!-- Brand Logo Header -->
+                      <tr>
+                        <td align="center" style="padding: 32px 24px 20px; background-color: #ffffff; border-bottom: 1px solid #f1f5f9;">
+                          <img src="https://www.octobloomwellness.com/graphics/logo.jpg" alt="CSNN Toronto" style="max-height: 56px; max-width: 220px; height: auto; display: block; margin: 0 auto 12px; object-fit: contain;" />
+                          <p style="margin: 0; font-size: 12px; font-weight: 700; color: #047857; text-transform: uppercase; letter-spacing: 1px;">Canadian School of Natural Nutrition · Toronto Branch</p>
+                          <p style="margin: 4px 0 0; font-size: 11px; color: #64748b; letter-spacing: 0.3px;">In Academic Partnership with Octabloom Wellness</p>
+                        </td>
+                      </tr>
 
-                <h3 style="font-size: 16px; color: #0f172a; margin-top: 24px; margin-bottom: 12px;">What Happens Next?</h3>
-                <ul style="padding-left: 20px; font-size: 14px; color: #334155; margin-top: 0;">
-                  <li style="margin-bottom: 8px;">An admissions advisor will connect with you via <strong>${cleanPhone}</strong> or <strong>${cleanEmail}</strong>.</li>
-                  <li style="margin-bottom: 8px;">We will provide your orientation schedule, syllabus overview, and mentorship access.</li>
-                  <li style="margin-bottom: 8px;">Your seat hold is active, ensuring your spot is reserved.</li>
-                </ul>
+                      <!-- Hero Banner -->
+                      <tr>
+                        <td style="background: linear-gradient(135deg, #064e3b 0%, #047857 100%); padding: 32px 28px; text-align: center; color: #ffffff;">
+                          <div style="display: inline-block; background-color: rgba(255, 255, 255, 0.18); border: 1px solid rgba(255, 255, 255, 0.3); border-radius: 9999px; padding: 5px 16px; font-size: 12px; font-weight: 600; color: #ffffff; margin-bottom: 14px; letter-spacing: 0.3px;">
+                            ✓ Free Seat Hold Reserved · Zero Due Today
+                          </div>
+                          <h1 style="margin: 0; font-size: 23px; font-weight: 800; line-height: 1.35; letter-spacing: -0.3px;">Healthy Eating &amp; Lifestyle Certificate</h1>
+                          <p style="margin: 10px 0 0; font-size: 14px; opacity: 0.92; line-height: 1.5;">Clinical Holistic Nutrition &amp; Natural Healing Curriculum</p>
+                        </td>
+                      </tr>
 
-                <p style="margin-top: 28px; font-size: 14px; color: #64748b;">Have a question right now? Reply directly to this email or reach us at <a href="mailto:${DESTINATION_EMAIL}" style="color: #047857; font-weight: 500;">${DESTINATION_EMAIL}</a>.</p>
-              </div>
+                      <!-- Main Body -->
+                      <tr>
+                        <td style="padding: 32px 28px 24px; color: #1e293b;">
+                          <p style="font-size: 16px; line-height: 1.6; margin: 0 0 16px;">
+                            Dear <strong>${candidateName}</strong>,
+                          </p>
+                          <p style="font-size: 15px; line-height: 1.65; color: #334155; margin: 0 0 24px;">
+                            Thank you for registering! We have successfully reserved your seat for the <strong>${cohort}</strong> cohort. You have taken an exciting first step toward clinical empowerment, gut health mastery, and holistic lifestyle coaching.
+                          </p>
 
-              <div style="border-top: 1px solid #f1f5f9; padding-top: 16px; font-size: 12px; color: #94a3b8; text-align: center;">
-                <p style="margin: 0;">Octabloom Wellness &amp; Canadian School of Natural Nutrition (CSNN) Toronto</p>
-                <p style="margin: 4px 0 0;">This email confirms receipt of your registration submission.</p>
-              </div>
-            </div>
+                          <!-- Registration Summary Card -->
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-radius: 12px; margin-bottom: 28px; border-left: 4px solid #10b981; overflow: hidden;">
+                            <tr>
+                              <td style="padding: 18px 20px;">
+                                <p style="margin: 0 0 14px; font-size: 13px; font-weight: 700; color: #0f172a; text-transform: uppercase; letter-spacing: 0.6px;">
+                                  📋 Registration Summary
+                                </p>
+                                <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-size: 14px; line-height: 1.6;">
+                                  <tr>
+                                    <td style="padding: 6px 0; color: #64748b; width: 140px; font-weight: 500;">Candidate Name:</td>
+                                    <td style="padding: 6px 0; font-weight: 600; color: #0f172a;">${candidateName}</td>
+                                  </tr>
+                                  <tr>
+                                    <td style="padding: 6px 0; color: #64748b; font-weight: 500;">Target Intake:</td>
+                                    <td style="padding: 6px 0; font-weight: 600; color: #0f172a;">${cohort}</td>
+                                  </tr>
+                                  <tr>
+                                    <td style="padding: 6px 0; color: #64748b; font-weight: 500;">Certificate Pathway:</td>
+                                    <td style="padding: 6px 0; font-weight: 600; color: #0f172a;">${certificateType}</td>
+                                  </tr>
+                                  ${
+                                    sanitizedFocusAreas.length > 0
+                                      ? `<tr>
+                                          <td style="padding: 6px 0; color: #64748b; font-weight: 500;">Clinical Focus:</td>
+                                          <td style="padding: 6px 0; font-weight: 600; color: #047857;">${sanitizedFocusAreas.join(", ")}</td>
+                                        </tr>`
+                                      : ""
+                                  }
+                                  <tr>
+                                    <td style="padding: 6px 0; color: #64748b; font-weight: 500;">Tuition Status:</td>
+                                    <td style="padding: 6px 0;">
+                                      <span style="display: inline-block; background-color: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; border-radius: 6px; padding: 2px 10px; font-size: 12px; font-weight: 700;">
+                                        Seat Reserved ($0 Due Today)
+                                      </span>
+                                    </td>
+                                  </tr>
+                                </table>
+                              </td>
+                            </tr>
+                          </table>
+
+                          <!-- Next Steps (Clean & Professional, no contact medium requested) -->
+                          <div style="margin-bottom: 28px;">
+                            <h3 style="font-size: 16px; font-weight: 700; color: #0f172a; margin: 0 0 16px; letter-spacing: -0.2px;">
+                              🎯 What Happens Next?
+                            </h3>
+                            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="font-size: 14px; line-height: 1.6; color: #334155;">
+                              <tr>
+                                <td style="padding-bottom: 14px; vertical-align: top; width: 28px;">
+                                  <span style="display: inline-block; background-color: #ecfdf5; color: #047857; width: 22px; height: 22px; border-radius: 50%; text-align: center; line-height: 22px; font-weight: 700; font-size: 12px;">1</span>
+                                </td>
+                                <td style="padding-bottom: 14px; padding-left: 8px;">
+                                  <strong style="color: #0f172a;">Admissions Onboarding Review</strong><br/>
+                                  Our admissions team is reviewing your registration and preparing your welcome package.
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style="padding-bottom: 14px; vertical-align: top;">
+                                  <span style="display: inline-block; background-color: #ecfdf5; color: #047857; width: 22px; height: 22px; border-radius: 50%; text-align: center; line-height: 22px; font-weight: 700; font-size: 12px;">2</span>
+                                </td>
+                                <td style="padding-bottom: 14px; padding-left: 8px;">
+                                  <strong style="color: #0f172a;">Syllabus &amp; Orientation Schedule</strong><br/>
+                                  You will receive the complete 10-module curriculum breakdown, reading materials, and live workshop times.
+                                </td>
+                              </tr>
+                              <tr>
+                                <td style="vertical-align: top;">
+                                  <span style="display: inline-block; background-color: #ecfdf5; color: #047857; width: 22px; height: 22px; border-radius: 50%; text-align: center; line-height: 22px; font-weight: 700; font-size: 12px;">3</span>
+                                </td>
+                                <td style="padding-left: 8px;">
+                                  <strong style="color: #0f172a;">Student Portal &amp; Live Mentorship</strong><br/>
+                                  You will be provided with direct instructor access, interactive Q&amp;A sessions, and practicum guidelines.
+                                </td>
+                              </tr>
+                            </table>
+                          </div>
+
+                          <!-- Help & Direct Reply Box -->
+                          <div style="background-color: #f0fdf4; border: 1px solid #bbf7d0; border-radius: 10px; padding: 16px 20px; font-size: 13px; line-height: 1.6; color: #166534;">
+                            <strong style="display: block; margin-bottom: 4px; font-size: 14px;">💬 Have questions before orientation?</strong>
+                            Simply reply directly to this email or reach us anytime at <a href="mailto:${DESTINATION_EMAIL}" style="color: #047857; font-weight: 600; text-decoration: underline;">${DESTINATION_EMAIL}</a>. We are here to support your holistic nutrition journey!
+                          </div>
+                        </td>
+                      </tr>
+
+                      <!-- Institutional Footer -->
+                      <tr>
+                        <td style="border-top: 1px solid #f1f5f9; padding: 24px 28px; background-color: #fafafa; font-size: 12px; color: #94a3b8; text-align: center; line-height: 1.6;">
+                          <p style="margin: 0 0 6px; font-weight: 600; color: #64748b;">
+                            Canadian School of Natural Nutrition (CSNN) Toronto &amp; Octabloom Wellness
+                          </p>
+                          <p style="margin: 0 0 8px;">
+                            Canada's leading holistic nutrition educator since 1994 · Practical Holistic Nutrition Education
+                          </p>
+                          <p style="margin: 0; font-size: 11px; color: #cbd5e1;">
+                            This email confirms your online seat hold on octobloomwellness.com.
+                          </p>
+                        </td>
+                      </tr>
+
+                    </table>
+                  </td>
+                </tr>
+              </table>
+            </body>
+            </html>
           `,
         });
 
@@ -301,26 +416,140 @@ export async function POST(request: Request) {
           replyTo: cleanEmail,
           subject: `🎓 New Student Lead: ${candidateName} (${cohort})`,
           html: `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px;">
-              <h2 style="color: #064e3b; margin-top: 0;">🎓 New Student Lead Received</h2>
-              <table style="width: 100%; border-collapse: collapse; font-size: 14px;">
-                <tr style="background: #f8fafc;"><td style="padding: 8px; font-weight: bold; width: 160px;">Full Name</td><td style="padding: 8px;">${candidateName}</td></tr>
-                <tr><td style="padding: 8px; font-weight: bold;">Email</td><td style="padding: 8px;"><a href="mailto:${cleanEmail}">${cleanEmail}</a></td></tr>
-                <tr style="background: #f8fafc;"><td style="padding: 8px; font-weight: bold;">Phone</td><td style="padding: 8px;"><a href="tel:${cleanPhone}">${cleanPhone}</a></td></tr>
-                <tr><td style="padding: 8px; font-weight: bold;">Cohort / Intake</td><td style="padding: 8px;">${cohort}</td></tr>
-                <tr style="background: #f8fafc;"><td style="padding: 8px; font-weight: bold;">Pathway</td><td style="padding: 8px;">${certificateType}</td></tr>
-                <tr><td style="padding: 8px; font-weight: bold;">Clinical Focus</td><td style="padding: 8px;">${sanitizedFocusAreas.length > 0 ? sanitizedFocusAreas.join(", ") : "Standard Admissions Intake"}</td></tr>
-                <tr style="background: #f8fafc;"><td style="padding: 8px; font-weight: bold;">Location</td><td style="padding: 8px;">${city ? city + ", " : ""}${provinceCountry}</td></tr>
-                <tr><td style="padding: 8px; font-weight: bold;">Preferred Reach</td><td style="padding: 8px;">${reachMethod}</td></tr>
-                <tr style="background: #f8fafc;"><td style="padding: 8px; font-weight: bold;">Source / Portal</td><td style="padding: 8px;">${formSource} (Heard via: ${heardFrom})</td></tr>
-                <tr><td style="padding: 8px; font-weight: bold;">Background</td><td style="padding: 8px;">${background}</td></tr>
-                <tr style="background: #f8fafc;"><td style="padding: 8px; font-weight: bold;">Motivation / Note</td><td style="padding: 8px;">${motivation}<br/><em>${message}</em></td></tr>
+            <!DOCTYPE html>
+            <html lang="en">
+            <head>
+              <meta charset="utf-8" />
+              <title>New Student Lead</title>
+            </head>
+            <body style="margin: 0; padding: 0; background-color: #f8fafc; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color: #f8fafc; padding: 24px 12px;">
+                <tr>
+                  <td align="center">
+                    <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width: 620px; background-color: #ffffff; border-radius: 14px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.06); border: 1px solid #e2e8f0;">
+                      
+                      <!-- Header -->
+                      <tr>
+                        <td style="background: linear-gradient(135deg, #064e3b 0%, #047857 100%); padding: 24px 28px; color: #ffffff;">
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td>
+                                <span style="display: inline-block; background-color: rgba(255,255,255,0.2); border-radius: 6px; padding: 3px 10px; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px;">New Admission Lead</span>
+                                <h2 style="margin: 8px 0 4px; font-size: 20px; font-weight: 700; letter-spacing: -0.3px;">🎓 ${candidateName}</h2>
+                                <p style="margin: 0; font-size: 13px; opacity: 0.9;">Target Intake: ${cohort}</p>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+                      <!-- Quick Action Buttons -->
+                      <tr>
+                        <td style="padding: 16px 28px; background-color: #f8fafc; border-bottom: 1px solid #e2e8f0;">
+                          <table role="presentation" cellpadding="0" cellspacing="0">
+                            <tr>
+                              <td style="padding-right: 12px;">
+                                <a href="mailto:${cleanEmail}" style="background-color: #047857; color: #ffffff; text-decoration: none; padding: 8px 18px; border-radius: 6px; font-size: 13px; font-weight: 600; display: inline-block;">
+                                  ✉️ Reply to Candidate
+                                </a>
+                              </td>
+                              <td>
+                                <a href="tel:${cleanPhone}" style="background-color: #ffffff; color: #0f172a; text-decoration: none; padding: 8px 18px; border-radius: 6px; font-size: 13px; font-weight: 600; display: inline-block; border: 1px solid #cbd5e1;">
+                                  📞 Call (${cleanPhone})
+                                </a>
+                              </td>
+                            </tr>
+                          </table>
+                        </td>
+                      </tr>
+
+                      <!-- Contact & Lead Details -->
+                      <tr>
+                        <td style="padding: 24px 28px 12px;">
+                          <h4 style="margin: 0 0 12px; font-size: 13px; font-weight: 700; color: #0f172a; text-transform: uppercase; letter-spacing: 0.5px;">
+                            👤 Candidate Contact Information
+                          </h4>
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse: collapse; font-size: 14px; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; margin-bottom: 24px;">
+                            <tr style="background-color: #f8fafc;">
+                              <td style="padding: 10px 14px; font-weight: 600; color: #475569; width: 150px; border-bottom: 1px solid #e2e8f0;">Full Name</td>
+                              <td style="padding: 10px 14px; color: #0f172a; font-weight: 600; border-bottom: 1px solid #e2e8f0;">${candidateName}</td>
+                            </tr>
+                            <tr>
+                              <td style="padding: 10px 14px; font-weight: 600; color: #475569; border-bottom: 1px solid #e2e8f0;">Email</td>
+                              <td style="padding: 10px 14px; border-bottom: 1px solid #e2e8f0;">
+                                <a href="mailto:${cleanEmail}" style="color: #047857; font-weight: 600; text-decoration: none;">${cleanEmail}</a>
+                              </td>
+                            </tr>
+                            <tr style="background-color: #f8fafc;">
+                              <td style="padding: 10px 14px; font-weight: 600; color: #475569; border-bottom: 1px solid #e2e8f0;">Phone Number</td>
+                              <td style="padding: 10px 14px; border-bottom: 1px solid #e2e8f0;">
+                                <a href="tel:${cleanPhone}" style="color: #047857; font-weight: 600; text-decoration: none;">${cleanPhone}</a>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="padding: 10px 14px; font-weight: 600; color: #475569; border-bottom: 1px solid #e2e8f0;">Location</td>
+                              <td style="padding: 10px 14px; color: #0f172a; border-bottom: 1px solid #e2e8f0;">${city ? city + ", " : ""}${provinceCountry}</td>
+                            </tr>
+                            <tr style="background-color: #f8fafc;">
+                              <td style="padding: 10px 14px; font-weight: 600; color: #475569; border-bottom: 1px solid #e2e8f0;">Preferred Reach</td>
+                              <td style="padding: 10px 14px; color: #0f172a; border-bottom: 1px solid #e2e8f0;">${reachMethod}</td>
+                            </tr>
+                            <tr>
+                              <td style="padding: 10px 14px; font-weight: 600; color: #475569;">Traffic Source</td>
+                              <td style="padding: 10px 14px; color: #0f172a;">${formSource} (Heard via: ${heardFrom})</td>
+                            </tr>
+                          </table>
+
+                          <!-- Academic Details -->
+                          <h4 style="margin: 0 0 12px; font-size: 13px; font-weight: 700; color: #0f172a; text-transform: uppercase; letter-spacing: 0.5px;">
+                            📚 Academic &amp; Program Selection
+                          </h4>
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse: collapse; font-size: 14px; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; margin-bottom: 24px;">
+                            <tr style="background-color: #f8fafc;">
+                              <td style="padding: 10px 14px; font-weight: 600; color: #475569; width: 150px; border-bottom: 1px solid #e2e8f0;">Selected Intake</td>
+                              <td style="padding: 10px 14px; font-weight: 600; color: #0f172a; border-bottom: 1px solid #e2e8f0;">${cohort}</td>
+                            </tr>
+                            <tr>
+                              <td style="padding: 10px 14px; font-weight: 600; color: #475569; border-bottom: 1px solid #e2e8f0;">Pathway</td>
+                              <td style="padding: 10px 14px; color: #0f172a; font-weight: 600; border-bottom: 1px solid #e2e8f0;">${certificateType}</td>
+                            </tr>
+                            <tr style="background-color: #f8fafc;">
+                              <td style="padding: 10px 14px; font-weight: 600; color: #475569; border-bottom: 1px solid #e2e8f0;">Clinical Focus</td>
+                              <td style="padding: 10px 14px; color: #047857; font-weight: 600; border-bottom: 1px solid #e2e8f0;">
+                                ${sanitizedFocusAreas.length > 0 ? sanitizedFocusAreas.join(", ") : "Standard Admissions Intake"}
+                              </td>
+                            </tr>
+                            <tr>
+                              <td style="padding: 10px 14px; font-weight: 600; color: #475569; border-bottom: 1px solid #e2e8f0;">Background</td>
+                              <td style="padding: 10px 14px; color: #0f172a; border-bottom: 1px solid #e2e8f0;">${background}</td>
+                            </tr>
+                            <tr style="background-color: #f8fafc;">
+                              <td style="padding: 10px 14px; font-weight: 600; color: #475569;">Motivation / Note</td>
+                              <td style="padding: 10px 14px; color: #0f172a; line-height: 1.5;">
+                                <strong>${motivation}</strong>
+                                ${message && message !== "None provided" ? `<br/><span style="color: #64748b; font-style: italic; display: block; margin-top: 4px;">"${message}"</span>` : ""}
+                              </td>
+                            </tr>
+                          </table>
+
+                          <div style="background-color: #f1f5f9; border-radius: 8px; padding: 12px 16px; font-size: 12px; color: #64748b; text-align: center;">
+                            Registered on Octabloom Wellness · CSNN Toronto Admissions Portal
+                          </div>
+                        </td>
+                      </tr>
+
+                    </table>
+                  </td>
+                </tr>
               </table>
-            </div>
+            </body>
+            </html>
           `,
         });
 
-        if (!adminEmailResult.error) {
+        if (adminEmailResult.error) {
+          console.warn("[Resend Admin Notice]:", adminEmailResult.error.message);
+        } else {
           resendAdminSent = true;
         }
       } catch (err) {
