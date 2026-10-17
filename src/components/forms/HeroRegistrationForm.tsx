@@ -369,7 +369,7 @@ export function HeroRegistrationForm() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="btn-skeuo-gold w-full h-11.5 sm:h-12.5 rounded-xl sm:rounded-2xl text-[#071245] font-black text-sm sm:text-base tracking-wide flex items-center justify-center gap-2.5 shadow-md hover:brightness-105 active:scale-[0.99] transition-all cursor-pointer border-2 border-[#FFF8B8] group disabled:opacity-75 disabled:cursor-wait"
+            className="btn-skeuo-gold w-full h-12 sm:h-13 min-h-[48px] sm:min-h-[52px] py-3 rounded-xl sm:rounded-2xl text-[#071245] font-black text-sm sm:text-base tracking-wide flex items-center justify-center gap-2.5 shadow-md hover:brightness-105 active:scale-[0.99] transition-all cursor-pointer border-2 border-[#FFF8B8] group disabled:opacity-75 disabled:cursor-wait"
           >
             {isSubmitting ? (
               <>

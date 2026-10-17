@@ -107,7 +107,7 @@ export function StickyRegistrationBar() {
           {/* High-Impact 3D Tactile Animated Gold Reserve Button */}
           <a
             href="#register"
-            className="btn-skeuo-gold animate-shimmer inline-flex items-center gap-1.5 sm:gap-2 h-8.5 sm:h-9.5 px-3.5 sm:px-5 rounded-full text-xs sm:text-sm font-black tracking-wide shadow-[0_6px_25px_rgba(246,201,21,0.6),inset_0_1px_0_#FFF,inset_0_-2px_0_rgba(168,120,15,0.7)] whitespace-nowrap hover:scale-105 active:scale-95 transition-all group/btn"
+            className="btn-skeuo-gold animate-shimmer inline-flex items-center gap-1.5 sm:gap-2 h-9 sm:h-10 min-h-[36px] sm:min-h-[40px] px-4 sm:px-5 py-1.5 rounded-full text-xs sm:text-sm font-black tracking-wide shadow-[0_6px_25px_rgba(246,201,21,0.6),inset_0_1px_0_#FFF,inset_0_-2px_0_rgba(168,120,15,0.7)] whitespace-nowrap hover:scale-105 active:scale-95 transition-all group/btn"
           >
             <span>Reserve your seat</span>
             <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 stroke-[3] group-hover/btn:translate-x-1 transition-transform" />

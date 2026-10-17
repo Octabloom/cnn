@@ -128,7 +128,7 @@ export function LearningExperience() {
 
           <a
             href="#register"
-            className="btn-skeuo-gold animate-shimmer w-full sm:w-auto justify-center shrink-0 px-5 h-9.5 rounded-full text-xs font-black flex items-center gap-1.5 shadow-sm hover:scale-105 transition-transform"
+            className="btn-skeuo-gold animate-shimmer w-full sm:w-auto justify-center shrink-0 px-6 h-10 sm:h-11 min-h-[40px] sm:min-h-[44px] py-2 rounded-full text-xs sm:text-sm font-black flex items-center gap-1.5 shadow-sm hover:scale-105 transition-transform"
           >
             <span>Reserve your seat</span>
             <ArrowRight className="w-3.5 h-3.5 stroke-[3]" />

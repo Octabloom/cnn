@@ -421,7 +421,7 @@ export function ProgramShowcaseDualPane() {
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
                   <a
                     href="#register"
-                    className="btn-skeuo-gold animate-shimmer flex-1 h-11.5 sm:h-12 rounded-2xl text-[#071245] font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer border-2 border-[#FFF8B8]"
+                    className="btn-skeuo-gold animate-shimmer flex-1 h-12 sm:h-13 min-h-[48px] sm:min-h-[52px] px-5 py-3 rounded-2xl text-[#071245] font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer border-2 border-[#FFF8B8]"
                   >
                     <span>Hold Your Free Seat for Oct 28</span>
                     <ArrowRight className="w-4 h-4 text-[#071245] stroke-[3]" />
@@ -429,7 +429,7 @@ export function ProgramShowcaseDualPane() {
 
                   <a
                     href={`tel:${PROGRAM_INFO.phoneRaw}`}
-                    className="px-4 h-11.5 sm:h-12 rounded-2xl bg-gradient-to-b from-white via-[#F8FAFC] to-[#EEF2F6] hover:bg-gradient-to-b hover:from-white hover:to-slate-100 border border-slate-300/80 border-t-white text-[#071245] font-black text-xs flex items-center justify-center gap-1.5 transition-all shadow-[inset_0_1.5px_0_#FFFFFF,inset_0_-2px_0_rgba(15,23,42,0.06),0_4px_10px_-2px_rgba(7,18,69,0.1)] hover:scale-[1.01] active:scale-[0.99]"
+                    className="px-5 h-12 sm:h-13 min-h-[48px] sm:min-h-[52px] py-3 rounded-2xl bg-gradient-to-b from-white via-[#F8FAFC] to-[#EEF2F6] hover:bg-gradient-to-b hover:from-white hover:to-slate-100 border border-slate-300/80 border-t-white text-[#071245] font-black text-xs sm:text-sm flex items-center justify-center gap-1.5 transition-all shadow-[inset_0_1.5px_0_#FFFFFF,inset_0_-2px_0_rgba(15,23,42,0.06),0_4px_10px_-2px_rgba(7,18,69,0.1)] hover:scale-[1.01] active:scale-[0.99]"
                     title="Call Admissions"
                   >
                     <span>Speak with an Advisor</span>
