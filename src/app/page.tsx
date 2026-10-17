@@ -3,6 +3,7 @@ import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Header } from "@/components/layout/Header";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { WorkshopCurriculum } from "@/components/sections/WorkshopCurriculum";
+import { ProgramShowcaseDualPane } from "@/components/sections/ProgramShowcaseDualPane";
 import { LearningExperience } from "@/components/sections/LearningExperience";
 import { InstructorBio } from "@/components/sections/InstructorBio";
 import { CertificatePathways } from "@/components/sections/CertificatePathways";
@@ -33,7 +34,10 @@ export default function Home() {
         {/* 02. Ten-Workshop Curriculum (10 HOLISTIC NUTRITION WORKSHOPS - placed directly below hero) */}
         <WorkshopCurriculum />
 
-        {/* 03. How You'll Learn (HOW YOU'LL LEARN - placed directly down 10 workshops) */}
+        {/* 03. Live Masterclass Preview Dual Pane Showcase (placed directly above HOW YOU'LL LEARN) */}
+        <ProgramShowcaseDualPane />
+
+        {/* 04. How You'll Learn (HOW YOU'LL LEARN) */}
         <LearningExperience />
 
         {/* 04. Instructor Profile (MEET YOUR INSTRUCTOR - placed just below HOW YOU'LL LEARN) */}
