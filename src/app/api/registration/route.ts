@@ -27,6 +27,10 @@ export interface RegistrationSubmission {
   _gotcha?: string;
   website?: string;
   company?: string;
+  // HELC Qualifier Questions
+  interestReason?: string;
+  liveScheduleAnswer?: string;
+  intakeTiming?: string;
 }
 
 // In-Memory Rate Limiting: Max 5 requests per IP per 60 seconds
@@ -84,7 +88,6 @@ function sanitizeMultiLine(str?: string, maxLength = 1500): string {
 
 const DESTINATION_EMAIL =
   process.env.ADMISSIONS_EMAIL || "adminoctobloom@gmail.com";
-const FORMSUBMIT_URL = `https://formsubmit.co/ajax/${DESTINATION_EMAIL}`;
 
 export async function POST(request: Request) {
   try {
@@ -181,9 +184,11 @@ export async function POST(request: Request) {
     }
 
     // 7. Sanitize all lead fields
+    const cleanFirstName = sanitizeSingleLine(body.firstName, 50) || (body.fullName ? body.fullName.split(" ")[0] : "");
+    const cleanLastName = sanitizeSingleLine(body.lastName, 50) || (body.fullName ? body.fullName.split(" ").slice(1).join(" ") : "");
     const rawName =
       body.fullName ||
-      `${body.firstName || ""} ${body.lastName || ""}`.trim() ||
+      `${cleanFirstName} ${cleanLastName}`.trim() ||
       "Prospective Student";
     const candidateName = sanitizeSingleLine(rawName, 80) || "Prospective Student";
 
@@ -191,50 +196,21 @@ export async function POST(request: Request) {
       ? body.focusAreas.slice(0, 10).map((f) => sanitizeSingleLine(String(f), 50))
       : [];
 
-    const motivation = sanitizeMultiLine(body.motivation, 500) || "Clinical Holistic Nutrition Program";
-    const cohort = sanitizeSingleLine(body.readyOctober14, 100) || "October 28, 2026 · Evenings 6:00–8:30 pm EST (Live Online)";
+    const motivation = sanitizeMultiLine(body.motivation, 500) || "Healthy Eating & Lifestyle Certificate (HELC)";
+    const cohort = sanitizeSingleLine(body.readyOctober14, 100) || "October 28, 2026 · Evenings 6:00–8:00 pm EST (Live Online)";
     const formSource = sanitizeSingleLine(body.formSource, 80) || "Website Registration";
     const background = sanitizeSingleLine(body.background, 100) || "General Applicant";
-    const certificateType = sanitizeSingleLine(body.certificateType, 100) || "Comprehensive Certificate";
+    const certificateType = sanitizeSingleLine(body.certificateType, 100) || "Healthy Eating & Lifestyle Certificate (HELC)";
     const city = sanitizeSingleLine(body.city, 50);
     const provinceCountry = sanitizeSingleLine(body.provinceCountry, 50) || "Not Specified";
     const reachMethod = sanitizeSingleLine(body.reachMethod, 50) || "Any (Phone/Email/Text)";
     const heardFrom = sanitizeSingleLine(body.heardFrom, 80) || "Online";
     const message = sanitizeMultiLine(body.message, 1500) || "None provided";
+    const interestReason = sanitizeSingleLine(body.interestReason, 150);
+    const liveScheduleAnswer = sanitizeSingleLine(body.liveScheduleAnswer, 100);
+    const intakeTiming = sanitizeSingleLine(body.intakeTiming, 100);
 
-    // 8. Prepare safe FormSubmit payload
-    const formSubmitPayload: Record<string, string> = {
-      _subject: `🎓 New Student Lead: ${candidateName} (October 28 Intake)`,
-      _template: "table",
-      _replyto: cleanEmail,
-      _captcha: "false",
-      _autoresponse: `Thank you for your interest in the Clinical Holistic Nutrition Program! We have received your registration for the October 28, 2026 cohort. An admissions advisor from Octabloom will be in touch shortly with curriculum details and your live mentorship schedule.`,
-      "Candidate Full Name": candidateName,
-      "Email Address": cleanEmail,
-      "Phone Number": cleanPhone,
-      "Program Interest / Motivation": motivation,
-      "Target Cohort / Intake": cohort,
-      "Admissions Portal Source": formSource,
-      "Clinical Focus Areas":
-        sanitizedFocusAreas.length > 0
-          ? sanitizedFocusAreas.join(", ")
-          : "Standard Admissions Intake",
-      "Academic / Career Background": background,
-      "Certificate Pathway": certificateType,
-      "City & Region": `${city ? city + ", " : ""}${provinceCountry}`,
-      "Best Way to Reach": reachMethod,
-      "How Heard About Us": heardFrom,
-      "Candidate Note / Question": message,
-      "Tuition Status": "Free Seat Hold (Zero Tuition Due Today)",
-      "Submission Timestamp":
-        new Date().toLocaleString("en-US", {
-          dateStyle: "full",
-          timeStyle: "medium",
-          timeZone: "America/New_York",
-        }) + " (EST)",
-    };
-
-    // 9. Dispatch via Resend (Direct Email & Autoresponder)
+    // 8. Dispatch via Resend (Direct Email & Autoresponder)
     let resendApplicantSent = false;
     let resendAdminSent = false;
 
@@ -471,34 +447,61 @@ export async function POST(request: Request) {
                           </h4>
                           <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse: collapse; font-size: 14px; border: 1px solid #e2e8f0; border-radius: 8px; overflow: hidden; margin-bottom: 24px;">
                             <tr style="background-color: #f8fafc;">
-                              <td style="padding: 10px 14px; font-weight: 600; color: #475569; width: 150px; border-bottom: 1px solid #e2e8f0;">Full Name</td>
-                              <td style="padding: 10px 14px; color: #0f172a; font-weight: 600; border-bottom: 1px solid #e2e8f0;">${candidateName}</td>
+                              <td style="padding: 10px 14px; font-weight: 600; color: #475569; width: 150px; border-bottom: 1px solid #e2e8f0;">First Name</td>
+                              <td style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-bottom: 1px solid #e2e8f0;">${cleanFirstName || candidateName}</td>
                             </tr>
                             <tr>
-                              <td style="padding: 10px 14px; font-weight: 600; color: #475569; border-bottom: 1px solid #e2e8f0;">Email</td>
-                              <td style="padding: 10px 14px; border-bottom: 1px solid #e2e8f0;">
-                                <a href="mailto:${cleanEmail}" style="color: #047857; font-weight: 600; text-decoration: none;">${cleanEmail}</a>
-                              </td>
+                              <td style="padding: 10px 14px; font-weight: 600; color: #475569; border-bottom: 1px solid #e2e8f0;">Last Name</td>
+                              <td style="padding: 10px 14px; color: #0f172a; font-weight: 700; border-bottom: 1px solid #e2e8f0;">${cleanLastName || "-"}</td>
                             </tr>
                             <tr style="background-color: #f8fafc;">
                               <td style="padding: 10px 14px; font-weight: 600; color: #475569; border-bottom: 1px solid #e2e8f0;">Phone Number</td>
                               <td style="padding: 10px 14px; border-bottom: 1px solid #e2e8f0;">
-                                <a href="tel:${cleanPhone}" style="color: #047857; font-weight: 600; text-decoration: none;">${cleanPhone}</a>
+                                <a href="tel:${cleanPhone}" style="color: #047857; font-weight: 700; text-decoration: none;">${cleanPhone}</a>
                               </td>
                             </tr>
                             <tr>
-                              <td style="padding: 10px 14px; font-weight: 600; color: #475569; border-bottom: 1px solid #e2e8f0;">Location</td>
-                              <td style="padding: 10px 14px; color: #0f172a; border-bottom: 1px solid #e2e8f0;">${city ? city + ", " : ""}${provinceCountry}</td>
+                              <td style="padding: 10px 14px; font-weight: 600; color: #475569; border-bottom: 1px solid #e2e8f0;">Email Address</td>
+                              <td style="padding: 10px 14px; border-bottom: 1px solid #e2e8f0;">
+                                <a href="mailto:${cleanEmail}" style="color: #047857; font-weight: 700; text-decoration: none;">${cleanEmail}</a>
+                              </td>
                             </tr>
                             <tr style="background-color: #f8fafc;">
-                              <td style="padding: 10px 14px; font-weight: 600; color: #475569; border-bottom: 1px solid #e2e8f0;">Preferred Reach</td>
-                              <td style="padding: 10px 14px; color: #0f172a; border-bottom: 1px solid #e2e8f0;">${reachMethod}</td>
+                              <td style="padding: 10px 14px; font-weight: 600; color: #475569; border-bottom: 1px solid #e2e8f0;">Full Name</td>
+                              <td style="padding: 10px 14px; color: #0f172a; font-weight: 600; border-bottom: 1px solid #e2e8f0;">${candidateName}</td>
                             </tr>
                             <tr>
                               <td style="padding: 10px 14px; font-weight: 600; color: #475569;">Traffic Source</td>
-                              <td style="padding: 10px 14px; color: #0f172a;">${formSource} (Heard via: ${heardFrom})</td>
+                              <td style="padding: 10px 14px; color: #0f172a;">${formSource}</td>
                             </tr>
                           </table>
+
+                          ${interestReason || liveScheduleAnswer || intakeTiming ? `
+                          <!-- HELC Qualifier Questions -->
+                          <h4 style="margin: 0 0 12px; font-size: 13px; font-weight: 700; color: #071245; text-transform: uppercase; letter-spacing: 0.5px;">
+                            🎯 HELC Qualifier Responses
+                          </h4>
+                          <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-collapse: collapse; font-size: 14px; border: 1px solid #fde047; border-radius: 8px; overflow: hidden; margin-bottom: 24px; background-color: #fefce8;">
+                            ${interestReason ? `
+                            <tr style="border-bottom: 1px solid #fef08a;">
+                              <td style="padding: 10px 14px; font-weight: 700; color: #854d0e; width: 175px;">Q1 · Main Interest</td>
+                              <td style="padding: 10px 14px; font-weight: 700; color: #071245;">${interestReason}</td>
+                            </tr>
+                            ` : ""}
+                            ${liveScheduleAnswer ? `
+                            <tr style="border-bottom: 1px solid #fef08a;">
+                              <td style="padding: 10px 14px; font-weight: 700; color: #854d0e;">Q2 · Live 6–8 PM ET</td>
+                              <td style="padding: 10px 14px; font-weight: 700; color: #047857;">${liveScheduleAnswer}</td>
+                            </tr>
+                            ` : ""}
+                            ${intakeTiming ? `
+                            <tr>
+                              <td style="padding: 10px 14px; font-weight: 700; color: #854d0e;">Q3 · Start Timing</td>
+                              <td style="padding: 10px 14px; font-weight: 700; color: #071245;">${intakeTiming}</td>
+                            </tr>
+                            ` : ""}
+                          </table>
+                          ` : ""}
 
                           <!-- Academic Details -->
                           <h4 style="margin: 0 0 12px; font-size: 13px; font-weight: 700; color: #0f172a; text-transform: uppercase; letter-spacing: 0.5px;">
@@ -555,28 +558,6 @@ export async function POST(request: Request) {
       } catch (err) {
         console.warn("[Resend Admin Error]:", err);
       }
-    }
-
-    // 10. Secondary Backup: Also trigger FormSubmit as an async safety net
-    try {
-      const controller = new AbortController();
-      const timeoutId = setTimeout(() => controller.abort(), 6000);
-
-      await fetch(FORMSUBMIT_URL, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-          Referer: "https://octabloomwellness.com/",
-          Origin: "https://octabloomwellness.com",
-        },
-        body: JSON.stringify(formSubmitPayload),
-        signal: controller.signal,
-      });
-
-      clearTimeout(timeoutId);
-    } catch (fsError) {
-      console.info("[FormSubmit sync fallback status]:", fsError);
     }
 
     return NextResponse.json({

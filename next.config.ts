@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   cacheComponents: true,
   partialPrefetching: true,
+  devIndicators: false,
   images: {
     qualities: [75, 100],
   },
@@ -15,6 +16,14 @@ const nextConfig: NextConfig = {
         as: "*.css",
       },
     },
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/helc",
+        destination: "/HELC",
+      },
+    ];
   },
   async headers() {
     return [

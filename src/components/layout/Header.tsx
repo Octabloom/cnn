@@ -1,6 +1,8 @@
 "use client";
 
 import React, { useState } from "react";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 import { Phone, Menu, X, ArrowRight } from "lucide-react";
 import { PROGRAM_INFO } from "@/data/programData";
 
@@ -8,14 +10,16 @@ import { BrandLockup } from "@/components/ui/BrandLockup";
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isHelcPage = pathname === "/HELC" || pathname === "/helc";
 
   const navLinks = [
-    { label: "About HELC", href: "#about" },
-    { label: "Curriculum", href: "#curriculum" },
-    { label: "How It Works", href: "#how-it-works" },
-    { label: "Instructor", href: "#instructor" },
-    { label: "Testimonial", href: "#testimonial" },
-    { label: "Why CSNN Toronto", href: "#why-csnn" },
+    { label: "About HELC", href: "/HELC" },
+    { label: "Curriculum", href: isHelcPage ? "/#curriculum" : "#curriculum" },
+    { label: "How It Works", href: isHelcPage ? "/#how-it-works" : "#how-it-works" },
+    { label: "Instructor", href: isHelcPage ? "/#instructor" : "#instructor" },
+    { label: "Testimonial", href: isHelcPage ? "/#testimonial" : "#testimonial" },
+    { label: "Why CSNN Toronto", href: isHelcPage ? "/#why-csnn" : "#why-csnn" },
   ];
 
   return (
@@ -28,16 +32,27 @@ export function Header() {
 
         {/* Desktop Navigation Links */}
         <nav aria-label="Main Navigation" className="hidden lg:flex items-center gap-0.5 text-xs font-black text-[#071245]">
-          {navLinks.map((link) => (
-            <a
-              key={link.href}
-              href={link.href}
-              className="px-2.5 py-1 rounded-lg hover:bg-slate-100 hover:text-[#071245] transition-all relative group"
-            >
-              <span>{link.label}</span>
-              <span className="absolute bottom-0.5 left-2.5 right-2.5 h-0.5 bg-[#F6C915] scale-x-0 group-hover:scale-x-100 transition-transform origin-left rounded-full" />
-            </a>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = link.href === "/HELC" && isHelcPage;
+            return (
+              <Link
+                key={link.label}
+                href={link.href}
+                className={`px-2.5 py-1 rounded-lg transition-all relative group ${
+                  isActive
+                    ? "bg-[#FEF9C3] text-[#854D0E] font-black shadow-2xs"
+                    : "hover:bg-slate-100 hover:text-[#071245]"
+                }`}
+              >
+                <span>{link.label}</span>
+                <span
+                  className={`absolute bottom-0.5 left-2.5 right-2.5 h-0.5 bg-[#F6C915] transition-transform origin-left rounded-full ${
+                    isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
+                  }`}
+                />
+              </Link>
+            );
+          })}
         </nav>
 
         {/* Actions (Phone & CTA) */}
@@ -79,15 +94,19 @@ export function Header() {
         <div className="lg:hidden bg-white/98 backdrop-blur-2xl border-b border-slate-200 px-4 py-4 shadow-xl animate-in fade-in slide-in-from-top-3 duration-200">
           <nav className="flex flex-col gap-1.5 text-xs font-bold text-[#071245]">
             {navLinks.map((link) => (
-              <a
-                key={link.href}
+              <Link
+                key={link.label}
                 href={link.href}
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-2 rounded-lg hover:bg-slate-100 border border-transparent hover:border-slate-200 transition-all flex items-center justify-between"
+                className={`p-2 rounded-lg border transition-all flex items-center justify-between ${
+                  link.href === "/HELC" && isHelcPage
+                    ? "bg-[#FEF9C3] border-[#F6C915] text-[#854D0E] font-black"
+                    : "hover:bg-slate-100 border-transparent hover:border-slate-200"
+                }`}
               >
                 <span>{link.label}</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#B87503]" />
-              </a>
+              </Link>
             ))}
             <div className="pt-2 border-t border-slate-200 flex flex-col gap-2">
               <a
@@ -98,7 +117,7 @@ export function Header() {
                 <span>Call {PROGRAM_INFO.phone}</span>
               </a>
               <a
-                href="#register"
+                href={isHelcPage ? "#qualifier-form" : "#register"}
                 onClick={() => setMobileMenuOpen(false)}
                 className="btn-skeuo-gold w-full text-center py-2.5 rounded-full text-xs font-black"
               >

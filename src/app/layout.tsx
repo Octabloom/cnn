@@ -55,6 +55,9 @@ export const metadata: Metadata = {
     icon: "/graphics/logo.jpg",
     apple: "/graphics/logo.jpg",
   },
+  verification: {
+    google: "dtWlZHM1BaOGFqC4dnU05278ltszZM_poRQJUYV12C4",
+  },
 };
 
 export default function RootLayout({
@@ -65,6 +68,31 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${plusJakarta.variable} scroll-smooth`}>
       <head>
+        {/* Google Search Console verification */}
+        <meta
+          name="google-site-verification"
+          content="dtWlZHM1BaOGFqC4dnU05278ltszZM_poRQJUYV12C4"
+        />
+
+        {/* Google tag (gtag.js) */}
+        <Script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-3PGT2HWW6T"
+          strategy="afterInteractive"
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-3PGT2HWW6T');
+            `,
+          }}
+        />
+
         <Script
           id="fb-pixel"
           strategy="afterInteractive"
