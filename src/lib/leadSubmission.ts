@@ -31,20 +31,34 @@ export interface SubmissionResponse {
   message?: string;
 }
 
+function getApiEndpoint(): string {
+  if (typeof window !== "undefined") {
+    // If client visits on apex domain octobloomwellness.com, post directly to canonical www
+    if (window.location.hostname === "octobloomwellness.com") {
+      return "https://www.octobloomwellness.com/api/registration";
+    }
+  }
+  return "/api/registration";
+}
+
 export async function submitLeadToAdmin(
   payload: LeadSubmissionPayload
 ): Promise<SubmissionResponse> {
+  const endpoint = getApiEndpoint();
+
   try {
-    const apiResponse = await fetch("/api/registration", {
+    const apiResponse = await fetch(endpoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Accept: "application/json",
       },
       body: JSON.stringify(payload),
+      keepalive: true,
     });
 
     if (apiResponse.ok) {
-      const apiResult = await apiResponse.json();
+      const apiResult = await apiResponse.json().catch(() => ({}));
       return {
         success: true,
         message: apiResult.message || "Lead submitted successfully.",

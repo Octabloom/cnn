@@ -40,7 +40,7 @@ interface RateLimitRecord {
 }
 const rateLimitMap = new Map<string, RateLimitRecord>();
 const RATE_LIMIT_WINDOW_MS = 60 * 1000;
-const MAX_REQUESTS_PER_WINDOW = 5;
+const MAX_REQUESTS_PER_WINDOW = 30;
 
 function checkRateLimit(ip: string): boolean {
   const now = Date.now();
@@ -89,6 +89,20 @@ function sanitizeMultiLine(str?: string, maxLength = 1500): string {
 const DESTINATION_EMAIL =
   process.env.ADMISSIONS_EMAIL || "adminoctobloom@gmail.com";
 
+const corsHeaders: Record<string, string> = {
+  "Access-Control-Allow-Origin": "*",
+  "Access-Control-Allow-Methods": "POST, OPTIONS",
+  "Access-Control-Allow-Headers": "Content-Type, Accept, Authorization, X-Requested-With",
+  "Access-Control-Max-Age": "86400",
+};
+
+export async function OPTIONS() {
+  return new NextResponse(null, {
+    status: 204,
+    headers: corsHeaders,
+  });
+}
+
 export async function POST(request: Request) {
   try {
     // 1. Payload size guard
@@ -96,7 +110,7 @@ export async function POST(request: Request) {
     if (contentLength && parseInt(contentLength, 10) > 50000) {
       return NextResponse.json(
         { success: false, error: "Payload too large." },
-        { status: 413 }
+        { status: 413, headers: corsHeaders }
       );
     }
 
@@ -114,39 +128,27 @@ export async function POST(request: Request) {
         },
         {
           status: 429,
-          headers: { "Retry-After": "60" },
+          headers: { ...corsHeaders, "Retry-After": "60" },
         }
       );
     }
 
-    // 3. Origin & CSRF validation
+    // 3. Origin check (Permissive to allow apex domain, www domain, localhost)
     const origin = request.headers.get("origin");
-    const referer = request.headers.get("referer");
-    const host = request.headers.get("host");
-
     if (origin) {
       try {
         const originUrl = new URL(origin);
         const isAllowedOrigin =
-          originUrl.hostname === host ||
           originUrl.hostname === "octobloomwellness.com" ||
           originUrl.hostname === "www.octobloomwellness.com" ||
           originUrl.hostname === "toronto.csnn.ca" ||
-          originUrl.hostname.endsWith(".vercel.app") ||
-          originUrl.hostname === "localhost" ||
-          originUrl.hostname === "127.0.0.1";
+          originUrl.hostname.endsWith(".vercel.app");
 
         if (!isAllowedOrigin) {
-          return NextResponse.json(
-            { success: false, error: "Forbidden cross-origin request." },
-            { status: 403 }
-          );
+          console.warn("[Registration] Non-standard submission origin:", origin);
         }
       } catch {
-        return NextResponse.json(
-          { success: false, error: "Invalid origin header." },
-          { status: 400 }
-        );
+        // Allow request through even if origin header is non-standard
       }
     }
 
@@ -156,10 +158,13 @@ export async function POST(request: Request) {
     // 5. Bot Honeypot Guard: If hidden bot field is filled, silently return success without emailing
     if (body._gotcha || body.website || body.company) {
       console.warn(`[Security] Spam bot blocked from IP: ${clientIp}`);
-      return NextResponse.json({
-        success: true,
-        message: "Registration received.",
-      });
+      return NextResponse.json(
+        {
+          success: true,
+          message: "Registration received.",
+        },
+        { headers: corsHeaders }
+      );
     }
 
     // 6. Strict Field Validation
@@ -170,7 +175,7 @@ export async function POST(request: Request) {
     if (!cleanEmail || !emailRegex.test(cleanEmail)) {
       return NextResponse.json(
         { success: false, error: "A valid email address is required." },
-        { status: 400 }
+        { status: 400, headers: corsHeaders }
       );
     }
 
@@ -179,7 +184,7 @@ export async function POST(request: Request) {
     if (!cleanPhone || phoneDigits.length < 7 || phoneDigits.length > 20) {
       return NextResponse.json(
         { success: false, error: "A valid phone number is required (min 7 digits)." },
-        { status: 400 }
+        { status: 400, headers: corsHeaders }
       );
     }
 
@@ -210,19 +215,12 @@ export async function POST(request: Request) {
     const liveScheduleAnswer = sanitizeSingleLine(body.liveScheduleAnswer, 100);
     const intakeTiming = sanitizeSingleLine(body.intakeTiming, 100);
 
-    // 8. Dispatch via Resend (Direct Email & Autoresponder)
+    // 8. Dispatch via Resend (Parallel Student Autoresponder & Admin Notification)
     let resendApplicantSent = false;
     let resendAdminSent = false;
 
     if (resend) {
-      // A. Send Auto-Response Confirmation Email to the APPLICANT (cleanEmail)
-      try {
-        const applicantEmailResult = await resend.emails.send({
-          from: RESEND_FROM_EMAIL,
-          to: cleanEmail,
-          replyTo: DESTINATION_EMAIL,
-          subject: "Registration Confirmed: Healthy Eating & Lifestyle Certificate · CSNN Toronto",
-          html: `
+      const applicantHtml = `
             <!DOCTYPE html>
             <html lang="en">
             <head>
@@ -372,26 +370,10 @@ export async function POST(request: Request) {
               </table>
             </body>
             </html>
-          `,
-        });
+          `;
 
-        if (applicantEmailResult.error) {
-          console.warn("[Resend Applicant Notice]:", applicantEmailResult.error.message);
-        } else {
-          resendApplicantSent = true;
-        }
-      } catch (err) {
-        console.warn("[Resend Applicant Error]:", err);
-      }
-
-      // B. Send Lead Notification Email to the ADMISSIONS TEAM (DESTINATION_EMAIL)
-      try {
-        const adminEmailResult = await resend.emails.send({
-          from: RESEND_FROM_EMAIL,
-          to: DESTINATION_EMAIL,
-          replyTo: cleanEmail,
-          subject: `🎓 New Student Lead: ${candidateName} (${cohort})`,
-          html: `
+      // B. Prepare Notification Email for the ADMISSIONS TEAM
+      const adminHtml = `
             <!DOCTYPE html>
             <html lang="en">
             <head>
@@ -547,34 +529,70 @@ export async function POST(request: Request) {
               </table>
             </body>
             </html>
-          `,
-        });
+          `;
 
-        if (adminEmailResult.error) {
-          console.warn("[Resend Admin Notice]:", adminEmailResult.error.message);
+      // C. Concurrent Dispatch: Send BOTH applicant and admin emails in parallel
+      try {
+        const [applicantResult, adminResult] = await Promise.allSettled([
+          resend.emails.send({
+            from: RESEND_FROM_EMAIL,
+            to: cleanEmail,
+            replyTo: DESTINATION_EMAIL,
+            subject: "Registration Confirmed: Healthy Eating & Lifestyle Certificate · CSNN Toronto",
+            html: applicantHtml,
+          }),
+          resend.emails.send({
+            from: RESEND_FROM_EMAIL,
+            to: DESTINATION_EMAIL,
+            replyTo: cleanEmail,
+            subject: `🎓 New Student Lead: ${candidateName} (${cohort})`,
+            html: adminHtml,
+          }),
+        ]);
+
+        if (applicantResult.status === "fulfilled") {
+          if (applicantResult.value.error) {
+            console.error("[Resend Applicant Error]:", applicantResult.value.error.message);
+          } else {
+            resendApplicantSent = true;
+            console.log("[Resend Applicant Sent ID]:", applicantResult.value.data?.id);
+          }
         } else {
-          resendAdminSent = true;
+          console.error("[Resend Applicant Rejection]:", applicantResult.reason);
         }
-      } catch (err) {
-        console.warn("[Resend Admin Error]:", err);
+
+        if (adminResult.status === "fulfilled") {
+          if (adminResult.value.error) {
+            console.error("[Resend Admin Error]:", adminResult.value.error.message);
+          } else {
+            resendAdminSent = true;
+            console.log("[Resend Admin Sent ID]:", adminResult.value.data?.id);
+          }
+        } else {
+          console.error("[Resend Admin Rejection]:", adminResult.reason);
+        }
+      } catch (dispatchErr) {
+        console.error("[Resend Parallel Dispatch Exception]:", dispatchErr);
       }
     }
 
-    return NextResponse.json({
-      success: true,
-      message: "Registration received successfully.",
-      resendApplicantSent,
-      resendAdminSent,
-    });
+    return NextResponse.json(
+      {
+        success: true,
+        message: "Registration received successfully.",
+        resendApplicantSent,
+        resendAdminSent,
+      },
+      { headers: corsHeaders }
+    );
   } catch (error) {
-    // Log real error internally; never expose stack traces or system internals to the client
     console.error("[Registration API Error]:", error);
     return NextResponse.json(
       {
         success: false,
         error: "Unable to complete registration at this time. Please try again.",
       },
-      { status: 500 }
+      { status: 500, headers: corsHeaders }
     );
   }
 }

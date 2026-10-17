@@ -79,36 +79,42 @@ export function HelcQualifierCard() {
 
   const validateContact = () => {
     const errors: { firstName?: string; lastName?: string; phone?: string; email?: string } = {};
-    if (!isValidName(contact.firstName)) {
+    if (!contact.firstName || contact.firstName.trim().length < 2) {
       errors.firstName = "Please enter your first name";
     }
-    if (!isValidName(contact.lastName)) {
+    if (contact.lastName && contact.lastName.trim().length < 1) {
       errors.lastName = "Please enter your last name";
     }
     if (!isValidEmail(contact.email)) {
       errors.email = "Please enter a valid email address";
     }
     if (!isValidPhone(contact.phone)) {
-      errors.phone = "Please enter a valid phone number";
+      errors.phone = "Please enter a valid phone number (min 7 digits)";
     }
     setContactErrors(errors);
     return Object.keys(errors).length === 0;
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const handleSubmit = async (e?: React.FormEvent | React.MouseEvent) => {
+    if (e && e.preventDefault) {
+      e.preventDefault();
+    }
     if (!validateContact()) return;
 
     setIsSubmitting(true);
 
+    const effectiveFirstName = contact.firstName.trim();
+    const effectiveLastName = contact.lastName.trim();
+    const effectiveFullName = `${effectiveFirstName} ${effectiveLastName}`.trim();
+
     try {
-      await submitLeadToAdmin({
+      const res = await submitLeadToAdmin({
         formSource: "HELC Lead Form",
-        fullName: `${contact.firstName} ${contact.lastName}`.trim(),
-        firstName: contact.firstName,
-        lastName: contact.lastName,
-        email: contact.email,
-        phone: contact.phone,
+        fullName: effectiveFullName,
+        firstName: effectiveFirstName,
+        lastName: effectiveLastName,
+        email: contact.email.trim(),
+        phone: contact.phone.trim(),
         motivation: answers.q1 || "Healthy Eating & Lifestyle Certificate",
         readyOctober14: "October 28, 2026 Intake (Evenings 6–8 PM EST)",
         certificateType: "Healthy Eating & Lifestyle Certificate (HELC)",
@@ -116,10 +122,14 @@ export function HelcQualifierCard() {
         liveScheduleAnswer: answers.q2,
         intakeTiming: answers.q3,
       });
+      console.log("HELC Lead Form Submission Result:", res);
       // Direct, guaranteed browser redirect to the dedicated thank you page URL
-      window.location.href = `/thank-you?name=${encodeURIComponent(contact.firstName)}`;
-    } catch {
-      window.location.href = `/thank-you?name=${encodeURIComponent(contact.firstName)}`;
+      window.location.href = `/thank-you?name=${encodeURIComponent(effectiveFirstName)}`;
+    } catch (err) {
+      console.error("HELC Lead Form Submission Error:", err);
+      window.location.href = `/thank-you?name=${encodeURIComponent(effectiveFirstName)}`;
+    } finally {
+      setIsSubmitting(false);
     }
   };
 
@@ -519,6 +529,7 @@ export function HelcQualifierCard() {
                 <button
                   type="submit"
                   form="helc-contact-form"
+                  onClick={handleSubmit}
                   disabled={isSubmitting}
                   className="col-span-2 py-3.5 bg-gradient-to-r from-[#0070f3] to-[#005cd6] hover:from-[#0060df] hover:to-[#004fba] text-white text-xs font-black tracking-wider uppercase flex items-center justify-center gap-2 cursor-pointer transition-all shadow-md disabled:opacity-50"
                 >
