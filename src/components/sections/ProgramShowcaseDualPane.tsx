@@ -288,21 +288,31 @@ export function ProgramShowcaseDualPane() {
               Aligned flush at top and bottom with the phone mockup
               ============================================================== */}
           <div className="lg:col-span-7 flex flex-col order-2 lg:order-2 lg:h-full">
-            <div className="bg-white/95 sm:bg-white/98 backdrop-blur-xl rounded-3xl sm:rounded-[36px] p-5 sm:p-7 lg:p-8 xl:p-9 border border-slate-200/90 shadow-[0_20px_50px_-15px_rgba(7,18,69,0.12),inset_0_1.5px_0_#FFFFFF] relative overflow-hidden lg:h-full flex flex-col justify-between">
+            <div className="bg-gradient-to-b from-white via-[#F6F9FE] to-[#E9F1FA] rounded-3xl sm:rounded-[36px] p-5 sm:p-7 lg:p-8 xl:p-9 border border-[#C3D8F5]/90 border-t-white shadow-[inset_0_2px_0_#FFFFFF,inset_0_0_0_1px_rgba(255,255,255,0.85),inset_0_-2px_0_rgba(7,18,69,0.04),0_24px_55px_-12px_rgba(7,18,69,0.16),0_6px_16px_-4px_rgba(7,18,69,0.06)] relative overflow-hidden lg:h-full flex flex-col justify-between">
               
-              <div>
+              {/* Top Gloss Highlight Sheen */}
+              <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-white/90 via-white/30 to-transparent pointer-events-none" />
+
+              {/* Skeuomorphic Top Edge Golden Accent */}
+              <div className="absolute top-0 left-12 right-12 h-[2px] bg-gradient-to-r from-transparent via-[#F6C915]/80 to-transparent rounded-full shadow-[0_1px_3px_rgba(246,201,21,0.5)]" />
+
+              <div className="relative z-10">
                 {/* Top ambient decorative light */}
                 <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-bl from-[#F6C915]/15 via-transparent to-transparent pointer-events-none" />
 
-                {/* Eyebrow Pill Row */}
+                {/* Eyebrow Pill Row - Skeuomorphic Embossed Badges */}
                 <div className="flex items-center flex-wrap gap-2 mb-3">
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-emerald-50 text-emerald-800 text-[10.5px] sm:text-xs font-black uppercase tracking-wider border border-emerald-200/80 shadow-2xs">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-b from-emerald-50 to-emerald-100/90 text-emerald-900 text-[10.5px] sm:text-xs font-black uppercase tracking-wider border border-emerald-300/80 shadow-[inset_0_1.5px_0_#FFFFFF,0_2px_5px_rgba(16,185,129,0.18)]">
+                    <span className="w-4 h-4 rounded-full bg-emerald-600 text-white flex items-center justify-center shadow-2xs">
+                      <ShieldCheck className="w-2.5 h-2.5 stroke-[2.5]" />
+                    </span>
                     <span>100% Live Instructor Dialogue</span>
                   </span>
 
-                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-50 text-[#854D0E] text-[10.5px] sm:text-xs font-black uppercase tracking-wider border border-amber-200/80 shadow-2xs">
-                    <Award className="w-3.5 h-3.5 text-[#DEAB07]" />
+                  <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-b from-amber-50 to-amber-100/90 text-[#854D0E] text-[10.5px] sm:text-xs font-black uppercase tracking-wider border border-amber-300/80 shadow-[inset_0_1.5px_0_#FFFFFF,0_2px_5px_rgba(246,201,21,0.22)]">
+                    <span className="w-4 h-4 rounded-full bg-gradient-to-b from-[#FFE46B] to-[#DEAB07] text-[#071245] flex items-center justify-center shadow-2xs">
+                      <Award className="w-2.5 h-2.5 stroke-[2.5]" />
+                    </span>
                     <span>4 canfitpro CECs Approved</span>
                   </span>
                 </div>
@@ -316,12 +326,12 @@ export function ProgramShowcaseDualPane() {
                   Unlike passive recorded courses, the Healthy Eating &amp; Lifestyle Certificate brings you face-to-face with an experienced holistic nutritionist. Ask specific dietary questions, dismantle confusing nutrition myths, and cultivate lifelong healthy habits.
                 </p>
 
-                {/* 4 Feature Pillars Grid (2x2 on sm+) */}
+                {/* 4 Feature Pillars Grid (2x2 on sm+) - Tactile Skeuomorphic Tiles */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3.5 mb-5">
                   
                   {/* Pillar 01 */}
-                  <div className="p-3 sm:p-3.5 rounded-2xl bg-slate-50/90 border border-slate-200/80 hover:border-slate-300 transition-colors flex items-start gap-2.5">
-                    <div className="w-8 h-8 rounded-xl bg-gradient-to-b from-blue-50 to-blue-100/80 text-[#071245] flex items-center justify-center shrink-0 border border-blue-200/80 shadow-2xs">
+                  <div className="p-3 sm:p-3.5 rounded-2xl bg-gradient-to-b from-white via-white/95 to-[#F4F8FD] border border-blue-200/70 border-t-white shadow-[inset_0_1.5px_0_#FFFFFF,0_2px_6px_rgba(7,18,69,0.05)] hover:shadow-[inset_0_1.5px_0_#FFFFFF,0_8px_18px_-4px_rgba(7,18,69,0.12)] hover:-translate-y-0.5 transition-all flex items-start gap-2.5">
+                    <div className="w-8 h-8 rounded-xl bg-gradient-to-b from-blue-50 to-blue-100 text-[#071245] flex items-center justify-center shrink-0 border border-blue-200 shadow-[inset_0_1px_0_#FFFFFF,0_1px_2px_rgba(0,0,0,0.05)]">
                       <MessageCircle className="w-4 h-4 text-[#071245]" />
                     </div>
                     <div>
@@ -335,8 +345,8 @@ export function ProgramShowcaseDualPane() {
                   </div>
 
                   {/* Pillar 02 */}
-                  <div className="p-3 sm:p-3.5 rounded-2xl bg-slate-50/90 border border-slate-200/80 hover:border-slate-300 transition-colors flex items-start gap-2.5">
-                    <div className="w-8 h-8 rounded-xl bg-gradient-to-b from-amber-50 to-amber-100/80 text-amber-700 flex items-center justify-center shrink-0 border border-amber-200/80 shadow-2xs">
+                  <div className="p-3 sm:p-3.5 rounded-2xl bg-gradient-to-b from-white via-white/95 to-[#F4F8FD] border border-blue-200/70 border-t-white shadow-[inset_0_1.5px_0_#FFFFFF,0_2px_6px_rgba(7,18,69,0.05)] hover:shadow-[inset_0_1.5px_0_#FFFFFF,0_8px_18px_-4px_rgba(7,18,69,0.12)] hover:-translate-y-0.5 transition-all flex items-start gap-2.5">
+                    <div className="w-8 h-8 rounded-xl bg-gradient-to-b from-amber-50 to-amber-100 text-amber-700 flex items-center justify-center shrink-0 border border-amber-200 shadow-[inset_0_1px_0_#FFFFFF,0_1px_2px_rgba(0,0,0,0.05)]">
                       <ChefHat className="w-4 h-4 text-[#B87503]" />
                     </div>
                     <div>
@@ -350,8 +360,8 @@ export function ProgramShowcaseDualPane() {
                   </div>
 
                   {/* Pillar 03 */}
-                  <div className="p-3 sm:p-3.5 rounded-2xl bg-slate-50/90 border border-slate-200/80 hover:border-slate-300 transition-colors flex items-start gap-2.5">
-                    <div className="w-8 h-8 rounded-xl bg-gradient-to-b from-emerald-50 to-emerald-100/80 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-200/80 shadow-2xs">
+                  <div className="p-3 sm:p-3.5 rounded-2xl bg-gradient-to-b from-white via-white/95 to-[#F4F8FD] border border-blue-200/70 border-t-white shadow-[inset_0_1.5px_0_#FFFFFF,0_2px_6px_rgba(7,18,69,0.05)] hover:shadow-[inset_0_1.5px_0_#FFFFFF,0_8px_18px_-4px_rgba(7,18,69,0.12)] hover:-translate-y-0.5 transition-all flex items-start gap-2.5">
+                    <div className="w-8 h-8 rounded-xl bg-gradient-to-b from-emerald-50 to-emerald-100 text-emerald-700 flex items-center justify-center shrink-0 border border-emerald-200 shadow-[inset_0_1px_0_#FFFFFF,0_1px_2px_rgba(0,0,0,0.05)]">
                       <HeartHandshake className="w-4 h-4 text-emerald-600" />
                     </div>
                     <div>
@@ -365,8 +375,8 @@ export function ProgramShowcaseDualPane() {
                   </div>
 
                   {/* Pillar 04 */}
-                  <div className="p-3 sm:p-3.5 rounded-2xl bg-slate-50/90 border border-slate-200/80 hover:border-slate-300 transition-colors flex items-start gap-2.5">
-                    <div className="w-8 h-8 rounded-xl bg-gradient-to-b from-amber-50 to-amber-100/80 text-amber-700 flex items-center justify-center shrink-0 border border-amber-200/80 shadow-2xs">
+                  <div className="p-3 sm:p-3.5 rounded-2xl bg-gradient-to-b from-white via-white/95 to-[#F4F8FD] border border-blue-200/70 border-t-white shadow-[inset_0_1.5px_0_#FFFFFF,0_2px_6px_rgba(7,18,69,0.05)] hover:shadow-[inset_0_1.5px_0_#FFFFFF,0_8px_18px_-4px_rgba(7,18,69,0.12)] hover:-translate-y-0.5 transition-all flex items-start gap-2.5">
+                    <div className="w-8 h-8 rounded-xl bg-gradient-to-b from-amber-50 to-amber-100 text-amber-700 flex items-center justify-center shrink-0 border border-amber-200 shadow-[inset_0_1px_0_#FFFFFF,0_1px_2px_rgba(0,0,0,0.05)]">
                       <Award className="w-4 h-4 text-[#B87503]" />
                     </div>
                     <div>
@@ -382,7 +392,7 @@ export function ProgramShowcaseDualPane() {
                 </div>
 
                 {/* Schedule & Live Status Bar */}
-                <div className="p-3 sm:p-3.5 rounded-2xl bg-[#071245] text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 mb-5 shadow-md border border-slate-700">
+                <div className="p-3 sm:p-3.5 rounded-2xl bg-gradient-to-b from-[#0C1B58] to-[#040924] text-white flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2.5 mb-5 shadow-[inset_0_1.5px_0_rgba(255,255,255,0.25),inset_0_-1.5px_0_rgba(0,0,0,0.5),0_6px_16px_-3px_rgba(7,18,69,0.3)] border border-[#F6C915]/30">
                   <div className="flex items-center gap-2.5">
                     <div className="w-7 h-7 rounded-lg bg-white/10 flex items-center justify-center border border-white/20 shrink-0">
                       <Calendar className="w-3.5 h-3.5 text-[#F6C915]" />
@@ -406,7 +416,7 @@ export function ProgramShowcaseDualPane() {
               </div>
 
               {/* Bottom CTA Area */}
-              <div className="pt-2">
+              <div className="pt-2 relative z-10">
                 {/* High-Converting CTA & Micro-Trust Badges */}
                 <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2.5">
                   <a
@@ -419,7 +429,7 @@ export function ProgramShowcaseDualPane() {
 
                   <a
                     href={`tel:${PROGRAM_INFO.phoneRaw}`}
-                    className="px-3.5 h-11.5 sm:h-12 rounded-2xl bg-slate-100 hover:bg-slate-200/80 text-[#071245] font-bold text-xs flex items-center justify-center gap-1.5 border border-slate-200 transition-colors shadow-2xs"
+                    className="px-4 h-11.5 sm:h-12 rounded-2xl bg-gradient-to-b from-white via-[#F8FAFC] to-[#EEF2F6] hover:bg-gradient-to-b hover:from-white hover:to-slate-100 border border-slate-300/80 border-t-white text-[#071245] font-black text-xs flex items-center justify-center gap-1.5 transition-all shadow-[inset_0_1.5px_0_#FFFFFF,inset_0_-2px_0_rgba(15,23,42,0.06),0_4px_10px_-2px_rgba(7,18,69,0.1)] hover:scale-[1.01] active:scale-[0.99]"
                     title="Call Admissions"
                   >
                     <span>Speak with an Advisor</span>
