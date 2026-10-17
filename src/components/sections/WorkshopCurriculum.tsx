@@ -1,13 +1,27 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { WORKSHOPS, PROGRAM_INFO } from "@/data/programData";
 import { BookOpen, Calendar, Clock, Award, CheckCircle2, ArrowRight, Sparkles, ChevronDown, ChevronUp, Layers } from "lucide-react";
 
 export function WorkshopCurriculum() {
   const [showAll, setShowAll] = useState(false);
-  const displayedWorkshops = showAll ? WORKSHOPS : WORKSHOPS.slice(0, 4);
+
+  // Preload all workshop images into browser cache immediately on page load
+  useEffect(() => {
+    WORKSHOPS.forEach((ws) => {
+      const img = new window.Image();
+      img.src = ws.image;
+    });
+  }, []);
+
+  const handlePreload = () => {
+    WORKSHOPS.forEach((ws) => {
+      const img = new window.Image();
+      img.src = ws.image;
+    });
+  };
 
   return (
     <section
@@ -47,63 +61,70 @@ export function WorkshopCurriculum() {
           </div>
         </div>
 
-        {/* 4 Initial Workshops (Expandable to 10) Grid with Rich Photography - Compact Mobile */}
+        {/* 10 Workshops Grid: First 4 always visible, 6 expandable (kept in DOM with eager cache for zero-lag display) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-7 mb-6 sm:mb-10">
-          {displayedWorkshops.map((ws) => (
-            <div
-              key={ws.id}
-              className="bg-gradient-to-b from-white via-[#FCFDFE] to-[#F1F5F9] p-3 sm:p-6 rounded-xl sm:rounded-[28px] hover:-translate-y-1 sm:hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between group border border-slate-200/90 hover:border-slate-300 relative overflow-hidden shadow-[inset_0_2px_0_#FFFFFF,inset_0_-1.5px_0_rgba(15,23,42,0.04),0_1px_3px_rgba(0,0,0,0.03),0_8px_20px_-4px_rgba(7,18,69,0.06)] hover:shadow-[inset_0_2px_0_#FFFFFF,inset_0_-1.5px_0_rgba(15,23,42,0.04),0_20px_36px_-6px_rgba(7,18,69,0.12)]"
-            >
-              <div>
-                {/* Workshop Photo with Gradient Overlay & Badges - Compact Height on Mobile */}
-                <div className="relative h-28 sm:h-56 w-full rounded-lg sm:rounded-2xl overflow-hidden mb-2.5 sm:mb-5 border border-slate-200 shadow-[inset_0_2px_4px_rgba(0,0,0,0.08)] bg-slate-100">
-                  <Image
-                    src={ws.image}
-                    alt={ws.title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 50vw"
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  {/* Darkening gradient */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none" />
+          {WORKSHOPS.map((ws, idx) => {
+            const isHidden = !showAll && idx >= 4;
+            return (
+              <div
+                key={ws.id}
+                className={`bg-gradient-to-b from-white via-[#FCFDFE] to-[#F1F5F9] p-3 sm:p-6 rounded-xl sm:rounded-[28px] hover:-translate-y-1 sm:hover:-translate-y-1.5 transition-all duration-300 flex-col justify-between group border border-slate-200/90 hover:border-slate-300 relative overflow-hidden shadow-[inset_0_2px_0_#FFFFFF,inset_0_-1.5px_0_rgba(15,23,42,0.04),0_1px_3px_rgba(0,0,0,0.03),0_8px_20px_-4px_rgba(7,18,69,0.06)] hover:shadow-[inset_0_2px_0_#FFFFFF,inset_0_-1.5px_0_rgba(15,23,42,0.04),0_20px_36px_-6px_rgba(7,18,69,0.12)] ${
+                  isHidden ? "hidden" : "flex animate-in fade-in duration-300"
+                }`}
+              >
+                <div>
+                  {/* Workshop Photo with Gradient Overlay & Badges - Compact Height on Mobile */}
+                  <div className="relative h-28 sm:h-56 w-full rounded-lg sm:rounded-2xl overflow-hidden mb-2.5 sm:mb-5 border border-slate-200 shadow-[inset_0_2px_4px_rgba(0,0,0,0.08)] bg-slate-100">
+                    <Image
+                      src={ws.image}
+                      alt={ws.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                      unoptimized
+                      loading="eager"
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    {/* Darkening gradient */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/30 pointer-events-none" />
 
-                  {/* Top Badges */}
-                  <div className="absolute top-2 sm:top-3.5 left-2 sm:left-3.5 right-2 sm:right-3.5 flex items-center justify-between">
-                    <span className="w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-b from-[#0F236B] to-[#040924] text-[#F6C915] font-black text-[10px] sm:text-xs flex items-center justify-center shrink-0 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_2px_6px_rgba(0,0,0,0.25)] border border-[#F6C915]/50">
-                      {ws.number}
-                    </span>
-                    {ws.highlight && (
-                      <span className="text-[9px] sm:text-[11px] font-black text-[#071245] bg-white/95 backdrop-blur-md px-2 sm:px-3.5 py-0.5 sm:py-1 rounded-full shadow-[inset_0_1px_0_#FFFFFF,0_2px_6px_rgba(0,0,0,0.12)] border border-slate-200">
-                        {ws.highlight}
+                    {/* Top Badges */}
+                    <div className="absolute top-2 sm:top-3.5 left-2 sm:left-3.5 right-2 sm:right-3.5 flex items-center justify-between">
+                      <span className="w-7 h-7 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-gradient-to-b from-[#0F236B] to-[#040924] text-[#F6C915] font-black text-[10px] sm:text-xs flex items-center justify-center shrink-0 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_2px_6px_rgba(0,0,0,0.25)] border border-[#F6C915]/50">
+                        {ws.number}
                       </span>
-                    )}
+                      {ws.highlight && (
+                        <span className="text-[9px] sm:text-[11px] font-black text-[#071245] bg-white/95 backdrop-blur-md px-2 sm:px-3.5 py-0.5 sm:py-1 rounded-full shadow-[inset_0_1px_0_#FFFFFF,0_2px_6px_rgba(0,0,0,0.12)] border border-slate-200">
+                          {ws.highlight}
+                        </span>
+                      )}
+                    </div>
+
+                    {/* Bottom Image Caption */}
+                    <div className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3.5 right-2 sm:right-3.5 flex items-center gap-1.5 text-[9px] sm:text-[11px] font-bold text-white/95">
+                      <Sparkles className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#F6C915]" />
+                      <span>Live Interactive Workshop</span>
+                    </div>
                   </div>
 
-                  {/* Bottom Image Caption */}
-                  <div className="absolute bottom-2 sm:bottom-3 left-2 sm:left-3.5 right-2 sm:right-3.5 flex items-center gap-1.5 text-[9px] sm:text-[11px] font-bold text-white/95">
-                    <Sparkles className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-[#F6C915]" />
-                    <span>Live Interactive Workshop</span>
-                  </div>
+                  {/* Title & Description */}
+                  <h3 className="text-sm sm:text-2xl font-black text-[#071245] mb-1 sm:mb-2.5 group-hover:text-[#B87503] transition-colors leading-tight">
+                    {ws.title}
+                  </h3>
+                  <p className="text-[11px] sm:text-base text-slate-600 font-medium leading-normal sm:leading-relaxed line-clamp-2 sm:line-clamp-none">
+                    {ws.description}
+                  </p>
                 </div>
 
-                {/* Title & Description */}
-                <h3 className="text-sm sm:text-2xl font-black text-[#071245] mb-1 sm:mb-2.5 group-hover:text-[#B87503] transition-colors leading-tight">
-                  {ws.title}
-                </h3>
-                <p className="text-[11px] sm:text-base text-slate-600 font-medium leading-normal sm:leading-relaxed line-clamp-2 sm:line-clamp-none">
-                  {ws.description}
-                </p>
+                {/* Bottom Card Footer */}
+                <div className="pt-2 sm:pt-4 mt-2 sm:mt-4 border-t border-slate-200/70 flex items-center justify-between text-[10px] sm:text-xs font-bold text-slate-500">
+                  <span>Live Sessions</span>
+                  <span className="text-[#071245] font-black group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
+                    Included in Certificate →
+                  </span>
+                </div>
               </div>
-
-              {/* Bottom Card Footer */}
-              <div className="pt-2 sm:pt-4 mt-2 sm:mt-4 border-t border-slate-200/70 flex items-center justify-between text-[10px] sm:text-xs font-bold text-slate-500">
-                <span>Live Sessions</span>
-                <span className="text-[#071245] font-black group-hover:translate-x-1 transition-transform inline-flex items-center gap-1">
-                  Included in Certificate →
-                </span>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         {/* Show More / Show Less Button */}
@@ -111,6 +132,8 @@ export function WorkshopCurriculum() {
           <button
             type="button"
             onClick={() => setShowAll((prev) => !prev)}
+            onMouseEnter={handlePreload}
+            onFocus={handlePreload}
             className="btn-skeuo-gold inline-flex items-center gap-2 px-5 sm:px-8 h-10 sm:h-14 rounded-full text-xs sm:text-sm font-black tracking-wide shadow-md hover:shadow-lg transition-all"
             aria-expanded={showAll}
           >
@@ -125,7 +148,7 @@ export function WorkshopCurriculum() {
             )}
           </button>
           <span className="text-[10px] sm:text-xs font-bold text-slate-500">
-            Showing {displayedWorkshops.length} of {WORKSHOPS.length} comprehensive modules
+            Showing {showAll ? WORKSHOPS.length : 4} of {WORKSHOPS.length} comprehensive modules
           </span>
         </div>
 
