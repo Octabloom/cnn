@@ -351,9 +351,9 @@ export function RegistrationWizard() {
                         }
                       }}
                       disabled={!isCompleted && !isCurrent}
-                      className={`w-full flex items-center text-left gap-3.5 transition-all p-1 rounded-xl group ${
+                      className={`w-full flex items-center text-left gap-3.5 transition-colors p-1 rounded-xl group ${
                         isCompleted
-                          ? "cursor-pointer hover:bg-white/10 active:scale-95"
+                          ? "cursor-pointer hover:bg-white/10"
                           : isCurrent
                           ? "cursor-default"
                           : "cursor-not-allowed opacity-50"
@@ -361,16 +361,16 @@ export function RegistrationWizard() {
                     >
                       {/* Step Circle Badge */}
                       <div
-                        className={`w-9 h-9 rounded-xl flex items-center justify-center font-black text-xs shrink-0 transition-all duration-300 shadow-md ${
+                        className={`w-9 h-9 rounded-xl flex items-center justify-center font-black text-xs shrink-0 transition-colors shadow-md ${
                           isCurrent
-                            ? "bg-gradient-to-b from-[#FFE46B] to-[#DEAB07] text-[#071245] shadow-[0_0_16px_rgba(246,201,21,0.65)] ring-4 ring-[#F6C915]/30 scale-105"
+                            ? "bg-gradient-to-b from-[#FFE46B] to-[#DEAB07] text-[#071245] shadow-[0_0_16px_rgba(246,201,21,0.65)] ring-4 ring-[#F6C915]/30"
                             : isCompleted
-                            ? "bg-gradient-to-b from-[#22C55E] to-[#15803D] text-white shadow-md ring-2 ring-emerald-400/35 group-hover:scale-105"
+                            ? "bg-gradient-to-b from-[#22C55E] to-[#15803D] text-white shadow-md ring-2 ring-emerald-400/35"
                             : "bg-[#071245] text-slate-300 border-2 border-slate-600/80 shadow-inner"
                         }`}
                       >
                         {isCompleted ? (
-                          <Check className="w-4 h-4 stroke-[3.5] animate-in zoom-in-75 duration-200" />
+                          <Check className="w-4 h-4 stroke-[3.5]" />
                         ) : (
                           <span className="font-extrabold">{step.num}</span>
                         )}
@@ -433,9 +433,9 @@ export function RegistrationWizard() {
                         }
                       }}
                       disabled={!isCompleted && !isCurrent}
-                      className={`flex flex-col items-center text-center gap-1 p-1 rounded-lg transition-all ${
+                      className={`flex flex-col items-center text-center gap-1 p-1 rounded-lg transition-colors ${
                         isCompleted
-                          ? "cursor-pointer active:scale-95"
+                          ? "cursor-pointer"
                           : isCurrent
                           ? "cursor-default"
                           : "cursor-not-allowed opacity-50"
@@ -443,9 +443,9 @@ export function RegistrationWizard() {
                     >
                       {/* Opaque Badge on Mobile */}
                       <div
-                        className={`w-7 h-7 rounded-lg flex items-center justify-center font-black text-xs shrink-0 transition-all shadow-sm ${
+                        className={`w-7 h-7 rounded-lg flex items-center justify-center font-black text-xs shrink-0 transition-colors shadow-sm ${
                           isCurrent
-                            ? "bg-gradient-to-b from-[#FFE46B] to-[#DEAB07] text-[#071245] ring-2 ring-[#F6C915]/40 scale-105"
+                            ? "bg-gradient-to-b from-[#FFE46B] to-[#DEAB07] text-[#071245] ring-2 ring-[#F6C915]/40"
                             : isCompleted
                             ? "bg-gradient-to-b from-[#22C55E] to-[#15803D] text-white"
                             : "bg-[#071245] text-slate-300 border border-slate-600"
@@ -533,20 +533,20 @@ export function RegistrationWizard() {
                             setStepErrors((prev) => ({ ...prev, motivation: "" }));
                           }
                         }}
-                        className={`p-2.5 sm:p-3.5 rounded-xl border text-left cursor-pointer transition-all duration-200 flex items-center justify-between group active:scale-[0.99] ${
+                        className={`p-2.5 sm:p-3.5 rounded-xl border-2 text-left cursor-pointer transition-colors duration-150 flex items-center justify-between group ${
                           isLast ? "sm:col-span-2" : ""
                         } ${
                           isSelected
-                            ? "bg-gradient-to-br from-[#071245] via-[#0E2063] to-[#071245] border-2 border-[#F6C915] text-white shadow-[0_10px_28px_rgba(7,18,69,0.28),0_0_18px_rgba(246,201,21,0.22)] ring-2 ring-[#F6C915]/30 scale-[1.015]"
-                            : "bg-white hover:bg-slate-50 border border-slate-200 hover:border-[#071245]/50 shadow-2xs hover:shadow-md text-slate-700 hover:-translate-y-0.5"
+                            ? "bg-gradient-to-br from-[#071245] via-[#0E2063] to-[#071245] border-[#F6C915] text-white shadow-md ring-2 ring-[#F6C915]/20"
+                            : "bg-white hover:bg-slate-50 border-slate-200 hover:border-slate-300 shadow-2xs text-slate-700"
                         }`}
                       >
                         <div className="flex items-center gap-3">
                           <span
-                            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center font-black text-xs shrink-0 transition-all ${
+                            className={`w-7 h-7 sm:w-8 sm:h-8 rounded-lg flex items-center justify-center font-black text-xs shrink-0 transition-colors ${
                               isSelected
-                                ? "bg-gradient-to-b from-[#FFE46B] to-[#DEAB07] text-[#071245] shadow-xs scale-105"
-                                : "bg-slate-100 text-[#071245] border border-slate-200 group-hover:bg-[#071245]/10"
+                                ? "bg-gradient-to-b from-[#FFE46B] to-[#DEAB07] text-[#071245] shadow-xs"
+                                : "bg-slate-100 text-[#071245] border border-slate-200 group-hover:bg-slate-200/80"
                             }`}
                           >
                             {opt.num}
@@ -562,13 +562,13 @@ export function RegistrationWizard() {
                         </div>
                         
                         <span
-                          className={`w-5.5 h-5.5 rounded-full border-2 flex items-center justify-center shrink-0 ml-2 transition-all ${
+                          className={`w-5.5 h-5.5 rounded-full border-2 flex items-center justify-center shrink-0 ml-2 transition-colors ${
                             isSelected
-                              ? "border-[#F6C915] bg-[#F6C915] text-[#071245] shadow-sm scale-110"
+                              ? "border-[#F6C915] bg-[#F6C915] text-[#071245] shadow-xs"
                               : "border-slate-300 bg-slate-50 group-hover:border-slate-400"
                           }`}
                         >
-                          {isSelected && <Check className="w-3.5 h-3.5 stroke-[3.5] animate-in zoom-in-75 duration-200" />}
+                          {isSelected && <Check className="w-3.5 h-3.5 stroke-[3.5]" />}
                         </span>
                       </button>
                     );
@@ -616,9 +616,9 @@ export function RegistrationWizard() {
                           type="button"
                           key={area}
                           onClick={() => toggleFocusArea(area)}
-                          className={`p-2.5 rounded-xl border font-bold text-xs flex items-center justify-between transition-all cursor-pointer active:scale-95 ${
+                          className={`p-2.5 rounded-xl border-2 font-bold text-xs flex items-center justify-between transition-colors duration-150 cursor-pointer ${
                             isChecked
-                              ? "bg-[#071245] border-[#071245] text-white shadow-xs scale-[1.01]"
+                              ? "bg-[#071245] border-[#071245] text-white shadow-xs"
                               : "bg-white hover:bg-slate-50 border-slate-200 text-slate-700 shadow-2xs hover:border-slate-300"
                           }`}
                         >
@@ -662,7 +662,7 @@ export function RegistrationWizard() {
                                 setStepErrors((prev) => ({ ...prev, certificateType: "" }));
                               }
                             }}
-                            className={`p-2 rounded-xl border text-left transition-all cursor-pointer active:scale-95 ${
+                            className={`p-2 rounded-xl border-2 text-left transition-colors duration-150 cursor-pointer ${
                               isSelected
                                 ? "bg-[#071245] border-[#071245] text-white shadow-xs"
                                 : "bg-white hover:bg-slate-50 border-slate-200 text-slate-700 shadow-2xs hover:border-slate-300"
@@ -702,7 +702,7 @@ export function RegistrationWizard() {
                                 setStepErrors((prev) => ({ ...prev, background: "" }));
                               }
                             }}
-                            className={`p-2 rounded-xl border text-center text-[11px] sm:text-xs font-black transition-all cursor-pointer active:scale-95 ${
+                            className={`p-2 rounded-xl border-2 text-center text-[11px] sm:text-xs font-black transition-colors duration-150 cursor-pointer ${
                               isSelected
                                 ? "bg-[#071245] border-[#071245] text-white shadow-xs"
                                 : "bg-white hover:bg-slate-50 border-slate-200 text-slate-700 shadow-2xs hover:border-slate-300"
@@ -758,7 +758,7 @@ export function RegistrationWizard() {
                               setStepErrors((prev) => ({ ...prev, readyOct14: "" }));
                             }
                           }}
-                          className={`p-2.5 rounded-xl border text-left text-xs font-black transition-all cursor-pointer active:scale-95 ${
+                          className={`p-2.5 rounded-xl border-2 text-left text-xs font-black transition-colors duration-150 cursor-pointer ${
                             isSelected
                               ? "bg-[#071245] border-[#071245] text-white shadow-xs"
                               : "bg-white hover:bg-slate-50 border-slate-200 text-slate-700 shadow-2xs hover:border-slate-300"
@@ -793,7 +793,7 @@ export function RegistrationWizard() {
                                 setStepErrors((prev) => ({ ...prev, reachMethod: "" }));
                               }
                             }}
-                            className={`p-2 rounded-xl border text-center text-xs font-black transition-all cursor-pointer active:scale-95 ${
+                            className={`p-2 rounded-xl border-2 text-center text-xs font-black transition-colors duration-150 cursor-pointer ${
                               isSelected
                                 ? "bg-[#071245] border-[#071245] text-white shadow-xs"
                                 : "bg-white hover:bg-slate-50 border-slate-200 text-slate-700 shadow-2xs hover:border-slate-300"
@@ -948,7 +948,7 @@ export function RegistrationWizard() {
               <button
                 type="button"
                 onClick={handlePrev}
-                className="inline-flex items-center gap-1.5 px-4 h-9 sm:h-10 rounded-full border border-slate-200 text-[#071245] hover:bg-slate-50 text-xs font-black transition-all cursor-pointer shadow-2xs hover:scale-105 active:scale-95"
+                className="inline-flex items-center gap-1.5 px-4 h-9 sm:h-10 rounded-full border border-slate-200 text-[#071245] hover:bg-slate-100 text-xs font-black transition-colors cursor-pointer shadow-2xs"
               >
                 <ArrowLeft className="w-3.5 h-3.5" />
                 <span>Back</span>
@@ -961,7 +961,7 @@ export function RegistrationWizard() {
               <button
                 type="button"
                 onClick={handleNext}
-                className="btn-skeuo-primary animate-shimmer inline-flex items-center gap-2 px-6 sm:px-8 h-9 sm:h-10 rounded-full text-xs font-black tracking-wide cursor-pointer ml-auto shadow-md hover:scale-105 active:scale-95 transition-all"
+                className="inline-flex items-center gap-2 px-6 sm:px-8 h-9 sm:h-10 rounded-full text-xs font-black tracking-wide cursor-pointer ml-auto bg-[#071245] hover:bg-[#0B1A5A] text-white shadow-md hover:shadow-lg transition-colors"
               >
                 <span>Continue</span>
                 <ArrowRight className="w-3.5 h-3.5 text-[#F6C915]" />
@@ -993,7 +993,7 @@ export function RegistrationWizard() {
                     setIsSubmitted(true);
                   }
                 }}
-                className="btn-skeuo-gold animate-shimmer inline-flex items-center gap-2 px-6 sm:px-8 h-9 sm:h-10 rounded-full text-[#071245] text-xs font-black cursor-pointer shadow-md hover:shadow-lg hover:scale-105 active:scale-95 transition-all border-2 border-[#FFF8B8] ml-auto disabled:opacity-75 disabled:cursor-wait"
+                className="btn-skeuo-gold inline-flex items-center gap-2 px-6 sm:px-8 h-9 sm:h-10 rounded-full text-[#071245] text-xs font-black cursor-pointer shadow-md hover:shadow-lg transition-colors border-2 border-[#FFF8B8] ml-auto disabled:opacity-75 disabled:cursor-wait hover:transform-none active:transform-none"
               >
                 {isSubmitting ? (
                   <>
