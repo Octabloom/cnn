@@ -4,8 +4,6 @@ import React, { useRef, useState, useEffect } from "react";
 import {
   Play,
   Pause,
-  Volume2,
-  VolumeX,
   RotateCcw,
   Sparkles,
   CheckCircle2,
@@ -91,13 +89,6 @@ export function ProgramShowcaseDualPane() {
     }
   };
 
-  const toggleMute = (e: React.MouseEvent) => {
-    e.stopPropagation();
-    if (!videoRef.current) return;
-    videoRef.current.muted = !videoRef.current.muted;
-    setIsMuted(videoRef.current.muted);
-  };
-
   const handleTimeUpdate = () => {
     if (!videoRef.current) return;
     const current = videoRef.current.currentTime;
@@ -161,7 +152,7 @@ export function ProgramShowcaseDualPane() {
               Aligned flush at top and bottom with the right card
               ============================================================== */}
           <div className="lg:col-span-5 flex justify-center lg:justify-end order-1 lg:order-1 select-none lg:h-full">
-            <div className="relative mx-auto lg:mr-0 w-full max-w-[310px] sm:max-w-[330px] lg:max-w-[340px] xl:max-w-[350px] lg:h-full flex flex-col">
+            <div className="relative mx-auto lg:mr-0 w-full max-w-[320px] sm:max-w-[350px] lg:max-w-[370px] xl:max-w-[385px] lg:h-full flex flex-col">
               
               {/* 1. Ambient Device Ground Shadow */}
               <div className="absolute inset-x-8 -bottom-3 h-10 bg-slate-950/45 rounded-[100%] blur-xl pointer-events-none" />
@@ -192,7 +183,7 @@ export function ProgramShowcaseDualPane() {
                   {/* OLED Screen Housing Container */}
                   <div
                     onClick={togglePlay}
-                    className="relative rounded-[37px] sm:rounded-[43px] overflow-hidden bg-black flex-1 flex flex-col cursor-pointer group shadow-[inset_0_0_10px_rgba(0,0,0,0.85)] border-[2px] sm:border-[3px] border-black aspect-[9/17] sm:aspect-[9/16] lg:aspect-auto lg:h-full min-h-[460px] sm:min-h-[500px] lg:min-h-0"
+                    className="relative rounded-[37px] sm:rounded-[43px] overflow-hidden bg-black flex-1 flex flex-col cursor-pointer group shadow-[inset_0_0_10px_rgba(0,0,0,0.85)] border-[2px] sm:border-[3px] border-black aspect-[9/16] lg:aspect-auto lg:h-full min-h-[460px] sm:min-h-[500px] lg:min-h-0"
                   >
                     {/* Screen Glass Photorealistic Diagonal Sheen Reflection */}
                     <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/[0.04] to-transparent pointer-events-none z-40 rounded-[36px]" />
@@ -218,7 +209,7 @@ export function ProgramShowcaseDualPane() {
                       preload="metadata"
                       onTimeUpdate={handleTimeUpdate}
                       onEnded={handleEnded}
-                      className="w-full h-full object-cover flex-1"
+                      className="w-full h-full object-cover object-left lg:object-[0.5%_center] flex-1"
                     />
 
                     {/* Center Tactile Play / Pause / Replay Button Overlay */}
@@ -256,7 +247,7 @@ export function ProgramShowcaseDualPane() {
                       </div>
                     </div>
 
-                    {/* Bottom Controls Bar & Audio Toggle */}
+                    {/* Bottom Controls Bar */}
                     <div className="absolute bottom-0 inset-x-0 px-3.5 pb-2.5 pt-6 bg-gradient-to-t from-black/85 via-black/45 to-transparent z-30 flex flex-col gap-2">
                       {/* Scrub / Progress Bar */}
                       <div className="w-full h-1 bg-white/25 rounded-full overflow-hidden">
@@ -266,24 +257,14 @@ export function ProgramShowcaseDualPane() {
                         />
                       </div>
 
-                      {/* Bottom Status & Audio Toggle Button */}
+                      {/* Bottom Status */}
                       <div className="flex items-center justify-between text-white text-xs">
-                        <span className="text-[10px] font-bold text-white/80 tracking-wide">
+                        <span className="text-[10px] font-bold text-white/90 tracking-wide">
                           Rasha Abu Rabi · R.H.N.
                         </span>
-
-                        <button
-                          type="button"
-                          onClick={toggleMute}
-                          aria-label={isMuted ? "Unmute audio" : "Mute audio"}
-                          className="p-1 rounded-full bg-white/20 hover:bg-white/30 text-white transition-colors cursor-pointer border border-white/20 shadow-xs"
-                        >
-                          {isMuted ? (
-                            <VolumeX className="w-3.5 h-3.5 text-red-300" />
-                          ) : (
-                            <Volume2 className="w-3.5 h-3.5 text-[#F6C915]" />
-                          )}
-                        </button>
+                        <span className="text-[9.5px] font-medium text-white/70">
+                          Live Masterclass
+                        </span>
                       </div>
 
                       {/* Iconic Floating iOS Home Indicator Pill */}
