@@ -26,7 +26,7 @@ export function ProgramShowcaseDualPane() {
   const [progress, setProgress] = useState(0);
   const [hasEnded, setHasEnded] = useState(false);
 
-  // Auto-mute when scrolling up or down away from this section (only if actively playing)
+  // Auto-pause video when scrolling up or down away from this section
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
@@ -34,33 +34,27 @@ export function ProgramShowcaseDualPane() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // Only auto-mute if the video is currently playing and user scrolls away
+          // If user scrolls up or down away from section (less than 30% visible)
           if (!entry.isIntersecting || entry.intersectionRatio < 0.3) {
-            if (videoRef.current && !videoRef.current.paused && !videoRef.current.muted) {
-              videoRef.current.muted = true;
-              setIsMuted(true);
-            }
-          } else if (entry.isIntersecting && entry.intersectionRatio >= 0.45) {
-            // Restore sound when user scrolls back into view while playing
-            if (videoRef.current && !videoRef.current.paused && videoRef.current.muted) {
-              videoRef.current.muted = false;
-              setIsMuted(false);
+            if (videoRef.current && !videoRef.current.paused) {
+              videoRef.current.pause();
+              setIsPlaying(false);
             }
           }
         });
       },
       {
-        threshold: [0, 0.2, 0.3, 0.45, 0.7],
+        threshold: [0, 0.15, 0.3, 0.5],
       }
     );
 
     observer.observe(section);
 
-    // Also auto-mute if user switches tabs or minimizes window
+    // Also auto-pause if user switches tabs or minimizes window
     const handleVisibilityChange = () => {
-      if (document.hidden && videoRef.current && !videoRef.current.paused && !videoRef.current.muted) {
-        videoRef.current.muted = true;
-        setIsMuted(true);
+      if (document.hidden && videoRef.current && !videoRef.current.paused) {
+        videoRef.current.pause();
+        setIsPlaying(false);
       }
     };
     document.addEventListener("visibilitychange", handleVisibilityChange);
