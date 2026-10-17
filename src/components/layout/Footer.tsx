@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import Image from "next/image";
 import { Phone, Mail, Shield, X, MapPin, Sparkles } from "lucide-react";
 import { PROGRAM_INFO } from "@/data/programData";
+import { BrandLockup } from "@/components/ui/BrandLockup";
 
 export function Footer() {
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
@@ -17,28 +17,10 @@ export function Footer() {
           
           {/* Brand & Mission (5 cols) */}
           <div className="lg:col-span-5 flex flex-col gap-4">
-            <div className="flex items-center gap-3.5">
-              <div className="relative w-13 h-13 rounded-full overflow-hidden bg-white p-1 border-2 border-[#F6C915] shadow-lg">
-                <Image
-                  src="/graphics/logo.jpg"
-                  alt="CSNN Toronto Logo"
-                  fill
-                  sizes="48px"
-                  className="object-contain"
-                />
-              </div>
-              <div>
-                <span className="text-xl font-black text-white block">
-                  CSNN Toronto
-                </span>
-                <span className="text-xs text-[#F6C915] font-black tracking-wide block">
-                  Canadian School of Natural Nutrition
-                </span>
-              </div>
-            </div>
+            <BrandLockup variant="footer" />
 
             <p className="text-sm text-white/70 leading-relaxed max-w-sm font-normal">
-              Teaching the Medicine of the Future™ since 1994. Providing Canada&apos;s leading natural nutrition education and holistic wellness certification.
+              Presented by Octobloom Wellness in official partnership with CSNN Toronto (teaching the Medicine of the Future™ since 1994). Delivering accredited natural nutrition and holistic healthy lifestyle certification.
             </p>
 
             <div className="flex items-center gap-2.5 text-xs text-[#FBECB0] font-semibold pt-1">
@@ -98,7 +80,7 @@ export function Footer() {
 
         {/* Bottom Bar: Copyright & Privacy */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60 font-semibold">
-          <p>© 2026 CSNN Toronto. All rights reserved.</p>
+          <p>© 2026 Octobloom Wellness in partnership with CSNN Toronto. All rights reserved.</p>
 
           <div className="flex items-center gap-6">
             <button

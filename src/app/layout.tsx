@@ -18,11 +18,13 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://toronto.csnn.ca"),
-  title: "Healthy Eating and Lifestyle Certification | CSNN Toronto",
+  title: "Healthy Eating and Lifestyle Certification | Octobloom powered by CSNN Toronto",
   description:
-    "Explore CSNN Toronto’s Healthy Eating and Lifestyle Certification to learn practical nutrition, healthy eating habits, and lifestyle strategies for better well-being.",
+    "Explore Octobloom’s Healthy Eating and Lifestyle Certification, powered by CSNN Toronto, to learn practical nutrition, healthy eating habits, and lifestyle strategies for better well-being.",
   keywords: [
     "Healthy Eating Certificate",
+    "Octobloom",
+    "Octobloom Wellness",
     "CSNN Toronto",
     "Canadian School of Natural Nutrition",
     "Rasha Abu Rabi",
@@ -31,13 +33,13 @@ export const metadata: Metadata = {
     "Gut Health",
     "Whole Foods Nutrition",
   ],
-  authors: [{ name: "CSNN Toronto" }],
+  authors: [{ name: "Octobloom & CSNN Toronto" }],
   openGraph: {
-    title: "Healthy Eating and Lifestyle Certification | CSNN Toronto",
+    title: "Healthy Eating and Lifestyle Certification | Octobloom powered by CSNN Toronto",
     description:
-      "Explore CSNN Toronto’s Healthy Eating and Lifestyle Certification to learn practical nutrition, healthy eating habits, and lifestyle strategies for better well-being.",
+      "Explore Octobloom’s Healthy Eating and Lifestyle Certification, powered by CSNN Toronto, to learn practical nutrition, healthy eating habits, and lifestyle strategies for better well-being.",
     url: "https://toronto.csnn.ca",
-    siteName: "CSNN Toronto",
+    siteName: "Octobloom powered by CSNN Toronto",
     images: [
       {
         url: "/assets/ad-pillars.jpg",
