@@ -13,7 +13,7 @@ export function WorkshopCurriculum() {
     <section
       id="curriculum"
       data-screen-label="06 Workshops"
-      className="py-10 sm:py-14 lg:py-16 bg-white border-b border-slate-200/80 relative overflow-hidden"
+      className="pt-10 sm:pt-14 lg:pt-16 pb-6 sm:pb-8 lg:pb-10 bg-white border-b border-slate-200/80 relative overflow-hidden"
     >
       {/* Background ambient lighting */}
       <div className="absolute top-1/3 -left-32 w-96 h-96 bg-[#F6C915]/5 rounded-full blur-3xl pointer-events-none" />
@@ -107,7 +107,7 @@ export function WorkshopCurriculum() {
         </div>
 
         {/* Show More / Show Less Button */}
-        <div className="flex flex-col items-center justify-center gap-2 sm:gap-3 mb-8 sm:mb-16">
+        <div className="flex flex-col items-center justify-center gap-2 sm:gap-3 mb-0">
           <button
             type="button"
             onClick={() => setShowAll((prev) => !prev)}
