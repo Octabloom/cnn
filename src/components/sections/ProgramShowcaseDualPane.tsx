@@ -26,7 +26,7 @@ export function ProgramShowcaseDualPane() {
   const [progress, setProgress] = useState(0);
   const [hasEnded, setHasEnded] = useState(false);
 
-  // Auto-mute when scrolling up or down away from this section
+  // Auto-mute when scrolling up or down away from this section (only if actively playing)
   useEffect(() => {
     const section = sectionRef.current;
     if (!section) return;
@@ -34,17 +34,23 @@ export function ProgramShowcaseDualPane() {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          // If less than 35% visible (user scrolled up or scrolled down away)
-          if (!entry.isIntersecting || entry.intersectionRatio < 0.35) {
-            if (videoRef.current && !videoRef.current.muted) {
+          // Only auto-mute if the video is currently playing and user scrolls away
+          if (!entry.isIntersecting || entry.intersectionRatio < 0.3) {
+            if (videoRef.current && !videoRef.current.paused && !videoRef.current.muted) {
               videoRef.current.muted = true;
               setIsMuted(true);
+            }
+          } else if (entry.isIntersecting && entry.intersectionRatio >= 0.45) {
+            // Restore sound when user scrolls back into view while playing
+            if (videoRef.current && !videoRef.current.paused && videoRef.current.muted) {
+              videoRef.current.muted = false;
+              setIsMuted(false);
             }
           }
         });
       },
       {
-        threshold: [0, 0.2, 0.35, 0.5, 0.8],
+        threshold: [0, 0.2, 0.3, 0.45, 0.7],
       }
     );
 
@@ -52,7 +58,7 @@ export function ProgramShowcaseDualPane() {
 
     // Also auto-mute if user switches tabs or minimizes window
     const handleVisibilityChange = () => {
-      if (document.hidden && videoRef.current && !videoRef.current.muted) {
+      if (document.hidden && videoRef.current && !videoRef.current.paused && !videoRef.current.muted) {
         videoRef.current.muted = true;
         setIsMuted(true);
       }
@@ -71,6 +77,9 @@ export function ProgramShowcaseDualPane() {
       videoRef.current.pause();
       setIsPlaying(false);
     } else {
+      // User explicitly clicked play: ensure full audio playback
+      videoRef.current.muted = false;
+      setIsMuted(false);
       videoRef.current
         .play()
         .then(() => {
@@ -78,7 +87,7 @@ export function ProgramShowcaseDualPane() {
           setHasEnded(false);
         })
         .catch(() => {
-          // Fallback if browser requires user gesture or initial muted state
+          // Fallback only if browser blocked unmuted autoplay policy
           if (videoRef.current) {
             videoRef.current.muted = true;
             setIsMuted(true);
@@ -105,6 +114,8 @@ export function ProgramShowcaseDualPane() {
     e.stopPropagation();
     if (!videoRef.current) return;
     videoRef.current.currentTime = 0;
+    videoRef.current.muted = false;
+    setIsMuted(false);
     videoRef.current.play();
     setIsPlaying(true);
     setHasEnded(false);
