@@ -9,6 +9,7 @@ import { CheckCircle2, Sparkles } from "lucide-react";
 export function HeroSection() {
   return (
     <section
+      id="about"
       data-screen-label="01 Hero + Form 1"
       className="w-full flex-1 relative bg-sky-50 overflow-x-clip flex flex-col justify-between min-h-[calc(100vh-84px)] min-h-[calc(100dvh-84px)]"
     >

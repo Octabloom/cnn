@@ -34,10 +34,10 @@ export function BrandLockup({ variant = "header", className = "" }: BrandLockupP
               OCTOBLOOM
             </span>
             <div className="flex items-center gap-1.5 mt-0.5">
-              <span className="text-[11px] font-medium text-white/70">
+              <span className="text-[11px] font-bold text-[#F6C915]">
                 powered by
               </span>
-              <span className="text-xs sm:text-sm font-black text-[#F6C915] tracking-wide">
+              <span className="text-xs sm:text-sm font-black text-sky-200 tracking-wide">
                 CSNN Toronto
               </span>
             </div>
@@ -81,10 +81,10 @@ export function BrandLockup({ variant = "header", className = "" }: BrandLockupP
 
         {/* Simple "powered by CSNN Toronto" placed cleanly down below */}
         <div className="flex items-center gap-1 mt-0.5 sm:mt-1">
-          <span className="text-[9.5px] sm:text-[11px] lg:text-xs font-semibold text-slate-500 lowercase leading-tight">
+          <span className="text-[9.5px] sm:text-[11px] lg:text-xs font-bold text-[#DEAB07] lowercase leading-tight">
             powered by
           </span>
-          <span className="text-[10.5px] sm:text-xs lg:text-[13px] font-black text-[#B87503] uppercase tracking-wide leading-tight">
+          <span className="text-[10.5px] sm:text-xs lg:text-[13px] font-black text-[#071245] uppercase tracking-wide leading-tight">
             CSNN Toronto
           </span>
         </div>

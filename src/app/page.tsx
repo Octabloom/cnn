@@ -31,11 +31,11 @@ export default function Home() {
       {/* Main Page Content */}
       <main className="flex-1">
 
-        {/* 02. Ten-Workshop Curriculum (10 HOLISTIC NUTRITION WORKSHOPS - placed directly below hero) */}
-        <WorkshopCurriculum />
-
-        {/* 03. Live Masterclass Preview Dual Pane Showcase (placed directly above HOW YOU'LL LEARN) */}
+        {/* 02. Live Classroom Preview Dual Pane Showcase (placed directly below hero) */}
         <ProgramShowcaseDualPane />
+
+        {/* 03. Ten-Workshop Curriculum (10 HOLISTIC NUTRITION WORKSHOPS) */}
+        <WorkshopCurriculum />
 
         {/* 04. How You'll Learn (HOW YOU'LL LEARN) */}
         <LearningExperience />
