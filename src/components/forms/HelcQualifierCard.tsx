@@ -123,11 +123,25 @@ export function HelcQualifierCard() {
         intakeTiming: answers.q3,
       });
       console.log("HELC Lead Form Submission Result:", res);
-      // Direct, guaranteed browser redirect to the dedicated thank you page URL
-      window.location.href = `/thank-you?name=${encodeURIComponent(effectiveFirstName)}`;
+      if (effectiveFirstName) {
+        try {
+          sessionStorage.setItem("helc_lead_name", effectiveFirstName);
+        } catch {
+          // ignore
+        }
+      }
+      // Direct, guaranteed browser redirect to the dedicated static thank-you page URL
+      window.location.href = "/thank-you-helc";
     } catch (err) {
       console.error("HELC Lead Form Submission Error:", err);
-      window.location.href = `/thank-you?name=${encodeURIComponent(effectiveFirstName)}`;
+      if (effectiveFirstName) {
+        try {
+          sessionStorage.setItem("helc_lead_name", effectiveFirstName);
+        } catch {
+          // ignore
+        }
+      }
+      window.location.href = "/thank-you-helc";
     } finally {
       setIsSubmitting(false);
     }
