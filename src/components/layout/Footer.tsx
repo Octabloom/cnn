@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
+import Image from "next/image";
+import Link from "next/link";
 import { Phone, Mail, Shield, X, MapPin, Sparkles } from "lucide-react";
 import { PROGRAM_INFO } from "@/data/programData";
-import { BrandLockup } from "@/components/ui/BrandLockup";
 
 export function Footer() {
   const [showPrivacyModal, setShowPrivacyModal] = useState(false);
@@ -17,10 +18,43 @@ export function Footer() {
           
           {/* Brand & Mission (5 cols) */}
           <div className="lg:col-span-5 flex flex-col gap-4">
-            <BrandLockup variant="footer" />
+            {/* CSNN Toronto Brand Lockup */}
+            <Link href="/" className="flex items-center gap-2.5 sm:gap-3.5 group focus:outline-none shrink-0 py-0.5 select-none">
+              {/* CSNN Toronto Logo Badge */}
+              <div className="relative w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 rounded-xl overflow-hidden bg-white p-1 border-2 border-[#F6C915] shadow-lg shrink-0 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                <div className="relative w-full h-full">
+                  <Image
+                    src="/graphics/logo.jpg"
+                    alt="CSNN Toronto - Canadian School of Natural Nutrition"
+                    fill
+                    sizes="(max-width: 640px) 48px, (max-width: 1024px) 56px, 64px"
+                    className="object-contain"
+                  />
+                </div>
+              </div>
+
+              {/* Golden Vertical Divider Bar */}
+              <div className="w-[2px] h-10 sm:h-12 lg:h-14 bg-gradient-to-b from-[#F6C915]/30 via-[#F6C915] to-[#F6C915]/30 shrink-0 rounded-full" />
+
+              {/* Canadian School of Natural Nutrition, Toronto Lockup */}
+              <div className="flex flex-col justify-center">
+                <span className="text-[8.5px] sm:text-[9.5px] lg:text-[10.5px] font-black uppercase tracking-[0.14em] text-white/90 leading-tight">
+                  CANADIAN SCHOOL OF
+                </span>
+                <span className="text-[8.5px] sm:text-[9.5px] lg:text-[10.5px] font-black uppercase tracking-[0.14em] text-white/90 leading-tight">
+                  NATURAL NUTRITION
+                </span>
+                <span className="text-xl sm:text-2xl font-black text-white tracking-wider leading-none mt-0.5 group-hover:text-[#F6C915] transition-colors">
+                  TORONTO
+                </span>
+                <span className="text-[8.5px] sm:text-[9.5px] font-semibold text-[#FBECB0] leading-tight mt-0.5 block">
+                  Healthy Eating &amp; Lifestyle Certificate <span className="text-white font-bold">· Live Online</span>
+                </span>
+              </div>
+            </Link>
 
             <p className="text-sm text-white/70 leading-relaxed max-w-sm font-normal">
-              Presented by Octobloom Wellness in official partnership with CSNN Toronto (teaching the Medicine of the Future™ since 1994). Delivering accredited natural nutrition and holistic healthy lifestyle certification.
+              Canadian School of Natural Nutrition (CSNN) Toronto — teaching the Medicine of the Future™ since 1994. Delivering accredited natural nutrition and holistic healthy lifestyle certification.
             </p>
 
             <div className="flex items-center gap-2.5 text-xs text-[#FBECB0] font-semibold pt-1">
@@ -80,7 +114,7 @@ export function Footer() {
 
         {/* Bottom Bar: Copyright & Privacy */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60 font-semibold">
-          <p>© 2026 Octobloom Wellness in partnership with CSNN Toronto. All rights reserved.</p>
+          <p>© 2026 CSNN Toronto — Canadian School of Natural Nutrition. All rights reserved.</p>
 
           <div className="flex items-center gap-6">
             <button
