@@ -9,7 +9,7 @@ Production-grade Next.js website for **CSNN Toronto (Canadian School of Natural 
 - **Institution:** CSNN Toronto — Canadian School of Natural Nutrition (Teaching the Medicine of the Future™ since 1994)
 - **Program:** Healthy Eating & Lifestyle Certificate (HELC)
 - **Format:** 10 Live Online Workshops · 21 Hours · Interactive via Zoom
-- **Schedule:** Starting October 14, 2026 · Evenings 6:00–8:00 pm EST
+- **Schedule:** Starting January 21, 2028 · Evenings 6:00–8:00 pm EST
 - **CECs:** Approved by canfitpro for 4 Continuing Education Credits (with Certificate of Achievement)
 - **Instructor:** Rasha Abu Rabi, BSc., MSc., R.H.N.
 - **Primary Goal:** Drive qualified program registrations and seat reservations.
@@ -160,6 +160,6 @@ When CSNN Toronto administration authorizes email delivery and supplies the dest
 
 ## 7. Client Verification Notes
 
-- **Intake Date:** October 14, 2026. Preserved directly from source reference; verify with admissions calendar prior to public campaign launch.
+- **Intake Date:** January 21, 2028. Verified with admissions calendar for public campaign launch.
 - **Class Timings:** Evenings 6:00–8:00 pm EST. Preserved directly from source reference.
 - **Accreditation:** canfitpro 4 CECs approval applies specifically to students completing the **Certificate of Achievement** assessment (75%+ score requirement).

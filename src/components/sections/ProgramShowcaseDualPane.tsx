@@ -423,7 +423,7 @@ export function ProgramShowcaseDualPane() {
                     href="#register"
                     className="btn-skeuo-gold animate-shimmer flex-1 h-12 sm:h-13 min-h-[48px] sm:min-h-[52px] px-5 py-3 rounded-2xl text-[#071245] font-black text-xs sm:text-sm flex items-center justify-center gap-2 shadow-md hover:scale-[1.01] active:scale-[0.99] transition-all cursor-pointer border-2 border-[#FFF8B8]"
                   >
-                    <span>Hold Your Free Seat for Oct 28</span>
+                    <span>Hold Your Free Seat for Jan 21</span>
                     <ArrowRight className="w-4 h-4 text-[#071245] stroke-[3]" />
                   </a>
 

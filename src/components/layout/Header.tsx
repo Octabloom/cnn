@@ -151,7 +151,7 @@ export function Header() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="btn-skeuo-gold w-full text-center py-2.5 rounded-full text-xs font-black"
               >
-                Register for Oct 28
+                Register for Jan 21
               </a>
             </div>
           </nav>

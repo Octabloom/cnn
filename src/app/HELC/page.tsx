@@ -8,14 +8,14 @@ import { HelcQualifierCard } from "@/components/forms/HelcQualifierCard";
 export const metadata: Metadata = {
   title: "Healthy Eating & Lifestyle Certificate (HELC) · CSNN Toronto",
   description:
-    "Join CSNN Toronto’s 10-workshop Healthy Eating & Lifestyle Certificate starting October 28, 2026. Live online, evenings 6–8 PM EST. No prior experience required.",
+    "Join CSNN Toronto’s 10-workshop Healthy Eating & Lifestyle Certificate starting January 21, 2028. Live online, evenings 6–8 PM EST. No prior experience required.",
   alternates: {
     canonical: "https://octobloomwellness.com/HELC",
   },
   openGraph: {
     title: "Healthy Eating & Lifestyle Certificate (HELC) · CSNN Toronto",
     description:
-      "Join CSNN Toronto’s 10-workshop certificate program starting October 28, 2026. Live online, evenings 6–8 PM EST. No prior experience required.",
+      "Join CSNN Toronto’s 10-workshop certificate program starting January 21, 2028. Live online, evenings 6–8 PM EST. No prior experience required.",
     url: "https://octobloomwellness.com/HELC",
     siteName: "Octabloom Wellness · CSNN Toronto",
     type: "website",

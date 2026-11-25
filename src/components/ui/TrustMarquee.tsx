@@ -25,7 +25,7 @@ export function TrustMarquee() {
     },
     {
       icon: Calendar,
-      text: "Intake Starts October 28, 2026",
+      text: "Intake Starts January 21, 2028",
     },
   ];
 
