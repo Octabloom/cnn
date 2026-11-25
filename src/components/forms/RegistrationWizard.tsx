@@ -103,7 +103,7 @@ export function RegistrationWizard() {
     } else if (currentStep === 3) {
       const errs: Record<string, string> = {};
       if (!readyOct14) {
-        errs.readyOct14 = "Please confirm your availability for January 21.";
+        errs.readyOct14 = "Please confirm your availability for 21 Jan 2028.";
       }
       if (!reachMethod) {
         errs.reachMethod = "Please select your preferred contact method.";
@@ -242,7 +242,7 @@ export function RegistrationWizard() {
           </h3>
 
           <p className="text-xs sm:text-base text-slate-600 font-medium max-w-lg mx-auto leading-relaxed">
-            Your provisional seat for the <strong className="text-[#071245] font-black">Healthy Eating &amp; Lifestyle Certificate</strong> (Starts January 21) has been secured. An admissions advisor will connect with you via <strong className="text-[#071245] font-black">{reachMethod || "Text"}</strong> to confirm your schedule.
+            Your provisional seat for the <strong className="text-[#071245] font-black">Healthy Eating &amp; Lifestyle Certificate</strong> (Starts 21 Jan 2028) has been secured. An admissions advisor will connect with you via <strong className="text-[#071245] font-black">{reachMethod || "Text"}</strong> to confirm your schedule.
           </p>
         </div>
 
@@ -255,7 +255,7 @@ export function RegistrationWizard() {
             </div>
             <div className="p-2 rounded-xl bg-white border border-slate-100 shadow-2xs">
               <span className="text-[10px] uppercase font-black tracking-wider text-slate-400 block">Intake Date</span>
-              <span className="font-black text-[#071245] text-[11.5px] block">Jan 21 (Live Online)</span>
+              <span className="font-black text-[#071245] text-[11.5px] block">21 Jan 2028 (Live Online)</span>
             </div>
             <div className="p-2 rounded-xl bg-white border border-slate-100 shadow-2xs">
               <span className="text-[10px] uppercase font-black tracking-wider text-slate-400 block">Contact Preference</span>
@@ -736,14 +736,14 @@ export function RegistrationWizard() {
                   </p>
                 </div>
 
-                {/* January 21 Availability */}
+                {/* 21 Jan 2028 Availability */}
                 <div>
                   <label className="block text-[11px] font-black uppercase tracking-wider text-[#071245] mb-1.5">
-                    Can you join us on January 21?
+                    Can you join us on 21 Jan 2028?
                   </label>
                   <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                     {[
-                      "Yes, I'm ready for January 21",
+                      "Yes, I'm ready for 21 Jan 2028",
                       "Not sure yet, please call me",
                       "Notify me of next intake",
                     ].map((opt) => {

@@ -156,7 +156,7 @@ export function HeroRegistrationForm() {
               Congratulations{fullName ? `, ${fullName}` : ""}!
             </h3>
             <p className="text-[11px] sm:text-xs text-[#071245] font-bold mt-0.5">
-              Your seat for January 21 is officially reserved.
+              Your seat for 21 Jan 2028 is officially reserved.
             </p>
           </div>
         </div>
@@ -169,7 +169,7 @@ export function HeroRegistrationForm() {
           </div>
           <div className="flex justify-between items-center text-[11px] pb-1.5 border-b border-slate-200/60">
             <span className="text-slate-500 font-bold">Intake Date:</span>
-            <span className="text-[#071245] font-black">Jan 21, 2028 · 6:00 pm EST</span>
+            <span className="text-[#071245] font-black">21 Jan 2028 · 6:00 pm EST</span>
           </div>
           <div className="flex justify-between items-center text-[11px] pb-1.5 border-b border-slate-200/60">
             <span className="text-slate-500 font-bold">Confirmation Email:</span>
@@ -244,12 +244,12 @@ export function HeroRegistrationForm() {
         </span>
         <span className="text-[9.5px] sm:text-xs font-black px-2.5 sm:px-3 py-0.5 sm:py-1 rounded-full text-[#8A6208] bg-amber-50 border border-amber-200/80 flex items-center gap-1.5 shadow-2xs">
           <span className="w-1.5 h-1.5 rounded-full bg-[#DEAB07] animate-pulse" />
-          <span>Limited Seats · Jan 21</span>
+          <span>Limited Seats · 21 Jan 2028</span>
         </span>
       </div>
 
       <h3 className="text-base sm:text-2xl font-black text-[#071245] leading-tight mb-0.5 sm:mb-1">
-        Reserve your seat for January 21
+        Reserve your seat for 21 Jan 2028
       </h3>
       <p className="text-[11px] sm:text-[13px] text-slate-600 font-semibold mb-2.5 sm:mb-3">
         No payment required today. An advisor will discuss your goals.

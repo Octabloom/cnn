@@ -202,7 +202,7 @@ export async function POST(request: Request) {
       : [];
 
     const motivation = sanitizeMultiLine(body.motivation, 500) || "Healthy Eating & Lifestyle Certificate (HELC)";
-    const cohort = sanitizeSingleLine(body.readyOctober14, 100) || "January 21, 2028 · Evenings 6:00–8:00 pm EST (Live Online)";
+    const cohort = sanitizeSingleLine(body.readyOctober14, 100) || "21 Jan 2028 · Evenings 6:00–8:00 pm EST (Live Online)";
     const formSource = sanitizeSingleLine(body.formSource, 80) || "Website Registration";
     const background = sanitizeSingleLine(body.background, 100) || "General Applicant";
     const certificateType = sanitizeSingleLine(body.certificateType, 100) || "Healthy Eating & Lifestyle Certificate (HELC)";

@@ -8,14 +8,14 @@ import { HelcQualifierCard } from "@/components/forms/HelcQualifierCard";
 export const metadata: Metadata = {
   title: "Healthy Eating & Lifestyle Certificate (HELC) · CSNN Toronto",
   description:
-    "Join CSNN Toronto’s 10-workshop Healthy Eating & Lifestyle Certificate starting January 21, 2028. Live online, evenings 6–8 PM EST. No prior experience required.",
+    "Join CSNN Toronto’s 10-workshop Healthy Eating & Lifestyle Certificate starting 21 Jan 2028. Live online, evenings 6–8 PM EST. No prior experience required.",
   alternates: {
     canonical: "https://octobloomwellness.com/HELC",
   },
   openGraph: {
     title: "Healthy Eating & Lifestyle Certificate (HELC) · CSNN Toronto",
     description:
-      "Join CSNN Toronto’s 10-workshop certificate program starting January 21, 2028. Live online, evenings 6–8 PM EST. No prior experience required.",
+      "Join CSNN Toronto’s 10-workshop certificate program starting 21 Jan 2028. Live online, evenings 6–8 PM EST. No prior experience required.",
     url: "https://octobloomwellness.com/HELC",
     siteName: "Octabloom Wellness · CSNN Toronto",
     type: "website",
@@ -31,10 +31,8 @@ export default function HelcPage() {
       {/* Light subtle translucent overlay to enhance text contrast while keeping the lush sun-drenched kitchen vivid */}
       <div className="fixed inset-0 bg-black/20 pointer-events-none z-0" />
 
-      {/* 01. Clean Header (No dark announcement color strip) */}
-      <div className="shrink-0 z-30 sticky top-0 relative shadow-xs">
-        <Header />
-      </div>
+      {/* 01. Clean Header (No dark announcement color strip) - Sticky on scroll */}
+      <Header />
 
       {/* 02. Single Hero View: Centered Card with Zero Scroll Fit and No Footer Peek */}
       <main className="flex-1 relative z-10 flex items-center justify-center min-h-[calc(100vh-80px)] min-h-[calc(100dvh-80px)] py-4 sm:py-6 px-4">

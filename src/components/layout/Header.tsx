@@ -22,7 +22,7 @@ export function Header() {
   ];
 
   return (
-    <header className="sticky top-0 z-40 bg-white/95 backdrop-blur-2xl border-b border-slate-200/80 shadow-xs transition-all">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-2xl border-b border-slate-200/80 shadow-xs transition-all">
       <div className="absolute inset-x-0 top-0 h-[1px] bg-gradient-to-r from-transparent via-white to-transparent" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 sm:py-2.5 min-h-[72px] sm:min-h-[82px] flex items-center justify-between gap-3 sm:gap-4">
@@ -151,7 +151,7 @@ export function Header() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="btn-skeuo-gold w-full text-center py-2.5 rounded-full text-xs font-black"
               >
-                Register for Jan 21
+                Register for 21 Jan 2028
               </a>
             </div>
           </nav>

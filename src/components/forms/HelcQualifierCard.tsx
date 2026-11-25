@@ -116,7 +116,7 @@ export function HelcQualifierCard() {
         email: contact.email.trim(),
         phone: contact.phone.trim(),
         motivation: answers.q1 || "Healthy Eating & Lifestyle Certificate",
-        readyOctober14: "January 21, 2028 Intake (Evenings 6–8 PM EST)",
+        readyOctober14: "21 Jan 2028 Intake (Evenings 6–8 PM EST)",
         certificateType: "Healthy Eating & Lifestyle Certificate (HELC)",
         interestReason: answers.q1,
         liveScheduleAnswer: answers.q2,
@@ -161,7 +161,7 @@ export function HelcQualifierCard() {
               <div className="flex items-center justify-between">
                 <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#FEF9C3] text-[#854D0E] text-[10px] font-black uppercase tracking-wider border border-[#F6C915]/60 shadow-2xs">
                   <Sparkles className="w-2.5 h-2.5 text-[#DEAB07]" />
-                  CSNN Toronto · Jan 21 Cohort
+                  CSNN Toronto · 21 Jan 2028 Cohort
                 </span>
                 
                 {/* Step Dots Indicator */}
@@ -186,7 +186,7 @@ export function HelcQualifierCard() {
                   Healthy Eating &amp; Lifestyle Certificate
                 </h2>
                 <p className="text-[11.5px] sm:text-xs text-slate-600 font-medium leading-relaxed mt-0.5">
-                  Interested in learning practical nutrition and healthy eating? Join CSNN Toronto’s 10-workshop certificate program starting January 21, 2028.
+                  Interested in learning practical nutrition and healthy eating? Join CSNN Toronto’s 10-workshop certificate program starting 21 Jan 2028.
                 </p>
               </div>
 
@@ -211,7 +211,7 @@ export function HelcQualifierCard() {
 
               {/* Subheading Callout */}
               <p className="text-[10.5px] sm:text-[11px] text-slate-700 font-medium bg-[#FEF9C3]/60 p-2 rounded-lg border border-[#F6C915]/60 leading-snug">
-                If you&apos;re interested in joining the January 2028 cohort, complete the form below and our team will contact you with program and registration details.
+                If you&apos;re interested in joining the 21 Jan 2028 cohort, complete the form below and our team will contact you with program and registration details.
               </p>
             </div>
           )}

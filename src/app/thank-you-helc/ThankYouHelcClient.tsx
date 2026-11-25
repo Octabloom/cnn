@@ -99,7 +99,7 @@ function ThankYouContent() {
           <div className="flex items-center justify-between pb-2 border-b border-slate-100">
             <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-[#FEF9C3] text-[#854D0E] text-[10px] font-black uppercase tracking-wider border border-[#F6C915]/60 shadow-2xs">
               <Sparkles className="w-2.5 h-2.5 text-[#DEAB07]" />
-              CSNN Toronto · Jan 21 Cohort
+              CSNN Toronto · 21 Jan 2028 Cohort
             </span>
 
             <span className="text-[10px] font-black text-emerald-700 bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-200">
@@ -164,7 +164,7 @@ function ThankYouContent() {
             </div>
             <div className="flex items-center justify-between font-bold">
               <span className="text-slate-500">Cohort Start:</span>
-              <span className="text-[#071245]">January 21, 2028 (Live Online · 6–8 PM EST)</span>
+              <span className="text-[#071245]">21 Jan 2028 (Live Online · 6–8 PM EST)</span>
             </div>
             <div className="flex items-center justify-between font-bold pt-1 border-t border-slate-200/60 text-emerald-700">
               <span>Tuition Status:</span>
@@ -187,7 +187,7 @@ function ThankYouContent() {
               </a>
               <span className="text-slate-300">·</span>
               <a
-                href={`https://wa.me/1${PROGRAM_INFO.phoneRaw}?text=Hi%20CSNN%20Toronto,%20I%20just%20submitted%20my%20HELC%20form%20for%20the%20January%202028%20cohort.`}
+                href={`https://wa.me/1${PROGRAM_INFO.phoneRaw}?text=Hi%20CSNN%20Toronto,%20I%20just%20submitted%20my%20HELC%20form%20for%20the%2021%20Jan%202028%20cohort.`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-emerald-700 hover:text-emerald-800 hover:underline flex items-center gap-1 transition-colors"

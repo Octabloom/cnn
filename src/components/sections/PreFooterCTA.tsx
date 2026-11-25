@@ -24,7 +24,7 @@ export function PreFooterCTA() {
             {/* Skeuomorphic Eyebrow Badge */}
             <div className="inline-flex items-center gap-1.5 px-3 py-0.5 sm:py-1 rounded-full bg-gradient-to-b from-amber-50 to-amber-100/90 text-[#854D0E] text-[10px] sm:text-xs font-black tracking-widest uppercase mb-2.5 sm:mb-3 border border-amber-300/80 shadow-[inset_0_1px_0_#FFFFFF,0_1px_3px_rgba(246,201,21,0.15)]">
               <Sparkles className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#B87503]" />
-              <span>LIMITED INTAKE · JANUARY 21, 2028</span>
+              <span>LIMITED INTAKE · 21 JAN 2028</span>
             </div>
 
             {/* Headline (Compact as earlier) */}

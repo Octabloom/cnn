@@ -17,13 +17,14 @@ import { StickyRegistrationBar } from "@/components/layout/StickyRegistrationBar
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-white text-[#071245]">
-      {/* 01. Above-The-Fold Hero Section */}
-      <div className="w-full min-h-screen min-h-[100dvh] flex flex-col relative">
-        <div className="shrink-0 z-30">
-          <AnnouncementBar />
-          <Header />
-        </div>
+      {/* 00. Top Announcement Bar */}
+      <AnnouncementBar />
 
+      {/* 01. Sticky Header Navigation - Stays visible during entire page scroll */}
+      <Header />
+
+      {/* 02. Above-The-Fold Hero Section */}
+      <div className="w-full flex flex-col relative">
         {/* HeroSection: contains hero content and directly attached TrustMarquee at the bottom */}
         <HeroSection />
       </div>

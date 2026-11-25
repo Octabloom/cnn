@@ -48,7 +48,7 @@ export function HeroSection() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#F6C915] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 sm:h-2.5 w-2 sm:w-2.5 bg-[#F6C915]"></span>
                 </span>
-                <span>Live Online Intake Starts <strong className="text-[#F6C915]">Jan 21, 2028</strong> · 10 Workshops</span>
+                <span>Live Online Intake Starts <strong className="text-[#F6C915]">21 Jan 2028</strong> · 10 Workshops</span>
               </div>
             </div>
 
